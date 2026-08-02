@@ -4,7 +4,14 @@ Sonoria
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 **Sonoria** is a fork of the Sonoria library, focused on speech and audio processing with an emphasis on the C++ API and examples. It contains an extensive collection of reusable algorithms which implement audio input/output functionality, standard digital signal processing blocks, statistical characterization of data, and a large set of spectral, temporal, tonal and high-level audio descriptors. 
-![Sonoria library](doc/logo/Sonoria.png)
+<p align="center">
+  <img
+    src="doc/logo/Sonoria.png"
+    alt="Sonoria library"
+    height="500"
+  >
+</p>
+
 This fork prioritizes:
 - **Speech and audio processing** applications
 - **C++ API** with comprehensive examples
