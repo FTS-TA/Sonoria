@@ -61,7 +61,7 @@ AlgorithmStatus RingBufferOutput::process() {
   int inputSize = inputSignal.size();
 
   int size = _impl->add(inputData, inputSize);
-  if (size != inputSize) throw EssentiaException("Not enough space in ringbuffer at output");
+  if (size != inputSize) throw SonoriaException("Not enough space in ringbuffer at output");
   releaseData();
 
   return OK;

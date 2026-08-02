@@ -24,7 +24,7 @@
 #include <set>
 #include <stack>
 #include "../streaming/streamingalgorithm.h"
-#include "../essentiautil.h"
+#include "../sonoriautil.h"
 
 namespace sonoria {
 namespace streaming {

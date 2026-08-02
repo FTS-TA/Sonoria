@@ -53,7 +53,7 @@ void Pool::checkIntegrity() const {
 
   for (int i=0; i<int(descNames.size()-1); ++i) {
     if (descNames[i] == descNames[i+1]) {
-      throw EssentiaException("Pool: there exists a DescriptorName that contains two types of data: ", descNames[i]);
+      throw SonoriaException("Pool: there exists a DescriptorName that contains two types of data: ", descNames[i]);
     }
   }
 
@@ -247,7 +247,7 @@ void Pool::validateKey(const string& name) {
   for (int i=0; i<int(allNames.size()); ++i) {
     /* first check if name already exists in another sub-pool */
     if (name == allNames[i]) {
-      throw EssentiaException("Pool: Cannot set/add/merge value to the pool under "
+      throw SonoriaException("Pool: Cannot set/add/merge value to the pool under "
                               "the name '"+name+"' because that name already exists but "
                               "contains a different data type than value");
     }
@@ -255,13 +255,13 @@ void Pool::validateKey(const string& name) {
      * having a value and child descriptors (there are 2 cases where this can
      * happen)*/
     if ( name.find(allNames[i] + ".") == 0 ) {
-      throw EssentiaException("Pool: Cannot set/add/merge value to the pool under the name '"+name+
+      throw SonoriaException("Pool: Cannot set/add/merge value to the pool under the name '"+name+
                               "' because '"+name+"' has a parent descriptor name already in "
                               "the pool (e.g. '"+allNames[i]+"')");
     }
 
     if ( allNames[i].find(name+".") == 0 ) {
-      throw EssentiaException("Pool: Cannot add/set/merge value to the pool under "
+      throw SonoriaException("Pool: Cannot add/set/merge value to the pool under "
                               "the name '"+name+"' because '"+name+"' has child descriptor "
                               "names (e.g. '"+allNames[i]+"')");
     }
@@ -276,7 +276,7 @@ void Pool::add(const string& name, const type& value, bool validityCheck) {  \
   {                                                                          \
     MutexLocker lock(mutex##tname);                                          \
     if (validityCheck && !isValid(value)) {                                  \
-      throw EssentiaException("Pool::add value contains invalid numbers (NaN or inf)");\
+      throw SonoriaException("Pool::add value contains invalid numbers (NaN or inf)");\
     }                                                                        \
     if (_pool##tname.find(name) != _pool##tname.end()) {                     \
       _pool##tname[name].push_back(value);                                   \
@@ -303,7 +303,7 @@ void Pool::add(const string& name, const Tensor<Real>& value, bool validityCheck
   {
     MutexLocker lock(mutexTensorReal);
     if (validityCheck && !isValid(value)) {
-      throw EssentiaException("Pool::add tensor contains invalid numbers (NaN or inf)");
+      throw SonoriaException("Pool::add tensor contains invalid numbers (NaN or inf)");
     }
     if (_poolTensorReal.find(name) != _poolTensorReal.end()) {
       _poolTensorReal[name].push_back(Tensor<Real>(value));
@@ -324,7 +324,7 @@ void Pool::add(const string& name, const Array2D<Real>& value, bool validityChec
   {
     MutexLocker lock(mutexArray2DReal);
     if (validityCheck && !isValid(value)) {
-      throw EssentiaException("Pool::add array contains invalid numbers (NaN or inf)");
+      throw SonoriaException("Pool::add array contains invalid numbers (NaN or inf)");
     }
     if (_poolArray2DReal.find(name) != _poolArray2DReal.end()) {
       _poolArray2DReal[name].push_back(value.copy());
@@ -344,7 +344,7 @@ void Pool::set(const string& name, const type& value, bool validityCheck) {  \
   {                                                                          \
     MutexLocker lock(mutexSingle##tname);                                    \
     if (validityCheck && !isValid(value)) {                                  \
-      throw EssentiaException("Pool::set value contains invalid numbers (NaN or inf)");\
+      throw SonoriaException("Pool::set value contains invalid numbers (NaN or inf)");\
     }                                                                        \
     if (_poolSingle##tname.find(name) != _poolSingle##tname.end()) {         \
       _poolSingle##tname[name] = value;                                      \
@@ -368,7 +368,7 @@ void Pool::set(const string& name, const Tensor<Real>& value, bool validityCheck
   {
     MutexLocker lock(mutexSingleTensorReal);
     if (validityCheck && !isValid(value)) {
-      throw EssentiaException("Pool::set tensor contains invalid numbers (NaN or inf)");
+      throw SonoriaException("Pool::set tensor contains invalid numbers (NaN or inf)");
     }
     if (_poolSingleTensorReal.find(name) != _poolSingleTensorReal.end()) {
       _poolSingleTensorReal[name].resize(value.dimensions());
@@ -449,7 +449,7 @@ void Pool::merge(const string& name, const vector<type>& value, const string& me
     map<string, vector<type> >::iterator it = _pool##tname.find(name);                                 \
     if (it != _pool##tname.end()) {                                                                    \
       if (mergeType == "") {                                                                           \
-        throw EssentiaException("Pool::merge, cannot merge descriptor names with the same name:" +     \
+        throw SonoriaException("Pool::merge, cannot merge descriptor names with the same name:" +     \
                                 name + " unless a merge type (\"append\", \"replace\" or " +           \
                                 "\"interleave\") is specified");                                       \
       }                                                                                                \
@@ -465,7 +465,7 @@ void Pool::merge(const string& name, const vector<type>& value, const string& me
       }                                                                                                \
       else if (mergeType=="interleave") {                                                              \
         if (value.size() != _pool##tname[name].size()) {                                               \
-          throw EssentiaException("Pool::merge, cannot interleave descriptors with different sizes :", name);\
+          throw SonoriaException("Pool::merge, cannot interleave descriptors with different sizes :", name);\
         }                                                                                              \
         vector<type> temp = _pool##tname[name];                                                        \
         _pool##tname.erase(it);\
@@ -479,7 +479,7 @@ void Pool::merge(const string& name, const vector<type>& value, const string& me
         return;\
       }                                                                                                \
       else {                                                                                           \
-        throw EssentiaException("Pool::merge, unknown merge type: ", mergeType);                       \
+        throw SonoriaException("Pool::merge, unknown merge type: ", mergeType);                       \
       }                                                                                                \
       return;                                                                                          \
     }                                                                                                  \
@@ -514,7 +514,7 @@ void Pool::mergeSingle(const string& name, const type& value, const string& merg
         _poolSingle##tname.insert(make_pair(name, value));                                             \
       }                                                                                                \
       else {                                                                                           \
-        throw EssentiaException("Pool::mergeSingle, values for single value descriptors can only be"   \
+        throw SonoriaException("Pool::mergeSingle, values for single value descriptors can only be"   \
                                 " replaced and neither appended nor interleaved. Consider replacing "  \
                                 + name + " with the new value or pool::remove + pool::add");           \
       }                                                                                                \
@@ -541,7 +541,7 @@ void Pool::merge(const string& name, const vector<Array2D<Real> >& value, const 
     map<string, vector<Array2D<Real> > >::iterator it = _poolArray2DReal.find(name);
     if (it != _poolArray2DReal.end()) {
       if (mergeType == "") {
-        throw EssentiaException("Pool::merge, cannot merge descriptor names with the same name:" +
+        throw SonoriaException("Pool::merge, cannot merge descriptor names with the same name:" +
                                 name + " unless a merge type (\"append\", \"replace\" or " +
                                 "\"interleave\") is specified");
       }
@@ -560,7 +560,7 @@ void Pool::merge(const string& name, const vector<Array2D<Real> >& value, const 
       }
       else if (mergeType=="interleave") {
         if (value.size() != _poolArray2DReal[name].size()) {
-          throw EssentiaException("Pool::merge, cannot interleave descriptors with different sizes :", name);
+          throw SonoriaException("Pool::merge, cannot interleave descriptors with different sizes :", name);
         }
         vector<Array2D<Real> > temp = _poolArray2DReal[name];
         _poolArray2DReal.erase(it);
@@ -574,7 +574,7 @@ void Pool::merge(const string& name, const vector<Array2D<Real> >& value, const 
         return;
       }
       else {
-        throw EssentiaException("Pool::merge, unknown merge type: ", mergeType);
+        throw SonoriaException("Pool::merge, unknown merge type: ", mergeType);
       }
       return;
     }

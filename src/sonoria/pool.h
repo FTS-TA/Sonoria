@@ -27,7 +27,7 @@
 
 namespace sonoria {
 
-// standard map and not EssentiaMap because we want a new element
+// standard map and not SonoriaMap because we want a new element
 // to be automatically created when it doesn't exist
 /** @todo use intel's tbb concurrent_map */
 #define PoolOf(type) std::map<std::string, std::vector<type > >
@@ -193,7 +193,7 @@ class Pool {
    *
    * @remark The set function cannot be used to override the data of a
    *         descriptor name that was introduced to the Pool via the add
-   *         function. An EssentiaException will be thrown if the given
+   *         function. An SonoriaException will be thrown if the given
    *         descriptor name already exists in the pool and was put there via a
    *         call to an add function.
    * @param validityCheck indicates whether @e value should be checked for NaN or Inf values. If
@@ -387,7 +387,7 @@ class Pool {
 
   /**
    * Checks that no descriptor name is in two different inner pool types at
-   * the same time, and throws an EssentiaException if there is
+   * the same time, and throws an SonoriaException if there is
    */
   void checkIntegrity() const;
 
@@ -417,7 +417,7 @@ inline const type& Pool::value(const std::string& name) const {                \
     std::ostringstream msg;                                                    \
     msg << "Descriptor name '" << name << "' of type "                         \
         << nameOfType(typeid(type)) << " not found";                           \
-    throw EssentiaException(msg);                                              \
+    throw SonoriaException(msg);                                              \
   }                                                                            \
   return result->second;                                                       \
 }
@@ -456,7 +456,7 @@ inline const std::vector<Real>& Pool::value(const std::string& name) const {
   std::ostringstream msg;
   msg << "Descriptor name '" << name << "' of type "
       << nameOfType(typeid(std::vector<Real>)) << " not found";
-  throw EssentiaException(msg);
+  throw SonoriaException(msg);
 }
 
 // This value function is not under the macro above because it needs to check
@@ -483,7 +483,7 @@ inline const std::vector<std::string>& Pool::value(const std::string& name) cons
   std::ostringstream msg;
   msg << "Descriptor name '" << name << "' of type "
       << nameOfType(typeid(std::vector<std::string>)) << " not found";
-  throw EssentiaException(msg);
+  throw SonoriaException(msg);
 }
 
 // bool Pool::contains(const DescriptorName& name)
@@ -577,7 +577,7 @@ MutexLocker lockSingleTensorReal(mutexSingleTensorReal);
 
 template<typename T>
 inline void Pool::append(const std::string& name, const std::vector<T>& values) {
-  throw EssentiaException("Pool::append not implemented for type: ", nameOfType(typeid(T)));
+  throw SonoriaException("Pool::append not implemented for type: ", nameOfType(typeid(T)));
 }
 
 #define SPECIALIZE_APPEND(type, tname)                                                \

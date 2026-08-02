@@ -21,16 +21,16 @@
 #define MUSIC_DESCRIPTOR_SET_H
 
 
-#include "essentia/streaming/sourcebase.h"
-#include "essentia/pool.h"
-#include "essentia/types.h"
-#include "essentia/essentiamath.h"
-#include "essentia/algorithm.h"
-#include "essentia/scheduler/network.h"
-#include "essentia/streaming/streamingalgorithm.h"
-#include "essentia/algorithmfactory.h"
-#include "essentia/streaming/algorithms/poolstorage.h"
-#include "essentia/streaming/algorithms/vectorinput.h"
+#include "sonoria/streaming/sourcebase.h"
+#include "sonoria/pool.h"
+#include "sonoria/types.h"
+#include "sonoria/essentiamath.h"
+#include "sonoria/algorithm.h"
+#include "sonoria/scheduler/network.h"
+#include "sonoria/streaming/streamingalgorithm.h"
+#include "sonoria/algorithmfactory.h"
+#include "sonoria/streaming/algorithms/poolstorage.h"
+#include "sonoria/streaming/algorithms/vectorinput.h"
 
 using namespace std;
 using namespace sonoria;

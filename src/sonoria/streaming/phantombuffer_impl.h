@@ -79,7 +79,7 @@ bool PhantomBuffer<T>::acquireForRead(ReaderID id, int requested) {
     std::ostringstream msg;
     msg << "acquireForRead: Requested number of tokens (" << requested << ") > phantom size (" << _phantomSize << ")";
     msg << " in " << _parent->fullName() << " → " << _parent->sinks()[id]->fullName();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   MutexLocker lock(mutex); NOWARN_UNUSED(lock);
@@ -107,7 +107,7 @@ bool PhantomBuffer<T>::acquireForWrite(int requested) {
     std::ostringstream msg;
     msg << "acquireForWrite: Requested number of tokens (" << requested << ") > phantom size (" << _phantomSize << ")";
     msg << " in " << _parent->fullName();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   MutexLocker lock(mutex); NOWARN_UNUSED(lock);
@@ -128,7 +128,7 @@ void PhantomBuffer<T>::releaseForWrite(int released) {
     std::ostringstream msg;
     msg << _parent->fullName() << ": releasing too many tokens (write access): "
         << released << " instead of " << _writeWindow.end - _writeWindow.begin << " max allowed";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   // replicate from the beginning to the phantom zone if necessary
@@ -164,7 +164,7 @@ void PhantomBuffer<T>::releaseForRead(ReaderID id, int released) {
     std::ostringstream msg;
     msg << _parent->fullName() << ": releasing too many tokens (read access): "
         << released << " instead of " << w.end - w.begin << " max allowed";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   w.begin += released;

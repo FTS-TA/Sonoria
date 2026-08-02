@@ -46,14 +46,14 @@ class Sink : public SinkBase {
     if (_source) return *static_cast<const MultiRateBuffer<TokenType>*>(_source->buffer());
     else if (_sproxy) return *static_cast<const MultiRateBuffer<TokenType>*>(_sproxy->buffer());
     else
-      throw EssentiaException("Sink ", fullName(), " is not currently connected to another Source");
+      throw SonoriaException("Sink ", fullName(), " is not currently connected to another Source");
   }
 
   inline MultiRateBuffer<TokenType>& buffer() {
     if (_source) return *static_cast<MultiRateBuffer<TokenType>*>(_source->buffer());
     else if (_sproxy) return *static_cast<MultiRateBuffer<TokenType>*>(_sproxy->buffer());
     else
-      throw EssentiaException("Sink ", fullName(), " is not currently connected to another Source");
+      throw SonoriaException("Sink ", fullName(), " is not currently connected to another Source");
   }
 
 
@@ -73,7 +73,7 @@ class Sink : public SinkBase {
     // beautiful. We should find a way to have the ID always synchronized to make the code cleaner
     else if (_sproxy) return _sproxy->acquire(n);
     else
-      throw EssentiaException("Cannot acquire for sink ", fullName(), ", which has not been connected.");
+      throw SonoriaException("Cannot acquire for sink ", fullName(), ", which has not been connected.");
   }
 
   inline void release() { StreamConnector::release(); }
@@ -82,14 +82,14 @@ class Sink : public SinkBase {
     if (_source)      return buffer().releaseForRead(_id, n);
     else if (_sproxy) return _sproxy->release(n);
     else
-      throw EssentiaException("Cannot release for sink ", fullName(), ", which has not been connected.");
+      throw SonoriaException("Cannot release for sink ", fullName(), ", which has not been connected.");
   }
 
   virtual int available() const {
     if (_source)      return buffer().availableForRead(_id);
     else if (_sproxy) return _sproxy->available();
     else
-      throw EssentiaException("Cannot get number of available tokens for sink ", fullName(),
+      throw SonoriaException("Cannot get number of available tokens for sink ", fullName(),
                               ", which has not been connected.");
   }
 
@@ -97,7 +97,7 @@ class Sink : public SinkBase {
 
   TokenType pop() {
     if (!acquire(1))
-      throw EssentiaException("No more tokens available to pop in ", fullName());
+      throw SonoriaException("No more tokens available to pop in ", fullName());
 
     TokenType result = *(TokenType*)getFirstToken();
     release(1);

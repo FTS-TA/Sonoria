@@ -146,7 +146,7 @@ class VectorInput : public Algorithm {
 
     if (status != OK) {
       if (status == NO_OUTPUT) {
-        throw EssentiaException("VectorInput: internal error: output buffer full");
+        throw SonoriaException("VectorInput: internal error: output buffer full");
       }
       // should never get there, right?
       return NO_INPUT;

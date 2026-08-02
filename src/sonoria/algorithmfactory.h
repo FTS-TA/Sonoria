@@ -77,7 +77,7 @@ class ESSENTIA_API EssentiaFactory {
    * All the other overloads of this method do the same thing, and additionally
    * configure the algorithm using the given parameters.
    *
-   * @throw EssentiaException in case the algorithm could not be created.
+   * @throw SonoriaException in case the algorithm could not be created.
    *        This can happen because the given name is not a valid name, or
    *        if any of the given parameters is not a valid one (ie: it is not
    *        supported by the algorithm, or the value it has been given is not
@@ -151,7 +151,7 @@ class ESSENTIA_API EssentiaFactory {
 
   BaseAlgorithm* create_i(const std::string& id) const;
 
-  typedef EssentiaMap<std::string, AlgorithmInfo<BaseAlgorithm>, string_cmp> CreatorMap;
+  typedef SonoriaMap<std::string, AlgorithmInfo<BaseAlgorithm>, string_cmp> CreatorMap;
   CreatorMap _map;
 
 

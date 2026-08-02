@@ -56,21 +56,21 @@ void StreamingAlgorithmWrapper::declareInput(SinkBase& sink, NumeralType type, c
 void StreamingAlgorithmWrapper::declareInput(SinkBase& sink, NumeralType type,
                                              int n, const std::string& name) {
   if (!_algorithm) {
-    throw EssentiaException("When defining a StreamingAlgorithmWrapper, you need to call declareAlgorithm before any declareInput/Output function.");
+    throw SonoriaException("When defining a StreamingAlgorithmWrapper, you need to call declareAlgorithm before any declareInput/Output function.");
   }
 
   if ( (!_inputType.empty() && _inputType.begin()->second != type) ||
        (!_outputType.empty() && _outputType.begin()->second != type) ) {
-    throw EssentiaException("StreamingAlgorithmWrapper::declareInput: all inputs and outputs must have the same NumeralType (", _algorithm->name()+":"+name, ")");
+    throw SonoriaException("StreamingAlgorithmWrapper::declareInput: all inputs and outputs must have the same NumeralType (", _algorithm->name()+":"+name, ")");
   }
 
   if (type == TOKEN && n != 1) {
-    throw EssentiaException("StreamingAlgorithmWrapper::declareInput: when using the TOKEN NumeralType, only a size of 1 can be declared as the number tokens for this input (", _algorithm->name()+":"+name, ")");
+    throw SonoriaException("StreamingAlgorithmWrapper::declareInput: when using the TOKEN NumeralType, only a size of 1 can be declared as the number tokens for this input (", _algorithm->name()+":"+name, ")");
   }
   else if (type == STREAM &&
            ( (!inputs().empty() && inputs().begin()->second->acquireSize() != n) ||
              (!outputs().empty() && outputs().begin()->second->acquireSize() != n) ) ) {
-    throw EssentiaException("StreamingAlgorithmWrapper::declareInput: all input and output STREAM sizes must be the same (", _algorithm->name()+":"+name, ")");
+    throw SonoriaException("StreamingAlgorithmWrapper::declareInput: all input and output STREAM sizes must be the same (", _algorithm->name()+":"+name, ")");
   }
 
   Algorithm::declareInput(sink, n, name, _algorithm->inputDescription[name]);
@@ -84,21 +84,21 @@ void StreamingAlgorithmWrapper::declareOutput(SourceBase& source, NumeralType ty
 void StreamingAlgorithmWrapper::declareOutput(SourceBase& source, NumeralType type,
                                               int n, const std::string& name) {
   if (!_algorithm) {
-    throw EssentiaException("When defining a StreamingAlgorithmWrapper, you need to call declareAlgorithm before any declareInput/Output function.");
+    throw SonoriaException("When defining a StreamingAlgorithmWrapper, you need to call declareAlgorithm before any declareInput/Output function.");
   }
 
   if ( (!_inputType.empty() && _inputType.begin()->second != type) ||
        (!_outputType.empty() && _outputType.begin()->second != type) ) {
-    throw EssentiaException("StreamingAlgorithmWrapper::declareOutput: all inputs and outputs must have the same NumeralType (", _algorithm->name()+":"+name, ")");
+    throw SonoriaException("StreamingAlgorithmWrapper::declareOutput: all inputs and outputs must have the same NumeralType (", _algorithm->name()+":"+name, ")");
   }
 
   if (type == TOKEN && n != 1) {
-    throw EssentiaException("StreamingAlgorithmWrapper::declareOutput: when using the TOKEN NumeralType, only a size of 1 can be declared as the number tokens for this output (", _algorithm->name()+":"+name, ")");
+    throw SonoriaException("StreamingAlgorithmWrapper::declareOutput: when using the TOKEN NumeralType, only a size of 1 can be declared as the number tokens for this output (", _algorithm->name()+":"+name, ")");
   }
   else if (type == STREAM &&
            ( (!inputs().empty() && inputs().begin()->second->acquireSize() != n) ||
              (!outputs().empty() && outputs().begin()->second->acquireSize() != n) ) ) {
-    throw EssentiaException("StreamingAlgorithmWrapper::declareOutput: all input and output STREAM sizes must be the same (", _algorithm->name()+":"+name, ")");
+    throw SonoriaException("StreamingAlgorithmWrapper::declareOutput: all input and output STREAM sizes must be the same (", _algorithm->name()+":"+name, ")");
   }
 
   Algorithm::declareOutput(source, n, name, _algorithm->outputDescription[name]);
@@ -115,12 +115,12 @@ void StreamingAlgorithmWrapper::synchronizeInput(const std::string& name) {
       _algorithm->input(name).setSinkTokens(*_inputs[name]);
     }
   }
-  catch(EssentiaException& e) {
+  catch(SonoriaException& e) {
     std::ostringstream msg;
     msg << "While wrapping '" << _algorithm->input(name).name()
         << "' input in the streaming algorithm wrapper for " 
         << _algorithm->name() << ":\n" << e.what();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 
@@ -134,13 +134,13 @@ void StreamingAlgorithmWrapper::synchronizeOutput(const std::string& name) {
       _algorithm->output(name).setSourceTokens(*_outputs[name]);
     }
   }
-  catch(EssentiaException& e) {
+  catch(SonoriaException& e) {
     std::ostringstream msg;
     msg << "While wrapping '" << _algorithm->output(name).name()
         << "' output in the streaming algorithm wrapper for " 
         << _algorithm->name() << ":\n" << e.what();
-    throw EssentiaException(msg);
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
+    throw SonoriaException(msg);
   }
 }
 

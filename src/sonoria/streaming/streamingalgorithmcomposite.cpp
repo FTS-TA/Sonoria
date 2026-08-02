@@ -41,7 +41,7 @@ vector<ProcessStep> AlgorithmComposite::processOrder() {
   declareProcessOrder();
 
   if (_processOrder.empty()) {
-    throw EssentiaException("The process order for composite algorithm '", name(), "' is empty; please define one.");
+    throw SonoriaException("The process order for composite algorithm '", name(), "' is empty; please define one.");
   }
 
   return _processOrder;
@@ -86,7 +86,7 @@ void AlgorithmComposite::reset() {
     else if (pstep.type() == "single") {
       if (pstep.algorithm() != this) resetAlgorithmAndClearPool(pstep.algorithm());
     }
-    else throw EssentiaException("Invalid process step when trying to reset AlgorithmComposite ", name());
+    else throw SonoriaException("Invalid process step when trying to reset AlgorithmComposite ", name());
   }
   E_DEBUG_OUTDENT;
 

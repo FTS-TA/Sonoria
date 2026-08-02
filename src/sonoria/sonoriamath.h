@@ -36,7 +36,7 @@
 #include <deque>
 #include "types.h"
 #include "utils/tnt/tnt.h"
-#include "utils/tnt/tnt2essentiautils.h"
+#include "utils/tnt/tnt2sonoriautils.h"
 
 #define M_2PI (2 * M_PI)
 #define ALL_NOTES "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"
@@ -88,7 +88,7 @@ template <> inline long long int nextPowerTwo(long long int n) {
  */
 template <typename T> T norm(const std::vector<T>& array) {
   if (array.empty()) {
-    throw EssentiaException("trying to calculate norm of empty array");
+    throw SonoriaException("trying to calculate norm of empty array");
   }
 
   T sum = (T) 0.0;
@@ -157,7 +157,7 @@ template <typename T> T sum(const std::vector<T>& array) {
  */
 template <typename T> T mean(const std::vector<T>& array) {
   if (array.empty())
-    throw EssentiaException("trying to calculate mean of empty array");
+    throw SonoriaException("trying to calculate mean of empty array");
   return mean(array, 0, array.size());
 }
 
@@ -167,7 +167,7 @@ template <typename T> T mean(const std::vector<T>& array) {
 template <typename T>
   TNT::Array2D<T> meanMatrix(const std::vector<TNT::Array2D<T>* >& array) {
   if (array.empty())
-    throw EssentiaException("trying to calculate mean of empty array");
+    throw SonoriaException("trying to calculate mean of empty array");
   //return mean(array, 0, array.size());
   TNT::Array2D<T> mean(array[0]->dim1(), array[0]->dim2());
   matinit(mean);
@@ -184,7 +184,7 @@ template <typename T>
 template <typename T>
   TNT::Array2D<T> meanMatrix(const std::vector<TNT::Array2D<T> >& array) {
   if (array.empty())
-    throw EssentiaException("trying to calculate mean of empty array");
+    throw SonoriaException("trying to calculate mean of empty array");
   //return mean(array, 0, array.size());
   TNT::Array2D<T> mean(array[0].dim1(), array[0].dim2());
   matinit(mean);
@@ -199,7 +199,7 @@ template <typename T>
 template <typename T>
 std::vector<T> meanFrames(const std::vector<std::vector<T> >& frames, int beginIdx=0, int endIdx=-1) {
   if (frames.empty()) {
-    throw EssentiaException("trying to calculate mean of empty array of frames");
+    throw SonoriaException("trying to calculate mean of empty array of frames");
   }
 
   if (endIdx == -1) endIdx = (int)frames.size();
@@ -225,7 +225,7 @@ std::vector<T> meanFrames(const std::vector<std::vector<T> >& frames, int beginI
 template <typename T>
 std::vector<T> medianFrames(const std::vector<std::vector<T> >& frames, int beginIdx=0, int endIdx=-1) {
   if (frames.empty()) {
-    throw EssentiaException("trying to calculate mean of empty array of frames");
+    throw SonoriaException("trying to calculate mean of empty array of frames");
   }
 
   if (endIdx == -1) endIdx = (int)frames.size();
@@ -264,7 +264,7 @@ std::vector<T> medianFrames(const std::vector<std::vector<T> >& frames, int begi
 template <typename T>
 std::vector<T> varianceFrames(const std::vector<std::vector<T> >& frames) {
   if (frames.empty()) {
-    throw EssentiaException("trying to calculate variance of empty array of frames");
+    throw SonoriaException("trying to calculate variance of empty array of frames");
   }
 
   uint nframes = frames.size();
@@ -290,7 +290,7 @@ std::vector<T> varianceFrames(const std::vector<std::vector<T> >& frames) {
 template <typename T>
 std::vector<T> sumFrames(const std::vector<std::vector<T> >& frames) {
   if (frames.empty()) {
-    throw EssentiaException("sumFrames: trying to calculate sum of empty input frames");
+    throw SonoriaException("sumFrames: trying to calculate sum of empty input frames");
   }
   size_t nframes = frames.size();
   size_t vsize = frames[0].size();
@@ -307,7 +307,7 @@ std::vector<T> sumFrames(const std::vector<std::vector<T> >& frames) {
 template <typename T>
 std::vector<T> skewnessFrames(const std::vector<std::vector<T> >& frames) {
   if (frames.empty()) {
-    throw EssentiaException("trying to calculate skewness of empty array of frames");
+    throw SonoriaException("trying to calculate skewness of empty array of frames");
   }
 
   uint nframes = frames.size();
@@ -339,7 +339,7 @@ std::vector<T> skewnessFrames(const std::vector<std::vector<T> >& frames) {
 template <typename T>
 std::vector<T> kurtosisFrames(const std::vector<std::vector<T> >& frames) {
   if (frames.empty()) {
-    throw EssentiaException("trying to calculate kurtosis of empty array of frames");
+    throw SonoriaException("trying to calculate kurtosis of empty array of frames");
   }
 
   uint nframes = frames.size();
@@ -372,7 +372,7 @@ std::vector<T> kurtosisFrames(const std::vector<std::vector<T> >& frames) {
 // returns the median of an array
 template <typename T> T median(const std::vector<T>& array) {
   if (array.empty())
-    throw EssentiaException("trying to calculate median of empty array");
+    throw SonoriaException("trying to calculate median of empty array");
 
   // median has sense only on sorted array
   std::vector<T> sorted_array = array;
@@ -401,7 +401,7 @@ void rectify(std::vector<T>& array) {
 // returns the sum of the squared array = the energy of the array
 template <typename T> T energy(const std::vector<T>& array) {
   if (array.empty())
-    throw EssentiaException("trying to calculate energy of empty array");
+    throw SonoriaException("trying to calculate energy of empty array");
 
   return inner_product(array.begin(), array.end(), array.begin(), (T)0.0);
 }
@@ -434,7 +434,7 @@ template <typename T> bool isSilent(const std::vector<T>& array) {
 template <typename T>
   TNT::Array2D<T> varianceMatrix(const std::vector<TNT::Array2D<T> >& array, const TNT::Array2D<T> & mean) {
   if (array.empty())
-    throw EssentiaException("trying to calculate variance of empty array");
+    throw SonoriaException("trying to calculate variance of empty array");
 
   TNT::Array2D<T> variance(array[0].dim1(), array[0].dim2());
   matinit(variance);
@@ -450,7 +450,7 @@ template <typename T>
 template <typename T>
   TNT::Array2D<T> varianceMatrix(const std::vector<TNT::Array2D<T>* >& array, const TNT::Array2D<T> & mean) {
   if (array.empty())
-    throw EssentiaException("trying to calculate variance of empty array");
+    throw SonoriaException("trying to calculate variance of empty array");
 
   TNT::Array2D<T> variance(array[0]->dim1(), array[0]->dim2());
   matinit(variance);
@@ -466,7 +466,7 @@ template <typename T>
 // returns the variance of an array
 template <typename T> T variance(const std::vector<T>& array, const T mean) {
   if (array.empty())
-    throw EssentiaException("trying to calculate variance of empty array");
+    throw SonoriaException("trying to calculate variance of empty array");
 
   T variance = (T) 0.0;
 
@@ -481,7 +481,7 @@ template <typename T> T variance(const std::vector<T>& array, const T mean) {
 // returns the skewness of an array
 template <typename T> T skewness(const std::vector<T>& array, const T mean) {
   if (array.empty())
-    throw EssentiaException("trying to calculate skewness of empty array");
+    throw SonoriaException("trying to calculate skewness of empty array");
 
   const int n = (int)array.size();
   T m2 = (T)0.0, m3 = (T)0.0;
@@ -505,7 +505,7 @@ template <typename T> T skewness(const std::vector<T>& array, const T mean) {
 // returns the kurtosis of an array
 template <typename T> T kurtosis(const std::vector<T>& array, const T mean) {
   if (array.empty())
-    throw EssentiaException("trying to calculate kurtosis of empty array");
+    throw SonoriaException("trying to calculate kurtosis of empty array");
 
   const int n = (int)array.size();
   T m2 = (T)0.0, m4 = (T)0.0;
@@ -530,7 +530,7 @@ template <typename T> T kurtosis(const std::vector<T>& array, const T mean) {
 // returns the standard deviation of an array
 template <typename T> T stddev(const std::vector<T>& array, const T mean) {
   if (array.empty())
-    throw EssentiaException("trying to calculate stddev of empty array");
+    throw SonoriaException("trying to calculate stddev of empty array");
 
   return (T)sqrt(variance(array, mean));
 }
@@ -827,13 +827,13 @@ inline Real velocity2db(int velocity, Real hearingThreshold) {
 
 inline int argmin(const std::vector<Real>& input) {
   if (input.empty())
-    throw EssentiaException("trying to get argmin of empty array");
+    throw SonoriaException("trying to get argmin of empty array");
   return std::min_element(input.begin(), input.end()) - input.begin();
 }
 
 inline int argmax(const std::vector<Real>& input) {
   if (input.empty())
-    throw EssentiaException("trying to get argmax of empty array");
+    throw SonoriaException("trying to get argmax of empty array");
   return std::max_element(input.begin(), input.end()) - input.begin();
 }
 
@@ -903,7 +903,7 @@ template <typename T> void normalizeSum(std::vector<T>& array) {
 template <typename T>
 std::vector<T> derivative(const std::vector<T>& array) {
   if (array.size() < 2) {
-     throw EssentiaException("trying to calculate approximate derivative of empty or single-element array");
+     throw SonoriaException("trying to calculate approximate derivative of empty or single-element array");
   }
 
   std::vector<T> result(array.size()-1, (T)0.0);
@@ -929,7 +929,7 @@ class PairCompare {
 template <typename T, typename U, typename Comparator>
 void sortpair(std::vector<T>& v1, std::vector<U>& v2) {
   if (v1.size() != v2.size()) {
-    throw EssentiaException("Cannot sort vectors of different size");
+    throw SonoriaException("Cannot sort vectors of different size");
   }
   int size = v1.size();
   std::vector<std::pair<T, U> > tmp(size);
@@ -1056,7 +1056,7 @@ std::vector<std::vector<T> > transpose(const std::vector<std::vector<T> >& m) {
       std::ostringstream ss;
       ss <<"Trying to transpose a non rectangular matrix. Expecting dim2 = " << ncols
          << " but got " << m[i].size() << ". Cannot transpose!";
-      throw EssentiaException(ss.str());
+      throw SonoriaException(ss.str());
     }
   }
 
@@ -1150,7 +1150,7 @@ inline std::string equivalentKey(const std::string key) {
 template <typename T>
 void rotateChroma(std::vector<std::vector<T> >& inputMatrix, int oti) {
   if (inputMatrix.empty())
-    throw EssentiaException("rotateChroma: trying to rotate an empty matrix");
+    throw SonoriaException("rotateChroma: trying to rotate an empty matrix");
   for (size_t i=0; i<inputMatrix.size(); i++) {
     std::rotate(inputMatrix[i].begin(), inputMatrix[i].end() - oti, inputMatrix[i].end());
   }
@@ -1164,7 +1164,7 @@ void rotateChroma(std::vector<std::vector<T> >& inputMatrix, int oti) {
 template <typename T>
 T dotProduct(const std::vector<T>& xArray, const std::vector<T>& yArray) {
   if (xArray.empty() || yArray.empty())
-    throw EssentiaException("dotProduct: trying to calculate the dotProduct of empty arrays!");
+    throw SonoriaException("dotProduct: trying to calculate the dotProduct of empty arrays!");
   return std::inner_product(xArray.begin(), xArray.end(), yArray.begin(), 0.0);
 }
 
@@ -1175,7 +1175,7 @@ T dotProduct(const std::vector<T>& xArray, const std::vector<T>& yArray) {
  */ 
 template <typename T> T percentile(const std::vector<T>& array, Real qpercentile) {
   if (array.empty())
-    throw EssentiaException("percentile: trying to calculate percentile of empty array");
+    throw SonoriaException("percentile: trying to calculate percentile of empty array");
 
   std::vector<T> sorted_array = array;
   // sort the array
@@ -1203,11 +1203,11 @@ template <typename T> T percentile(const std::vector<T>& array, Real qpercentile
  */
 template <typename T> T covariance(const std::vector<T>& x, const T xMean, const std::vector<T>& y, const T yMean) {
   if (x.empty())
-    throw EssentiaException("trying to calculate covariance of empty array");
+    throw SonoriaException("trying to calculate covariance of empty array");
   if (y.empty())
-    throw EssentiaException("trying to calculate covariance of empty array");
+    throw SonoriaException("trying to calculate covariance of empty array");
   if (x.size() != y.size())
-    throw EssentiaException("x and y should have the same size");
+    throw SonoriaException("x and y should have the same size");
 
   T cov = (T) 0.0;
 
@@ -1225,11 +1225,11 @@ template <typename T> T covariance(const std::vector<T>& x, const T xMean, const
  */
 template <typename T> T pearsonCorrelationCoefficient(const std::vector<T>& x, const std::vector<T>& y) {
   if (x.empty())
-    throw EssentiaException("trying to calculate covariance of empty array");
+    throw SonoriaException("trying to calculate covariance of empty array");
   if (y.empty())
-    throw EssentiaException("trying to calculate covariance of empty array");
+    throw SonoriaException("trying to calculate covariance of empty array");
   if (x.size() != y.size())
-    throw EssentiaException("x and y should have the same size");
+    throw SonoriaException("x and y should have the same size");
 
   T xMean = mean(x);
   T yMean = mean(y);
@@ -1260,7 +1260,7 @@ template <typename T> T pearsonCorrelationCoefficient(const std::vector<T>& x, c
 template <typename T>
 void heavisideStepFunction(std::vector<std::vector<T> >& inputArray) {
   if (inputArray.empty())
-    throw EssentiaException("heavisideStepFunction: found empty array as input!");
+    throw SonoriaException("heavisideStepFunction: found empty array as input!");
 
   for (size_t i=0; i<inputArray.size(); i++) {
     for (size_t j=0; j<inputArray[i].size(); j++) {
@@ -1281,7 +1281,7 @@ template <typename T>
 std::vector<std::vector<T> > pairwiseDistance(const std::vector<std::vector<T> >& m, const std::vector<std::vector<T> >& n) {
 
   if (m.empty() || n.empty())
-    throw EssentiaException("pairwiseDistance: found empty array as input!");
+    throw SonoriaException("pairwiseDistance: found empty array as input!");
 
   size_t mSize = m.size();
   size_t nSize = n.size();
@@ -1293,7 +1293,7 @@ std::vector<std::vector<T> > pairwiseDistance(const std::vector<std::vector<T> >
       }
   }
   if (pdist.empty())
-      throw EssentiaException("pairwiseDistance: outputs an empty similarity matrix!");
+      throw SonoriaException("pairwiseDistance: outputs an empty similarity matrix!");
   return pdist;
 }
 
@@ -1439,7 +1439,7 @@ Tensor<T> tensorMax(const Tensor<T>& tensor, int axis) {
 template <typename T>
 T roundToDecimal(T x, int decimal) {
   if (decimal < 0) {
-    throw EssentiaException("the number of decimals has to be 0 or positive");
+    throw SonoriaException("the number of decimals has to be 0 or positive");
   }
   return round(pow(10, decimal) * x) / pow(10, decimal);
 }

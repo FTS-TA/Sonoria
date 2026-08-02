@@ -74,29 +74,29 @@ typedef float Real;
  * to make it as easy as possible to throw an exception with a descriptive
  * message.
  */
-class EssentiaException : public std::exception {
+class SonoriaException : public std::exception {
 
  public:
-  EssentiaException(const char* msg) : exception(), _msg(msg) {}
-  EssentiaException(const std::string& msg) : exception(), _msg(msg) {}
-  EssentiaException(const std::ostringstream& msg) : exception(), _msg(msg.str()) {}
+  SonoriaException(const char* msg) : exception(), _msg(msg) {}
+  SonoriaException(const std::string& msg) : exception(), _msg(msg) {}
+  SonoriaException(const std::ostringstream& msg) : exception(), _msg(msg.str()) {}
 
   template <typename T, typename U>
-  EssentiaException(const T& a, const U& b) : exception() {
+  SonoriaException(const T& a, const U& b) : exception() {
     std::ostringstream oss; oss << a << b; _msg = oss.str();
   }
 
   template <typename T, typename U, typename V>
-  EssentiaException(const T& a, const U& b, const V& c) : exception() {
+  SonoriaException(const T& a, const U& b, const V& c) : exception() {
     std::ostringstream oss; oss << a << b << c; _msg = oss.str();
   }
 
   template <typename T, typename U, typename V, typename W>
-  EssentiaException(const T& a, const U& b, const V& c, const W& d) : exception() {
+  SonoriaException(const T& a, const U& b, const V& c, const W& d) : exception() {
     std::ostringstream oss; oss << a << b << c << d; _msg = oss.str();
   }
 
-  virtual ~EssentiaException() throw() {}
+  virtual ~SonoriaException() throw() {}
   virtual const char* what() const throw() { return _msg.c_str(); }
 
  protected:
@@ -147,7 +147,7 @@ class OrderedMap : public std::vector<std::pair<std::string, T*> > {
       }
     }
 
-    throw EssentiaException("Value not found: '", str, "'\nAvailable keys: ", keys());
+    throw SonoriaException("Value not found: '", str, "'\nAvailable keys: ", keys());
   }
 
   T* operator[](const char* str) {
@@ -186,7 +186,7 @@ class OrderedMap : public std::vector<std::pair<std::string, T*> > {
  * It also redefines the insert() method to be more convenient.
  */
 template <typename KeyType, typename ValueType, typename Compare = std::less<KeyType> >
-class EssentiaMap : public std::map<KeyType, ValueType, Compare> {
+class SonoriaMap : public std::map<KeyType, ValueType, Compare> {
 
  public:
   typedef std::map<KeyType, ValueType, Compare> BaseClass;
@@ -197,7 +197,7 @@ class EssentiaMap : public std::map<KeyType, ValueType, Compare> {
   ValueType& operator[](const KeyType& key) {
     typename BaseClass::iterator it = this->find(key);
     if (it == BaseClass::end()) {
-      throw EssentiaException("Value not found: '", key, "'\nAvailable keys: ", keys());
+      throw SonoriaException("Value not found: '", key, "'\nAvailable keys: ", keys());
     }
     return it->second;
   }
@@ -210,7 +210,7 @@ class EssentiaMap : public std::map<KeyType, ValueType, Compare> {
   const ValueType& operator[](const KeyType& key) const {
     typename BaseClass::const_iterator it = this->find(key);
     if (it == BaseClass::end()) {
-      throw EssentiaException("Value not found: '", key, "'\nAvailable keys: ", keys());
+      throw SonoriaException("Value not found: '", key, "'\nAvailable keys: ", keys());
     }
     return it->second;
   }
@@ -238,7 +238,7 @@ class EssentiaMap : public std::map<KeyType, ValueType, Compare> {
 /**
  * Type of map used for storing the description of the various fields.
  */
-typedef EssentiaMap<std::string, std::string, string_cmp> DescriptionMap;
+typedef SonoriaMap<std::string, std::string, string_cmp> DescriptionMap;
 
 
 
@@ -289,7 +289,7 @@ class TypeProxy {
       std::ostringstream msg;
       msg << "Error when checking types. Expected: " << nameOfType(expected)
           << ", received: " << nameOfType(received);
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
   }
 

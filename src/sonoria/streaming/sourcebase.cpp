@@ -20,7 +20,7 @@
 #include "sourcebase.h"
 #include "sinkbase.h"
 #include "sourceproxy.h"
-#include "essentiautil.h" // for contains
+#include "sonoriautil.h" // for contains
 using namespace std;
 
 namespace sonoria {

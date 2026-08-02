@@ -21,7 +21,7 @@
 #define MUSIC_LOWLEVEL_DESCRIPTORS_H
 
 #include "MusicDescriptorsSet.h"
-#include "essentia/essentiamath.h"
+#include "sonoria/essentiamath.h"
 
 using namespace std;
 

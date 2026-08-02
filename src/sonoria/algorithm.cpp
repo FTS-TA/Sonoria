@@ -30,11 +30,11 @@ InputBase& Algorithm::input(const string& name) {
   try {
     return *_inputs[name];
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     ostringstream msg;
     msg << "Couldn't find '" << name << "' in " << this->name() << "::inputs.";
     msg << " Available input names are: " << _inputs.keys();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 
@@ -42,11 +42,11 @@ OutputBase& Algorithm::output(const string& name) {
   try {
     return *_outputs[name];
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     ostringstream msg;
     msg << "Couldn't find '" << name << "' in " << this->name() << "::outputs.";
     msg << " Available output names are: " << _outputs.keys();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 

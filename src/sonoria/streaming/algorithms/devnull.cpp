@@ -42,7 +42,7 @@ void connect(SourceBase& source, DevNullConnector dummy) {
   CREATE_DEVNULL(StereoSample);
   CREATE_DEVNULL(Pool);
 
-  if (!devnull) throw EssentiaException("DevNull class doesn't work for type: ", nameOfType(sourceType));
+  if (!devnull) throw SonoriaException("DevNull class doesn't work for type: ", nameOfType(sourceType));
 
   connect(source, devnull->input("data"));
 }
@@ -71,7 +71,7 @@ void disconnect(SourceBase& source, DevNullConnector devnull) {
   msg << "the source you are disconnecting (";
   msg << source.fullName();
   msg << ") is not connected to NOWHERE";
-  throw EssentiaException(msg);
+  throw SonoriaException(msg);
 }
 
 

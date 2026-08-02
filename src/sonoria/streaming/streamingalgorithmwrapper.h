@@ -35,7 +35,7 @@ enum NumeralType {
 class StreamingAlgorithmWrapper : public Algorithm {
 
  protected:
-  typedef EssentiaMap<std::string, NumeralType> NumeralTypeMap;
+  typedef SonoriaMap<std::string, NumeralType> NumeralTypeMap;
 
   NumeralTypeMap _inputType, _outputType; // indicates whether the algo takes a single token or a sequence of tokens
   standard::Algorithm* _algorithm;

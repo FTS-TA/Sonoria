@@ -218,7 +218,7 @@ void Network::clearExecutionNetwork() {
  * since the last time this function was called.
  * FIXME: deprecate (?)
  */
-bool algorithmHasProduced(Algorithm* algo, EssentiaMap<SourceBase*, int>& produced) {
+bool algorithmHasProduced(Algorithm* algo, SonoriaMap<SourceBase*, int>& produced) {
   bool hasProduced = false;
   for (int i=0; i<(int)algo->outputs().size(); i++) {
     SourceBase* output = &algo->output(i);
@@ -356,7 +356,7 @@ Algorithm* Network::findAlgorithm(const std::string& name) {
   for (int i=1; i<(int)nodes.size(); i++) {
     msg << ", '" << nodes[i]->algorithm()->name() << '\'';
   }
-  throw EssentiaException(msg);
+  throw SonoriaException(msg);
 }
 
 
@@ -597,7 +597,7 @@ class ProxyMatcher {
         msg << "Broken scheduling policy: algorithm '" << _algo->name()
             << "' has at least 1 SourceProxy connected to its inner algorithm '" << it->first->name()
             << "' but the latter has not been scheduled";
-        throw EssentiaException(msg);
+        throw SonoriaException(msg);
       }
     }
     */
@@ -643,7 +643,7 @@ FractalNode* expandNode(FractalNode* node) {
     vector<ProcessStep> processOrder = calgo->processOrder();
 
     if (processOrder.empty()) {
-      throw EssentiaException("You forgot to specify a process order for the composite algorithm '", calgo->name(), "'");
+      throw SonoriaException("You forgot to specify a process order for the composite algorithm '", calgo->name(), "'");
     }
 
     // dummy root node for the chain, will be removed before returning the composite order
@@ -672,7 +672,7 @@ FractalNode* expandNode(FractalNode* node) {
         // if a composite algorithm is trying to schedule itself, we need to do some
         // special processing
         if (pstep.type() == "chain") {
-          throw EssentiaException("You are trying to chain the composite algorithm '", calgo->name(),
+          throw SonoriaException("You are trying to chain the composite algorithm '", calgo->name(),
                                   "' from within itself; this is forbidden. Use SingleShot in that case.");
         }
         else if (pstep.type() == "single") {
@@ -684,7 +684,7 @@ FractalNode* expandNode(FractalNode* node) {
           stepRoot->expanded = expandNonCompositeNode(stepRoot);
           E_DEBUG(ENetwork, "------------ SINGLE RECURSIVE SHOT DONE ---------------");
         }
-        else throw EssentiaException("Unknown process order step: ", pstep.type());
+        else throw SonoriaException("Unknown process order step: ", pstep.type());
       }
       else {
         // we are trying to schedule an algorithm which is not the composite itself, good! :-)
@@ -744,7 +744,7 @@ FractalNode* expandNode(FractalNode* node) {
           E_DEBUG(ENetwork, "------------ SINGLE SHOT DONE ---------------");
         }
         else {
-          throw EssentiaException("Unknown process order step: ", pstep.type());
+          throw SonoriaException("Unknown process order step: ", pstep.type());
         }
       }
 
@@ -929,7 +929,7 @@ void Network::checkConnections() {
       if (sinks.empty()) {
         ostringstream msg;
         msg << output->second->fullName() << " is not connected to any sink...";
-        throw EssentiaException(msg);
+        throw SonoriaException(msg);
       }
     }
   }
