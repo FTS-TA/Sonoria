@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class EnergyBandRatio : public Algorithm {
@@ -55,11 +55,11 @@ class EnergyBandRatio : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class EnergyBandRatio : public StreamingAlgorithmWrapper {
@@ -77,7 +77,7 @@ class EnergyBandRatio : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_ENERGYBANDRATIO_H

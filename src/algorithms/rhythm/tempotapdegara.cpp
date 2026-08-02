@@ -23,7 +23,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -624,13 +624,13 @@ void TempoTapDegara::adaptiveThreshold(vector<Real>& array, int smoothingHalfSiz
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "poolstorage.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* TempoTapDegara::name = standard::TempoTapDegara::name;
@@ -680,4 +680,4 @@ AlgorithmStatus TempoTapDegara::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

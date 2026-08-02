@@ -20,7 +20,7 @@
 #include "medianfilter.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char *MedianFilter::name = "MedianFilter";

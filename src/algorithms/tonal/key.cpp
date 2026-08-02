@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Key::name = "Key";
@@ -616,12 +616,12 @@ void Key::addMinorTriad(int root, Real contribution, vector<Real>& M_chords) con
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "poolstorage.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* Key::name = standard::Key::name;
@@ -727,4 +727,4 @@ void Key::shiftPcp(vector<Real>& pcp) {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

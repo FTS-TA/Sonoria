@@ -24,7 +24,7 @@
 using namespace std;
 using namespace TNT;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -167,11 +167,11 @@ OnsetRate::~OnsetRate() {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -289,4 +289,4 @@ void OnsetRate::reset() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

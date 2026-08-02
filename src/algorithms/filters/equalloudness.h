@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class EqualLoudness : public Algorithm {
@@ -87,6 +87,6 @@ class EqualLoudness : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_EQUALLOUDNESS_H

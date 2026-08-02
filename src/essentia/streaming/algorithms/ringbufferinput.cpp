@@ -24,7 +24,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* RingBufferInput::name = "RingBufferInput";
@@ -92,4 +92,4 @@ void RingBufferInput::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

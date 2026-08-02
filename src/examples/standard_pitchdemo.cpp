@@ -23,7 +23,7 @@
 #include <essentia/pool.h>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 
@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
     int sr = 44100;
     
     // register the algorithms in the factory(ies)
-    essentia::init();
+    sonoria::init();
     
     // instanciate factory
     AlgorithmFactory& factory = AlgorithmFactory::instance();
@@ -348,7 +348,7 @@ int main(int argc, char* argv[]) {
     delete audioload;
     
     // shut down essentia
-    essentia::shutdown();
+    sonoria::shutdown();
     
     return 0;
 }

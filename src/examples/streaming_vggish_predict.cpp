@@ -24,9 +24,9 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 
 bool hasFlag(char** begin, char** end, const string& option) {
@@ -102,7 +102,7 @@ int main(int argc, char* argv[]) {
                         hasFlag(argv, argv + argc, "-p")) ? false : true;
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
   Pool aggrPool;  // a pool for the the aggregated predictions
@@ -124,7 +124,7 @@ int main(int argc, char* argv[]) {
   // If the output layer is empty, we have already printed the list of nodes.
   // Exit now.
   if (outputLayer.empty()){
-    essentia::shutdown();
+    sonoria::shutdown();
 
     return 0;
   }
@@ -173,7 +173,7 @@ int main(int argc, char* argv[]) {
   n.clear();
 
   delete output;
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

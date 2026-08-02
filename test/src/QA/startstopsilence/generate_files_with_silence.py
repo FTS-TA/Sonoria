@@ -10,8 +10,8 @@ adds a random amount of silence at the begining and ens and saves them in a desi
 
 import numpy as np
 import os
-import essentia.standard as es
-from essentia import array as esarr
+import sonoria.standard as es
+from sonoria import array as esarr
 
 def find_files(directory, pattern):
     for root, dirs, files in os.walk(directory):

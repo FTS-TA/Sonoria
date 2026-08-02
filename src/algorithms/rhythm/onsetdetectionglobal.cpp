@@ -24,7 +24,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -446,13 +446,13 @@ void OnsetDetectionGlobal::reset() {
 // - etc., whatever was requiered in original matlab implementations
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "poolstorage.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* OnsetDetectionGlobal::name = standard::OnsetDetectionGlobal::name;
@@ -503,4 +503,4 @@ AlgorithmStatus OnsetDetectionGlobal::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

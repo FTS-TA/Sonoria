@@ -25,8 +25,8 @@
 #include "essentia/utils/tnt/tnt2vector.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::standard;
+using namespace sonoria;
+using namespace sonoria::standard;
 
 vector<vector<Real> > readMatrixFile(string inputFileName);
 
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
   }
   
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   string queryFilename = argv[1];
   string referenceFilename = argv[2];
@@ -104,7 +104,7 @@ int main(int argc, char* argv[]) {
   cout << "------------ Done --------------" << endl;
 
   delete csm;
-  essentia::shutdown();
+  sonoria::shutdown();
   return 0;
 
 }

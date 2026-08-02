@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class GapsDetector : public Algorithm {
@@ -93,12 +93,12 @@ class GapsDetector : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class GapsDetector : public StreamingAlgorithmWrapper {
@@ -117,6 +117,6 @@ class GapsDetector : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_GAPSDETECTOR_H

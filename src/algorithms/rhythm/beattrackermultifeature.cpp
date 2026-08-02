@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* BeatTrackerMultiFeature::name = essentia::standard::BeatTrackerMultiFeature::name;
-const char* BeatTrackerMultiFeature::category = essentia::standard::BeatTrackerMultiFeature::category;
-const char* BeatTrackerMultiFeature::description = essentia::standard::BeatTrackerMultiFeature::description;
+const char* BeatTrackerMultiFeature::name = sonoria::standard::BeatTrackerMultiFeature::name;
+const char* BeatTrackerMultiFeature::category = sonoria::standard::BeatTrackerMultiFeature::category;
+const char* BeatTrackerMultiFeature::description = sonoria::standard::BeatTrackerMultiFeature::description;
 
 
 BeatTrackerMultiFeature::BeatTrackerMultiFeature() : AlgorithmComposite(),
@@ -246,11 +246,11 @@ void BeatTrackerMultiFeature::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* BeatTrackerMultiFeature::name = "BeatTrackerMultiFeature";
@@ -337,4 +337,4 @@ void BeatTrackerMultiFeature::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

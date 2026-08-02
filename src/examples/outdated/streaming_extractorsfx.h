@@ -23,7 +23,7 @@
 #include <essentia/streaming/sourcebase.h>
 #include <essentia/pool.h>
 
-void SFX(essentia::streaming::SourceBase& input, essentia::Pool& pool, const std::string& nspace="");
-void SFXPitch(essentia::Pool& pool, const std::string& nspace="");
+void SFX(sonoria::streaming::SourceBase& input, sonoria::Pool& pool, const std::string& nspace="");
+void SFXPitch(sonoria::Pool& pool, const std::string& nspace="");
 
 #endif // STREAMING_EXTRACTORSFX_H

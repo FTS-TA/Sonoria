@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SpectralCentroidTime : public Algorithm {
@@ -53,11 +53,11 @@ class SpectralCentroidTime : public Algorithm {
 }; //class SpectralCentroidTime
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SpectralCentroidTime : public StreamingAlgorithmWrapper {
@@ -75,6 +75,6 @@ class SpectralCentroidTime : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // SPECTRALCENTROIDTIME_H

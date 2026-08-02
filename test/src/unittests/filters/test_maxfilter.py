@@ -18,13 +18,13 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 from math import *
 from numpy import *
 
-from essentia import *
+from sonoria import *
 from math import *
-import essentia.standard as std
+import sonoria.standard as std
 
 class TestMaxFilter(TestCase):
 

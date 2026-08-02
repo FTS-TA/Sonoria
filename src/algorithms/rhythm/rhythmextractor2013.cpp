@@ -26,12 +26,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* RhythmExtractor2013::name = essentia::standard::RhythmExtractor2013::name;
-const char* RhythmExtractor2013::category = essentia::standard::RhythmExtractor2013::category;
-const char* RhythmExtractor2013::description = essentia::standard::RhythmExtractor2013::description;
+const char* RhythmExtractor2013::name = sonoria::standard::RhythmExtractor2013::name;
+const char* RhythmExtractor2013::category = sonoria::standard::RhythmExtractor2013::category;
+const char* RhythmExtractor2013::description = sonoria::standard::RhythmExtractor2013::description;
 
 
 RhythmExtractor2013::RhythmExtractor2013() : AlgorithmComposite() {
@@ -192,11 +192,11 @@ void RhythmExtractor2013::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* RhythmExtractor2013::name = "RhythmExtractor2013";
@@ -301,4 +301,4 @@ void RhythmExtractor2013::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

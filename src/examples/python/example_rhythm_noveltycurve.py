@@ -1,6 +1,6 @@
 import sys
-import essentia.standard as es
-from essentia import *
+import sonoria.standard as es
+from sonoria import *
 import numpy
 import pylab
 

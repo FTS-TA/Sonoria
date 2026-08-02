@@ -15,8 +15,8 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
-from essentia import INFO
+import sonoria
+from sonoria import INFO
 
 
 namespace = 'highlevel'
@@ -25,7 +25,7 @@ dependencies = [ 'lowlevel', 'tempotap', 'beats' ]
 
 def compute(audio, pool, options):
     defaultStats=['mean', 'min', 'max', 'var', 'dmean', 'dvar', 'dmean2', 'dvar2', 'value']
-    aggPool = essentia.PoolAggregator(defaultStats=defaultStats)(pool)
+    aggPool = sonoria.PoolAggregator(defaultStats=defaultStats)(pool)
     descriptors = aggPool.descriptorNames()
     profile = 'music'
 
@@ -47,7 +47,7 @@ def excitement(pool):
     rhythm_beats_loudness_mean = pool.value('rhythm.beats_loudness.mean')
     rhythm_onset_rate_value = pool.value('rhythm.onset_rate.value')
 
-    # Weka tree J48 calculated with essentia_0.4.0:2875
+    # Weka tree J48 calculated with sonoria_0.4.0:2875
     if spectral_centroid_mean <= 2254.374756:
        if rhythm_onset_rate_value <= 4.521962:
           if spectral_centroid_mean <= 1932.181519:
@@ -87,7 +87,7 @@ def intensity(pool):
     intensity = 0
 
     # this algorithm is based on the common sense
-    # the thresholds were found from essentia_0.4.0:2885
+    # the thresholds were found from sonoria_0.4.0:2885
     if tempotap_bpm_value < 100.0:
        intensity += 1
     else:

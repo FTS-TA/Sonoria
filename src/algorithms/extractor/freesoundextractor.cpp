@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* FreesoundExtractor::name = "FreesoundExtractor";
@@ -176,8 +176,8 @@ void FreesoundExtractor::compute() {
 
   streaming::AlgorithmFactory& factory = streaming::AlgorithmFactory::instance();
 
-  results.set("metadata.version.essentia", essentia::version);
-  results.set("metadata.version.essentia_git_sha", essentia::version_git_sha);
+  results.set("metadata.version.essentia", sonoria::version);
+  results.set("metadata.version.essentia_git_sha", sonoria::version_git_sha);
   results.set("metadata.version.extractor", FREESOUND_EXTRACTOR_VERSION);
   // TODO: extractor_build_id
 
@@ -569,4 +569,4 @@ void FreesoundExtractor::setExtractorOptions(const std::string& filename) {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

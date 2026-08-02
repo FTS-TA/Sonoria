@@ -22,7 +22,7 @@
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 /**
@@ -85,7 +85,7 @@ class AccumulatorAlgorithm : public Algorithm {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_ACCUMULATORALGORITHM_H

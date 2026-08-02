@@ -25,7 +25,7 @@
 #include <complex>
 #include <fftw3.h>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class FFTWComplex : public Algorithm {
@@ -67,11 +67,11 @@ class FFTWComplex : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class FFTWComplex : public StreamingAlgorithmWrapper {
@@ -89,6 +89,6 @@ class FFTWComplex : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_FFTWCOMPLEX_H

@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 
 string Parameter::toLower() const {
   if (!_configured)
@@ -304,4 +304,4 @@ ostream& operator<<(ostream& out, const Parameter::ParamType& t) {
   }
 }
 
-} // namespace essentia
+} // namespace sonoria

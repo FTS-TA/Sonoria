@@ -25,11 +25,11 @@
 #include <essentia/types.h>
 #include <string>
 
-void setDefaultOptions(essentia::Pool& pool);
-void setOptions(essentia::Pool& options, const std::string& filename);
-void mergeOptionsAndResults(essentia::Pool& results, const essentia::Pool& options);
-void pcmMetadata(essentia::streaming::AlgorithmFactory& factory,
-                 const std::string& audioFilename, essentia::Pool& pool);
-void readMetadata(const std::string& audioFilename, essentia::Pool& pool);
+void setDefaultOptions(sonoria::Pool& pool);
+void setOptions(sonoria::Pool& options, const std::string& filename);
+void mergeOptionsAndResults(sonoria::Pool& results, const sonoria::Pool& options);
+void pcmMetadata(sonoria::streaming::AlgorithmFactory& factory,
+                 const std::string& audioFilename, sonoria::Pool& pool);
+void readMetadata(const std::string& audioFilename, sonoria::Pool& pool);
 
 #endif // STREAMING_EXTRACTOR_METADATA_H

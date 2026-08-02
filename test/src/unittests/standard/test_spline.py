@@ -19,9 +19,9 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 
-from essentia.standard import *
+from sonoria.standard import *
 from numpy import r_, sin, pi # r_ for decimal step ranges
 
 
@@ -83,7 +83,7 @@ class TestSpline(TestCase):
                found.append(yval)
                # when the value is very small the precision error goes pretty
                # high up to 0.5, we skip them ... this is probably due to the
-               # double to real conversion in essentia as the expected values were
+               # double to real conversion in sonoria as the expected values were
                # computed with double precission
                if yval > 5e-16: self.assertAlmostEqual(expected[k], yval, 5e-6)
                k+=1
@@ -124,7 +124,7 @@ class TestSpline(TestCase):
                found.append(yval)
                # when the value is very small the precision error goes pretty
                # high up to 0.5, we skip them ... this is probably due to the
-               # double to real conversion in essentia as the expected values were
+               # double to real conversion in sonoria as the expected values were
                # computed with double precission
                if yval > 5e-16: self.assertAlmostEqual(expected[k], yval, 5e-6)
                k+=1

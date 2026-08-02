@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "essentiautil.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TempoScaleBands : public Algorithm {
@@ -67,11 +67,11 @@ class TempoScaleBands : public Algorithm {
 }; // class TempoScaleBands
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TempoScaleBands : public StreamingAlgorithmWrapper {
@@ -91,7 +91,7 @@ class TempoScaleBands : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_TEMPOTAP_H

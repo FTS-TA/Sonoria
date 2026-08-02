@@ -25,7 +25,7 @@
 #include "pool.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BpmHistogram : public AlgorithmComposite {
@@ -113,11 +113,11 @@ class BpmHistogram : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BpmHistogram : public Algorithm {
@@ -169,7 +169,7 @@ class BpmHistogram : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_BPMHISTOGRAM_H
 

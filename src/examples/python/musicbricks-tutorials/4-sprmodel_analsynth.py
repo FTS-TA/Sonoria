@@ -1,5 +1,5 @@
-import essentia
-import essentia.streaming as es
+import sonoria
+import sonoria.streaming as es
 from pathlib import Path
 
 # algorithm parameters
@@ -49,7 +49,7 @@ smsyn = es.SprModelSynth(
     hopSize=params["hopSize"],
 )
 # We'll need a pool to store the results
-pool = essentia.Pool()
+pool = sonoria.Pool()
 
 
 # analysis
@@ -70,7 +70,7 @@ smsyn.sineframe >> (pool, "sineframes")
 smsyn.resframe >> (pool, "resframes")
 
 
-essentia.run(loader)
+sonoria.run(loader)
 
 
 # store to file
@@ -82,4 +82,4 @@ awrite = es.MonoWriter(
 outvector = es.VectorInput(outaudio)
 
 outvector.data >> awrite.audio
-essentia.run(outvector)
+sonoria.run(outvector)

@@ -19,8 +19,8 @@
 
 import sys
 import subprocess
-import essentia.standard
-import essentia.streaming
+import sonoria.standard
+import sonoria.streaming
 import yaml
 
 import argparse
@@ -34,22 +34,22 @@ def find_dependencies(mode, algo):
         print("Running compute() for", algo)
 
         code = """
-import essentia.%s as es
-import essentia
-from essentia.pytools.io import test_audiofile
+import sonoria.%s as es
+import sonoria
+from sonoria.pytools.io import test_audiofile
 test_audio = test_audiofile()
 
-essentia.log.infoActive = True
-essentia.log.debugLevels += essentia.EFactory
+sonoria.log.infoActive = True
+sonoria.log.debugLevels += sonoria.EFactory
 es.%s()(test_audio)
 """ % (mode, algo)
     else:
         code = """
-import essentia.%s as es
-import essentia
+import sonoria.%s as es
+import sonoria
 
-essentia.log.infoActive = True
-essentia.log.debugLevels += essentia.EFactory
+sonoria.log.infoActive = True
+sonoria.log.debugLevels += sonoria.EFactory
 loader = es.%s()
 """ % (mode, algo)
 
@@ -131,15 +131,15 @@ if __name__ == "__main__":
     parser.add_argument("-a", "--algorithm", dest="algo",
                                              help="algorithm to inspect",
                                              action="append",
-                                             choices=set(essentia.standard.algorithmNames() + essentia.streaming.algorithmNames()))
+                                             choices=set(sonoria.standard.algorithmNames() + sonoria.streaming.algorithmNames()))
     parser.add_argument("-m", "--mode", dest="mode",
                                         help="mode (streaming, standard)",
                                         choices=set(("standard", "streaming")))
 
     args = vars(parser.parse_args())
 
-    streaming = essentia.streaming.algorithmNames()
-    standard = essentia.standard.algorithmNames()
+    streaming = sonoria.streaming.algorithmNames()
+    standard = sonoria.standard.algorithmNames()
 
     print("Found %d streaming algorithms" % len(streaming))
     print("Found %d standard algorithms" % len(standard))
@@ -160,7 +160,7 @@ if __name__ == "__main__":
         print("Mode was not specified. Analyze dependencies for both modes")
 
     if not algos and args['algo'] and args['mode']:
-        print('Algorithm "' + args['algo'] + '" not found in essentia.' + args['mode'])
+        print('Algorithm "' + args['algo'] + '" not found in sonoria.' + args['mode'])
         sys.exit()
 
     all_dependencies = []

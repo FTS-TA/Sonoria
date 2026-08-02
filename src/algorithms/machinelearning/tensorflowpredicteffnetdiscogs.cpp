@@ -22,12 +22,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TensorflowPredictEffnetDiscogs::name = essentia::standard::TensorflowPredictEffnetDiscogs::name;
-const char* TensorflowPredictEffnetDiscogs::category = essentia::standard::TensorflowPredictEffnetDiscogs::category;
-const char* TensorflowPredictEffnetDiscogs::description = essentia::standard::TensorflowPredictEffnetDiscogs::description;
+const char* TensorflowPredictEffnetDiscogs::name = sonoria::standard::TensorflowPredictEffnetDiscogs::name;
+const char* TensorflowPredictEffnetDiscogs::category = sonoria::standard::TensorflowPredictEffnetDiscogs::category;
+const char* TensorflowPredictEffnetDiscogs::description = sonoria::standard::TensorflowPredictEffnetDiscogs::description;
 
 
 TensorflowPredictEffnetDiscogs::TensorflowPredictEffnetDiscogs() : AlgorithmComposite(),
@@ -127,11 +127,11 @@ void TensorflowPredictEffnetDiscogs::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TensorflowPredictEffnetDiscogs::name = "TensorflowPredictEffnetDiscogs";
@@ -290,4 +290,4 @@ int TensorflowPredictEffnetDiscogs::padSignal(const std::vector<Real> &signal, s
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

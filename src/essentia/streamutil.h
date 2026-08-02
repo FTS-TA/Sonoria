@@ -35,7 +35,7 @@
 #define PR(x) std::cout << #x << ": " << x << std::endl
 
 
-namespace essentia {
+namespace sonoria {
 
 
 /**
@@ -79,6 +79,6 @@ std::ostream& operator<<(std::ostream& out, const std::set<T>& v) {
 }
 
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMUTIL_H

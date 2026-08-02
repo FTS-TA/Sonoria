@@ -1,8 +1,8 @@
 #include "extractor_utils.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::standard;
+using namespace sonoria;
+using namespace sonoria::standard;
 
 
 void setExtractorDefaultOptions(Pool &options) {

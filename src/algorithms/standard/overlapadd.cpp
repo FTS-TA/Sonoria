@@ -23,7 +23,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 
 void processFrame(vector<Real>& tmpFrame, const vector<Real>& windowedFrame,
                   vector<Real>& output, vector<Real> &frameHistory,
@@ -121,9 +121,9 @@ void OverlapAdd::compute() {
 
 namespace streaming {
 
-const char* OverlapAdd::name = essentia::standard::OverlapAdd::name;
-const char* OverlapAdd::category = essentia::standard::OverlapAdd::category;
-const char* OverlapAdd::description = essentia::standard::OverlapAdd::description;
+const char* OverlapAdd::name = sonoria::standard::OverlapAdd::name;
+const char* OverlapAdd::category = sonoria::standard::OverlapAdd::category;
+const char* OverlapAdd::description = sonoria::standard::OverlapAdd::description;
 
 
 void OverlapAdd::reset() {
@@ -182,4 +182,4 @@ AlgorithmStatus OverlapAdd::process() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

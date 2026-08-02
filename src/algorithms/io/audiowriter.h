@@ -23,7 +23,7 @@
 #include "streamingalgorithm.h"
 #include "audiocontext.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class AudioWriter : public Algorithm {
@@ -56,13 +56,13 @@ class AudioWriter : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "network.h"
 #include "algorithm.h"
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 // Standard non-streaming algorithm comes after the streaming one as it
@@ -112,7 +112,7 @@ class AudioWriter : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_STREAMING_AUDIOWRITER_H

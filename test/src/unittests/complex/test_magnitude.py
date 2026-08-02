@@ -20,7 +20,7 @@
 # this program.  If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 from math import *
 
 class TestMagnitude(TestCase):

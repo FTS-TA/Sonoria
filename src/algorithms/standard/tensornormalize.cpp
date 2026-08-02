@@ -20,7 +20,7 @@
 #include "tensornormalize.h"
 #include <sstream>
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 using namespace std;

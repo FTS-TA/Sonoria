@@ -23,7 +23,7 @@
 #include <essentia/pool.h>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
   }
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   /////// PARAMS //////////////
   int framesize = 1024;
@@ -152,7 +152,7 @@ int main(int argc, char* argv[]) {
   delete spectrum;
   delete pitchDetect;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

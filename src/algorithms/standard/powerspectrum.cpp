@@ -19,7 +19,7 @@
 
 #include "powerspectrum.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* PowerSpectrum::name = "PowerSpectrum";

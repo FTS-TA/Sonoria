@@ -25,7 +25,7 @@
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 typedef std::pair<int,Real> mypair;
@@ -100,11 +100,11 @@ class SineModelAnal : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SineModelAnal : public StreamingAlgorithmWrapper {
@@ -126,7 +126,7 @@ class SineModelAnal : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 

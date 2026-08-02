@@ -18,7 +18,7 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 
 maxratio = 1000.  # Maximum ratio value hardcoded in the algorithm code
 #maxratio = 3.4028234663852886e+38

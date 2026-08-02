@@ -19,7 +19,7 @@
 
 
 import sys
-from essentia.standard import *
+from sonoria.standard import *
 
 
 # In this example we are going to look at how to perform beat tracking

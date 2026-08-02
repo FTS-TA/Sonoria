@@ -25,7 +25,7 @@
 #include "algorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PercivalBpmEstimator : public AlgorithmComposite {
@@ -98,11 +98,11 @@ class PercivalBpmEstimator : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PercivalBpmEstimator : public Algorithm {
@@ -141,7 +141,7 @@ class PercivalBpmEstimator : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // PERCIVALBPMESTIMATOR_H

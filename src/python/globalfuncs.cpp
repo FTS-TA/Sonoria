@@ -69,18 +69,18 @@ static PyObject* log_debug(PyObject* notUsed, PyObject* args) {
 
 static PyObject*
 info_level() {
-  if (essentia::infoLevelActive) Py_RETURN_TRUE;
+  if (sonoria::infoLevelActive) Py_RETURN_TRUE;
   Py_RETURN_FALSE;
 }
 
 static PyObject*
 set_info_level(PyObject* self, PyObject* arg) {
   if (arg == Py_True) {
-    essentia::infoLevelActive = true;
+    sonoria::infoLevelActive = true;
     Py_RETURN_NONE;
   }
   if (arg == Py_False) {
-    essentia::infoLevelActive = false;
+    sonoria::infoLevelActive = false;
     Py_RETURN_NONE;
   }
 
@@ -101,18 +101,18 @@ log_info(PyObject* self, PyObject* arg) {
 
 static PyObject*
 warning_level() {
-  if (essentia::warningLevelActive) Py_RETURN_TRUE;
+  if (sonoria::warningLevelActive) Py_RETURN_TRUE;
   Py_RETURN_FALSE;
 }
 
 static PyObject*
 set_warning_level(PyObject* self, PyObject* arg) {
   if (arg == Py_True) {
-    essentia::warningLevelActive = true;
+    sonoria::warningLevelActive = true;
     Py_RETURN_NONE;
   }
   if (arg == Py_False) {
-    essentia::warningLevelActive = false;
+    sonoria::warningLevelActive = false;
     Py_RETURN_NONE;
   }
 
@@ -133,18 +133,18 @@ log_warning(PyObject* self, PyObject* arg) {
 
 static PyObject*
 error_level() {
-  if (essentia::errorLevelActive) Py_RETURN_TRUE;
+  if (sonoria::errorLevelActive) Py_RETURN_TRUE;
   Py_RETURN_FALSE;
 }
 
 static PyObject*
 set_error_level(PyObject* self, PyObject* arg) {
   if (arg == Py_True) {
-    essentia::errorLevelActive = true;
+    sonoria::errorLevelActive = true;
     Py_RETURN_NONE;
   }
   if (arg == Py_False) {
-    essentia::errorLevelActive = false;
+    sonoria::errorLevelActive = false;
     Py_RETURN_NONE;
   }
 
@@ -174,7 +174,7 @@ normalize(PyObject* self, PyObject* arg) {
     return NULL;
   }
   vector<Real>* array = reinterpret_cast<vector<Real>*>(VectorReal::fromPythonRef(arg));
-  essentia::normalize(*array);
+  sonoria::normalize(*array);
   RogueVector<Real>* result = new RogueVector<Real>(array->size(), 0.);
   for (int i=0; i<int(array->size()); ++i) { (*result)[i] = (*array)[i]; }
   return VectorReal::toPythonRef(result);
@@ -190,7 +190,7 @@ derivative(PyObject* self, PyObject* arg) {
     return NULL;
   }
   vector<Real>* array = reinterpret_cast<vector<Real>*>(VectorReal::fromPythonRef(arg));
-  vector<Real> derivative = essentia::derivative(*array);
+  vector<Real> derivative = sonoria::derivative(*array);
   RogueVector<Real>* result = new RogueVector<Real>(derivative.size(), 0.);
   for (int i=0; i<int(array->size()); ++i) { (*result)[i] = derivative[i]; }
   return VectorReal::toPythonRef(result);
@@ -1114,7 +1114,7 @@ postProcessTicks(PyObject* self, PyObject* args) {
     vector<Real>* ticks = reinterpret_cast<vector<Real>*>(VectorReal::fromPythonRef(argsV[0]));
     vector<Real>* ticksAmp = reinterpret_cast<vector<Real>*>(VectorReal::fromPythonRef(argsV[1]));
     Real period = PyFloat_AS_DOUBLE(argsV[2]);
-    vector<Real> prunedTicks = essentia::postProcessTicks(*ticks, *ticksAmp, period);
+    vector<Real> prunedTicks = sonoria::postProcessTicks(*ticks, *ticksAmp, period);
     RogueVector<Real>* result = new RogueVector<Real>(prunedTicks.size(), 0.);
     for (int i=0; i<int(prunedTicks.size()); ++i) { (*result)[i] = prunedTicks[i]; }
 
@@ -1127,7 +1127,7 @@ postProcessTicks(PyObject* self, PyObject* args) {
     }
 
     vector<Real>* ticks = reinterpret_cast<vector<Real>*>(VectorReal::fromPythonRef(argsV[0]));
-    vector<Real> prunedTicks = essentia::postProcessTicks(*ticks);
+    vector<Real> prunedTicks = sonoria::postProcessTicks(*ticks);
     RogueVector<Real>* result = new RogueVector<Real>(prunedTicks.size(), 0.);
     for (int i=0; i<int(prunedTicks.size()); ++i) { (*result)[i] = prunedTicks[i]; }
 

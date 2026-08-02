@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MultiPitchKlapuri::name = "MultiPitchKlapuri";
@@ -371,4 +371,4 @@ MultiPitchKlapuri::~MultiPitchKlapuri() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

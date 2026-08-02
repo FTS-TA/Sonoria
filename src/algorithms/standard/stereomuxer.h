@@ -23,7 +23,7 @@
 #include "streamingalgorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class StereoMuxer : public Algorithm {
@@ -59,11 +59,11 @@ class StereoMuxer : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class StereoMuxer : public Algorithm {
@@ -88,6 +88,6 @@ class StereoMuxer : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMING_STEREOMUXER_H

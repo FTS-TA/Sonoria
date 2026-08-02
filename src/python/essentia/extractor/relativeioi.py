@@ -15,8 +15,8 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
-from essentia import INFO
+import sonoria
+from sonoria import INFO
 from numpy import bincount
 
 
@@ -50,10 +50,10 @@ def compute(audio, pool, options):
     for i in range(2,len(onsets)): riois += [ round( (onsets[i] - onsets[i-2]) / interval ) ]
     for i in range(3,len(onsets)): riois += [ round( (onsets[i] - onsets[i-3]) / interval ) ]
     for i in range(4,len(onsets)): riois += [ round( (onsets[i] - onsets[i-4]) / interval ) ]
-    ioidist = essentia.array(bincount(riois))
-    fullioidist = essentia.array(zip( [p/interp for p in range(len(ioidist))], [ioi/sum(ioidist) for ioi in ioidist]))
+    ioidist = sonoria.array(bincount(riois))
+    fullioidist = sonoria.array(zip( [p/interp for p in range(len(ioidist))], [ioi/sum(ioidist) for ioi in ioidist]))
     fullioidist = fullioidist[0:interp*5]
-    peak_detection = essentia.PeakDetection(minPosition = 0., maxPosition = len(ioidist),
+    peak_detection = sonoria.PeakDetection(minPosition = 0., maxPosition = len(ioidist),
                                             maxPeaks = 5, range = len(ioidist) - 1.,
                                             interpolate = True, orderBy = 'amplitude')
     pos, mags = peak_detection(ioidist)
@@ -65,7 +65,7 @@ def compute(audio, pool, options):
     mags = [ mag/sum(ioidist) for mag in mags ]
 
     # add to pool
-    pool.add(namespace + '.' + 'relative_ioi_peaks', essentia.array(zip(pos,mags)))#, pool.GlobalScope)
+    pool.add(namespace + '.' + 'relative_ioi_peaks', sonoria.array(zip(pos,mags)))#, pool.GlobalScope)
     pool.add(namespace + '.' + 'relative_ioi', fullioidist)#, pool.GlobalScope)
 
     # debug plot

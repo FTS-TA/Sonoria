@@ -20,8 +20,8 @@
 
 
 
-import essentia.standard
-import essentia.streaming
+import sonoria.standard
+import sonoria.streaming
 import os, re, subprocess
 import sys
 from pathlib import Path
@@ -29,8 +29,8 @@ import nbformat
 import git
 
 
-std_algo_list = [ algo for algo in dir(essentia.standard) if algo[0].isupper() ]
-streaming_algo_list = [ algo for algo in dir(essentia.streaming) if algo[0].isupper() and algo not in [ 'CompositeBase'] ]
+std_algo_list = [ algo for algo in dir(sonoria.standard) if algo[0].isupper() ]
+streaming_algo_list = [ algo for algo in dir(sonoria.streaming) if algo[0].isupper() and algo not in [ 'CompositeBase'] ]
 python_tutorials_list = [tut for tut in Path('../../src/examples/python').glob('*.ipynb')]
 pattern_name = re.compile(r'const char(\s\*|\*\s)\w+::name = "(\w+)";')
 algo_path_dict = {pattern_name.search(algo_path.read_text()).group(2) : algo_path.relative_to('../../') for algo_path in Path('../../src/algorithms').rglob('*/*.cpp')}
@@ -159,7 +159,7 @@ def source_links(algo_doc):
     commit_id = repo.git.describe('--long')
 
     # Source Directory and URL Prefix
-    URL_PREFIX = f'https://github.com/MTG/essentia/blob/{commit_id}/'
+    URL_PREFIX = f'https://github.com/MTG/sonoria/blob/{commit_id}/'
 
     # Get the path of the cpp file
     cpp_path = algo_path_dict.get(algo_doc['name'], None)
@@ -319,7 +319,7 @@ def write_algorithms_reference():
     That includes:
      - write the _templates/algorithms_reference.html template
      - write each separate algo doc as an html template in the _templates/reference folder
-     - write a essentia_reference.py file that contains a list of those (to be included in conf.py)
+     - write a sonoria_reference.py file that contains a list of those (to be included in conf.py)
      - write the templates for both std & streaming algos to have the full list of algos as a sidebar
     '''
 
@@ -337,7 +337,7 @@ def write_algorithms_reference():
     algos = {}
     for algoname in std_algo_list:
         algos.setdefault(algoname, {})
-        algos[algoname]['standard'] = getattr(essentia.standard, algoname).__struct__
+        algos[algoname]['standard'] = getattr(sonoria.standard, algoname).__struct__
         # __struct__ does not contain mode (perhaps it should),
         # therefore, doing a workaround so that doc2rst can know the mode
         algos[algoname]['standard']['mode'] = 'standard mode'
@@ -346,13 +346,13 @@ def write_algorithms_reference():
         # their detailed documentation.
         if algoname == 'MusicExtractor':
             algos[algoname]['standard']['description'] = \
-                algos[algoname]['standard']['description'].replace("essentia_streaming_extractor_music",
-                    "`essentia_streaming_extractor_music <../streaming_extractor_music.html>`__")
+                algos[algoname]['standard']['description'].replace("sonoria_streaming_extractor_music",
+                    "`sonoria_streaming_extractor_music <../streaming_extractor_music.html>`__")
 
         elif algoname == 'FreesoundExtractor':
             algos[algoname]['standard']['description'] = \
-                algos[algoname]['standard']['description'].replace("essentia_streaming_extractor_freesound",
-                    "`essentia_streaming_extractor_freesound <../freesound_extractor.html>`__")
+                algos[algoname]['standard']['description'].replace("sonoria_streaming_extractor_freesound",
+                    "`sonoria_streaming_extractor_freesound <../freesound_extractor.html>`__")
 
         print('generating doc for standard algorithm: %s ...' % algoname)
         write_doc('reference/std_' + algoname + '.rst', algos[algoname]['standard'])
@@ -362,7 +362,7 @@ def write_algorithms_reference():
 
     for algoname in streaming_algo_list:
         algos.setdefault(algoname, {})
-        algos[algoname]['streaming'] = getattr(essentia.streaming, algoname).__struct__
+        algos[algoname]['streaming'] = getattr(sonoria.streaming, algoname).__struct__
         algos[algoname]['streaming']['mode'] = 'streaming mode'
 
         print('generating doc for streaming algorithm: %s ...' % algoname)
@@ -426,8 +426,8 @@ def write_algorithms_reference():
 ############################################################
 ############################################################
 
-    # write the essentia_reference.py file (to be included in conf.py)
-    with open('essentia_reference.py', 'w') as algo_ref:
+    # write the sonoria_reference.py file (to be included in conf.py)
+    with open('sonoria_reference.py', 'w') as algo_ref:
         algo_ref.write('''
 standard_algorithms = {
 ''')
@@ -444,9 +444,9 @@ streaming_algorithms = {
 
         algo_ref.write('''  }
 
-essentia_algorithms = {}
-essentia_algorithms.update(standard_algorithms)
-essentia_algorithms.update(streaming_algorithms)
+sonoria_algorithms = {}
+sonoria_algorithms.update(standard_algorithms)
+sonoria_algorithms.update(streaming_algorithms)
 
 ''')
 

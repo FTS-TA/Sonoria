@@ -25,7 +25,7 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 int main(int argc, char* argv[]) {
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
   string outputFilename = argv[2];
 
   // register the algorithms in the factory
-  essentia::init();
+  sonoria::init();
 
   // parameters
   int sampleRate   = 22050;
@@ -161,7 +161,7 @@ int main(int argc, char* argv[]) {
   delete rd;
   delete yamlOutput;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

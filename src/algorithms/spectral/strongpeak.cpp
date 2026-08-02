@@ -20,7 +20,7 @@
 #include "strongpeak.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* StrongPeak::name = "StrongPeak";

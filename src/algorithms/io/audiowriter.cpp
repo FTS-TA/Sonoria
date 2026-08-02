@@ -26,12 +26,12 @@ extern "C" {
 using namespace std;
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* AudioWriter::name = essentia::standard::AudioWriter::name;
-const char* AudioWriter::category = essentia::standard::AudioWriter::category;
-const char* AudioWriter::description = essentia::standard::AudioWriter::description;
+const char* AudioWriter::name = sonoria::standard::AudioWriter::name;
+const char* AudioWriter::category = sonoria::standard::AudioWriter::category;
+const char* AudioWriter::description = sonoria::standard::AudioWriter::description;
 
 
 void AudioWriter::configure() {
@@ -110,11 +110,11 @@ void AudioWriter::reset() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* AudioWriter::name = "AudioWriter";
@@ -167,4 +167,4 @@ void AudioWriter::compute() {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

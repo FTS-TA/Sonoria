@@ -20,10 +20,10 @@
 
 import sys
 import numpy
-import essentia
+import sonoria
 import segmentation_bic
 import segmentation_max_energy
-from essentia import EssentiaError, INFO
+from sonoria import EssentiaError, INFO
 from math import *
 
 namespace = 'segmentation'
@@ -58,7 +58,7 @@ def doSegmentation(inputFilename, audio, pool, options):
         if writeFile:
             outputFilename = inputFilename + '.segments.wav'
             print 'Creating segments audio file ' + outputFilename + '...'
-            audioOnsetsMarker = essentia.AudioOnsetsMarker(filename = outputFilename, sampleRate = sampleRate)
+            audioOnsetsMarker = sonoria.AudioOnsetsMarker(filename = outputFilename, sampleRate = sampleRate)
             audioOnsetsMarker(audio, onsets)
 
         # transforming the onsets into segments = pairs of onsets
@@ -97,7 +97,7 @@ def compute(inputFilename, audio, pool, options):
         segments = doSegmentation(inputFilename, audio, pool, options)
 
     #pool.setCurrentNamespace(namespace)
-    pool.add(namespace + '.' + 'timestamps', essentia.array(segments))#, pool.GlobalScope)
+    pool.add(namespace + '.' + 'timestamps', sonoria.array(segments))#, pool.GlobalScope)
 
     return segments
 

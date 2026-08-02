@@ -23,7 +23,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SilenceRate : public Algorithm {
@@ -57,11 +57,11 @@ class SilenceRate : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 /**
@@ -103,7 +103,7 @@ class SilenceRate : public Algorithm {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SILENCERATE_H

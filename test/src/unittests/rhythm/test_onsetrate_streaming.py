@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import OnsetRate
+from sonoria_test import *
+from sonoria.streaming import OnsetRate
 
 class TestStreamingOnsetRate(TestCase):
 

@@ -24,7 +24,7 @@
 #include <list>
 #include <iostream>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ChordsDetectionBeats : public Algorithm {
@@ -76,7 +76,7 @@ class ChordsDetectionBeats : public Algorithm {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_CHORDSDETECTIONBEATS_H

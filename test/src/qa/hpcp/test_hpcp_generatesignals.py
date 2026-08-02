@@ -2,8 +2,8 @@ import random
 import numpy as np
 
 from scipy.signal import spectrogram
-import essentia
-from essentia.standard import *
+import sonoria
+from sonoria.standard import *
 
 from test_hpcp_parameters import *
 
@@ -71,7 +71,7 @@ def getTone(signalNeeded):
     return signal
                 
 def getWhiteNoise():
-    signal = essentia.array(np.random.randn(int(N)))
+    signal = sonoria.array(np.random.randn(int(N)))
     # Normalization
     signal = signal / max(signal)
     
@@ -84,7 +84,7 @@ def getLPF(signalNeeded):
     
     fc = 440.*np.power(semitone, midi_note)
     LPF = LowPass(sampleRate=fs, cutoffFrequency=fc)
-    signal = essentia.array(LPF(getWhiteNoise()))
+    signal = sonoria.array(LPF(getWhiteNoise()))
     # Normalization
     signal = signal / max(signal)
     
@@ -100,7 +100,7 @@ def getBPF(signalNeeded):
     bandwidth = fc1 - fc0
     cutoffFrequency = (fc0 + fc1) / 2.
     BPF = BandPass(bandwidth=bandwidth, cutoffFrequency=cutoffFrequency,sampleRate=fs)
-    signal = essentia.array(BPF(getWhiteNoise()))    
+    signal = sonoria.array(BPF(getWhiteNoise()))    
     # Normalization
     signal = signal / max(signal)
     

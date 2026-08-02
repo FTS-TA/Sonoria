@@ -23,7 +23,7 @@
 
 
 from numpy import *
-from essentia_test import *
+from sonoria_test import *
 
 class TestBeatTrackerDegara(TestCase): 
     def testDummy(self):

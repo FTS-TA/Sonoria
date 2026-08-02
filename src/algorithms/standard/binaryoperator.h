@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BinaryOperator : public Algorithm {
@@ -67,11 +67,11 @@ class BinaryOperator : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BinaryOperator : public StreamingAlgorithmWrapper {
@@ -91,7 +91,7 @@ class BinaryOperator : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_BINARYOPERATOR_H

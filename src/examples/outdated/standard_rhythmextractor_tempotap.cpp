@@ -24,7 +24,7 @@
 #include <essentia/utils/tnt/tnt_array2d.h>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 inline Real lagToBpm(Real lag, Real sampleRate, Real hopSize) {
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     exit(1);
   }
 
-  essentia::init();
+  sonoria::init();
 
   // params:
   int framesize = 1024;
@@ -446,5 +446,5 @@ int main(int argc, char* argv[]) {
   delete tempoTap;
   //delete bpmRubato;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 }

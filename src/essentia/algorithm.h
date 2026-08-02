@@ -25,7 +25,7 @@
 #include "iotypewrappers.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ESSENTIA_API Algorithm : public Configurable {
@@ -104,7 +104,7 @@ class ESSENTIA_API Algorithm : public Configurable {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "iotypewrappers_impl.h"
 

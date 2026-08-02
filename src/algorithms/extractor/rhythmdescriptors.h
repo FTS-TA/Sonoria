@@ -26,7 +26,7 @@
 #include "vectorinput.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class RhythmDescriptors : public AlgorithmComposite {
@@ -82,10 +82,10 @@ class RhythmDescriptors : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class RhythmDescriptors : public Algorithm {
@@ -133,6 +133,6 @@ class RhythmDescriptors : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif

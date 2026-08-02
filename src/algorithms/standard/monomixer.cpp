@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MonoMixer::name = "MonoMixer";
@@ -66,9 +66,9 @@ void MonoMixer::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* MonoMixer::name = standard::MonoMixer::name;
@@ -140,4 +140,4 @@ AlgorithmStatus MonoMixer::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

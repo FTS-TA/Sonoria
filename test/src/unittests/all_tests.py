@@ -24,8 +24,8 @@ import os
 import sys
 import unittest
 import glob
-import essentia
-import essentia.streaming
+import sonoria
+import sonoria.streaming
 
 try:
     from importlib import reload  # Python3
@@ -33,9 +33,9 @@ except:
     pass
 
 # we don't want to get too chatty when running all the tests
-essentia.log.info = False
-# essentia.log.debug += essentia.EAll
-# essentia.log.debug -= essentia.EConnectors
+sonoria.log.info = False
+# sonoria.log.debug += sonoria.EAll
+# sonoria.log.debug -= sonoria.EConnectors
 
 tests_dir = os.path.dirname(__file__)
 if tests_dir:
@@ -181,7 +181,7 @@ def mapPools(algo, func):
             if isinstance(input, tuple):
                 func(algo, output, input)
 
-            elif isinstance(input, essentia.streaming._StreamConnector):
+            elif isinstance(input, sonoria.streaming._StreamConnector):
                 mapPools(input.input_algo, func)
 
             # else ignore nowhere connections
@@ -198,7 +198,7 @@ def runResetRun(gen, *args, **kwargs):
     #    multiple generators...
     def isValid(algo):
         if (
-            isinstance(algo, essentia.streaming.VectorInput)
+            isinstance(algo, sonoria.streaming.VectorInput)
             and not list(algo.connections.values())[0]
         ):
             # non-connected VectorInput, we don't want to get too fancy here...
@@ -207,7 +207,7 @@ def runResetRun(gen, *args, **kwargs):
             return False
         for output, inputs in algo.connections.items():
             for inp in inputs:
-                if isinstance(inp, essentia.streaming._StreamConnector) and not isValid(
+                if isinstance(inp, sonoria.streaming._StreamConnector) and not isValid(
                     inp.input_algo
                 ):
                     return False
@@ -217,7 +217,7 @@ def runResetRun(gen, *args, **kwargs):
         print(
             "Network is not capable of doing the run/reset/run trick, doing it the normal way..."
         )
-        essentia.run(gen)
+        sonoria.run(gen)
         return
 
     # 1. Find all the outputs in the network that are connected to pools--aka
@@ -233,17 +233,17 @@ def runResetRun(gen, *args, **kwargs):
         output.disconnect(input)
 
         # connect dummy
-        dummy = essentia.Pool()
+        dummy = sonoria.Pool()
         output.dummyPools.append((dummy, input[1]))
         output >> output.dummyPools[-1]
 
     mapPools(gen, useDummy)
 
     # 2. Run the network
-    essentia.run(gen)
+    sonoria.run(gen)
 
     # 3. Reset the network
-    essentia.reset(gen)
+    sonoria.reset(gen)
 
     # 4. For each pool feeder, disconnect the dummy pool and reconnect the
     #    original pool
@@ -266,7 +266,7 @@ def runResetRun(gen, *args, **kwargs):
     mapPools(gen, useOriginal)
 
     # 5. Run the network for the second and final time
-    return essentia.run(gen)
+    return sonoria.run(gen)
 
 
 def runTests(tests):
@@ -287,12 +287,12 @@ if __name__ == "__main__":
     print("\n\nRunning tests with compute/reset/compute")
     print("-" * 70)
 
-    # setattr(sys.modules['essentia.common'], 'algoDecorator', computeDecorator(computeResetCompute))
-    essentia.standard._reloadAlgorithms()
-    essentia.standard._reloadAlgorithms("essentia_test")
+    # setattr(sys.modules['sonoria.common'], 'algoDecorator', computeDecorator(computeResetCompute))
+    sonoria.standard._reloadAlgorithms()
+    sonoria.standard._reloadAlgorithms("sonoria_test")
 
     # modify runGenerator behavior
-    setattr(sys.modules["essentia_test"], "run", runResetRun)
+    setattr(sys.modules["sonoria_test"], "run", runResetRun)
 
     result2 = runTests(getTests(testList, exclude=testExclude, strategy="reload"))
 

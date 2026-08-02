@@ -4,7 +4,7 @@
 #include <fstream>
 #include "tnt.h"
 
-namespace essentia {
+namespace sonoria {
 
   template <typename T>
   TNT::Array2D<T>&  operator/=(TNT::Array2D<T> &A, const T &k) {
@@ -51,6 +51,6 @@ namespace essentia {
     return A;
   }
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TNT2ESSENTIAUTILS_H

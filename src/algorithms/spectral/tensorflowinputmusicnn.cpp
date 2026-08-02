@@ -20,7 +20,7 @@
 #include "tensorflowinputmusicnn.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* TensorflowInputMusiCNN::name = "TensorflowInputMusiCNN";

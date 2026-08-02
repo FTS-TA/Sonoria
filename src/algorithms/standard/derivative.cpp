@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Derivative::name = "Derivative";
@@ -41,10 +41,10 @@ void Derivative::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* Derivative::name = standard::Derivative::name;
@@ -76,4 +76,4 @@ AlgorithmStatus Derivative::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

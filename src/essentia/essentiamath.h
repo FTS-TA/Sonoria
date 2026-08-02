@@ -41,7 +41,7 @@
 #define M_2PI (2 * M_PI)
 #define ALL_NOTES "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"
 
-namespace essentia {
+namespace sonoria {
 
 template <typename T> bool isPowerTwo(T n) {
   return (n & (n-1)) == 0;
@@ -962,7 +962,7 @@ template <typename T> T fmod(T a, T b) {
 
 // returns the principal phase argument between [-PI,PI]
 template <typename T> T princarg(T y) {
-  T x = essentia::fmod(y + M_PI, M_2PI);
+  T x = sonoria::fmod(y + M_PI, M_2PI);
   //if (x < 0) x += M_2PI; // should be useless with our implementation of fmod
   return x - M_PI;
 }
@@ -1444,6 +1444,6 @@ T roundToDecimal(T x, int decimal) {
   return round(pow(10, decimal) * x) / pow(10, decimal);
 }
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_MATH_H

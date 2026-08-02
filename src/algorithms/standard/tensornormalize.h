@@ -24,7 +24,7 @@
 #include "essentiamath.h"
 #include <unsupported/Eigen/CXX11/Tensor>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -67,11 +67,11 @@ class TensorNormalize : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TensorNormalize : public StreamingAlgorithmWrapper {
@@ -89,6 +89,6 @@ class TensorNormalize : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TENSORNORMALIZE_H

@@ -23,7 +23,7 @@
 #include "../streamingalgorithm.h"
 #include "../../pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PoolStorageBase : public Algorithm {
@@ -161,7 +161,7 @@ class PoolConnector {
   friend void operator>>(SourceBase& source, const PoolConnector& pc);
 };
 
-#define PC essentia::streaming::PoolConnector
+#define PC sonoria::streaming::PoolConnector
 
 // The reason why this function is defined with a const PC& as argument is described here:
 // http://herbsutter.com/2008/01/01/gotw-88-a-candidate-for-the-most-important-const/
@@ -185,6 +185,6 @@ void disconnect(SourceBase& source, Pool& pool,
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_POOLSTORAGE_H

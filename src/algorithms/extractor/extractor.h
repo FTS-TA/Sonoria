@@ -24,7 +24,7 @@
 #include "pool.h"
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Extractor : public Algorithm {
@@ -88,6 +88,6 @@ class Extractor : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif

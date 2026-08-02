@@ -15,14 +15,14 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
+import sonoria
 import numpy
 import sys
 from math import *
-from essentia import INFO
+from sonoria import INFO
 from squeezeInto import squeezeInto
-from essentia.essentia_extractor import descriptorNames
-from essentia.progress import Progress
+from sonoria.sonoria_extractor import descriptorNames
+from sonoria.progress import Progress
 
 namespace = 'lowlevel'
 dependencies = None
@@ -36,8 +36,8 @@ def compute(audio, pool, options):
     windowType = options['windowType']
 
     # frame algorithms
-    frames = essentia.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize, startFromZero = True)
-    loudness = essentia.Loudness()
+    frames = sonoria.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize, startFromZero = True)
+    loudness = sonoria.Loudness()
 
     INFO('Computing Dynamic descriptors...')
 
@@ -73,7 +73,7 @@ def compute(audio, pool, options):
          level_array[i] = THRESHOLD
 
     # Dynamic Average
-    mean = essentia.Mean()
+    mean = sonoria.Mean()
     average_loudness = 10.0*log10(mean(level_array))
 
     # re-scaling and range-control
@@ -90,7 +90,7 @@ def compute(audio, pool, options):
 
     # Dynamic Fluctuation
     '''
-    variance = essentia.Variance()
+    variance = sonoria.Variance()
     level_variance = variance(level_array)
     if level_variance <= THRESHOLD:
        level_variance = THRESHOLD

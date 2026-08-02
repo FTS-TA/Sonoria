@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* EasyLoader::name = essentia::standard::EasyLoader::name;
-const char* EasyLoader::category = essentia::standard::EasyLoader::category;
-const char* EasyLoader::description = essentia::standard::EasyLoader::description;
+const char* EasyLoader::name = sonoria::standard::EasyLoader::name;
+const char* EasyLoader::category = sonoria::standard::EasyLoader::category;
+const char* EasyLoader::description = sonoria::standard::EasyLoader::description;
 
 
 EasyLoader::EasyLoader() : AlgorithmComposite(),
@@ -76,10 +76,10 @@ void EasyLoader::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* EasyLoader::name = "EasyLoader";
@@ -135,4 +135,4 @@ void EasyLoader::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

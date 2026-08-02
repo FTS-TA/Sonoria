@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* StereoMuxer::name = essentia::standard::StereoMuxer::name;
-const char* StereoMuxer::category = essentia::standard::StereoMuxer::category;
-const char* StereoMuxer::description = essentia::standard::StereoMuxer::description;
+const char* StereoMuxer::name = sonoria::standard::StereoMuxer::name;
+const char* StereoMuxer::category = sonoria::standard::StereoMuxer::category;
+const char* StereoMuxer::description = sonoria::standard::StereoMuxer::description;
 
 
 AlgorithmStatus StereoMuxer::process() {
@@ -75,11 +75,11 @@ AlgorithmStatus StereoMuxer::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* StereoMuxer::name = "StereoMuxer";
@@ -104,4 +104,4 @@ void StereoMuxer::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

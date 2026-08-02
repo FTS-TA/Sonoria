@@ -23,7 +23,7 @@
 #include <essentia/pool.h>
 #include "credit_libav.h"
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 int main(int argc, char* argv[]) {
@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
   string outputFilename = argv[2];
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -90,7 +90,7 @@ int main(int argc, char* argv[]) {
   delete beatsMarker;
   delete audioWriter;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

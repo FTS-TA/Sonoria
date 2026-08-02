@@ -22,7 +22,7 @@
 #include "essentiamath.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* LoopBpmEstimator::name = "LoopBpmEstimator";
@@ -58,4 +58,4 @@ void LoopBpmEstimator::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

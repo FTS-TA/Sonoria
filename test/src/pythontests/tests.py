@@ -22,8 +22,8 @@ import os, sys
 sys.path.append('../build/python/')
 sys.path.append('../src/python/')
 
-tests = ['test_essentia_import',
-         'test_essentia_music',
+tests = ['test_sonoria_import',
+         'test_sonoria_music',
         ]
 
 passed = 0

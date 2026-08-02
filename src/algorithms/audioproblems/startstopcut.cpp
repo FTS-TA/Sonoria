@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* StartStopCut::name = "StartStopCut";
@@ -121,4 +121,4 @@ void StartStopCut::findNonSilentFrame(std::vector<Real> audio,
 }
 
 }  // namespace standard
-}  // namespace essentia
+}  // namespace sonoria

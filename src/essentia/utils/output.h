@@ -22,7 +22,7 @@
 
 #include <fstream>
 
-namespace essentia {
+namespace sonoria {
 
   void outputYAMLArray(std::ostream& out, const std::vector<Real>& v) {
     out.precision(10);
@@ -83,6 +83,6 @@ namespace essentia {
 
   }
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_OUTPUT_H

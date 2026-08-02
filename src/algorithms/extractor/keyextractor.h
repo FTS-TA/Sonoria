@@ -26,7 +26,7 @@
 #include "vectorinput.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class KeyExtractor : public AlgorithmComposite {
@@ -89,9 +89,9 @@ class KeyExtractor : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class KeyExtractor : public Algorithm {
@@ -141,6 +141,6 @@ class KeyExtractor : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // KEY_EXTRACTOR_H

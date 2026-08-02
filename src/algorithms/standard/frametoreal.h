@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class FrameToReal : public Algorithm {
@@ -63,11 +63,11 @@ class FrameToReal : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class FrameToReal : public StreamingAlgorithmWrapper {
@@ -106,6 +106,6 @@ FrameToReal() {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_ZEROCROSSINGRATE_H

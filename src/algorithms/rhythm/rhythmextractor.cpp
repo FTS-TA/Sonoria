@@ -26,7 +26,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 inline Real lagToBpm(Real lag, Real sampleRate, Real hopSize) {
@@ -403,11 +403,11 @@ void RhythmExtractor::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* RhythmExtractor::name = "RhythmExtractor";
@@ -515,4 +515,4 @@ void RhythmExtractor::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

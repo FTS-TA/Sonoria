@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class HarmonicPeaks : public Algorithm {
@@ -62,11 +62,11 @@ class HarmonicPeaks : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class HarmonicPeaks : public StreamingAlgorithmWrapper {
@@ -90,7 +90,7 @@ class HarmonicPeaks : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_HARMONICPEAKS_H

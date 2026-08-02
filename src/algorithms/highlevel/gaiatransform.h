@@ -24,7 +24,7 @@
 #include "algorithm.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class GaiaTransform : public Algorithm {
@@ -64,6 +64,6 @@ class GaiaTransform : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_GAIATRANSFORM_H

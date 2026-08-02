@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import EasyLoader, MonoLoader
+from sonoria_test import *
+from sonoria.streaming import EasyLoader, MonoLoader
 import sys
 import math
 class TestEasyLoader_Streaming(TestCase):
@@ -77,7 +77,7 @@ class TestEasyLoader_Streaming(TestCase):
         self.assertConfigureFails(EasyLoader(), {'filename':filename, 'startTime':10, 'endTime' : 1})
 
     def testResetStandard(self):
-        from essentia.standard import EasyLoader as stdEasyLoader
+        from sonoria.standard import EasyLoader as stdEasyLoader
         audiofile = join(testdata.audio_dir,'recorded','musicbox.wav')
         loader = stdEasyLoader(filename=audiofile, startTime=0, endTime=70)
         audio1 = loader()
@@ -88,7 +88,7 @@ class TestEasyLoader_Streaming(TestCase):
         self.assertEqualVector(audio2, audio3)
 
     def testLoadMultiple(self):
-        from essentia.standard import EasyLoader as stdEasyLoader
+        from sonoria.standard import EasyLoader as stdEasyLoader
         aiffpath = join('generated','synthesised','impulse','aiff')
         filename = join(testdata.audio_dir,aiffpath,'impulses_1second_44100.aiff')
         algo = stdEasyLoader(filename=filename)

@@ -25,7 +25,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TriangularBands : public Algorithm {
@@ -78,11 +78,11 @@ class TriangularBands : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TriangularBands : public StreamingAlgorithmWrapper {
@@ -101,6 +101,6 @@ class TriangularBands : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TRIANGULARBANDS_H

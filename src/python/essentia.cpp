@@ -35,7 +35,7 @@
 #include "essentia.h"
 #include "algorithmfactory.h"
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 
 #include "typedefs.h"
@@ -140,7 +140,7 @@ init_essentia() {
   PyModule_AddObject(Essentia__Module, (char*)"Pool", (PyObject*)&PyPoolType);
 
   // register algorithms in the factory
-  essentia::init();
+  sonoria::init();
 
   E_DEBUG(EPyBindings, "Successfully initialized _essentia python/C module");
 #if PY_MAJOR_VERSION >= 3

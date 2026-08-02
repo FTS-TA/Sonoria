@@ -24,7 +24,7 @@
 #include <chromaprint.h>
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Chromaprinter : public Algorithm {
@@ -62,11 +62,11 @@ class Chromaprinter : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 //#include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 /*class Chromaprinter : public StreamingAlgorithmWrapper {
@@ -137,7 +137,7 @@ class Chromaprinter : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_CHROMAPRINTER_H

@@ -24,7 +24,7 @@
 #include <string>
 #include <sstream>
 
-namespace essentia {
+namespace sonoria {
 
 /**
  * Return a new string with the characters of str in lower-case.
@@ -67,6 +67,6 @@ std::string pad(int n, int size, char paddingChar=' ', bool leftPadded=false);
 std::string pad(const std::string& str, int size, char paddingChar=' ', bool leftPadded=false);
 
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STRINGUTIL_H

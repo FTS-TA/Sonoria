@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ChordsDetection : public Algorithm {
@@ -68,13 +68,13 @@ class ChordsDetection : public Algorithm {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmcomposite.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 /**
@@ -120,6 +120,6 @@ class ChordsDetection : public AlgorithmComposite {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_CHORDSDETECTION_H

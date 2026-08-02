@@ -21,7 +21,7 @@
 #include "essentiamath.h"
 #include "peak.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 using namespace util; // peak class
 

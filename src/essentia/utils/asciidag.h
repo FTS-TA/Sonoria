@@ -24,7 +24,7 @@
 #include <string>
 #include "types.h"
 
-namespace essentia {
+namespace sonoria {
 
 /**
  * Represents a position in an integer 2D plane.
@@ -150,6 +150,6 @@ class AsciiBox {
 };
 
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_UTILS_ASCIIDAG_H

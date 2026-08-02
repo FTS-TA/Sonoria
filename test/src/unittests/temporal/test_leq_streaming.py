@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import Leq as sLeq
+from sonoria_test import *
+from sonoria.streaming import Leq as sLeq
 from math import sin, pi
 
 class TestLeq_Streaming(TestCase):

@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-import essentia.standard as ess
+from sonoria_test import *
+import sonoria.standard as ess
 import numpy as np
 
 testdir = join(filedir(), 'nsgiconstantq')
@@ -29,7 +29,7 @@ testdir = join(filedir(), 'nsgiconstantq')
 class TestNSGIConstantQ(TestCase):
 
     def testSynthetiseSine(self):
-        x = essentia.array(np.sin(2 * np.pi * 1000 * np.arange(2**12) / 44100))
+        x = sonoria.array(np.sin(2 * np.pi * 1000 * np.arange(2**12) / 44100))
 
         CQ, CQDC, DCNF = NSGConstantQ(inputSize=2**12)(x)
 
@@ -44,7 +44,7 @@ class TestNSGIConstantQ(TestCase):
         self.assertAlmostEqualVectorFixedPrecision(x, y, 3)
 
     def testSynthetiseSineLocalPhase(self):
-        x = essentia.array(np.sin(2 * np.pi * 1000 * np.arange(2**12) / 44100))
+        x = sonoria.array(np.sin(2 * np.pi * 1000 * np.arange(2**12) / 44100))
 
         CQ, CQDC, DCNF= NSGConstantQ(inputSize=2**12,
                                                                 phaseMode='local')(x)
@@ -62,7 +62,7 @@ class TestNSGIConstantQ(TestCase):
     def testSynthetiseSineOddSize(self):
         # Test the reconstruction capabilities for signals with an odd length.
         inputSize = 2 ** 12 + 1
-        x = essentia.array(np.sin(2 * np.pi * 1000 * np.arange(inputSize) / 44100))
+        x = sonoria.array(np.sin(2 * np.pi * 1000 * np.arange(inputSize) / 44100))
 
         CQ, CQDC, DCNF= NSGConstantQ(inputSize=inputSize)(x)
         y = NSGIConstantQ(inputSize=inputSize)(CQ, CQDC, DCNF)
@@ -70,7 +70,7 @@ class TestNSGIConstantQ(TestCase):
         self.assertAlmostEqualVectorFixedPrecision(x, y, 5)
 
     def testSynthetiseDC(self):
-        x = essentia.array(np.ones(2**12))
+        x = sonoria.array(np.ones(2**12))
 
         CQ, CQDC, DCNF = NSGConstantQ(inputSize=2**12)(x)
         CQList= list(CQ)
@@ -101,7 +101,7 @@ class TestNSGIConstantQ(TestCase):
         # The configuration of this algorithm is done the first time it is computed and 
         #  it will automatically change each time the input vectors modify their length. 
 
-        x = essentia.array(np.sin(2 * np.pi * 1000 * np.arange(2**12) / 44100))
+        x = sonoria.array(np.sin(2 * np.pi * 1000 * np.arange(2**12) / 44100))
         CQ, CQDC, DCNF = NSGConstantQ(inputSize=2**12)(x)
         CQList= list(CQ)
         for i in range(len(CQList)):
@@ -112,7 +112,7 @@ class TestNSGIConstantQ(TestCase):
         nsgiconstantq(CQList, CQDC, DCNF)
 
         # Reuse the algorith with different input shapes
-        x = essentia.array(np.sin(2 * np.pi * 1000 * np.arange(2**13) / 44100))
+        x = sonoria.array(np.sin(2 * np.pi * 1000 * np.arange(2**13) / 44100))
         CQ, CQDC, DCNF = NSGConstantQ(inputSize=2**13)(x)
         CQList= list(CQ)
         for i in range(len(CQList)):

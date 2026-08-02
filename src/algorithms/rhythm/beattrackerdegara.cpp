@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* BeatTrackerDegara::name = essentia::standard::BeatTrackerDegara::name;
-const char* BeatTrackerDegara::category = essentia::standard::BeatTrackerDegara::category;
-const char* BeatTrackerDegara::description = essentia::standard::BeatTrackerDegara::description;
+const char* BeatTrackerDegara::name = sonoria::standard::BeatTrackerDegara::name;
+const char* BeatTrackerDegara::category = sonoria::standard::BeatTrackerDegara::category;
+const char* BeatTrackerDegara::description = sonoria::standard::BeatTrackerDegara::description;
 
 
 BeatTrackerDegara::BeatTrackerDegara() : AlgorithmComposite(),
@@ -114,11 +114,11 @@ void BeatTrackerDegara::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* BeatTrackerDegara::name = "BeatTrackerDegara";
@@ -195,4 +195,4 @@ void BeatTrackerDegara::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

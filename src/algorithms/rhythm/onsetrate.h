@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class OnsetRate : public Algorithm {
@@ -92,13 +92,13 @@ public:
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "pool.h"
 #include "streamingalgorithmcomposite.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class OnsetRate : public AlgorithmComposite {
@@ -146,6 +146,6 @@ class OnsetRate : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_ONSETRATE_H

@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Danceability : public Algorithm {
@@ -110,12 +110,12 @@ class Danceability : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmcomposite.h" 
 #include "pool.h"
                                                                                 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Danceability : public AlgorithmComposite {
@@ -161,6 +161,6 @@ class Danceability : public AlgorithmComposite {
 };                                                                              
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_DANCEABILITY_H

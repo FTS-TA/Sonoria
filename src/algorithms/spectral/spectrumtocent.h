@@ -26,7 +26,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SpectrumToCent : public Algorithm {
@@ -76,11 +76,11 @@ class SpectrumToCent : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SpectrumToCent : public StreamingAlgorithmWrapper {
@@ -100,7 +100,7 @@ class SpectrumToCent : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SPECTRUMTOCENT_H

@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 class PercivalEnhanceHarmonics : public Algorithm {
 
@@ -51,11 +51,11 @@ class PercivalEnhanceHarmonics : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PercivalEnhanceHarmonics : public StreamingAlgorithmWrapper {
@@ -73,6 +73,6 @@ class PercivalEnhanceHarmonics : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PERCIVALENHANCEHARMONICS_H

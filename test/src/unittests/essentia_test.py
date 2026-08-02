@@ -19,17 +19,17 @@
 
 
 
-from essentia import *
-from essentia.utils import *
-from essentia.standard import *
+from sonoria import *
+from sonoria.utils import *
+from sonoria.standard import *
 from unittest import *
 from unittest import TestCase as BaseTestCase
 import numpy
 import testdata
 from os.path import join, split
 import sys
-from essentia.streaming import VectorInput, RealAccumulator
-from essentia._essentia import almostEqualArray
+from sonoria.streaming import VectorInput, RealAccumulator
+from sonoria._sonoria import almostEqualArray
 
 EssentiaException = RuntimeError
 
@@ -193,8 +193,8 @@ class TestCase(BaseTestCase):
 
         # Compare descriptor values one by one
         for descriptorName in pool_found.descriptorNames():
-            if 'essentia_git_sha' in descriptorName:
-                # Do not compare descriptor 'essentia_git_sha' as it will always be different when essentia is built 
+            if 'sonoria_git_sha' in descriptorName:
+                # Do not compare descriptor 'sonoria_git_sha' as it will always be different when sonoria is built 
                 # with uncommitted changes
                 continue
 

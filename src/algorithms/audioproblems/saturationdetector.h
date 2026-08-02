@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SaturationDetector : public Algorithm {
@@ -66,12 +66,12 @@ class SaturationDetector : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SaturationDetector : public StreamingAlgorithmWrapper {
@@ -90,6 +90,6 @@ class SaturationDetector : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // SATURATIONDETECTEOR_H

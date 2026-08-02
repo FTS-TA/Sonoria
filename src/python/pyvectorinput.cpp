@@ -21,7 +21,7 @@
 #include "vectorinput.h"
 #include "pytypes/pypool.h" // to use its type-determining capabilities
 
-using namespace essentia;
+using namespace sonoria;
 using namespace std;
 
 #define INIT_TYPE(CppType, initMethod) { \
@@ -117,7 +117,7 @@ static PyTypeObject PyVectorInputType = {
   0,                                                      // tp_setattro
   0,                                                      // tp_as_buffer
   Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,               // tp_flags
-  "essentia::streaming::VectorInput wrapper objects",     // tp_doc
+  "sonoria::streaming::VectorInput wrapper objects",     // tp_doc
   0,                                                      // tp_traverse
   0,                                                      // tp_clear
   0,                                                      // tp_richcompare

@@ -19,7 +19,7 @@
 
 #include "crosscorrelation.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* CrossCorrelation::name = "CrossCorrelation";

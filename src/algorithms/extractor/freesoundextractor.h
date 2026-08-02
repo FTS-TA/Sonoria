@@ -29,7 +29,7 @@
 #include "extractor_freesound/FreesoundTonalDescriptors.h"
 #include "extractor_freesound/extractor_version.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class FreesoundExtractor : public Algorithm {
@@ -149,6 +149,6 @@ class FreesoundExtractor : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif

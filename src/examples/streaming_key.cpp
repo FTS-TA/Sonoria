@@ -24,9 +24,9 @@
 #include <essentia/streaming/algorithms/poolstorage.h>
 #include "credit_libav.h" 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 Real ReplayGain(const string& filename, Pool& pool) {
   streaming::AlgorithmFactory& factory = streaming::AlgorithmFactory::instance();
@@ -177,7 +177,7 @@ int main(int argc, char* argv[]) {
   uint hopsize = 2048;
   uint zeropadding = 0;
 
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -214,7 +214,7 @@ int main(int argc, char* argv[]) {
   output->compute();
   delete output;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

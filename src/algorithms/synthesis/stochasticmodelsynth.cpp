@@ -21,7 +21,7 @@
 #include "essentiamath.h"
 #include <essentia/utils/synth_utils.h>
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* StochasticModelSynth::name = "StochasticModelSynth";

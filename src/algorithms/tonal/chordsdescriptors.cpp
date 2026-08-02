@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* ChordsDescriptors::name = "ChordsDescriptors";
@@ -181,11 +181,11 @@ void ChordsDescriptors::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* ChordsDescriptors::name = standard::ChordsDescriptors::name;
@@ -241,4 +241,4 @@ void ChordsDescriptors::reset() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

@@ -27,7 +27,7 @@
 #include "source.h"
 
 
-namespace essentia {
+namespace sonoria {
 
 void pcmMetadata(const std::string& filename, int& sr, int& ch, int& bitrate) {
 
@@ -50,6 +50,6 @@ void pcmMetadata(const std::string& filename, int& sr, int& ch, int& bitrate) {
   bitrate = int(16.0/1000.0*sr*ch);
 }
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif

@@ -26,9 +26,9 @@
 #include "credit_libav.h" 
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 
 int main(int argc, char* argv[]) {
@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
 
   cout << "Input sim matrix size: " << referenceFeature.size() << ", " << referenceFeature[0].size() << "\n" << endl;
   // register the algorithms in the factory
-  essentia::init();
+  sonoria::init();
   Pool pool;
   Real disExtension = 0.5;
   Real disOnset = 0.5;
@@ -139,7 +139,7 @@ int main(int argc, char* argv[]) {
 
   delete output;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

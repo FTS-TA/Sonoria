@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 
 
 def cutFrames(params, input=list(range(100))):

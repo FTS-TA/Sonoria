@@ -19,12 +19,12 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import math
 
-import essentia
-import essentia.streaming as es
-import essentia.standard as std
+import sonoria
+import sonoria.streaming as es
+import sonoria.standard as std
 
 
 def cutFrames(params, input = range(100)):
@@ -46,7 +46,7 @@ def analsynthHarmonicMaskStreaming(params, signal):
   
     out = array([0.])
   
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
     # windowing and FFT
     fcut = es.FrameCutter(frameSize = params['frameSize'], hopSize = params['hopSize'], startFromZero =  False);
     w = es.Windowing(type = "blackmanharris92");
@@ -83,7 +83,7 @@ def analsynthHarmonicMaskStreaming(params, signal):
     ifft.frame >> overl.frame
     overl.signal >> (pool, 'audio')
 
-    essentia.run(insignal)
+    sonoria.run(insignal)
     
 
     # remove first half window frames

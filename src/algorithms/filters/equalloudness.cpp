@@ -19,7 +19,7 @@
 
 #include "equalloudness.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 using namespace std;
 

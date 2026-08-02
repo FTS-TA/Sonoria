@@ -24,7 +24,7 @@
 #include "streamingalgorithmcomposite.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class EqloudLoader : public AlgorithmComposite {
@@ -68,14 +68,14 @@ class EqloudLoader : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "vectoroutput.h"
 #include "network.h"
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 // Standard non-streaming algorithm comes after the streaming one as it
@@ -121,7 +121,7 @@ class EqloudLoader : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_STREAMING_EQLOUDLOADER_H

@@ -18,10 +18,10 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 import math
-from essentia.standard import *
-import essentia.streaming as ess
+from sonoria.standard import *
+import sonoria.streaming as ess
 import numpy as np
 
 

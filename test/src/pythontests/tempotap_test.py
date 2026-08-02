@@ -140,15 +140,15 @@ def parse_args():
     return options, args
 
 if __name__ == '__main__':
-    import sys, os.path, essentia
+    import sys, os.path, sonoria
     options, args = parse_args()
     input_file = options.input_file
 
     # load audio file
-    audio_file = essentia.AudioFileInput(filename = input_file)
+    audio_file = sonoria.AudioFileInput(filename = input_file)
     audio = audio_file()
     sampleRate = 44100.
-    pool = essentia.Pool(input_file)
+    pool = sonoria.Pool(input_file)
 
     if options.ground_truth_file is not None:
       import yaml

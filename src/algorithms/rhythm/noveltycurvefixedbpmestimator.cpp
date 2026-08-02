@@ -22,9 +22,9 @@
 #include "bpmutil.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* NoveltyCurveFixedBpmEstimator::name = "NoveltyCurveFixedBpmEstimator";
@@ -288,4 +288,4 @@ Real NoveltyCurveFixedBpmEstimator::mainPeaksMean(const vector<Real>& positions,
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

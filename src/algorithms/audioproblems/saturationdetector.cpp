@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* SaturationDetector::name = "SaturationDetector";
@@ -159,4 +159,4 @@ void SaturationDetector::reset() {
 }
 
 }  // namespace standard
-}  // namespace essentia
+}  // namespace sonoria

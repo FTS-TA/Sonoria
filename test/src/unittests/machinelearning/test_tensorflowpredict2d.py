@@ -18,8 +18,8 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
-import essentia.streaming as streaming
+from sonoria_test import *
+import sonoria.streaming as streaming
 
 class TestTensorFlowPredict2D(TestCase):
 

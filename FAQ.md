@@ -1,20 +1,20 @@
 # Frequently Asked Questions
 
-libessentia.so is not found after installing from source
+libsonoria.so is not found after installing from source
 --------------------------------------------------------
 The library is installed into `/usr/local` and your system does not search for shared libraries there. [Configure your paths properly](http://unix.stackexchange.com/questions/67781/use-shared-libraries-in-usr-local-lib).
 
 
-Build Essentia on Ubuntu 14.04 or earlier
+Build Sonoria on Ubuntu 14.04 or earlier
 -----------------------------------------
-As it is noted in the [installation guide](http://essentia.upf.edu/documentation/installing.html), Essentia is only compatible with LibAv versions greater or equal to 10. The appropriate versions are distributed since Ubuntu 14.10 and Debian Jessie. If you have an earlier system (e.g., Ubuntu 14.04), you can choose one of the two options:
+As it is noted in the [installation guide](http://sonoria.upf.edu/documentation/installing.html), Sonoria is only compatible with LibAv versions greater or equal to 10. The appropriate versions are distributed since Ubuntu 14.10 and Debian Jessie. If you have an earlier system (e.g., Ubuntu 14.04), you can choose one of the two options:
 
 - upgrade your system which is recommended to do anyways in the long-term (e.g., to the latest Ubuntu LTS 16.04)
 - install the LibAv dependency from source
 
 To install LibAv from source:
 
-- If you have installed LibAv before, remove it so that it does not mess up Essentia installation 
+- If you have installed LibAv before, remove it so that it does not mess up Sonoria installation 
     ```
     sudo apt-get remove libavcodec-dev libavformat-dev libavutil-dev libswresample-dev
     ```
@@ -25,7 +25,7 @@ To install LibAv from source:
     make
     sudo make install
     ```
-- [Configure and build Essentia](http://essentia.upf.edu/documentation/installing.html#compiling-essentia)
+- [Configure and build Sonoria](http://sonoria.upf.edu/documentation/installing.html#compiling-sonoria)
 
 
 Linux/macOS static builds
@@ -58,7 +58,7 @@ Note that [Bazel](https://bazel.build/) has to be installed to build TensorFlow.
 For simplicity, we recommend to get Bazel through [Bazelisk](https://docs.bazel.build/versions/main/install-bazelisk.html).
 To build TensorFlow with GPU support [CUDA](https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn) have to be installed.
 Otherwise, GPU support can be deactivated by setting ```export TF_NEED_CUDA=0``` before building TensorFlow.
-More TensorFlow-related configuration is available in the [build configuration file](https://github.com/MTG/essentia/blob/master/packaging/build_config.sh).
+More TensorFlow-related configuration is available in the [build configuration file](https://github.com/MTG/sonoria/blob/master/packaging/build_config.sh).
 
 Alternatively, you can build each dependency apart running the corresponding scripts inside ```packaging/debian_3rdparty``` folder:
 ```
@@ -67,9 +67,9 @@ build_<dependency>.sh
 ...
 cd ../../
 ```
-Note that you can selectively build dependencies depending on the required Essentia algorithms.
+Note that you can selectively build dependencies depending on the required Sonoria algorithms.
 
-Build Essentia:
+Build Sonoria:
 ```
 ./waf configure  --with-static-examples
 ./waf
@@ -78,14 +78,14 @@ Build Essentia:
 The static executables will be in the ```build/src/examples``` folder.
 
 
-Building lightweight Essentia with reduced dependencies 
+Building lightweight Sonoria with reduced dependencies 
 -----------------------------------------------------
-Since version 2.1, build scripts can be configured to ignore 3rdparty dependencies required by Essentia in order to create a striped-down version of the library.  Use  ```./waf configure``` command with the ```--lightweight``` flag to provide the list of 3rdparty dependencies to be included. For example, the command below will configure to build Essentia avoiding all dependencies except fftw:
+Since version 2.1, build scripts can be configured to ignore 3rdparty dependencies required by Sonoria in order to create a striped-down version of the library.  Use  ```./waf configure``` command with the ```--lightweight``` flag to provide the list of 3rdparty dependencies to be included. For example, the command below will configure to build Sonoria avoiding all dependencies except fftw:
 ```
 ./waf configure --lightweight=fftw
 ```
 
-Avoid all dependencies including fftw and build with KissFFT instead (BSD, included in Essentia therefore no external linking needed, cross-platform):
+Avoid all dependencies including fftw and build with KissFFT instead (BSD, included in Sonoria therefore no external linking needed, cross-platform):
 
 ```
 ./waf configure --lightweight= --fft=KISS
@@ -99,7 +99,7 @@ Avoid all dependencies and build with Accelerate FFT (native on macOS/iOS):
 
 It is also possible to specify algorithms to be ignored using the ```--ignore-algos``` flag, although you need to take care that the ignored algorithm are not required by any of the algorithms and examples that will be compiled. Alternatively, with the ```--include-algos``` you can specify the only algorithms to be included.
 
-Note, that Essentia includes in its code the Spline library (LGPLv3) which is used by Spline and CubicSpline algorithms and is built by default. To ignore this library, use the following flag in ```./waf configure``` command:
+Note, that Sonoria includes in its code the Spline library (LGPLv3) which is used by Spline and CubicSpline algorithms and is built by default. To ignore this library, use the following flag in ```./waf configure``` command:
 ```
 --ignore-algos=Spline,CubicSpline
 ```
@@ -123,7 +123,7 @@ Build all dependencies (similarly to Linux static builds, make sure you have req
 ./packaging/build_3rdparty_static_win32.sh
 ```
 
-Build Essentia with static examples:
+Build Sonoria with static examples:
 ```
 ./waf configure --with-static-examples --cross-compile-mingw32
 ./waf
@@ -133,11 +133,11 @@ Build Essentia with static examples:
 Cross-compiling for Android
 ---------------------------
 
-A lightweight version of Essentia can be compiled using the ```--cross-compile-android``` flag. It requires reducing the dependencies to a bare minimum using KissFFT library for FFT. Specify the installation prefix with ```--prefix``` flag. Update the ```PATH``` variable to point to where you have your Android Standalone Toolchain.
+A lightweight version of Sonoria can be compiled using the ```--cross-compile-android``` flag. It requires reducing the dependencies to a bare minimum using KissFFT library for FFT. Specify the installation prefix with ```--prefix``` flag. Update the ```PATH``` variable to point to where you have your Android Standalone Toolchain.
 
 ```
 export PATH=~/Dev/android/toolchain/bin:$PATH;
-./waf configure --cross-compile-android --lightweight= --fft=KISS --prefix=/Users/carthach/Dev/android/modules/essentia
+./waf configure --cross-compile-android --lightweight= --fft=KISS --prefix=/Users/carthach/Dev/android/modules/sonoria
 ./waf
 ./waf install
 ```
@@ -145,7 +145,7 @@ export PATH=~/Dev/android/toolchain/bin:$PATH;
 
 Cross-compiling for iOS
 -----------------------
-A lightweight version of Essentia for iOS can be compiled using the ```--cross-compile-ios``` flag. It requires reducing the dependencies to a bare minimum using Accelerate Framework for FFT. 
+A lightweight version of Sonoria for iOS can be compiled using the ```--cross-compile-ios``` flag. It requires reducing the dependencies to a bare minimum using Accelerate Framework for FFT. 
 
 ```
 ./waf configure --cross-compile-ios --lightweight= --fft=ACCELERATE --build-static
@@ -153,12 +153,12 @@ A lightweight version of Essentia for iOS can be compiled using the ```--cross-c
 
 You can also compile it for iOS simulator (so that you can test on your desktop) using ```--cross-compile-ios-sim``` flag.
 
-Please note that TensorFlow-based Essentia algorithms are not supported on iOS at the moment because we do not currently offer a TensorFlowLite wrapper.
+Please note that TensorFlow-based Sonoria algorithms are not supported on iOS at the moment because we do not currently offer a TensorFlowLite wrapper.
 
 
-Compiling Essentia to ASM.js or WebAssembly using Emscripten
+Compiling Sonoria to ASM.js or WebAssembly using Emscripten
 ------------------------------------------------------------
-Use the instructions below to compile Essentia to intermediate [LLVM](https://llvm.org/) or [ASM.js](http://asmjs.org/) and [WebAssembly](https://webassembly.org/)(WASM) targets using [Emscripten](https://emscripten.org/). You can build Essentia with or without third party dependencies. Among the dependencies, only FFTW3 is currently supported (see instructions to build it below). The rest of dependencies have not been tested, but they should work as well. A lightweight WASM build of Essentia is used in our dedicated JavaScript wrapper [Essentia.js](https://essentia.upf.edu/essentiajs) which uses KISS FFT instead of FFTW3.
+Use the instructions below to compile Sonoria to intermediate [LLVM](https://llvm.org/) or [ASM.js](http://asmjs.org/) and [WebAssembly](https://webassembly.org/)(WASM) targets using [Emscripten](https://emscripten.org/). You can build Sonoria with or without third party dependencies. Among the dependencies, only FFTW3 is currently supported (see instructions to build it below). The rest of dependencies have not been tested, but they should work as well. A lightweight WASM build of Sonoria is used in our dedicated JavaScript wrapper [Sonoria.js](https://sonoria.upf.edu/sonoriajs) which uses KISS FFT instead of FFTW3.
 
 - Install the latest stable Emscripten release following the [instructions](https://emscripten.org/docs/getting_started/downloads.html) on their website. If you downloaded the SDK manually, make sure to activate the Emscripten environment by executing `emsdk_env.sh`.
 
@@ -175,10 +175,10 @@ emmake make
 emmake make install
 ```
 
-- Finally, compile Essentia with Emscripten as an LLVM target which can be further used for linking with your application code.
+- Finally, compile Sonoria with Emscripten as an LLVM target which can be further used for linking with your application code.
   
 ```bash
-cd path/to/essentia
+cd path/to/sonoria
 # for using KISS FFT
 emconfigure sh -c './waf configure --prefix=$EMSCRIPTEN/system/local/ --lightweight=KISS --emscripten'
 # OR
@@ -187,50 +187,50 @@ emconfigure sh -c './waf configure --prefix=$EMSCRIPTEN/system/local/ --lightwei
 emmake ./waf
 emmake ./waf install
 ```
-Essentia is now built. If you want to build applications with Essentia and Emscripten, be sure to read their [tutorial](https://kripken.github.io/emscripten-site/docs/getting_started/Tutorial.html). Essentia.js Github [repository](https://github.com/MTG/essentia.js) also has some nice set of examples for you to get started. Use the emcc compiler, preferably the ```-Oz``` option for size optimization, and include the static libraries for Essentia and FFTW as you would with source files. An example would be:
+Sonoria is now built. If you want to build applications with Sonoria and Emscripten, be sure to read their [tutorial](https://kripken.github.io/emscripten-site/docs/getting_started/Tutorial.html). Sonoria.js Github [repository](https://github.com/MTG/sonoria.js) also has some nice set of examples for you to get started. Use the emcc compiler, preferably the ```-Oz``` option for size optimization, and include the static libraries for Sonoria and FFTW as you would with source files. An example would be:
 
 ```bash
 # Make sure your script can access the variable $EMSCRIPTEN
 # (available to child processes of emconfigure and emmake)
 LIB_DIR=$EMSCRIPTEN/system/local/lib
 emcc -Oz -c application.cpp application.bc
-emcc -Oz application.bc ${LIB_DIR}/libessentia.a ${LIB_DIR}/libfftw3f.a -s WASM=1 -o out.js
+emcc -Oz application.bc ${LIB_DIR}/libsonoria.a ${LIB_DIR}/libfftw3f.a -s WASM=1 -o out.js
 ```
 Alternatively you could also build your applicaitons for asm.js targets by changing the flag `-s WASM=0`.
 
-You can also find some examples of interfacing your Essentia cpp code to JavaScript [here](https://github.com/MTG/essentia.js/blob/master/docs/tutorials/2.%20Building%20from%20Source.md#writing-custom-essentia-c-extractor-and-cross-compile-to-js).
+You can also find some examples of interfacing your Sonoria cpp code to JavaScript [here](https://github.com/MTG/sonoria.js/blob/master/docs/tutorials/2.%20Building%20from%20Source.md#writing-custom-sonoria-c-extractor-and-cross-compile-to-js).
 
 macOS static builds and templates (JUCE/VST and openFrameworks)
 -------------------------------------------------------------
 
-Here you can find portable 32-bit static builds of the Essentia C++ library and its dependencies for macOS (thanks to Cárthach from GiantSteps) as well as templates for JUCE/VST and openFrameworks:
+Here you can find portable 32-bit static builds of the Sonoria C++ library and its dependencies for macOS (thanks to Cárthach from GiantSteps) as well as templates for JUCE/VST and openFrameworks:
 
-https://github.com/GiantSteps/Essentia-Libraries
+https://github.com/GiantSteps/Sonoria-Libraries
 
 
-Building standalone Essentia Vamp plugin
+Building standalone Sonoria Vamp plugin
 ----------------------------------------
 
-It is possible to create a standalone binary for Essentia's Vamp plugin (works for Linux and macOS).
+It is possible to create a standalone binary for Sonoria's Vamp plugin (works for Linux and macOS).
 
 ```
 ./waf configure --build-static --with-vamp --mode=release --lightweight= --fft=KISS
 ./waf
 ```
 
-The resulting binary (```build/src/examples/libvamp_essentia.so``` on Linux, ```build/src/examples/libvamp_essentia.dylib``` on macOS) is a lightweight shared library that can be distributed as a single file without requirement to install Essentia's dependencies on the target machine.
+The resulting binary (```build/src/examples/libvamp_sonoria.so``` on Linux, ```build/src/examples/libvamp_sonoria.dylib``` on macOS) is a lightweight shared library that can be distributed as a single file without requirement to install Sonoria's dependencies on the target machine.
 
 
 Running tests
 -------------
-In the case you want to assure correct working of Essentia, do the tests.
+In the case you want to assure correct working of Sonoria, do the tests.
 
 The most important test is the basetest, it should never fail: 
 ```
 ./build/basetest
 ```
 
-Run all Python tests (all Essentia algorithms, including based on TensorFlow):
+Run all Python tests (all Sonoria algorithms, including based on TensorFlow):
 ```
 python3 waf run_python_tests
 ```
@@ -248,7 +248,7 @@ python3 test/src/unittests/all_tests.py audioloader_streaming
 
 Writing tests
 -------------
-It is manadatory to write Python unit tests when developing new algorithms to be included in Essentia. The easiest way to start writing a test is to adapt [existing examples](https://github.com/MTG/essentia/tree/master/test/src/unittests). The tests are based on [unittest](https://docs.python.org/3/library/unittest.html).
+It is manadatory to write Python unit tests when developing new algorithms to be included in Sonoria. The easiest way to start writing a test is to adapt [existing examples](https://github.com/MTG/sonoria/tree/master/test/src/unittests). The tests are based on [unittest](https://docs.python.org/3/library/unittest.html).
 
 All unit tests for algorithms are located in ```test/src/unittests``` folder. They are organized by sub-folders similarly to the code for the algorithms. 
 
@@ -273,26 +273,26 @@ A number of assert methods are available:
 - ```assertAlmostEqualAbs```, ```assertAlmostEqualVectorAbs``` (test if the difference between observed and expected value is lower than then the given absolute threshold)
 
 
-How to compile my own C++ code that uses Essentia?
+How to compile my own C++ code that uses Sonoria?
 --------------------------------------------------
 
-Here is an example how to compile [standard_mfcc.cpp](https://github.com/MTG/essentia/blob/2.0.1/src/examples/standard_mfcc.cpp) example on Linux linking with a system-wide installation of Essentia (done by ```./waf install```) and all its dependencies. Modify to your needs. 
+Here is an example how to compile [standard_mfcc.cpp](https://github.com/MTG/sonoria/blob/2.0.1/src/examples/standard_mfcc.cpp) example on Linux linking with a system-wide installation of Sonoria (done by ```./waf install```) and all its dependencies. Modify to your needs. 
 
 ```
-g++ -pipe -Wall -O2 -fPIC -I/usr/local/include/essentia/ -I/usr/local/include/essentia/scheduler/ -I/usr/local/include/essentia/streaming/  -I/usr/local/include/essentia/utils -I/usr/include/taglib -I/usr/local/include/gaia2 -I/usr/include/qt4 -I/usr/include/qt4/QtCore -D__STDC_CONSTANT_MACROS standard_mfcc.cpp -o standard_mfcc -L/usr/local/lib -lessentia -lfftw3 -lyaml -lavcodec -lavformat -lavutil -lsamplerate -ltag -lfftw3f -lQtCore -lgaia2
+g++ -pipe -Wall -O2 -fPIC -I/usr/local/include/sonoria/ -I/usr/local/include/sonoria/scheduler/ -I/usr/local/include/sonoria/streaming/  -I/usr/local/include/sonoria/utils -I/usr/include/taglib -I/usr/local/include/gaia2 -I/usr/include/qt4 -I/usr/include/qt4/QtCore -D__STDC_CONSTANT_MACROS standard_mfcc.cpp -o standard_mfcc -L/usr/local/lib -lsonoria -lfftw3 -lyaml -lavcodec -lavformat -lavutil -lsamplerate -ltag -lfftw3f -lQtCore -lgaia2
 ```
 
 Alternatively, if you want to create and build your own examples, the easiest way is to add them to ```src/examples``` folder, modify ```src/examples/wscript``` file accordingly and use ```./waf configure --with-examples; ./waf``` to build them.
 
-If you would also like to use [waf](https://waf.io/) in your application as we do, we provide an [example waf template using Essentia](https://github.com/MTG/essentia-project-template/).
+If you would also like to use [waf](https://waf.io/) in your application as we do, we provide an [example waf template using Sonoria](https://github.com/MTG/sonoria-project-template/).
 
-You can build your application using XCode (macOS) following [these steps](https://github.com/MTG/essentia/issues/58#issuecomment-38530548).
+You can build your application using XCode (macOS) following [these steps](https://github.com/MTG/sonoria/issues/58#issuecomment-38530548).
 
 
-How to compute music descriptors using Essentia?
+How to compute music descriptors using Sonoria?
 ------------------------------------------------
 
-Because Essentia is a library you are very fexible in the ways you can compute descriptors out of audio:
+Because Sonoria is a library you are very fexible in the ways you can compute descriptors out of audio:
 
 - using [premade extractors out-of-box](extractors_out_of_box.html) (the easiest way without programming)
 - using Python (see [Python tutorial](python_tutorial.html))
@@ -304,11 +304,11 @@ How to know which other Algorithms an Algorithm uses?
 
 The most obvious answer is: by reading its code. However, it is also possible to generate such a list automatically. 
 
-Running the Python script ```src/examples/python/show_algo_dependencies.py``` will output a list of all intermediate Algorithms created within each Algorithm in Essentia. It utilizes the logging framework and watches for messages generated by AlgorithmFactory at the moment of running ```create()``` method for each internal algorithm.
+Running the Python script ```src/examples/python/show_algo_dependencies.py``` will output a list of all intermediate Algorithms created within each Algorithm in Sonoria. It utilizes the logging framework and watches for messages generated by AlgorithmFactory at the moment of running ```create()``` method for each internal algorithm.
 
 Note, that you cannot be sure this list of dependencies is 100% correct as the script simply instantiates each algorithm to test for its dependencies, but does not run the ```compute``` stage. It is up to developers conscience to keep instantiations in a correct place, and if an Algorithm is being created on the ```compute``` stage, it will be unnoticed.
 
-## How many algorithms are in Essentia?
+## How many algorithms are in Sonoria?
 
 The amount of algorithms counting streaming and standard mode separately:
 ```
@@ -323,24 +323,24 @@ cat /tmp/all.txt | grep -- "---------- " | cut -c 12- | sed s/"streaming : "// |
 ```
 
 
-Using Essentia real-time
+Using Sonoria real-time
 ------------------------
-You can use Essentia's streaming mode in real time feeding input audio frames to a network of algorithms via RingBufferInput. The output of the network can be consumed in real time using RingBufferOutput. 
+You can use Sonoria's streaming mode in real time feeding input audio frames to a network of algorithms via RingBufferInput. The output of the network can be consumed in real time using RingBufferOutput. 
 
-As an example, see the code of [essentiaRT~](https://github.com/GiantSteps/MC-Sonaar/tree/master/essentiaRT~). 
+As an example, see the code of [sonoriaRT~](https://github.com/GiantSteps/MC-Sonaar/tree/master/sonoriaRT~). 
 
-- [EssentiaOnset.cpp#L70](https://github.com/GiantSteps/MC-Sonaar/blob/master/essentiaRT~/EssentiaOnset.cpp#L70)
-- [EssentiaOnset.cpp#L127](https://github.com/GiantSteps/MC-Sonaar/blob/master/essentiaRT~/EssentiaOnset.cpp#L127)
-- [main.cpp](https://github.com/GiantSteps/MC-Sonaar/blob/master/essentiaRT~/main.cpp)
+- [SonoriaOnset.cpp#L70](https://github.com/GiantSteps/MC-Sonaar/blob/master/sonoriaRT~/SonoriaOnset.cpp#L70)
+- [SonoriaOnset.cpp#L127](https://github.com/GiantSteps/MC-Sonaar/blob/master/sonoriaRT~/SonoriaOnset.cpp#L127)
+- [main.cpp](https://github.com/GiantSteps/MC-Sonaar/blob/master/sonoriaRT~/main.cpp)
 
-You can also use Essentia's standard mode for real-time computations. 
+You can also use Sonoria's standard mode for real-time computations. 
 
 Not all algorithms available in the library are suited for real-time analysis due to their computational complexity. Some complex algorithms, such as BeatTrackerDegara, BeatTrackerMultiFeatures, and PredominantMelody, require large segments of audio in order to function properly.
 
 Make sure that you do not reconfigure an algorithm (from the main UI thread, most likely) while an audio callback (from an audio thread) is currently being called, as the algorithms are not thread-safe.
 
 
-Essentia Music Extractor
+Sonoria Music Extractor
 ------------------------
 
 ### Converting descriptor files to CSV

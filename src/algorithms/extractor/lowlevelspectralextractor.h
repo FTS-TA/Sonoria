@@ -26,7 +26,7 @@
 #include "vectorinput.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class LowLevelSpectralExtractor : public AlgorithmComposite {
@@ -101,9 +101,9 @@ class LowLevelSpectralExtractor : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class LowLevelSpectralExtractor : public Algorithm {

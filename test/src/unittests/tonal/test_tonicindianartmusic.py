@@ -18,7 +18,7 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 from numpy import sin, float32, pi, arange, mean, log2, floor, ceil, concatenate
 import numpy as np
 
@@ -67,7 +67,7 @@ class TestTonicIndianArtMusic(TestCase):
     # This tonic corresponds to the following mp3 file.
     # "23582__gopalkoduri__carnatic-varnam-by-vignesh-in-abhogi-raaga.mp3'
     #
-    #  copy this file into essentia/test/audio/recorded.
+    #  copy this file into sonoria/test/audio/recorded.
 
 
     def testRegressionVignesh(self):
@@ -80,7 +80,7 @@ class TestTonicIndianArtMusic(TestCase):
         self.assertAlmostEqualFixedPrecision(tonic, referenceTonic, 0)
 
     def testRegression(self):
-        # Regression test using existing vignesh audio file in "essentia/test/audio/recorded"
+        # Regression test using existing vignesh audio file in "sonoria/test/audio/recorded"
         audio = MonoLoader(filename = join(testdata.audio_dir, 'recorded/vignesh.wav'),
                             sampleRate = 44100)()
         referenceTonic = 102.74

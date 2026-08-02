@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import StartStopSilence
+from sonoria_test import *
+from sonoria.streaming import StartStopSilence
 
 class TestStartStopSilence_Streaming(TestCase):
 

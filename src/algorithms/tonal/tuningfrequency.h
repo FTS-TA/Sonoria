@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TuningFrequency : public Algorithm {
@@ -73,11 +73,11 @@ class TuningFrequency : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TuningFrequency : public StreamingAlgorithmWrapper {
@@ -99,6 +99,6 @@ class TuningFrequency : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TUNINGFREQUENCY_H

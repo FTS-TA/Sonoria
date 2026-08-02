@@ -18,8 +18,8 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
-from essentia.streaming import FlatnessSFX as sFlatnessSFX
+from sonoria_test import *
+from sonoria.streaming import FlatnessSFX as sFlatnessSFX
 
 class TestFlatnessSfx_Streaming(TestCase):
 

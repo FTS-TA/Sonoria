@@ -19,12 +19,12 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import math
 
-import essentia
-import essentia.streaming as es
-import essentia.standard as std
+import sonoria
+import sonoria.streaming as es
+import sonoria.standard as std
 
 
 import numpy as np
@@ -76,7 +76,7 @@ def cleaningSineTracks(freqsTotal, minFrames):
 
 
 def analHarmonicModelStreaming(params, signal):
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
 
     # windowing and FFT
     fcut = es.FrameCutter(frameSize = params['frameSize'], hopSize = params['hopSize'], startFromZero =  False);
@@ -94,7 +94,7 @@ def analHarmonicModelStreaming(params, signal):
                                   freqDevSlope = params['freqDevSlope'])
 
     # add half window of zeros to input signal to reach same ooutput length
-    signal  = numpy.append(signal, essentia.zeros(params['frameSize'] // 2))
+    signal  = numpy.append(signal, sonoria.zeros(params['frameSize'] // 2))
     insignal = VectorInput(signal)
     insignal.data >> fcut.signal
 
@@ -111,7 +111,7 @@ def analHarmonicModelStreaming(params, signal):
     smanal.frequencies >> (pool, 'frequencies')
     smanal.phases >> (pool, 'phases')
 
-    essentia.run(insignal)
+    sonoria.run(insignal)
 
     # remove first half window frames
     mags = pool['magnitudes']
@@ -129,7 +129,7 @@ def analHarmonicModelStreaming(params, signal):
 
 
 def analsynthHarmonicModelStreaming(params, signal):
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
 
     # windowing and FFT
     fcut = es.FrameCutter(frameSize = params['frameSize'], hopSize = params['hopSize'], startFromZero =  False);
@@ -146,7 +146,7 @@ def analsynthHarmonicModelStreaming(params, signal):
     overl = es.OverlapAdd (frameSize = params['frameSize'], hopSize = params['hopSize']);
 
     # add half window of zeros to input signal to reach same ooutput length
-    signal = numpy.append(signal, essentia.zeros(params['frameSize'] // 2))
+    signal = numpy.append(signal, sonoria.zeros(params['frameSize'] // 2))
     insignal = VectorInput(signal)
 
     # analysis
@@ -172,7 +172,7 @@ def analsynthHarmonicModelStreaming(params, signal):
     ifft.frame >> overl.frame
     overl.signal >> (pool, 'audio')
 
-    essentia.run(insignal)
+    sonoria.run(insignal)
 
     # remove short tracks
     #freqs = pool['frequencies']
@@ -201,7 +201,7 @@ class TestHarmonicModel(TestCase):
 
         # generate test signal
         signalSize = 10 * self.params['frameSize']
-        signal = essentia.zeros(signalSize)
+        signal = sonoria.zeros(signalSize)
 
         [mags, freqs, phases] = analHarmonicModelStreaming(self.params, signal)
 
@@ -216,7 +216,7 @@ class TestHarmonicModel(TestCase):
         from random import random
         # generate test signal
         signalSize = 10 * self.params['frameSize']
-        signal = array([2*(random()-0.5)*i for i in essentia.ones(signalSize)])
+        signal = array([2*(random()-0.5)*i for i in sonoria.ones(signalSize)])
 
         # for white noise test set sine minimum duration to 50ms, and min threshold of -20dB
         self.params['minSineDur'] = 0.05

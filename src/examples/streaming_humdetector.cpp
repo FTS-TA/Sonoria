@@ -23,8 +23,8 @@
 #include <essentia/streaming/algorithms/poolstorage.h>
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 using namespace scheduler;
 
 
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
   }
 
   // Register the algorithms in the factory(ies).
-  essentia::init();
+  sonoria::init();
 
   /////// PARAMS //////////////
   // Don't change these default values as they guarantee that pitch extractor output
@@ -81,7 +81,7 @@ int main(int argc, char* argv[]) {
   output->compute();
 
   delete output;
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TempoTapMaxAgreement : public Algorithm {
@@ -79,11 +79,11 @@ class TempoTapMaxAgreement : public Algorithm {
 }; // class TempoTapMaxAgreement
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TempoTapMaxAgreement : public StreamingAlgorithmWrapper {
@@ -103,7 +103,7 @@ class TempoTapMaxAgreement : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_TEMPOTAPMAXAGREEMENT_H

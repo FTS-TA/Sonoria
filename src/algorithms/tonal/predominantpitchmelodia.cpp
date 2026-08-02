@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -253,11 +253,11 @@ PredominantPitchMelodia::~PredominantPitchMelodia() {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -454,4 +454,4 @@ void PredominantPitchMelodia::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

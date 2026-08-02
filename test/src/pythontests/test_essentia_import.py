@@ -20,8 +20,8 @@
 
 def test():
   try:
-    import essentia
+    import sonoria
     return 0
   except ImportError:
-    print("Failed to import essentia module")
+    print("Failed to import sonoria module")
     return 1

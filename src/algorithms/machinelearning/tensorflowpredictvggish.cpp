@@ -21,12 +21,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TensorflowPredictVGGish::name = essentia::standard::TensorflowPredictVGGish::name;
-const char* TensorflowPredictVGGish::category = essentia::standard::TensorflowPredictVGGish::category;
-const char* TensorflowPredictVGGish::description = essentia::standard::TensorflowPredictVGGish::description;
+const char* TensorflowPredictVGGish::name = sonoria::standard::TensorflowPredictVGGish::name;
+const char* TensorflowPredictVGGish::category = sonoria::standard::TensorflowPredictVGGish::category;
+const char* TensorflowPredictVGGish::description = sonoria::standard::TensorflowPredictVGGish::description;
 
 TensorflowPredictVGGish::TensorflowPredictVGGish() : AlgorithmComposite(),
     _frameCutter(0), _tensorflowInputVGGish(0), _vectorRealToTensor(0), _tensorToPool(0),
@@ -129,10 +129,10 @@ void TensorflowPredictVGGish::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TensorflowPredictVGGish::name = "TensorflowPredictVGGish";
@@ -232,4 +232,4 @@ void TensorflowPredictVGGish::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BpmRubato : public Algorithm {
@@ -66,11 +66,11 @@ class BpmRubato : public Algorithm {
 }; // class BpmRubato
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BpmRubato : public StreamingAlgorithmWrapper {
@@ -92,6 +92,6 @@ class BpmRubato : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_BPMRUBATO_H

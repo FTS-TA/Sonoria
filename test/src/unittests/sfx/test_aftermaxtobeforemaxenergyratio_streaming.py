@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import AfterMaxToBeforeMaxEnergyRatio as \
+from sonoria_test import *
+from sonoria.streaming import AfterMaxToBeforeMaxEnergyRatio as \
         sAfterMaxToBeforeMaxEnergyRatio
 
 class TestAfterMaxToBeforeMaxEnergyRatio_Streaming(TestCase):

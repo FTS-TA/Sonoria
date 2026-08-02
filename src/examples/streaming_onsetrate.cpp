@@ -24,13 +24,13 @@
 #include "credit_libav.h"
  
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 int main(int argc, char* argv[]) {
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -86,7 +86,7 @@ int main(int argc, char* argv[]) {
   cout << "onsetRate: " << onsetTimes.size() / fileLength << endl;
   cout << "onsetTimes: " << onsetTimes << endl;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

@@ -25,15 +25,15 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::standard;
+using namespace sonoria;
+using namespace sonoria::standard;
 
 
 int essentia_main(string audioFilename, string outputFilename) {
   // Returns: 1 on essentia error
 
   try {
-    essentia::init();
+    sonoria::init();
 
     cout.precision(10); // TODO ????
 
@@ -384,7 +384,7 @@ int essentia_main(string audioFilename, string outputFilename) {
     delete loudnessEBUR128;
     delete startStopSilence;
     
-    essentia::shutdown();
+    sonoria::shutdown();
     cout << "-------- Done! ---------" << endl;
   }
   catch (EssentiaException& e) {

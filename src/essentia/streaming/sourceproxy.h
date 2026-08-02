@@ -27,7 +27,7 @@
 #include "essentiautil.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 /**
@@ -46,7 +46,7 @@ class SourceProxyBase : public SourceBase {
 
   ~SourceProxyBase() {
     E_DEBUG(EMemory, "Deleting SourceProxy " << fullName());
-    if (_proxiedSource) essentia::streaming::detach(*_proxiedSource, *this);
+    if (_proxiedSource) sonoria::streaming::detach(*_proxiedSource, *this);
   }
 
   SourceBase* proxiedSource() { return _proxiedSource; }
@@ -113,7 +113,7 @@ class SourceProxyBase : public SourceBase {
 
 
   void detach() {
-    if (_proxiedSource) essentia::streaming::detach(*_proxiedSource, *this);
+    if (_proxiedSource) sonoria::streaming::detach(*_proxiedSource, *this);
   }
 
   virtual void connect(SinkBase& sink) {
@@ -264,7 +264,7 @@ inline void detach(SourceBase& innerSource, SourceProxyBase& proxy) {
 }
 
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace streaming
 
 

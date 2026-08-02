@@ -27,9 +27,9 @@
 
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 
 void usage(char *progname) {
@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
       usage(argv[0]);
   }
 
-  essentia::init();
+  sonoria::init();
 
   Pool options;
   Pool pool;
@@ -150,7 +150,7 @@ int main(int argc, char* argv[]) {
   }
     
   n.clear();
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

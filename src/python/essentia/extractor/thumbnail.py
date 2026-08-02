@@ -19,8 +19,8 @@
 
 
 import sys
-import essentia
-from essentia import EssentiaError
+import sonoria
+from sonoria import EssentiaError
 from gaia2 import *
 from math import *
 

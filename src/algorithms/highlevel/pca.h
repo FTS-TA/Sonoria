@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PCA : public Algorithm {
@@ -56,7 +56,7 @@ class PCA : public Algorithm {
 };
 
 } //namespace standard
-} //namespace essentia
+} //namespace sonoria
 
 
 #endif // ESSENTIA_PCA_H

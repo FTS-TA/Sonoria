@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class NoveltyCurve : public Algorithm {
@@ -70,13 +70,13 @@ class NoveltyCurve : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmcomposite.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class NoveltyCurve : public AlgorithmComposite {
@@ -122,6 +122,6 @@ class NoveltyCurve : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_NOVELTYCURVE_H

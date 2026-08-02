@@ -25,7 +25,7 @@
 #include <complex>
 #include <Accelerate/Accelerate.h>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class IFFTA : public Algorithm {
@@ -79,11 +79,11 @@ class IFFTA : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class IFFTA : public StreamingAlgorithmWrapper {
@@ -101,6 +101,6 @@ class IFFTA : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_IFFTA_H

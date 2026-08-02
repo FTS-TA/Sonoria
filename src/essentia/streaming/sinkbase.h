@@ -23,7 +23,7 @@
 #include "../types.h"
 #include "../connector.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SinkBase;
@@ -67,8 +67,8 @@ class SinkBase : public Connector {
     // NB: this call needs to come before the next one because _source is set by the proxy
     //     even though we're not explicitly connected to a source ourselves
     E_DEBUG(EMemory, "Deleting SinkBase " << fullName());
-    if (_sproxy) essentia::streaming::detach(*_sproxy, *this);
-    if (_source) essentia::streaming::disconnect(*_source, *this);
+    if (_sproxy) sonoria::streaming::detach(*_sproxy, *this);
+    if (_source) sonoria::streaming::disconnect(*_source, *this);
     E_DEBUG(EMemory, "Deleting SinkBase " << fullName() << "ok!");
   }
 
@@ -111,6 +111,6 @@ class SinkBase : public Connector {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SINKBASE_H

@@ -22,7 +22,7 @@
 #include <complex>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 static const Real _freqsMask[] = {0., 20., 25., 31.5, 40., 50., 63., 80.,

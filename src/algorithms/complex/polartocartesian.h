@@ -24,7 +24,7 @@
 #include "streamingalgorithmwrapper.h"
 #include <complex>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PolarToCartesian : public Algorithm {
@@ -71,7 +71,7 @@ class PolarToCartesian : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_POLAR2CARTESIAN_H

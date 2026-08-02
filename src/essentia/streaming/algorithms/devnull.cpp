@@ -24,7 +24,7 @@ using namespace std;
 
 #define CREATE_DEVNULL(type) if (sameType(sourceType, typeid(type))) devnull = new DevNull<type>();
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -76,4 +76,4 @@ void disconnect(SourceBase& source, DevNullConnector devnull) {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

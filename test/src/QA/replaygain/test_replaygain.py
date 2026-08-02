@@ -21,7 +21,7 @@
 import sys
 import subprocess
 
-import essentia.standard as es
+import sonoria.standard as es
 
 sys.path.insert(0, './')
 from qa_test import *

@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class EffectiveDuration : public Algorithm {
@@ -53,11 +53,11 @@ class EffectiveDuration : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class EffectiveDuration : public StreamingAlgorithmWrapper {
@@ -75,6 +75,6 @@ class EffectiveDuration : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_EFFECTIVEDURATION_H

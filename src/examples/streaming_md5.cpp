@@ -23,12 +23,12 @@
 #include <essentia/scheduler/network.h>
 #include "credit_libav.h"
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 int main(int argc, char* argv[]) {
-  essentia::init();
+  sonoria::init();
   Pool pool;
 
   cout << "MD5 extractor computes MD5 value over undecoded audio payload of a file ignoring metadata. It can be used to identify duplicates, that is, files that have the same audio content although their metadata can differ." << endl;
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
   network.run();
 
   cout << "MD5: " << pool.value<string>("md5") << endl;
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

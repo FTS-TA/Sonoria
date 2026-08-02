@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 class LoopBpmConfidence : public Algorithm {
 
@@ -58,11 +58,11 @@ class LoopBpmConfidence : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class LoopBpmConfidence : public StreamingAlgorithmWrapper {
@@ -82,6 +82,6 @@ class LoopBpmConfidence : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_LOOP_BPM_CONFIDENCE_H

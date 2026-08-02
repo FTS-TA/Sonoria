@@ -20,7 +20,7 @@
 #include "accumulatoralgorithm.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 AccumulatorAlgorithm::AccumulatorAlgorithm() : _preferredSize(0), _inputStream(0) {}
@@ -87,4 +87,4 @@ void AccumulatorAlgorithm::declareOutputResult(SourceBase& source, const string&
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

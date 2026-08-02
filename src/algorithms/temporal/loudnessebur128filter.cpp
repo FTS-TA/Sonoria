@@ -23,7 +23,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* LoudnessEBUR128Filter::name = "LoudnessEBUR128Filter";
@@ -150,4 +150,4 @@ void LoudnessEBUR128Filter::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

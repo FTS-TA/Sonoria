@@ -21,7 +21,7 @@
 #include "algorithmfactory.h"
 #include <complex>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ChromaCrossSimilarity : public Algorithm {
@@ -81,11 +81,11 @@ class ChromaCrossSimilarity : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class ChromaCrossSimilarity : public Algorithm {
@@ -136,5 +136,5 @@ class ChromaCrossSimilarity : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
  #endif // ESSENTIA_CHROMACROSSSIMILARITY_H

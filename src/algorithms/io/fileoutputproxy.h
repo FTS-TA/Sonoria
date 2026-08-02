@@ -22,7 +22,7 @@
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class FileOutputProxy : public Algorithm {
@@ -71,7 +71,7 @@ void connect(SourceBase& source, FileOutputProxy& file);
 void connect(SourceBase& source, Algorithm& file);
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_FILEOUTOUT_PROXY_H

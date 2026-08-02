@@ -105,7 +105,7 @@ if __name__ == "__main__":
         # WARNING. With `--mode libtensorflow`, the following problem is known
         # to arise when importing Essentia and Tensorflow in Python at the same time.
         #   In [1]: import tensorflow
-        #   In [2]: import essentia
+        #   In [2]: import sonoria
         #
         #   ImportError: /usr/local/lib/libtensorflow.so.1: undefined symbol:
         #  _ZN6google8protobuf5Arena18CreateMaybeMessageIN10tensorflow16OptimizerOptionsEIEEEPT_PS1_DpOT0_

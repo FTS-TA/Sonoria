@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 
 using namespace std;
-namespace essentia {
+namespace sonoria {
 namespace standard {
         
 class SuperFluxPeaks : public Algorithm {
@@ -87,12 +87,12 @@ public:
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "accumulatoralgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SuperFluxPeaks : public AccumulatorAlgorithm {
@@ -146,6 +146,6 @@ class SuperFluxPeaks : public AccumulatorAlgorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SUPERFLUXPEAKS_H

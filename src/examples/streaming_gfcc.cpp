@@ -24,7 +24,7 @@
 #include <essentia/scheduler/network.h>
 #include "credit_libav.h" 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace streaming;
 using namespace scheduler;
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
   string outputFilename = argv[2];
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
   output->compute();
 
   delete output;
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

@@ -26,19 +26,19 @@
 #include "../streaming/streamingalgorithm.h"
 #include "../essentiautil.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class AlgorithmComposite;
 class SourceBase;
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace scheduler {
 
 typedef std::vector<streaming::Algorithm*> AlgoVector;
@@ -305,7 +305,7 @@ AlgoSet parentBranchInsideComposite(streaming::AlgorithmComposite* composite,
                                     streaming::Algorithm* algo);
 
 } // namespace scheduler
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SCHEDULER_NETWORK_H

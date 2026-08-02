@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia._essentia import version
+from sonoria_test import *
+from sonoria._sonoria import version
 import os
 import json
 
@@ -36,7 +36,7 @@ def getYaml(filename):
 
 class TestYamlOutput(TestCase):
 
-    metadata = '\nmetadata:\n    version:\n        essentia: "' + version() + '"\n'
+    metadata = '\nmetadata:\n    version:\n        sonoria: "' + version() + '"\n'
 
 
     def testSingleRealSingleKey(self):
@@ -269,7 +269,7 @@ empty: ["\\"\\""]
         self.assertEqual(lines[0], '')
         self.assertEqual(lines[1], 'metadata:')
         self.assertEqual(lines[2], '    version:')
-        self.assertEqual(lines[3], '        essentia: "'+version()+'"')
+        self.assertEqual(lines[3], '        sonoria: "'+version()+'"')
         self.assertEqual(lines[4], '')
         # will check line 5 later
         self.assertEqual(lines[6], '')
@@ -336,7 +336,7 @@ stereosample: [{left: 3, right: 6}, {left: -1, right: 2}]
 
         YamlOutput(filename='test.json', format='json', indent=4)(p)
         actual = open('test.json').read()
-        expected = '{\n"metadata": {\n    "version": {\n        "essentia": "' + version() + '"\n    }\n},\n"key": ["value"]\n}'
+        expected = '{\n"metadata": {\n    "version": {\n        "sonoria": "' + version() + '"\n    }\n},\n"key": ["value"]\n}'
 
         self.assertEqual(expected, actual)
         os.unlink('test.json')
@@ -350,7 +350,7 @@ stereosample: [{left: 3, right: 6}, {left: -1, right: 2}]
         YamlOutput(filename='test.json', format='json', indent=0)(p)
         actual = open('test.json').read()
 
-        expected = '{"metadata": {"version": {"essentia": "' + version() + '"}},"key": ["value"]}'
+        expected = '{"metadata": {"version": {"sonoria": "' + version() + '"}},"key": ["value"]}'
         self.assertEqual(expected, actual)
         os.unlink('test.json')
 

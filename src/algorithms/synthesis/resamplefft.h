@@ -26,7 +26,7 @@
 
 #include <fstream>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ResampleFFT : public Algorithm {
@@ -74,11 +74,11 @@ class ResampleFFT : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class ResampleFFT : public StreamingAlgorithmWrapper {
@@ -96,7 +96,7 @@ class ResampleFFT : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_ResampleFFT_H

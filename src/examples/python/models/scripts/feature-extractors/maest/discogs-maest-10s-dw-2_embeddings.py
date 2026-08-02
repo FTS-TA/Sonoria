@@ -1,4 +1,4 @@
-from essentia.standard import MonoLoader, TensorflowPredictMAEST
+from sonoria.standard import MonoLoader, TensorflowPredictMAEST
 
 audio = MonoLoader(filename="audio.wav", sampleRate=16000, resampleQuality=4)()
 model = TensorflowPredictMAEST(graphFilename="discogs-maest-10s-dw-2.pb", output="PartitionedCall/Identity_7")

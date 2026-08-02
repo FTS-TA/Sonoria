@@ -20,7 +20,7 @@
 #include "streamingalgorithm.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -268,4 +268,4 @@ void Algorithm::shouldStop(bool stop) {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

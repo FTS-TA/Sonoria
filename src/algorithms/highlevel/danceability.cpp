@@ -20,7 +20,7 @@
 #include "danceability.h"
 
 using namespace std;
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Danceability::name = "Danceability";
@@ -182,12 +182,12 @@ void Danceability::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "poolstorage.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* Danceability::name = standard::Danceability::name;
@@ -236,4 +236,4 @@ AlgorithmStatus Danceability::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

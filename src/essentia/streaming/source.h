@@ -23,7 +23,7 @@
 #include "sourcebase.h"
 #include "multiratebuffer.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -128,7 +128,7 @@ const T& lastTokenProduced(const SourceBase& source) {
   return src->lastTokenProduced();
 }
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace streaming
 
 
@@ -138,7 +138,7 @@ const T& lastTokenProduced(const SourceBase& source) {
 #include "phantombuffer.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 // We need to have a specific MultiRateBuffer implementation (PhantomBuffer, here)
@@ -154,7 +154,7 @@ Source<TokenType>::Source(const std::string& name) :
   _buffer(new PhantomBuffer<TokenType>(this, BufferUsage::forSingleFrames)) {}
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SOURCE_H

@@ -17,8 +17,8 @@
 
 #! /usr/bin/python
 
-import essentia
-from essentia import INFO, isSilent
+import sonoria
+from sonoria import INFO, isSilent
 
 from numpy import bincount, argmax, mean
 
@@ -53,19 +53,19 @@ def compute(audio, pool, options):
     last_beat_interval = 0.025
     frame_time = float(hopSize) / float(sampleRate)
 
-    frames           = essentia.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize)
-    window           = essentia.Windowing(size = frameSize, zeroPadding = 0, type = windowType)
+    frames           = sonoria.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize)
+    window           = sonoria.Windowing(size = frameSize, zeroPadding = 0, type = windowType)
     if use_onset:
-        fft              = essentia.FFT(size = frameSize)
-        cartesian2polar  = essentia.CartesianToPolar()
-        onset_hfc        = essentia.OnsetDetection(method = 'hfc', sampleRate = sampleRate)
-        onset_complex    = essentia.OnsetDetection(method = 'complex', sampleRate = sampleRate)
+        fft              = sonoria.FFT(size = frameSize)
+        cartesian2polar  = sonoria.CartesianToPolar()
+        onset_hfc        = sonoria.OnsetDetection(method = 'hfc', sampleRate = sampleRate)
+        onset_complex    = sonoria.OnsetDetection(method = 'complex', sampleRate = sampleRate)
     if use_bands:
-        espectrum        = essentia.Spectrum(size = frameSize)
-        tempotapbands    = essentia.FrequencyBands(frequencyBands = bands_freq)
-        temposcalebands  = essentia.TempoScaleBands(bandsGain = bands_gain)
-    tempotap         = essentia.TempoTap(numberFrames = frameNumber, sampleRate = sampleRate, frameHop = frameHop)
-    tempotapticks    = essentia.TempoTapTicks(hopSize = hopSize, sampleRate = sampleRate, frameHop = frameHop)
+        espectrum        = sonoria.Spectrum(size = frameSize)
+        tempotapbands    = sonoria.FrequencyBands(frequencyBands = bands_freq)
+        temposcalebands  = sonoria.TempoScaleBands(bandsGain = bands_gain)
+    tempotap         = sonoria.TempoTap(numberFrames = frameNumber, sampleRate = sampleRate, frameHop = frameHop)
+    tempotapticks    = sonoria.TempoTapTicks(hopSize = hopSize, sampleRate = sampleRate, frameHop = frameHop)
 
     frameTime = float(hopSize) / float(sampleRate)
     frameRate = 1. / frameTime
@@ -98,7 +98,7 @@ def compute(audio, pool, options):
             (scaled_bands, cumul) = temposcalebands(bands)
             features += list(scaled_bands)
 
-        features = essentia.array(features)
+        features = sonoria.array(features)
         (periods, phases) = tempotap(features)
         (these_ticks, these_matchingPeriods) = tempotapticks(periods, phases)
         for period in these_matchingPeriods:
@@ -123,7 +123,7 @@ def compute(audio, pool, options):
     endSilence += 1
 
     # fill the rest of buffer with zeros
-    features = essentia.array([0]*len(features))
+    features = sonoria.array([0]*len(features))
     while nframes % frameNumber != 0:
         (periods, phases) = tempotap(features)
         (these_ticks, these_matchingPeriods) = tempotapticks(periods, phases)
@@ -250,7 +250,7 @@ def compute(audio, pool, options):
         return bpm_rubato_python
     '''
     # FIXME we need better rubato algorithm
-    #rubato = essentia.BpmRubato()
+    #rubato = sonoria.BpmRubato()
     #bpm_rubato_start, bpm_rubato_stop = rubato(ticks)
     #pool.add(namespace + '.' + 'rubato_start', bpm_rubato_start)#, pool.GlobalScope
     #pool.add(namespace + '.' + 'rubato_stop',  bpm_rubato_stop)#,  pool.GlobalScope)

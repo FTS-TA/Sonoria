@@ -22,11 +22,11 @@
 
 
 import sys
-import essentia, essentia.streaming, essentia.standard
+import sonoria, sonoria.streaming, sonoria.standard
 
 # When creating your own composite algorithm, your class must inherit from
-# essentia.streaming.CompositeBase.
-class ExtractorMfcc(essentia.streaming.CompositeBase):
+# sonoria.streaming.CompositeBase.
+class ExtractorMfcc(sonoria.streaming.CompositeBase):
 
     # Specify the parameters of your algorithm and their default values as inputs to the __init__
     # method. You can then use these parameters to configure the inner algorithms.
@@ -47,12 +47,12 @@ class ExtractorMfcc(essentia.streaming.CompositeBase):
         super(ExtractorMfcc, self).__init__()
 
         # Create and configure each inner algorithm
-        fc = essentia.streaming.FrameCutter(frameSize=frameSize,
+        fc = sonoria.streaming.FrameCutter(frameSize=frameSize,
                                             hopSize=hopSize,
                                             silentFrames='noise')
-        wnd = essentia.streaming.Windowing(type=windowType)
-        spec = essentia.streaming.Spectrum()
-        mfcc = essentia.streaming.MFCC()
+        wnd = sonoria.streaming.Windowing(type=windowType)
+        spec = sonoria.streaming.Spectrum()
+        mfcc = sonoria.streaming.MFCC()
 
         # Declare the inputs of your composite algorithm in the self.inputs dictionary. The keys of
         # this dictionary should be the name you give your input, and the values are the inputs of
@@ -80,23 +80,23 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # Loaders must be specified outside your composite algorithm.
-    loader = essentia.streaming.MonoLoader(filename=sys.argv[1])
+    loader = sonoria.streaming.MonoLoader(filename=sys.argv[1])
 
     # We are using the default values of our parameters so we don't specify any keyword arguments.
     mfccex = ExtractorMfcc()
 
-    p = essentia.Pool()
+    p = sonoria.Pool()
 
     # When connecting to/from your composite algorithm, use the names you declared in the
     # self.inputs and self.outputs dictionaries, respectively.
     loader.audio >> mfccex.audio
     mfccex.mfcc >> (p, 'mfcc')
 
-    essentia.run(loader)
+    sonoria.run(loader)
 
     # CompoxiteBase algorithms can be translated into c++ code and dot graphs
     # can also be generated:
-    essentia.translate(ExtractorMfcc,     # algorithm to be translated
+    sonoria.translate(ExtractorMfcc,     # algorithm to be translated
                        'myExtractorMfcc', # output name for the c++ and dot generated files
                        dot_graph=True)    # whether dot file should be generated
-    essentia.standard.YamlOutput(filename=sys.argv[2])(p)
+    sonoria.standard.YamlOutput(filename=sys.argv[2])(p)

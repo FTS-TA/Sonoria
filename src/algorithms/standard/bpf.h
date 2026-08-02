@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "bpfutil.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BPF : public Algorithm {
@@ -32,7 +32,7 @@ class BPF : public Algorithm {
   Input<Real> _xInput;
   Output<Real> _yOutput;
 
-  essentia::util::BPF bpf;
+  sonoria::util::BPF bpf;
  public:
   BPF() {
     declareInput(_xInput, "x", "the input coordinate (x-axis)");
@@ -57,12 +57,12 @@ class BPF : public Algorithm {
   static const char* description;
 };
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BPF : public StreamingAlgorithmWrapper {
@@ -80,6 +80,6 @@ class BPF : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_BPF_H

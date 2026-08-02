@@ -24,7 +24,7 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 typedef TNT::Array2D<Real> array2d;
@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
       exit(1);
   }
 
-  essentia::init();
+  sonoria::init();
 
   // parameters:
   int sr = 44100;
@@ -138,7 +138,7 @@ int main(int argc, char** argv) {
   delete rms;
   delete fadeDetect;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

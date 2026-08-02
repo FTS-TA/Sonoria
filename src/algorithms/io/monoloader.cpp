@@ -22,12 +22,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* MonoLoader::name = essentia::standard::MonoLoader::name;
-const char* MonoLoader::category = essentia::standard::MonoLoader::category;
-const char* MonoLoader::description = essentia::standard::MonoLoader::description;
+const char* MonoLoader::name = sonoria::standard::MonoLoader::name;
+const char* MonoLoader::category = sonoria::standard::MonoLoader::category;
+const char* MonoLoader::description = sonoria::standard::MonoLoader::description;
 
 
 MonoLoader::MonoLoader() : AlgorithmComposite(),
@@ -78,11 +78,11 @@ void MonoLoader::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MonoLoader::name = "MonoLoader";
@@ -128,4 +128,4 @@ void MonoLoader::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

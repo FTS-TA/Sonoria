@@ -24,9 +24,9 @@
 
 import os
 
-essentia_third_party = '/essentia/third_party/'
-tbb_mac = essentia_third_party + 'tbb20_020oss_mac/ia32/cc4.0.1_os10.4.9/'
-tbb_src = essentia_third_party + 'tbb20_020oss_src/'
+sonoria_third_party = '/sonoria/third_party/'
+tbb_mac = sonoria_third_party + 'tbb20_020oss_mac/ia32/cc4.0.1_os10.4.9/'
+tbb_src = sonoria_third_party + 'tbb20_020oss_src/'
 
 def link(source, target):
     cmd = 'sudo ln -s' + ' ' + source + ' ' + target
@@ -40,11 +40,11 @@ def link_tbb_files() :
               tbb_mac + 'lib/libtbbmalloc.dylib',
               tbb_mac + 'lib/libtbbmalloc_debug.dylib']
 
-    target = [essentia_third_party + 'include/tbb',
-              essentia_third_party + 'lib/libtbb.dylib',
-              essentia_third_party + 'lib/libtbb_debug.dylib',
-              essentia_third_party + 'lib/libtbbmalloc.dylib',
-              essentia_third_party + 'lib/libtbbmalloc_debug.dylib']
+    target = [sonoria_third_party + 'include/tbb',
+              sonoria_third_party + 'lib/libtbb.dylib',
+              sonoria_third_party + 'lib/libtbb_debug.dylib',
+              sonoria_third_party + 'lib/libtbbmalloc.dylib',
+              sonoria_third_party + 'lib/libtbbmalloc_debug.dylib']
 
     ret = 0
     for i in range(len(source)):

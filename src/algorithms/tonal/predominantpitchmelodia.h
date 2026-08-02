@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PredominantPitchMelodia : public Algorithm {
@@ -119,13 +119,13 @@ class PredominantPitchMelodia : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "pool.h"
 #include "streamingalgorithmcomposite.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PredominantPitchMelodia : public AlgorithmComposite {
@@ -197,6 +197,6 @@ class PredominantPitchMelodia : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PREDOMINANTMELODY_H

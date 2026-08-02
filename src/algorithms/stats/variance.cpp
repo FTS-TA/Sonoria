@@ -20,7 +20,7 @@
 #include "variance.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* Variance::name = "Variance";

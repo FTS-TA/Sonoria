@@ -20,9 +20,9 @@
 
 import sys
 import numpy
-import essentia
+import sonoria
 import os
-from essentia import EssentiaError
+from sonoria import EssentiaError
 import math
 from math import *
 import pdb
@@ -58,7 +58,7 @@ def compute(pool, options):
     minimumLength = int(minimumSegmentsLength / hopSize+0.5)
 
     # BIC segmentation algorithm
-    bic = essentia.SBic(cpw = cpw, size1 = size1, inc1 = inc1, size2 = size2, inc2 = inc2, minLength = minimumLength)
+    bic = sonoria.SBic(cpw = cpw, size1 = size1, inc1 = inc1, size2 = size2, inc2 = inc2, minLength = minimumLength)
 
     # create descriptor values array
     descriptors = []
@@ -77,7 +77,7 @@ def compute(pool, options):
         except:
             descriptors.append(descValues)
 
-    descriptorArray = essentia.array(descriptors)
+    descriptorArray = sonoria.array(descriptors)
 
     # compute the segmentation
     segments = bic(descriptorArray)

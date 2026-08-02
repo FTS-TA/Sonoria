@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SpectralContrast : public Algorithm {
@@ -64,11 +64,11 @@ public:
 };
 
 } //namespace standard
-} //namespace essentia
+} //namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SpectralContrast : public StreamingAlgorithmWrapper {
@@ -91,7 +91,7 @@ class SpectralContrast : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SPECTRALCONTRAST_H

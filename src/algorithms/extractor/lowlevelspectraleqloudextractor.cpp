@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* LowLevelSpectralEqloudExtractor::name = essentia::standard::LowLevelSpectralEqloudExtractor::name;
-const char* LowLevelSpectralEqloudExtractor::category = essentia::standard::LowLevelSpectralEqloudExtractor::category;
-const char* LowLevelSpectralEqloudExtractor::description = essentia::standard::LowLevelSpectralEqloudExtractor::description;
+const char* LowLevelSpectralEqloudExtractor::name = sonoria::standard::LowLevelSpectralEqloudExtractor::name;
+const char* LowLevelSpectralEqloudExtractor::category = sonoria::standard::LowLevelSpectralEqloudExtractor::category;
+const char* LowLevelSpectralEqloudExtractor::description = sonoria::standard::LowLevelSpectralEqloudExtractor::description;
 
 
 LowLevelSpectralEqloudExtractor::LowLevelSpectralEqloudExtractor() : _configured(false) {
@@ -113,9 +113,9 @@ LowLevelSpectralEqloudExtractor::~LowLevelSpectralEqloudExtractor() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* LowLevelSpectralEqloudExtractor::name = "LowLevelSpectralEqloudExtractor";
@@ -199,5 +199,5 @@ void LowLevelSpectralEqloudExtractor::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 

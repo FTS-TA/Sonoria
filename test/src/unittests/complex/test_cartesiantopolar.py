@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 from math import *
 
 class TestCartesianToPolar(TestCase):

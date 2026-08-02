@@ -24,7 +24,7 @@
 #include "algorithm.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PoolAggregator : public Algorithm {
@@ -71,13 +71,13 @@ class PoolAggregator : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
 // TODO: I'm not sure if the streaming is correct
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PoolAggregator : public StreamingAlgorithmWrapper {
@@ -95,6 +95,6 @@ class PoolAggregator : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_POOLAGGREGATOR_H

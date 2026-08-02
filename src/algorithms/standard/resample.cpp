@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Resample::name = "Resample";
@@ -78,9 +78,9 @@ void Resample::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* Resample::name = standard::Resample::name;
@@ -216,4 +216,4 @@ void Resample::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

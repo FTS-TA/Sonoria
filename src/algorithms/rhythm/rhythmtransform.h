@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class RhythmTransform : public Algorithm {
@@ -68,12 +68,12 @@ class RhythmTransform : public Algorithm {
 };
 
 } //namespace standard
-} //namespace essentia
+} //namespace sonoria
 
 #include "streamingalgorithmcomposite.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class RhythmTransform : public AlgorithmComposite {
@@ -111,6 +111,6 @@ class RhythmTransform : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_RHYTHMTRANSFORM_H

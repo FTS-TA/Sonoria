@@ -22,7 +22,7 @@
 
 #include "algorithm.h" 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Histogram : public Algorithm {
@@ -65,11 +65,11 @@ class Histogram : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Histogram : public StreamingAlgorithmWrapper {
@@ -89,7 +89,7 @@ class Histogram : public StreamingAlgorithmWrapper {
 };
 
 } //namespace streaming
-} //namespace essentia
+} //namespace sonoria
 
 #endif //ESSENTIA_HISTOGRAM_H
 

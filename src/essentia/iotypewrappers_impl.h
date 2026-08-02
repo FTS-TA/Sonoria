@@ -23,7 +23,7 @@
 #include "iotypewrappers.h"
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -92,6 +92,6 @@ class Output : public OutputBase {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_IOTYPEWRAPPERSIMPL_H

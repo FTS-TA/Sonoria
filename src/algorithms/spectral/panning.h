@@ -24,7 +24,7 @@
 #include "tnt/tnt.h"
 #include <complex>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Panning : public Algorithm {
@@ -84,11 +84,11 @@ class Panning : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Panning : public StreamingAlgorithmWrapper {
@@ -108,6 +108,6 @@ class Panning : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PANNING_H

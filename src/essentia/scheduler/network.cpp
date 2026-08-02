@@ -23,10 +23,10 @@
 #include "../streaming/streamingalgorithm.h"
 #include "../streaming/streamingalgorithmcomposite.h"
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
-namespace essentia {
+namespace sonoria {
 namespace scheduler {
 
 // helper function, was inside Algorithm before but it makes more sense to have
@@ -426,7 +426,7 @@ class FractalNode : public NetworkNode {
   const vector<FractalNode*>& children() const { return _fchildren; }
         vector<FractalNode*>& children()       { return _fchildren; }
 
-  void addChild(FractalNode* child) { if (!essentia::contains(_fchildren, child)) _fchildren.push_back(child); }
+  void addChild(FractalNode* child) { if (!sonoria::contains(_fchildren, child)) _fchildren.push_back(child); }
 
   // we need to overload this method, because in the case of FractalNodes, we want
   // to fill the OutputMap at the same time with the names of the outputs
@@ -1054,4 +1054,4 @@ void Network::checkBufferSizes() {
 
 
 } // namespace scheduler
-} // namespace essentia
+} // namespace sonoria

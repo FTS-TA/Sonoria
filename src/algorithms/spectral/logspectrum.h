@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class LogSpectrum : public Algorithm {
@@ -82,11 +82,11 @@ class LogSpectrum : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class LogSpectrum : public StreamingAlgorithmWrapper {
@@ -108,7 +108,7 @@ class LogSpectrum : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_LOGSPECTRUM_H

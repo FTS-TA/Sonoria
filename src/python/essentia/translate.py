@@ -17,7 +17,7 @@
 
 import inspect, types
 import streaming
-import _essentia
+import _sonoria
 import common
 from streaming import _reloadStreamingAlgorithms
 
@@ -193,14 +193,14 @@ def generate_dot_cluster(configure_log, clustername, composite_algo_inst):
 
 
 def translate(composite_algo, output_filename, dot_graph=False):
-    '''Takes in a class that is derived from essentia.streaming.CompositeBase and an output-filename
+    '''Takes in a class that is derived from sonoria.streaming.CompositeBase and an output-filename
        and writes output-filename.h and output-filename.cpp versions of the given class.'''
 
     if not inspect.isclass(composite_algo):
         raise TypeError('"composite_algo" argument must be a class')
 
     if not streaming.CompositeBase in inspect.getmro(composite_algo):
-        raise TypeError('"composite_algo" argument must inherit from essentia.streaming.CompositeBase')
+        raise TypeError('"composite_algo" argument must inherit from sonoria.streaming.CompositeBase')
 
     param_names, _, _, default_values = inspect.getargspec(composite_algo.__init__)
     param_names.remove('self')
@@ -253,7 +253,7 @@ def translate(composite_algo, output_filename, dot_graph=False):
     # iterate over all streaming_algos
     streaming_algos = inspect.getmembers( streaming,
                                           lambda obj: inspect.isclass(obj) and \
-                                                      _essentia.StreamingAlgorithm in inspect.getmro(obj) )
+                                                      _sonoria.StreamingAlgorithm in inspect.getmro(obj) )
     streaming_algos = [member[1] for member in streaming_algos]
     for algo in streaming_algos:
         algo.real_configure = algo.configure
@@ -272,7 +272,7 @@ def translate(composite_algo, output_filename, dot_graph=False):
     ### Do some checking on their network ###
     for algo in [ logitem['instance'] for logitem in configure_log.values() ]:
         if isinstance(algo, streaming.VectorInput):
-            raise TypeError('essentia.streaming.VectorInput algorithms are not allowed for translatable composite algorithms')
+            raise TypeError('sonoria.streaming.VectorInput algorithms are not allowed for translatable composite algorithms')
 
         if isinstance(algo, streaming.AudioLoader) or \
            isinstance(algo, streaming.EasyLoader) or \
@@ -285,7 +285,7 @@ def translate(composite_algo, output_filename, dot_graph=False):
             raise TypeError('No type of AudioWriter is allowed for translatable composite algorithms')
 
         if isinstance(algo, streaming.FileOutput):
-            raise TypeError('essentia.streaming.FileOutput algorithms are not allowed for translatable composite algorithms')
+            raise TypeError('sonoria.streaming.FileOutput algorithms are not allowed for translatable composite algorithms')
 
 
     def sort_by_key(configure_log):
@@ -303,19 +303,19 @@ def translate(composite_algo, output_filename, dot_graph=False):
 
     ### generate .h code ###
 
-    h_code = '''// Generated automatically by essentia::translate
+    h_code = '''// Generated automatically by sonoria::translate
 
 #ifndef STREAMING_''' + composite_algo.__name__.upper() + '''
 #define STREAMING_''' + composite_algo.__name__.upper()+ '''
 
 #include "streamingalgorithmcomposite.h"
 
-class '''+composite_algo.__name__+''' : public essentia::streaming::AlgorithmComposite {
+class '''+composite_algo.__name__+''' : public sonoria::streaming::AlgorithmComposite {
  protected:
 '''
 
     for algo_name in sorted_algos:
-        h_code += '  essentia::streaming::Algorithm* _'+algo_name.lower()+';\n'
+        h_code += '  sonoria::streaming::Algorithm* _'+algo_name.lower()+';\n'
 
     h_code += '''
  public:
@@ -354,15 +354,15 @@ class '''+composite_algo.__name__+''' : public essentia::streaming::AlgorithmCom
 
     ### Generate .cpp code ###
 
-    cpp_code = '''// Generated automatically by essentia::translate
+    cpp_code = '''// Generated automatically by sonoria::translate
 
 #include "'''+output_filename+'''.h"
 #include "algorithmfactory.h"
 #include "taskqueue.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
 const char* '''+composite_algo.__name__+'''::name = "'''+composite_algo.__name__+'''";
 const char* '''+composite_algo.__name__+'''::version = "1.0";

@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* ChordsDetection::name = "ChordsDetection";
@@ -95,12 +95,12 @@ void ChordsDetection::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* ChordsDetection::name = standard::ChordsDetection::name;
@@ -192,4 +192,4 @@ void ChordsDetection::reset() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

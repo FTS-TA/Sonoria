@@ -21,8 +21,8 @@
 import numpy as np
 from math import *
 
-from essentia_test import *
-from essentia import array as esarr
+from sonoria_test import *
+from sonoria import array as esarr
 
 
 class TestClickDetector(TestCase):
@@ -41,8 +41,8 @@ class TestClickDetector(TestCase):
         self.assertConfigureFails(SNR(), {'NoiseAlpha': 2})
 
     def testSinusoidalPlusNoise(self):
-        from essentia import instantPower
-        from essentia import db2amp
+        from sonoria import instantPower
+        from sonoria import db2amp
         frameSize = 512
         hopSize = frameSize // 2
         fs = 44100.
@@ -74,8 +74,8 @@ class TestClickDetector(TestCase):
         self.assertAlmostEqual(snr, snr_gt, 1e-1)
 
     def testBroadbandNoiseCorrection(self):
-        from essentia import instantPower
-        from essentia import db2amp
+        from sonoria import instantPower
+        from sonoria import db2amp
         frameSize = 512
         hopSize = frameSize // 2
         fs = 44100.

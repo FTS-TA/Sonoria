@@ -18,7 +18,7 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 
 
 class TestLoudnessEBUR128(TestCase):
@@ -31,40 +31,40 @@ class TestLoudnessEBUR128(TestCase):
         filename = join(testdata.audio_dir, 'generated', 'ebur128', '1kHz_sine_-20LUFS-16bit.flac')
         audio, samplerate, _, _, _, _ = AudioLoader(filename=filename)()
         m, s, i, r = LoudnessEBUR128(sampleRate=samplerate)(audio)
-        self.assertAlmostEqualVector(m, essentia.array([-20.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-20.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-20.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-20.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -20., 0.1)
 
         # M, S, I = -26 +- 0.1 LUFS
         filename = join(testdata.audio_dir, 'generated', 'ebur128', '1kHz_sine_-26LUFS-16bit.flac')
         audio, samplerate, _, _, _, _ = AudioLoader(filename=filename)()
         m, s, i, r = LoudnessEBUR128(sampleRate=samplerate)(audio)
-        self.assertAlmostEqualVector(m, essentia.array([-26.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-26.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-26.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-26.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -26., 0.1)
 
         # M, S, I = -40 +- 0.1 LUFS
         filename = join(testdata.audio_dir, 'generated', 'ebur128', '1kHz_sine_-40LUFS-16bit.flac')
         audio, samplerate, _, _, _, _ = AudioLoader(filename=filename)()
         m, s, i, r = LoudnessEBUR128(sampleRate=samplerate)(audio)
-        self.assertAlmostEqualVector(m, essentia.array([-40.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-40.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-40.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-40.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -40., 0.1)
 
         # M, S, I = -23 +- 0.1 LUFS
         filename = join(testdata.audio_dir, 'generated', 'ebur128', 'seq-3341-1-16bit.flac')
         audio, samplerate, _, _, _, _ = AudioLoader(filename=filename)()
         m, s, i, r = LoudnessEBUR128(sampleRate=samplerate)(audio)
-        self.assertAlmostEqualVector(m, essentia.array([-23.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-23.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-23.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-23.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -23., 0.1)
 
         # M, S, I = -33 +- 0.1 LUFS
         filename = join(testdata.audio_dir, 'generated', 'ebur128', 'seq-3341-2-16bit.flac')
         audio, samplerate, _, _, _, _ = AudioLoader(filename=filename)()
         m, s, i, r = LoudnessEBUR128(sampleRate=samplerate)(audio)
-        self.assertAlmostEqualVector(m, essentia.array([-33.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-33.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-33.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-33.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -33., 0.1)
 
         # I = -23 +- 0.1 LUFS
@@ -144,8 +144,8 @@ class TestLoudnessEBUR128(TestCase):
                                      startAtZero=True)(audio)
         m = m[fade_size_m:-fade_size_m]
         s = s[fade_size_s:-fade_size_s]
-        self.assertAlmostEqualVector(m, essentia.array([-20.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-20.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-20.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-20.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -20., 0.1)
 
         # M, S, I = -26 +- 0.1 LUFS
@@ -156,8 +156,8 @@ class TestLoudnessEBUR128(TestCase):
                                      startAtZero=True)(audio)
         m = m[fade_size_m:-fade_size_m]
         s = s[fade_size_s:-fade_size_s]
-        self.assertAlmostEqualVector(m, essentia.array([-26.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-26.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-26.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-26.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -26., 0.1)
 
         # M, S, I = -40 +- 0.1 LUFS
@@ -168,8 +168,8 @@ class TestLoudnessEBUR128(TestCase):
                                      startAtZero=True)(audio)
         m = m[fade_size_m:-fade_size_m]
         s = s[fade_size_s:-fade_size_s]
-        self.assertAlmostEqualVector(m, essentia.array([-40.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-40.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-40.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-40.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -40., 0.1)
 
         # M, S, I = -23 +- 0.1 LUFS
@@ -180,8 +180,8 @@ class TestLoudnessEBUR128(TestCase):
                                      startAtZero=True)(audio)
         m = m[fade_size_m:-fade_size_m]
         s = s[fade_size_s:-fade_size_s]
-        self.assertAlmostEqualVector(m, essentia.array([-23.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-23.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-23.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-23.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -23., 0.1)
 
         # M, S, I = -33 +- 0.1 LUFS
@@ -192,8 +192,8 @@ class TestLoudnessEBUR128(TestCase):
                                      startAtZero=True)(audio)
         m = m[fade_size_m:-fade_size_m]
         s = s[fade_size_s:-fade_size_s]
-        self.assertAlmostEqualVector(m, essentia.array([-33.] * len(m)), 0.1)
-        self.assertAlmostEqualVector(s, essentia.array([-33.] * len(s)), 0.1)
+        self.assertAlmostEqualVector(m, sonoria.array([-33.] * len(m)), 0.1)
+        self.assertAlmostEqualVector(s, sonoria.array([-33.] * len(s)), 0.1)
         self.assertAlmostEqual(i, -33., 0.1)
 
         # I = -23 +- 0.1 LUFS
@@ -266,11 +266,11 @@ class TestLoudnessEBUR128(TestCase):
 
     def testEmpty(self):
         # empty (0,2) array
-        audio = essentia.array([[1., 1.]])[:-1]
+        audio = sonoria.array([[1., 1.]])[:-1]
         self.assertComputeFails(LoudnessEBUR128(), audio)
 
     def testSilence(self):
-        audio = essentia.array([[0, 0]] * 44100)
+        audio = sonoria.array([[0, 0]] * 44100)
         m, s, i, r = LoudnessEBUR128()(audio)
 
         # Momentary and short-term loudness can have values below absolute threshold of -70. LUFS

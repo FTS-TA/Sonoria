@@ -18,7 +18,7 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 
 
 class TestTensorFlowPredictMAEST(TestCase):
@@ -29,7 +29,7 @@ class TestTensorFlowPredictMAEST(TestCase):
         # destroyed in the meantime. These warnings are not relevant for the tests and difficult readability,
         # so we disable them temporally.
 
-        essentia.log.warningActive = False
+        sonoria.log.warningActive = False
 
         self.graphFilename30s = join(
             testdata.models_dir, "maest", "discogs-maest-30s-pw-1.pb"
@@ -51,7 +51,7 @@ class TestTensorFlowPredictMAEST(TestCase):
 
     @classmethod
     def tearDownClass(self):
-        essentia.log.warningActive = True
+        sonoria.log.warningActive = True
 
     def testRegression(self):
         expected = numpy.load(

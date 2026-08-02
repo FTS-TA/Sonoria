@@ -23,7 +23,7 @@
 
 #if defined(__EMSCRIPTEN__)
 
-namespace essentia {
+namespace sonoria {
 
 class Atomic {
  public:
@@ -45,7 +45,7 @@ class Atomic {
   inline void operator--() { add(-1); }
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 
 // life's easy in C++11
@@ -54,7 +54,7 @@ class Atomic {
 
 #include <atomic>
 
-namespace essentia {
+namespace sonoria {
 typedef std::atomic<int> Atomic;
 }
 
@@ -64,7 +64,7 @@ typedef std::atomic<int> Atomic;
 
 #include <windows.h>
 
-namespace essentia {
+namespace sonoria {
 
 class Atomic {
  private:
@@ -92,13 +92,13 @@ class Atomic {
   }
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 
 #elif defined(OS_MAC)
 
 #include <libkern/OSAtomic.h>
-namespace essentia {
+namespace sonoria {
 
 class Atomic {
  private:
@@ -126,14 +126,14 @@ class Atomic {
   }
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 
 #elif defined(OS_LINUX)
 
 #include <ext/atomicity.h>
 
-namespace essentia {
+namespace sonoria {
 
 class Atomic {
  public:
@@ -159,7 +159,7 @@ class Atomic {
   inline void operator--() { add(-1); }
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif

@@ -22,12 +22,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TensorflowPredictFSDSINet::name = essentia::standard::TensorflowPredictFSDSINet::name;
-const char* TensorflowPredictFSDSINet::category = essentia::standard::TensorflowPredictFSDSINet::category;
-const char* TensorflowPredictFSDSINet::description = essentia::standard::TensorflowPredictFSDSINet::description;
+const char* TensorflowPredictFSDSINet::name = sonoria::standard::TensorflowPredictFSDSINet::name;
+const char* TensorflowPredictFSDSINet::category = sonoria::standard::TensorflowPredictFSDSINet::category;
+const char* TensorflowPredictFSDSINet::description = sonoria::standard::TensorflowPredictFSDSINet::description;
 
 
 TensorflowPredictFSDSINet::TensorflowPredictFSDSINet() : AlgorithmComposite(),
@@ -131,11 +131,11 @@ void TensorflowPredictFSDSINet::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TensorflowPredictFSDSINet::name = "TensorflowPredictFSDSINet";
@@ -249,4 +249,4 @@ void TensorflowPredictFSDSINet::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

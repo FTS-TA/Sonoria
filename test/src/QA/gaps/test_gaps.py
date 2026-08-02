@@ -21,10 +21,10 @@ import sys
 
 import numpy as np
 
-import essentia.standard as es
-from essentia import array as esarray
-from essentia import instantPower
-from essentia import array as esarr
+import sonoria.standard as es
+from sonoria import array as esarray
+from sonoria import instantPower
+from sonoria import array as esarr
 
 sys.path.insert(0, './')
 from qa_test import *
@@ -57,8 +57,8 @@ class DevWrap(QaWrapper):
     releaseTime = .05
 
     # private variables
-    _threshold = es.essentia.db2amp(threshold)
-    _prepower_threshold = es.essentia.db2amp(prepower_threshold) ** 2
+    _threshold = es.sonoria.db2amp(threshold)
+    _prepower_threshold = es.sonoria.db2amp(prepower_threshold) ** 2
     _prepower_samples = int(prepower_time * fs)
     l_buffer = np.zeros(_prepower_samples)
     _gaps = []
@@ -71,7 +71,7 @@ class DevWrap(QaWrapper):
         x = args[1]
         for frame_idx, frame in enumerate(es.FrameGenerator(x, frameSize=self.frame_size,
                                           hopSize=self.hop_size, startFromZero=True)):
-            # frame = es.essentia.normalize(frame)
+            # frame = es.sonoria.normalize(frame)
             # updating buffers
             for gap in self._gaps:
                 if not gap['finished'] and not gap['active']:

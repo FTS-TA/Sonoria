@@ -25,17 +25,17 @@
 #include "tnt/tnt2vector.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* BpmHistogram::name = essentia::standard::BpmHistogram::name;
-const char* BpmHistogram::category = essentia::standard::BpmHistogram::category;
-const char* BpmHistogram::description = essentia::standard::BpmHistogram::description;
+const char* BpmHistogram::name = sonoria::standard::BpmHistogram::name;
+const char* BpmHistogram::category = sonoria::standard::BpmHistogram::category;
+const char* BpmHistogram::description = sonoria::standard::BpmHistogram::description;
 
 
 BpmHistogram::BpmHistogram() : _normalize(false), _weightByMagnitude(false) {
@@ -125,7 +125,7 @@ void BpmHistogram::createWindow(int size) {
   windowing->output("frame").set(_window);
   windowing->compute();
   delete windowing;
-  essentia::normalize(_window);
+  sonoria::normalize(_window);
 }
 
 void BpmHistogram::computeBpm() {
@@ -437,7 +437,7 @@ void BpmHistogram::computeHistogram(vector<Real>& bpmPositions,
   const vector<vector<Real> >& tempogram = _pool.value<vector<vector<Real> > >("tempogram");
   const vector<Real>& m = _pool.value<vector<Real> >("bpmAmplitudes");
   vector<Real> mags(m.begin(), m.end());
-  essentia::normalize(mags);
+  sonoria::normalize(mags);
   //Real maxBpm = *max_element(bpms.begin(), bpms.end());
   vector<Real> bpmHist = vector<Real>(int(_maxBpm+1), Real(0));
 
@@ -570,10 +570,10 @@ AlgorithmStatus BpmHistogram::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* BpmHistogram::name = "BpmHistogram";
@@ -684,4 +684,4 @@ void BpmHistogram::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

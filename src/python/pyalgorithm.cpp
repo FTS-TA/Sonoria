@@ -25,7 +25,7 @@
 #include "commonfunctions.h"
 #include "parsing.h"
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 
@@ -534,7 +534,7 @@ static PyTypeObject PyAlgorithmType = {
     0,                                                    // tp_setattro
     0,                                                    // tp_as_buffer
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,             // tp_flags
-    "essentia::standard::Algorithm wrapper objects",      // tp_doc
+    "sonoria::standard::Algorithm wrapper objects",      // tp_doc
     0,                                                    // tp_traverse
     0,                                                    // tp_clear
     0,                                                    // tp_richcompare

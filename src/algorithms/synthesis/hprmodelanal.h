@@ -25,7 +25,7 @@
 #include <fstream>
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class HprModelAnal : public Algorithm {
@@ -107,11 +107,11 @@ class HprModelAnal : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class HprModelAnal : public StreamingAlgorithmWrapper {
@@ -138,7 +138,7 @@ class HprModelAnal : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 

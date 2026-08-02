@@ -26,12 +26,12 @@ using namespace std;
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* PitchYinProbabilistic::name = essentia::standard::PitchYinProbabilistic::name;
-const char* PitchYinProbabilistic::category = essentia::standard::PitchYinProbabilistic::category;
-const char* PitchYinProbabilistic::description = essentia::standard::PitchYinProbabilistic::description;
+const char* PitchYinProbabilistic::name = sonoria::standard::PitchYinProbabilistic::name;
+const char* PitchYinProbabilistic::category = sonoria::standard::PitchYinProbabilistic::category;
+const char* PitchYinProbabilistic::description = sonoria::standard::PitchYinProbabilistic::description;
 
 
 PitchYinProbabilistic::PitchYinProbabilistic() : AlgorithmComposite() {
@@ -133,10 +133,10 @@ void PitchYinProbabilistic::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* PitchYinProbabilistic::name = "PitchYinProbabilistic";
@@ -214,4 +214,4 @@ void PitchYinProbabilistic::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

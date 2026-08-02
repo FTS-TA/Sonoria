@@ -17,8 +17,8 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-from essentia_test import *
-from essentia.standard import MonoLoader, LoopBpmConfidence
+from sonoria_test import *
+from sonoria.standard import MonoLoader, LoopBpmConfidence
 
 class TestLoopBpmConfidence(TestCase):
 

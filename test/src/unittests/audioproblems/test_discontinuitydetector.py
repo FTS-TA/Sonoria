@@ -18,8 +18,8 @@
 # this program.  If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
-from essentia import array as esarr
+from sonoria_test import *
+from sonoria import array as esarr
 
 
 class TestDiscontinuityDetector(TestCase):

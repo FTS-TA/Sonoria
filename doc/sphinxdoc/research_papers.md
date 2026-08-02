@@ -1,7 +1,7 @@
-# Academic research using Essentia
-Academic studies citing Essentia-related publications on Google Scholar: [Essentia (ISMIR 2013)](https://scholar.google.com/scholar?cites=12323826163850788598), [Essentia (ACM MM 2013)](https://scholar.google.com/scholar?cites=17275524168787006345), [Essentia TensorFlow models (ICASSP 2020)](https://scholar.google.com/scholar?cites=8257296628597600081), [Essentia.js (TISMIR 2021)](https://scholar.google.com/scholar?cites=17597128843443542053).
+# Academic research using Sonoria
+Academic studies citing Sonoria-related publications on Google Scholar: [Sonoria (ISMIR 2013)](https://scholar.google.com/scholar?cites=12323826163850788598), [Sonoria (ACM MM 2013)](https://scholar.google.com/scholar?cites=17275524168787006345), [Sonoria TensorFlow models (ICASSP 2020)](https://scholar.google.com/scholar?cites=8257296628597600081), [Sonoria.js (TISMIR 2021)](https://scholar.google.com/scholar?cites=17597128843443542053).
 
-Below is an incomplete list of academic studies that utilize Essentia, categorized by research topics.
+Below is an incomplete list of academic studies that utilize Sonoria, categorized by research topics.
 
 
 ## Music analysis datasets

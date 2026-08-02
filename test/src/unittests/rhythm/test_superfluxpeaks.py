@@ -21,7 +21,7 @@
 # This file is included here as a "dummy" to maintain consistency in "file to file" correspondence
 # between unit test and the algorithm.
 
-from essentia_test import *
+from sonoria_test import *
 
 class TestSuperFluxPeaks(TestCase):
     def testDummy(self):

@@ -32,7 +32,7 @@ using namespace std;
                   "mode", proxy.parameter("mode").toString());       \
   }
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* FileOutputProxy::name = "FileOutput";
@@ -66,4 +66,4 @@ void connect(SourceBase& source, Algorithm& file) {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* VectorRealAccumulator::name = "VectorRealAccumulator";
@@ -58,4 +58,4 @@ AlgorithmStatus VectorRealAccumulator::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

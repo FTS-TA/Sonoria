@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class HighResolutionFeatures : public Algorithm {
@@ -59,12 +59,12 @@ class HighResolutionFeatures : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmcomposite.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class HighResolutionFeatures : public AlgorithmComposite {
@@ -107,7 +107,7 @@ class HighResolutionFeatures : public AlgorithmComposite {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_HIGHRESOLUTIONFEATURES_H

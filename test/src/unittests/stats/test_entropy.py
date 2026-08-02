@@ -19,7 +19,7 @@
 import os.path
 import random
 
-from essentia_test import *
+from sonoria_test import *
 import numpy as np
 import math
 

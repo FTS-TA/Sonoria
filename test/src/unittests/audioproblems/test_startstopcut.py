@@ -18,8 +18,8 @@
 # this program.  If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
-from essentia import array as esarr
+from sonoria_test import *
+from sonoria import array as esarr
 
 
 class TestStartStopCut(TestCase):
@@ -79,7 +79,7 @@ class TestStartStopCut(TestCase):
     def testStreamingRegression(self):
         # Streaming mode should also be tested to ensure it works well
         # with the real accumulator.
-        import essentia.streaming as estr
+        import sonoria.streaming as estr
         loader = estr.MonoLoader(filename=join(testdata.audio_dir,
                                  'recorded/mozart_c_major_30sec.wav'))
         realAccumulator = estr.RealAccumulator()
@@ -93,7 +93,7 @@ class TestStartStopCut(TestCase):
         startStopCut.startCut >> (pool, 'start')
         startStopCut.stopCut >> (pool, 'stop')
 
-        essentia.run(loader)
+        sonoria.run(loader)
 
         self.assertEqual(pool['start'], 0)
         self.assertEqual(pool['stop'], 1)

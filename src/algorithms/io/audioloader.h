@@ -28,7 +28,7 @@
 
 #define MAX_AUDIO_FRAME_SIZE 192000
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class AudioLoader : public Algorithm {
@@ -129,13 +129,13 @@ class AudioLoader : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "vectoroutput.h"
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 // Standard non-streaming algorithm comes after the streaming one as it
@@ -192,6 +192,6 @@ class AudioLoader : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMING_AUDIOLOADER_H

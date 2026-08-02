@@ -26,7 +26,7 @@
 #include <complex>
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -76,7 +76,7 @@ class CartesianToPolar : public StreamingAlgorithmWrapper {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_CARTESIANTOPOLAR_H

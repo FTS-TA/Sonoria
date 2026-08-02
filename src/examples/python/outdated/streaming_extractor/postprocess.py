@@ -19,10 +19,10 @@
 
 
 
-import essentia
-import essentia.standard as standard
-import essentia.streaming as streaming
-from essentia import Pool
+import sonoria
+import sonoria.standard as standard
+import sonoria.streaming as streaming
+from sonoria import Pool
 from numpy import mean, var
 
 def pca(pool, namespace=''):
@@ -32,7 +32,7 @@ def pca(pool, namespace=''):
     scvalleys = pool[llspace + 'scvalleys']
     numFrames = len(sccoeffs)
     poolSc = Pool()
-    merged = essentia.zeros(2*len(sccoeffs[0]))
+    merged = sonoria.zeros(2*len(sccoeffs[0]))
     for frame in xrange(numFrames):
         j = 0
         for i in xrange(len(sccoeffs[frame])):

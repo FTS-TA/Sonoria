@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class GFCC : public Algorithm {
@@ -80,11 +80,11 @@ class GFCC : public Algorithm {
 };
 
 } //namespace standard
-} //namespace essentia
+} //namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class GFCC : public StreamingAlgorithmWrapper {
@@ -104,6 +104,6 @@ class GFCC : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_GFCC_H

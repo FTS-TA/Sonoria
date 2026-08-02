@@ -24,7 +24,7 @@
 #include "algorithm.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Welch : public Algorithm {
@@ -84,11 +84,11 @@ class Welch : public Algorithm {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Welch : public StreamingAlgorithmWrapper {
@@ -106,7 +106,7 @@ class Welch : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 

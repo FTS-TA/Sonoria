@@ -18,9 +18,9 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
-import essentia
-from essentia.streaming import AudioLoader as sAudioLoader
+from sonoria_test import *
+import sonoria
+from sonoria.streaming import AudioLoader as sAudioLoader
 import sys
 
 
@@ -153,7 +153,7 @@ class TestAudioLoader_Streaming(TestCase):
             self.assertRaises(RuntimeError, lambda: sAudioLoader(filename=filename))
 
     def testResetStandard(self):
-        from essentia.standard import AudioLoader as stdAudioLoader
+        from sonoria.standard import AudioLoader as stdAudioLoader
         audiofile = join(testdata.audio_dir, 'recorded', 'musicbox.wav')
         loader = stdAudioLoader(filename=audiofile, computeMD5=True)
         audio1, sr1, nChannels1, md51, bitrate1, codec1 = loader()
@@ -169,7 +169,7 @@ class TestAudioLoader_Streaming(TestCase):
         self.assertEqual(codec3, codec1)
 
     def testLoadMultiple(self):
-        from essentia.standard import AudioLoader as stdAudioLoader
+        from sonoria.standard import AudioLoader as stdAudioLoader
         aiffpath = join('generated','synthesised','impulse','aiff')
         filename = join(testdata.audio_dir,aiffpath,'impulses_1second_44100.aiff')
         algo = stdAudioLoader(filename=filename)
@@ -188,9 +188,9 @@ class TestAudioLoader_Streaming(TestCase):
         audio16, sr16, ch16, md516, _, _ = AudioLoader(filename=join(dir,"cat_purrrr.wav"))()
         audio24, sr24, ch24, md524, _, _ = AudioLoader(filename=join(dir,"cat_purrrr24bit.wav"))()
         audio32, sr32, ch32, md532, _, _ = AudioLoader(filename=join(dir,"cat_purrrr32bit.wav"))()
-        audio16L, audio16R = essentia.standard.StereoDemuxer()(audio16)
-        audio24L, audio24R = essentia.standard.StereoDemuxer()(audio24)
-        audio32L, audio32R = essentia.standard.StereoDemuxer()(audio32)
+        audio16L, audio16R = sonoria.standard.StereoDemuxer()(audio16)
+        audio24L, audio24R = sonoria.standard.StereoDemuxer()(audio24)
+        audio32L, audio32R = sonoria.standard.StereoDemuxer()(audio32)
 
         error24 = 0
         for i, j in zip(audio16L, audio24L): error24 += fabs(fabs(i) - fabs(j))
@@ -204,7 +204,7 @@ class TestAudioLoader_Streaming(TestCase):
         sum24 = sum(audio24L) + sum(audio24R)
         sum32 = sum(audio32L) + sum(audio32R)
 
-        centroid = essentia.standard.Centroid()
+        centroid = sonoria.standard.Centroid()
         centroid16 = centroid(audio16L)
         centroid24 = centroid(audio24L)
         centroid32 = centroid(audio32L)

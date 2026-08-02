@@ -24,7 +24,7 @@
 #include "algorithmfactory.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PitchContoursMultiMelody : public Algorithm {
@@ -113,12 +113,12 @@ class PitchContoursMultiMelody : public Algorithm {
 }; // class PitchContoursMultiMelody
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PitchContoursMultiMelody : public StreamingAlgorithmWrapper {
@@ -142,6 +142,6 @@ class PitchContoursMultiMelody : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PITCHCONTOURSMULTIMELODY_H

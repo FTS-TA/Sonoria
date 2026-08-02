@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "tnt/tnt.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Onsets : public Algorithm {
@@ -73,11 +73,11 @@ class Onsets : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Onsets : public StreamingAlgorithmWrapper {
@@ -97,6 +97,6 @@ class Onsets : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_ONSETS_H

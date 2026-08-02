@@ -23,7 +23,7 @@
 #include "network.h"
 #include "../utils/asciidagparser.h"
 
-namespace essentia {
+namespace sonoria {
 namespace scheduler {
 
 class NetworkParser {
@@ -63,6 +63,6 @@ class NetworkParser {
 };
 
 } // namespace scheduler
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SCHEDULER_NETWORKPARSER_H

@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import DerivativeSFX as sDerivativeSfx
+from sonoria_test import *
+from sonoria.streaming import DerivativeSFX as sDerivativeSfx
 
 class TestDerivativeSfx_Streaming(TestCase):
 

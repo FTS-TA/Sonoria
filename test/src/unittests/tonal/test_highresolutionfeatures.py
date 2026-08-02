@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 
 class TestHighResolutionFeatures(TestCase):
 
@@ -52,7 +52,7 @@ class TestHighResolutionFeatures(TestCase):
         self.assertEqualVector(HighResolutionFeatures()(hpcp), [0.25, 0.5, 0.5])
 
     def testStreamingMaxDeviation(self):
-        from essentia.streaming import HighResolutionFeatures as\
+        from sonoria.streaming import HighResolutionFeatures as\
         strHighResolutionFeatures
 
         nCents = 10

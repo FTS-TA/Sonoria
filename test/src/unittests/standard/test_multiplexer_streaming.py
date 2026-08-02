@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import Multiplexer
+from sonoria_test import *
+from sonoria.streaming import Multiplexer
 
 class TestMultiplexer_Streaming(TestCase):
 

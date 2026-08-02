@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class IDCT : public Algorithm {
@@ -61,13 +61,13 @@ class IDCT : public Algorithm {
   int _type;
 };
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class IDCT : public StreamingAlgorithmWrapper {
@@ -85,6 +85,6 @@ class IDCT : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_IDCT_H

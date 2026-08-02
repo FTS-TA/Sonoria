@@ -21,7 +21,7 @@
 #include "essentia.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* FFTA::name = "FFT";
@@ -45,11 +45,11 @@ ForcedMutex FFTA::globalFFTAMutex;
 FFTA::~FFTA() {
   ForcedMutexLocker lock(globalFFTAMutex);
 
-  // we might have called essentia::shutdown() before this algorithm goes out
+  // we might have called sonoria::shutdown() before this algorithm goes out
   // of scope, so make sure we're not doing stupid things here
   // This will cause a memory leak then, but it is definitely a better choice
   // than a crash (right, right??? :-) )
-  if (essentia::isInitialized()) {
+  if (sonoria::isInitialized()) {
     vDSP_destroy_fftsetup(fftSetup);
     delete[] accelBuffer.realp;
     delete[] accelBuffer.imagp;

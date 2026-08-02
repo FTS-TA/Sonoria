@@ -22,7 +22,7 @@
 #include <iostream>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* ConstantQ::name = "ConstantQ";

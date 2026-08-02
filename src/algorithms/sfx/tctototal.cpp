@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TCToTotal::name = "TCToTotal";
@@ -58,14 +58,14 @@ void TCToTotal::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TCToTotal::name = essentia::standard::TCToTotal::name;
-const char* TCToTotal::description = essentia::standard::TCToTotal::description;
+const char* TCToTotal::name = sonoria::standard::TCToTotal::name;
+const char* TCToTotal::description = sonoria::standard::TCToTotal::description;
 
 void TCToTotal::consume() {
   const vector<Real>& envelope = *((const vector<Real>*)_envelope.getTokens());
@@ -102,4 +102,4 @@ void TCToTotal::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

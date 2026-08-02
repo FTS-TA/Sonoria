@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "bpfutil.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SpectralWhitening : public Algorithm {
@@ -37,7 +37,7 @@ class SpectralWhitening : public Algorithm {
   Real _maxFreq;
   Real _spectralRange;
 
-  essentia::util::BPF _noiseBPF;
+  sonoria::util::BPF _noiseBPF;
 
  public:
   SpectralWhitening() {
@@ -66,11 +66,11 @@ class SpectralWhitening : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SpectralWhitening : public StreamingAlgorithmWrapper {
@@ -92,6 +92,6 @@ class SpectralWhitening : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // SPECTRALWHITENING_H

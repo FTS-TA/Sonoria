@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 
 
 class TestDynamicComplexity(TestCase):
@@ -40,7 +40,7 @@ class TestDynamicComplexity(TestCase):
                                      (5.865970134735107, -21.189722061157227),1e-1)
 
     def testStreamingRegression(self):
-        from essentia.streaming import MonoLoader as sMonoLoader, \
+        from sonoria.streaming import MonoLoader as sMonoLoader, \
                                        DynamicComplexity as sDynamicComplexity
 
         filename = join(testdata.audio_dir, 'recorded', 'techno_loop.wav')

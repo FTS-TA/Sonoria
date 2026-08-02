@@ -17,11 +17,11 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-from essentia_test import *
+from sonoria_test import *
 
 
 class TestCoverSongSimilarity(TestCase):
-    '''Unit tests for essentia CoverSongSimilarity algorithm'''    
+    '''Unit tests for sonoria CoverSongSimilarity algorithm'''    
     # pre-defined binary similarity matrix for the test
     sim_matrix = array([[1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1],
                         [0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1],
@@ -50,7 +50,7 @@ class TestCoverSongSimilarity(TestCase):
 
     def testRegressionStreaming(self):
         '''Test regression of CoverSongSimilarity algorithm in streaming mode'''
-        from essentia.streaming import CoverSongSimilarity as CoverSongSimilarityStreaming
+        from sonoria.streaming import CoverSongSimilarity as CoverSongSimilarityStreaming
 
         matrix_input = VectorInput(self.sim_matrix)
         coversim_streaming = CoverSongSimilarityStreaming(pipeDistance=True)

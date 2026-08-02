@@ -20,7 +20,7 @@
 #include "triangularbands.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TriangularBands::name = "TriangularBands";
@@ -187,5 +187,5 @@ void TriangularBands::setWeightingFunctions(std::string weighting) {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 

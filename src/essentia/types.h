@@ -61,7 +61,7 @@ typedef __int64 sint64;
 
 
 
-namespace essentia {
+namespace sonoria {
 
 /**
  * The main typedef for real numbers.
@@ -442,6 +442,6 @@ enum BufferUsageType {
 } // namespace BufferUsage
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TYPES_H

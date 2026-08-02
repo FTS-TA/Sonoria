@@ -24,7 +24,7 @@
 #include "algorithmfactory.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class FalseStereoDetector : public Algorithm {
@@ -61,13 +61,13 @@ class FalseStereoDetector : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithm.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class FalseStereoDetector : public Algorithm {
@@ -102,6 +102,6 @@ class FalseStereoDetector : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_FALSESTEREODETECTOR_H

@@ -25,9 +25,9 @@
 #include <essentia/scheduler/network.h>
 #include "credit_libav.h" 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 vector<vector<Real> > readMatrixFile(string inputFileName);
 
@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
   cout << "Reference song input shape: " << referenceFeature.size() << ", " << referenceFeature[0].size() << endl;
 
   // register the algorithms in the factory
-  essentia::init();
+  sonoria::init();
   Pool pool;
 
   /////// PARAMS //////////////
@@ -156,7 +156,7 @@ int main(int argc, char* argv[]) {
   delete csm;
   delete output;
 
-  essentia::shutdown();
+  sonoria::shutdown();
   return 0;
 }
 

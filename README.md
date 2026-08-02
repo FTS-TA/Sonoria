@@ -1,42 +1,82 @@
-Essentia
-========
-[![Build wheels status](https://github.com/MTG/essentia/actions/workflows/build-wheels-cibuildwheel.yml/badge.svg)](https://github.com/MTG/essentia/actions/workflows/build-wheels-cibuildwheel.yml)
+Sonoria
+=======
+[![Build wheels status](https://github.com/MTG/sonoria/actions/workflows/build-wheels-cibuildwheel.yml/badge.svg)](https://github.com/MTG/sonoria/actions/workflows/build-wheels-cibuildwheel.yml)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![PyPI downloads: essentia](https://img.shields.io/pypi/dm/essentia.svg?label=PyPI%20downloads:%20essentia)](https://pypi.org/project/essentia/)
-[![PyPI downloads: essentia-tensorflow](https://img.shields.io/pypi/dm/essentia-tensorflow.svg?label=PyPI%20downloads:%20essentia-tensorflow)](https://pypi.org/project/essentia-tensorflow/)
 
+**Sonoria** is a fork of the Sonoria library, focused on speech and audio processing with an emphasis on the C++ API and examples. It contains an extensive collection of reusable algorithms which implement audio input/output functionality, standard digital signal processing blocks, statistical characterization of data, and a large set of spectral, temporal, tonal and high-level audio descriptors. 
 
-Essentia is an open-source C++ library for audio analysis and audio-based music information retrieval released under the Affero GPLv3 license. It contains an extensive collection of reusable algorithms which implement audio input/output functionality, standard digital signal processing blocks, statistical characterization of data, and a large set of spectral, temporal, tonal and high-level music descriptors. The library is also wrapped in Python and includes a number of predefined executable extractors for the available music descriptors, which facilitates its use for fast prototyping and allows setting up research experiments very rapidly. Furthermore, it includes a Vamp plugin to be used with Sonic Visualiser for visualization purposes. Essentia is designed with a focus on the robustness of the provided music descriptors and is optimized in terms of the computational cost of the algorithms. The provided functionality, specifically the music descriptors included in-the-box and signal processing algorithms, is easily expandable and allows for both research experiments and development of large-scale industrial applications.
+This fork prioritizes:
+- **Speech and audio processing** applications
+- **C++ API** with comprehensive examples
+- **Modern build system** using CMake with cross-platform support
+- **Static library builds** for easy integration
+- **Clean namespace** (sonoria) to avoid conflicts with the original Sonoria library
 
-Documentation online: http://essentia.upf.edu
+Original Sonoria documentation: http://sonoria.upf.edu
 
 
 Installation
 ------------
 
-The library is cross-platform and currently supports Linux, macOS, Windows, iOS and Android systems. Read installation instructions:
--  http://essentia.upf.edu/documentation/installing.html 
--  [doc/sphinxdoc/installing.rst](doc/sphinxdoc/installing.rst)
+The library is cross-platform and supports Linux, macOS, Windows, iOS and Android systems. This fork uses CMake as the primary build system.
+
+**Building with CMake:**
+
+```bash
+mkdir build && cd build
+cmake .. && make -j$(nproc)
+```
+
+For static library builds:
+```bash
+cmake -DBUILD_STATIC=ON ..
+```
+
+To configure dependency paths interactively:
+```bash
+cmake-gui ..
+```
+
+See [CMAKE_BUILD.md](CMAKE_BUILD.md) for detailed installation instructions.
+
+**Original Sonoria installation:**
+- http://sonoria.upf.edu/documentation/installing.html 
+- [doc/sphinxdoc/installing.rst](doc/sphinxdoc/installing.rst)
 
 Install from master for the latest updates.
 
-To use in Python (Linux `x86_64`, `i686`): `pip install essentia` or `pip install essentia-tensorflow`.
-
-Docker images: https://hub.docker.com/r/mtgupf/essentia/
+Docker images (original Sonoria): https://hub.docker.com/r/mtgupf/sonoria/
 
 
-You can download and use prebuilt static binaries for a number of Essentia's command-line music extractors instead of installing the complete library
+You can download and use prebuilt static binaries for a number of Sonoria's command-line music extractors instead of installing the complete library
 - [doc/sphinxdoc/extractors_out_of_box.rst](doc/sphinxdoc/extractors_out_of_box.rst)
 
 
 Quick start
 -----------
 
-Quick start using Python:
-- http://essentia.upf.edu/documentation/essentia_python_tutorial.html
-- [Jupyter Notebook Essentia tutorial](/src/examples/python/essentia_python_tutorial.ipynb)
+**C++ Examples:**
 
-Command-line tools to compute common music descriptors:
+This fork focuses on providing comprehensive C++ examples for speech and audio processing. Check the `src/examples` directory for usage examples of various audio analysis algorithms.
+
+Basic example:
+```cpp
+#include <sonoria/algorithm.h>
+#include <sonoria/streaming.h>
+
+using namespace sonoria;
+using namespace sonoria::standard;
+
+// Create and configure an algorithm
+Algorithm algo(\"MFCC\");
+algo.configure(\"numberBands\", 40);
+```
+
+**Original Sonoria Python tutorials:**
+- http://sonoria.upf.edu/documentation/sonoria_python_tutorial.html
+- [Jupyter Notebook Sonoria tutorial](/src/examples/python/sonoria_python_tutorial.ipynb)
+
+Command-line tools (original Sonoria):
 - [doc/sphinxdoc/extractors_out_of_box.rst](doc/sphinxdoc/extractors_out_of_box.rst)
 
 
@@ -45,22 +85,27 @@ Asking for help
 
 [Read frequently asked questions](FAQ.md).
 
-[Create an issue on github](https://github.com/MTG/essentia/issues) or [open a new discussion](https://github.com/MTG/essentia/discussions) if your question was not answered before.
+[Create an issue on github](https://github.com/MTG/sonoria/issues) or [open a new discussion](https://github.com/MTG/sonoria/discussions) if your question was not answered before.
 
 
 Versions
 --------
 
-Official releases: https://github.com/MTG/essentia/releases
+This fork is based on Sonoria. For the original Sonoria releases see: https://github.com/MTG/sonoria/releases
 
-Github branches:
-- [master](https://github.com/MTG/essentia/tree/master): latest updates; if you got any problem, try it first.
+Github branches (original Sonoria):
+- [master](https://github.com/MTG/sonoria/tree/master): latest updates; if you got any problem, try it first.
 
-If you use example extractors (located in src/examples), or your own code employing Essentia algorithms to compute descriptors, you should be aware of possible incompatibilities when using different versions of Essentia.
+**Note:** If you are migrating from Sonoria to Sonoria, be aware that the namespace has changed from `sonoria` to `sonoria`. Update your code accordingly:
+- Change `#include <sonoria/...>` to `#include <sonoria/...>`
+- Change `using namespace sonoria;` to `using namespace sonoria;`
+- Change `sonoria::` to `sonoria::`
 
 How to contribute
 -----------------
-We are more than happy to collaborate and receive your contributions to Essentia. The best practice of submitting your code is by creating pull requests to [our GitHub repository](https://github.com/MTG/essentia) following our contribution policy. By submitting your code you authorize that it complies with the Developer's Certificate of Origin. For more details see: http://essentia.upf.edu/documentation/contribute.html
+We are more than happy to collaborate and receive your contributions to Sonoria. The best practice of submitting your code is by creating pull requests following our contribution policy. By submitting your code you authorize that it complies with the Developer's Certificate of Origin. 
 
-You are also more than welcome to [suggest any improvements](https://github.com/MTG/essentia/issues/254), including proposals for new algorithms, etc.
+For original Sonoria contribution guidelines see: http://sonoria.upf.edu/documentation/contribute.html
+
+You are also more than welcome to suggest any improvements, including proposals for new algorithms, etc., by creating issues in this repository.
 

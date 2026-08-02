@@ -22,7 +22,7 @@
 #include <essentia/algorithmfactory.h>
 #include <essentia/pool.h>
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
   string outputFilename = argv[2];
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -172,7 +172,7 @@ int counter = 0;
   delete overlapAdd;
   delete audioWriter;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

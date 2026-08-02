@@ -24,7 +24,7 @@
 #include "algorithmfactory.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class NoiseBurstDetector : public Algorithm {
@@ -69,12 +69,12 @@ class NoiseBurstDetector : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class NoiseBurstDetector : public StreamingAlgorithmWrapper {
@@ -91,6 +91,6 @@ class NoiseBurstDetector : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_NOISEBURSTDETECTOR_H

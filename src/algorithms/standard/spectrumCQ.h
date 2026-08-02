@@ -25,7 +25,7 @@
 #include "constantq.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SpectrumCQ : public Algorithm {
@@ -75,12 +75,12 @@ class SpectrumCQ : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SpectrumCQ : public StreamingAlgorithmWrapper {
@@ -98,6 +98,6 @@ class SpectrumCQ : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_CHROMAGRAM_H

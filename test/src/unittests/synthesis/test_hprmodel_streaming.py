@@ -19,13 +19,13 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import math
 from numpy import append, zeros, sin, round
 
-import essentia
-import essentia.streaming as es
-import essentia.standard as std
+import sonoria
+import sonoria.streaming as es
+import sonoria.standard as std
 
 
 
@@ -89,7 +89,7 @@ def framesToAudio(frames):
 # computes  analysis only
 def analHprModelStreaming(params, signal):
 
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
     fcut = es.FrameCutter(frameSize = params['frameSize'], hopSize = params['hopSize'], startFromZero =  False);
     w = es.Windowing(type = "blackmanharris92");
     spec = es.Spectrum(size = params['frameSize']);
@@ -99,7 +99,7 @@ def analHprModelStreaming(params, signal):
     smanal = es.HprModelAnal(sampleRate = params['sampleRate'], hopSize = params['hopSize'], maxnSines = params['maxnSines'], magnitudeThreshold = params['magnitudeThreshold'], freqDevOffset = params['freqDevOffset'], freqDevSlope = params['freqDevSlope'], minFrequency =  params['minFrequency'], maxFrequency =  params['maxFrequency'])
 
     # add half window of zeros to input signal to reach same ooutput length
-    signal  = append(signal, essentia.zeros(params['frameSize'] // 2))
+    signal  = append(signal, sonoria.zeros(params['frameSize'] // 2))
     insignal = VectorInput(signal)
 
     # analysis
@@ -117,7 +117,7 @@ def analHprModelStreaming(params, signal):
     smanal.phases >> (pool, 'phases')
     smanal.res >> (pool, 'res')
 
-    essentia.run(insignal)
+    sonoria.run(insignal)
 
     # remove first half window frames
     mags = pool['magnitudes']
@@ -133,7 +133,7 @@ def analHprModelStreaming(params, signal):
 
 # computes analysis/stynthesis
 def analsynthHprModelStreaming(params, signal):
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
 
     # windowing and FFT
     fcut = es.FrameCutter(frameSize = params['frameSize'], hopSize = params['hopSize'], startFromZero =  False)
@@ -157,7 +157,7 @@ def analsynthHprModelStreaming(params, signal):
                              hopSize=params['hopSize'])
 
     # add half window of zeros to input signal to reach same ooutput length
-    signal = append(signal, essentia.zeros(params['frameSize'] // 2))
+    signal = append(signal, sonoria.zeros(params['frameSize'] // 2))
     insignal = VectorInput(signal)
 
     # analysis
@@ -181,7 +181,7 @@ def analsynthHprModelStreaming(params, signal):
     smsyn.sineframe >> (pool, 'sineframes')
     smsyn.resframe >> (pool, 'resframes')
 
-    essentia.run(insignal)
+    sonoria.run(insignal)
 
     outaudio = framesToAudio(pool['frames'])
     outaudio = outaudio[2*params['hopSize']:]
@@ -203,7 +203,7 @@ class TestHprModel(TestCase):
 
         # generate test signal
         signalSize = 20 * self.params['frameSize']
-        signal = essentia.zeros(signalSize)
+        signal = sonoria.zeros(signalSize)
 
         [mags, freqs, phases] = analHprModelStreaming(self.params, signal)
 
@@ -216,7 +216,7 @@ class TestHprModel(TestCase):
         from random import random
         # generate test signal
         signalSize = 20 * self.params['frameSize']
-        signal = array([2*(random()-0.5)*i for i in essentia.ones(signalSize)])
+        signal = array([2*(random()-0.5)*i for i in sonoria.ones(signalSize)])
 
 
         # for white noise test set sine minimum duration to 350ms, and min threshold of -20dB
@@ -237,7 +237,7 @@ class TestHprModel(TestCase):
 
         # generate noise components
         from random import random
-        noise = 0.1 * array([2*(random()-0.5)*i for i in essentia.ones(signalSize)]) # -10dB
+        noise = 0.1 * array([2*(random()-0.5)*i for i in sonoria.ones(signalSize)]) # -10dB
         signal = signal + noise
 
         outsignal, pool = analsynthHprModelStreaming(self.params, signal)

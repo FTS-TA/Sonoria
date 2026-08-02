@@ -1,7 +1,7 @@
 import sys
-import essentia
-from essentia.streaming import *
-from essentia.standard import YamlOutput
+import sonoria
+from sonoria.streaming import *
+from sonoria.standard import YamlOutput
 
 try:
     infile = sys.argv[1]
@@ -24,7 +24,7 @@ hpcp = HPCP()
 key = Key()
 
 # use pool to store data
-pool = essentia.Pool() 
+pool = sonoria.Pool() 
 
 # connect algorithms together
 loader.audio >> framecutter.signal
@@ -38,7 +38,7 @@ key.scale >> (pool, 'tonal.key_scale')
 key.strength >> (pool, 'tonal.key_strength')
 
 # network is ready, run it
-essentia.run(loader)
+sonoria.run(loader)
 
 print(pool['tonal.key_key'] + " " + pool['tonal.key_scale'])
 

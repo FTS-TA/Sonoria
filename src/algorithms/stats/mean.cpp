@@ -20,7 +20,7 @@
 #include "mean.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* Mean::name = "Mean";

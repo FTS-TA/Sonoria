@@ -24,19 +24,19 @@
 #include <essentia/pool.h>
 #include <essentia/types.h>
 
-void LowLevelSpectral(essentia::streaming::SourceBase& input,
-                      essentia::Pool& pool,
-                      const essentia::Pool& options,
+void LowLevelSpectral(sonoria::streaming::SourceBase& input,
+                      sonoria::Pool& pool,
+                      const sonoria::Pool& options,
                       const std::string& nspace="");
 
-void LowLevelSpectralEqLoud(essentia::streaming::SourceBase& input,
-                            essentia::Pool& pool,
-                            const essentia::Pool& options,
+void LowLevelSpectralEqLoud(sonoria::streaming::SourceBase& input,
+                            sonoria::Pool& pool,
+                            const sonoria::Pool& options,
                             const std::string& nspace="");
 
-void Level(essentia::streaming::SourceBase& input, essentia::Pool& pool,
-           const essentia::Pool& options, const std::string& nspace="");
+void Level(sonoria::streaming::SourceBase& input, sonoria::Pool& pool,
+           const sonoria::Pool& options, const std::string& nspace="");
 
-void LevelAverage(essentia::Pool& pool, const std::string& nspace="");
+void LevelAverage(sonoria::Pool& pool, const std::string& nspace="");
 
 #endif // STREAMING_EXTRACTORLOWLEVEL_H

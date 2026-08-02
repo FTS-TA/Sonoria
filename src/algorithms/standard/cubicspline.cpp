@@ -20,7 +20,7 @@
 #include "cubicspline.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* CubicSpline::name = "CubicSpline";

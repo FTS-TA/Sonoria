@@ -16,8 +16,8 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 import sys, csv
-from essentia import *
-from essentia.standard import *
+from sonoria import *
+from sonoria.standard import *
 from pylab import *
 from numpy import *
 

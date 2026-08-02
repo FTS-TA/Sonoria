@@ -23,7 +23,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* NSGConstantQStreaming::name = "NSGConstantQStreaming";

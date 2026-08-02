@@ -15,12 +15,12 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
-from essentia import INFO
+import sonoria
+from sonoria import INFO
 import sys
 import math
 from math import *
-from essentia.progress import Progress
+from sonoria.progress import Progress
 
 
 namespace = 'rhythm'
@@ -76,8 +76,8 @@ def compute(audio, pool, options):
         beat_duration += 1;
         beat_window_duration = beat_duration*2;
 
-    energy = essentia.Energy()
-    energybandratio = essentia.EnergyBandRatio(startFrequency = 20.0, stopFrequency = 150.0, sampleRate = sampleRate)
+    energy = sonoria.Energy()
+    energybandratio = sonoria.EnergyBandRatio(startFrequency = 20.0, stopFrequency = 150.0, sampleRate = sampleRate)
 
     total_beats = len(beats)
     n_beats = 1
@@ -109,8 +109,8 @@ def compute(audio, pool, options):
             beat_scope = [beat_start / float(sampleRate), beat_end/float(sampleRate)] # in seconds
             #print "beat audio size: ", len(beat_audio)
 
-            window = essentia.Windowing(size = len(beat_audio), zeroPadding = 0, type = windowType)
-            spectrum = essentia.Spectrum(size = len(beat_audio))
+            window = sonoria.Windowing(size = len(beat_audio), zeroPadding = 0, type = windowType)
+            spectrum = sonoria.Spectrum(size = len(beat_audio))
             beat_spectrum = spectrum(window(beat_audio))
 
             beat_spectral_energy = energy(beat_spectrum)
@@ -141,8 +141,8 @@ def compute(audio, pool, options):
 
         between_beat_scope = [between_beat_start, between_beat_end]
 
-        window = essentia.Windowing(windowSize = len(between_beat_audio), zeroPadding = 0, type = "blackmanharris62")
-        spectrum = essentia.Spectrum(size = len(between_beat_audio))
+        window = sonoria.Windowing(windowSize = len(between_beat_audio), zeroPadding = 0, type = "blackmanharris62")
+        spectrum = sonoria.Spectrum(size = len(between_beat_audio))
         between_beat_spectrum = spectrum(window(between_beat_audio))
 
         between_beat_spectral_energy = energy(between_beat_spectrum)

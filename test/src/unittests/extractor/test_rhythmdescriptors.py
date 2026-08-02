@@ -23,7 +23,7 @@
 # between unit test and the algorithm.
 
 from numpy import *
-from essentia_test import *
+from sonoria_test import *
 
 class TestRhythmDescriptors(TestCase):
     

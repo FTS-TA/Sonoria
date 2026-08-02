@@ -24,7 +24,7 @@
 #include "tnt/tnt2essentiautils.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* PoolAggregator::name = "PoolAggregator";

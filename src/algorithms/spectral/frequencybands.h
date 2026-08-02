@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "essentiautil.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class FrequencyBands : public Algorithm {
@@ -61,11 +61,11 @@ class FrequencyBands : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class FrequencyBands : public StreamingAlgorithmWrapper {
@@ -83,6 +83,6 @@ class FrequencyBands : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_BARKBANDS_H

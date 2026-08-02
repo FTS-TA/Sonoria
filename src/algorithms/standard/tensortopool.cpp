@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* TensorToPool::name = "TensorToPool";
@@ -71,4 +71,4 @@ AlgorithmStatus TensorToPool::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

@@ -22,9 +22,9 @@
 import os, sys
 from os.path import join
 
-import essentia
-from essentia.streaming import *
-import essentia.standard as std
+import sonoria
+from sonoria.streaming import *
+import sonoria.standard as std
 
 from pylab import median, mean, argmax
 import matplotlib
@@ -82,7 +82,7 @@ def computeOnsets(filename, pool):
     loader.audio >> onset.signal
     onset.onsetTimes >> (pool, 'ticks')
     onset.onsetRate >> None
-    essentia.run(loader)
+    sonoria.run(loader)
     pool.set('size', loader.audio.totalProduced())
     pool.set('length', pool['size']/pool['samplerate'])
 
@@ -99,7 +99,7 @@ def computeSegmentation(filename, pool):
     w = Windowing(type='blackmanharris62')
     spec = Spectrum()
     mfcc = MFCC(highFrequencyBound=8000)
-    tmpPool = essentia.Pool()
+    tmpPool = sonoria.Pool()
 
     audio.audio >> fc.signal
     fc.frame >> w.frame >> spec.frame
@@ -107,10 +107,10 @@ def computeSegmentation(filename, pool):
     mfcc.bands >> (tmpPool, 'mfcc_bands')
     mfcc.mfcc>> (tmpPool, 'mfcc_coeff')
 
-    essentia.run(audio)
+    sonoria.run(audio)
 
     # compute transpose of features array, don't call numpy.matrix.transpose
-    # because essentia fucks it up!!
+    # because sonoria fucks it up!!
     features = copy.deepcopy(tmpPool['mfcc_coeff'].transpose())
     segments = std.SBic(cpw=1.5, size1=1000, inc1=300, size2=600, inc2=50)(features)
     for segment in segments:
@@ -139,7 +139,7 @@ def computeNoveltyCurve(filename, pool):
     spec.spectrum >> hfc.spectrum
     freqBands.bands >> (pool, 'frequency_bands')
     hfc.hfc >> (pool, 'hfc')
-    essentia.run(loader)
+    sonoria.run(loader)
 
     pool.set('size', loader.audio.totalProduced())
     pool.set('length', pool['size']/pool['samplerate'])
@@ -150,7 +150,7 @@ def computeNoveltyCurve(filename, pool):
     weightCurve= np.sum(frequencyBands, axis=0)
     weightCurve = [val/float(nFrames) for val in weightCurve]
 
-    weightCurve = essentia.normalize(weightCurve)
+    weightCurve = sonoria.normalize(weightCurve)
     #pyplot.plot(weightCurve)
     #pyplot.show()
 
@@ -162,8 +162,8 @@ def computeNoveltyCurve(filename, pool):
     #return
 
     # derivative of hfc seems to help in finding more precise beats...
-    hfc = essentia.normalize(pool['hfc'])
-    dhfc = essentia.derivative(hfc)
+    hfc = sonoria.normalize(pool['hfc'])
+    dhfc = sonoria.derivative(hfc)
     for i, val in enumerate(dhfc):
         if val< 0: continue
         noveltyCurve[i] += val
@@ -227,7 +227,7 @@ def computeBeats(filename, pool):
         bpmHist.ticks          >> (pool, 'ticks')
         bpmHist.ticksMagnitude >> (pool, 'ticksMagnitude')
         bpmHist.sinusoid       >> (pool, 'sinusoid')
-        essentia.run(gen)
+        sonoria.run(gen)
 
         ## get rid of beats of beats > audio.length
         #ticks = []
@@ -238,7 +238,7 @@ def computeBeats(filename, pool):
         #    ticksAmp.append(float(amp))
 
         #step = pool['step']
-        #ticks = essentia.postProcessTicks(ticks, ticksAmp, 60./pool['harmonicBpm'][0]);
+        #ticks = sonoria.postProcessTicks(ticks, ticksAmp, 60./pool['harmonicBpm'][0]);
         sine = pool['sinusoid']
         #pyplot.plot(novelty, 'k')
         #pyplot.plot(sine, 'r')
@@ -303,8 +303,8 @@ def computeBeats(filename, pool):
         _, _, bestBpm= getMostStableTickLength(ticks)
         #pool.set('bestTicksStart', bestTicks[0])
         #pool.set('bestTicksEnd', bestTicks[0] + bestTicks[1])
-        #ticks = essentia.postProcessTicks(ticks, ticksAmp, 60./pool['harmonicBpm'][0]);
-        #ticks = essentia.postProcessTicks(ticks)
+        #ticks = sonoria.postProcessTicks(ticks, ticksAmp, 60./pool['harmonicBpm'][0]);
+        #ticks = sonoria.postProcessTicks(ticks)
         if fabs(bestBpm - bpms[0]) < bpmTolerance: recompute = False
         else:
             count+=1
@@ -336,7 +336,7 @@ def computeBeats(filename, pool):
     #print 'original nticks:', len(ticks)
     #print 'step:', step
     if step>1:
-        ticks = essentia.array(map(lambda i: ticks[i],
+        ticks = sonoria.array(map(lambda i: ticks[i],
                                filter(lambda i: i%step == 0,range(len(ticks)))))
 
     #print 'nticks:', len(ticks)
@@ -388,7 +388,7 @@ def postProcessTicks(audioFilename, pool):
         ticksAmp.append(float(amp))
 
     step = pool['step']
-    #ticks = essentia.postProcessTicks(ticks, ticksAmp, 60./pool['harmonicBpm'][0]);
+    #ticks = sonoria.postProcessTicks(ticks, ticksAmp, 60./pool['harmonicBpm'][0]);
     #beatWindowDuration = 0.01 # seconds
     #beatDuration = 0.005      # seconds
     #rmsFrameSize = 64
@@ -431,7 +431,7 @@ def writeBeatFile(filename, pool) :
     writer = MonoWriter(filename=beatFilename)
     onsetsMarker = AudioOnsetsMarker(onsets=pool['ticks'])
     audio.audio >> onsetsMarker.signal >> writer.audio
-    essentia.run(audio)
+    sonoria.run(audio)
     return beatFilename
 
 def computeBeatsLoudness(filename, pool):
@@ -445,7 +445,7 @@ def computeBeatsLoudness(filename, pool):
     loader.audio >> beatsLoud.signal
     beatsLoud.loudness >> (pool, 'loudness')
     beatsLoud.loudnessBandRatio >> (pool, 'loudnessBandRatio')
-    essentia.run(loader)
+    sonoria.run(loader)
 
 def computeSpectrum(signal):
     #gen = VectorInput(signal)
@@ -453,11 +453,11 @@ def computeSpectrum(signal):
     #w = Windowing(zeroPhase=False)
     #spec = Spectrum()
 
-    #p = essentia.Pool()
+    #p = sonoria.Pool()
     #gen.data >> fc.signal
     #fc.frame >> w.frame >> spec.frame
     #spec.spectrum >> (p,'spectrum')
-    #essentia.run(gen)
+    #sonoria.run(gen)
 
     #pyplot.imshow(p['spectrum'], cmap=pyplot.cm.hot, aspect='auto', origin='lower')
 
@@ -512,7 +512,7 @@ def plot(pool, title, outputfile='out.svg', subplot=111):
     #acorr = std.AutoCorrelation()
     #bandCorr = []
     #for iBand, band in enumerate(loudnessBand):
-    #    bandCorr.append(acorr(essentia.array(band)))
+    #    bandCorr.append(acorr(sonoria.array(band)))
 
     nBands = len(loudnessBand)
     nticks = len(loudness)
@@ -554,7 +554,7 @@ def plot(pool, title, outputfile='out.svg', subplot=111):
     bandCorr = []
     maxCorr = []
     for iBand, band in enumerate(loudnessBand):
-        bandCorr.append(acorr(essentia.array(band)))
+        bandCorr.append(acorr(sonoria.array(band)))
         maxCorr.append(argmax(bandCorr[-1][2:])+2)
 
     # use as much window space as possible:
@@ -613,7 +613,7 @@ def plot(pool, title, outputfile='out.svg', subplot=111):
                    color='r', edgecolor='w', linewidth=.3)
 
     # multiply both histogram and sum corr to have a weighted histogram:
-    wHist = essentia.array(hist)*sumCorr*acorr(loudness)
+    wHist = sonoria.array(hist)*sumCorr*acorr(loudness)
     maxHist = argmax(wHist)
     print 'max weighted histogram', maxHist
     pyplot.subplot(515)
@@ -724,7 +724,7 @@ if __name__ == '__main__':
         except:
             print 'realBpm not found'
 
-        pool = essentia.Pool()
+        pool = sonoria.Pool()
         pool.set('downmix',    DOWNMIX)
         pool.set('framesize',  FRAMESIZE)
         pool.set('hopsize',    HOPSIZE)

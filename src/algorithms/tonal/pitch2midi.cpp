@@ -2,7 +2,7 @@
 #include "essentiamath.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* Pitch2Midi::name = "Pitch2Midi";

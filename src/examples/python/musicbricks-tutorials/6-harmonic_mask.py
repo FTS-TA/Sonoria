@@ -1,5 +1,5 @@
-# import essentia in standard mode
-import essentia.standard as es
+# import sonoria in standard mode
+import sonoria.standard as es
 
 # We'll need to some numerical tools and to define filepaths
 import numpy as np

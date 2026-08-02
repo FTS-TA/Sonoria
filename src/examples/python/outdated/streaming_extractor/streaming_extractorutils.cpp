@@ -22,7 +22,7 @@
 #include "essentiamath.h" // for meanFrames and meanVariances
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 void readMetadata(const string& audioFilename, Pool& pool) {
   streaming::AlgorithmFactory& factory = streaming::AlgorithmFactory::instance();
@@ -279,7 +279,7 @@ void PostProcess(Pool& pool, const string& nspace) {
   PCA(pool, nspace);
 }
 
-void getAnalysisData(const essentia::Pool& pool, Real& replayGain, Real& sampleRate, string& downmix) {
+void getAnalysisData(const sonoria::Pool& pool, Real& replayGain, Real& sampleRate, string& downmix) {
   // stores values for replayGain, sampleRate and downmix type
   // used to obtain the results in pool
   try {

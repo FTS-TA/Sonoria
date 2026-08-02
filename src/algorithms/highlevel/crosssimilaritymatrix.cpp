@@ -24,7 +24,7 @@
 #include <algorithm>
 #include <functional>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* CrossSimilarityMatrix::name = "CrossSimilarityMatrix";
@@ -135,4 +135,4 @@ std::vector<Real> CrossSimilarityMatrix::getColsAtVecIndex(std::vector<std::vect
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

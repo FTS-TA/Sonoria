@@ -23,7 +23,7 @@
 using namespace std;
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -268,4 +268,4 @@ TonicIndianArtMusic::~TonicIndianArtMusic() {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

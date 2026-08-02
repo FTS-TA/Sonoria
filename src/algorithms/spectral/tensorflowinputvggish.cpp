@@ -20,7 +20,7 @@
 #include "tensorflowinputvggish.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* TensorflowInputVGGish::name = "TensorflowInputVGGish";

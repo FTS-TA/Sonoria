@@ -22,9 +22,9 @@
 #include <essentia/scheduler/network.h>
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 void readMetadata(const string& audioFilename, Pool& pool) {
   AlgorithmFactory& factory = AlgorithmFactory::instance();

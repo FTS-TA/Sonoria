@@ -19,9 +19,9 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import *
-from essentia.standard import PoolAggregator
+from sonoria_test import *
+from sonoria.streaming import *
+from sonoria.standard import PoolAggregator
 
 
 class TestTensorflowPredict_Streaming(TestCase):

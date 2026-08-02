@@ -26,7 +26,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 
 #ifdef OS_WIN32
 #define _S_IREAD 256
@@ -40,4 +40,4 @@ int mkstemp(char *tmpl) {
 }
 #endif // OS_WIN32
 
-} //namespace essentia
+} //namespace sonoria

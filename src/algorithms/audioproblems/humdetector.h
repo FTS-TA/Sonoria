@@ -26,7 +26,7 @@
 #include "streamingalgorithmcomposite.h"
 #include <essentia/utils/tnt/tnt2vector.h>
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class HumDetector : public AlgorithmComposite {
@@ -120,12 +120,12 @@ class HumDetector : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class HumDetector : public Algorithm {
@@ -172,6 +172,6 @@ class HumDetector : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_HUMDETECTOR_H

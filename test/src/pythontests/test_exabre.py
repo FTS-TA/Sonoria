@@ -19,10 +19,10 @@
 
 
 import numpy
-import essentia
+import sonoria
 import glob
-import essentia
-from essentia.extractor.extractor import compute
+import sonoria
+from sonoria.extractor.extractor import compute
 
 input_files = glob.glob("../../../../audio/recorded/*.wav")
 
@@ -44,7 +44,7 @@ for input_file in input_files:
     print()
     print("Melodicness Python = ", ton)
 
-    exabre = essentia.Exabre()
+    exabre = sonoria.Exabre()
     ton_c = exabre(float(key_strength))
     print("Melodicness C = ", ton)
     print('')

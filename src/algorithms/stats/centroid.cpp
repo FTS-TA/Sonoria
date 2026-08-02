@@ -19,7 +19,7 @@
 
 #include "centroid.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* Centroid::name = "Centroid";

@@ -20,7 +20,7 @@
 
 #include "synth_utils.h"
 
-namespace essentia{
+namespace sonoria{
 
 
 // defines for generateSine function

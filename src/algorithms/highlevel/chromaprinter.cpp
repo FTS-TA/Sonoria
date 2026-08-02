@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Chromaprinter::name = "Chromaprinter";
@@ -95,10 +95,10 @@ void Chromaprinter::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* Chromaprinter::name = standard::Chromaprinter::name;
@@ -234,4 +234,4 @@ std::string Chromaprinter::getChromaprint(){
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

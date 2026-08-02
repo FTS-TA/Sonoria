@@ -24,7 +24,7 @@
 #include "../essentiamath.h"
 #include <cassert>
 
-namespace essentia {
+namespace sonoria {
 
 inline
 Real lagToBpm(Real lag, Real sampleRate, Real hopSize) {
@@ -405,6 +405,6 @@ std::vector<Real> postProcessTicks(const std::vector<Real>& origticks,
 
   return std::vector<Real>(ticks.begin(), ticks.end());
 }
-} // namespace essentia
+} // namespace sonoria
 
 #endif

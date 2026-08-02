@@ -32,7 +32,7 @@
 #include "streamutil.h"
 
 
-namespace essentia {
+namespace sonoria {
 
 extern const char* version;
 extern const char* version_git_sha;
@@ -107,6 +107,6 @@ protected:
   static EssentiaMap<std::string, std::string>* _typeMap;
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_ESSENTIA_H

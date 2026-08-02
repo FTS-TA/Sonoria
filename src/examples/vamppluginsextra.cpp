@@ -30,8 +30,8 @@
 #include <essentia/scheduler/network.h>
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::scheduler;
 
 class Pitch : public VampWrapper  {
 public:

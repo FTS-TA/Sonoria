@@ -19,7 +19,7 @@
 
 #include "hfc.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* HFC::name = "HFC";

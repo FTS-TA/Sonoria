@@ -20,7 +20,7 @@
 # this program.  If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 from numpy import fabs
 audio_dir = join(testdata.audio_dir, 'generated', 'synthesised', 'impulse')
 wav_dir = join(audio_dir, 'wav')
@@ -152,7 +152,7 @@ class TestMonoLoader(TestCase):
 
         shift = impulses_mp3[0] - impulses_wav[0]
         # FIXME:
-        # For this particular audio files in essentia 2.1_beta2 with an older libav version
+        # For this particular audio files in sonoria 2.1_beta2 with an older libav version
         # the expected shift was 1105 samples, however now there is no shift
         # Nevertheless time shift can be observed on other examples but we still do not have such tests 
 

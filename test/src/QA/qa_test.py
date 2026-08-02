@@ -21,10 +21,10 @@
 import os
 import numpy as np
 
-from essentia import *
-from essentia.utils import *
-from essentia.standard import *
-from essentia import array as esarr
+from sonoria import *
+from sonoria.utils import *
+from sonoria.standard import *
+from sonoria import array as esarr
 
 EssentiaException = RuntimeError
 

@@ -30,7 +30,7 @@
 #include "algorithmfactory.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SineSubtraction : public Algorithm {
@@ -101,11 +101,11 @@ class SineSubtraction : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SineSubtraction : public StreamingAlgorithmWrapper {
@@ -130,7 +130,7 @@ class SineSubtraction : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SINESUBTRACTION_H

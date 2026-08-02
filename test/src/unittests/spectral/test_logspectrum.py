@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import numpy as np
 
 _expected = array([ 29.521513 ,   27.441898 ,   26.655254 ,   26.23174  ,

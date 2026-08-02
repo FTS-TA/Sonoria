@@ -284,7 +284,7 @@ def create_registration_cpp(all_algos, registration_filename, use_streaming=True
                 cpp_code += '#include "%s"\n' % all_algos[algo]['header']
 
     # register standard algorithms in factory
-    cpp_code += "\nnamespace essentia {\nnamespace standard {\n\nESSENTIA_API void registerAlgorithm() {\n"
+    cpp_code += "\nnamespace sonoria {\nnamespace standard {\n\nESSENTIA_API void registerAlgorithm() {\n"
 
     for algo in all_algos:
         if all_algos[algo]['has_standard']:
@@ -297,12 +297,12 @@ def create_registration_cpp(all_algos, registration_filename, use_streaming=True
 
     # register streaming algorithms in factory
     if use_streaming:
-        cpp_code += "\nnamespace essentia {\nnamespace streaming {\n\nESSENTIA_API void registerAlgorithm() {\n"
+        cpp_code += "\nnamespace sonoria {\nnamespace streaming {\n\nESSENTIA_API void registerAlgorithm() {\n"
 
         for algo in all_algos:
             if all_algos[algo]['has_streaming']:
                 if all_algos[algo]['has_standard']:
-                    cpp_code += "    AlgorithmFactory::Registrar<%s, essentia::standard::%s> reg%s;\n" % (algo, algo, algo)
+                    cpp_code += "    AlgorithmFactory::Registrar<%s, sonoria::standard::%s> reg%s;\n" % (algo, algo, algo)
                 else:
                     cpp_code += "    AlgorithmFactory::Registrar<%s> reg%s;\n" % (algo, algo)
 
@@ -312,14 +312,14 @@ def create_registration_cpp(all_algos, registration_filename, use_streaming=True
         f.write(cpp_code)
 
 
-def create_version_h(version_filename, essentia_version, git_sha):
+def create_version_h(version_filename, sonoria_version, git_sha):
     h_code = """
 #ifndef VERSION_H_
 #define VERSION_H_
 #define ESSENTIA_VERSION "%s"
 #define ESSENTIA_GIT_SHA "%s"
 #endif /* VERSION_H_ */
-""" % (essentia_version, git_sha)
+""" % (sonoria_version, git_sha)
 
     with open(version_filename, "w") as f:
         f.write(h_code)

@@ -19,7 +19,7 @@
 
 #include "discontinuitydetector.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char *DiscontinuityDetector::name = "DiscontinuityDetector";

@@ -21,7 +21,7 @@
 #define ESSENTIA_STREAMCONNECTOR_H
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 /**
@@ -94,6 +94,6 @@ class StreamConnector {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMCONNECTOR_H

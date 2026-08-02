@@ -21,7 +21,7 @@
 #include "essentiamath.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* AfterMaxToBeforeMaxEnergyRatio::name = "AfterMaxToBeforeMaxEnergyRatio";
@@ -66,14 +66,14 @@ void AfterMaxToBeforeMaxEnergyRatio::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* AfterMaxToBeforeMaxEnergyRatio::name = essentia::standard::AfterMaxToBeforeMaxEnergyRatio::name;
-const char* AfterMaxToBeforeMaxEnergyRatio::description = essentia::standard::AfterMaxToBeforeMaxEnergyRatio::description;
+const char* AfterMaxToBeforeMaxEnergyRatio::name = sonoria::standard::AfterMaxToBeforeMaxEnergyRatio::name;
+const char* AfterMaxToBeforeMaxEnergyRatio::description = sonoria::standard::AfterMaxToBeforeMaxEnergyRatio::description;
 
 AlgorithmStatus AfterMaxToBeforeMaxEnergyRatio::process() {
   // TODO: can be optimized with a lookup on _pitch.available() (similar to poolstorage & vectorinput)
@@ -98,4 +98,4 @@ AlgorithmStatus AfterMaxToBeforeMaxEnergyRatio::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

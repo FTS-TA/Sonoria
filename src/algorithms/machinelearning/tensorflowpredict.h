@@ -25,7 +25,7 @@
 #include <tensorflow/c/c_api.h>
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TensorflowPredict : public Algorithm {
@@ -121,12 +121,12 @@ class TensorflowPredict : public Algorithm {
 };
 
 } //namespace standard
-} //namespace essentia
+} //namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TensorflowPredict : public StreamingAlgorithmWrapper {
@@ -145,6 +145,6 @@ class TensorflowPredict : public StreamingAlgorithmWrapper {
 };
 
 } //namespace standard
-} //namespace essentia
+} //namespace sonoria
 
 #endif // ESSENTIA_TENSORFLOWPREDICT_H

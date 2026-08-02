@@ -28,7 +28,7 @@
 #endif // OS_WIN32
 
 
-namespace essentia {
+namespace sonoria {
 
 // if we were to use TBB for the scheduler, we would have:
 /*
@@ -101,6 +101,6 @@ class ForcedMutexLocker {
 };
 
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_THREADING_H

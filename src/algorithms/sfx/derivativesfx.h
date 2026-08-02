@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class DerivativeSFX : public Algorithm {
@@ -49,11 +49,11 @@ class DerivativeSFX : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class DerivativeSFX : public StreamingAlgorithmWrapper {
@@ -74,6 +74,6 @@ class DerivativeSFX : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_DERIVATIVESFX_H

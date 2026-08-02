@@ -21,7 +21,7 @@
 #include "sinkproxy.h"
 #include "sourcebase.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 ReaderID SinkBase::id() const {
@@ -99,4 +99,4 @@ void SinkBase::detachProxy(SinkProxyBase* sproxy) {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

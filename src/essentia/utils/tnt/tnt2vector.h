@@ -23,7 +23,7 @@
 #include <fstream>
 #include "tnt.h"
 
-namespace essentia {
+namespace sonoria {
 
   inline TNT::Array2D<Real> vecvecToArray2D(const std::vector<std::vector<Real> >& v) {
 
@@ -60,6 +60,6 @@ namespace essentia {
     return v;
   }
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TNT2VECTOR_H

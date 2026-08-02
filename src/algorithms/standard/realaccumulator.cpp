@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* RealAccumulator::name = "RealAccumulator";
@@ -58,4 +58,4 @@ AlgorithmStatus RealAccumulator::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

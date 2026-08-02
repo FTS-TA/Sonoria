@@ -26,8 +26,8 @@
 #include "essentia/utils/tnt/tnt2vector.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::standard;
+using namespace sonoria;
+using namespace sonoria::standard;
 
 
 int main(int argc, char* argv[]) {
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
   string outputFilename = argv[3];
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -246,7 +246,7 @@ int main(int argc, char* argv[]) {
   delete coversim;
   delete output;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

@@ -25,7 +25,7 @@
 #include "algorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class RhythmExtractor2013 : public AlgorithmComposite {
@@ -85,11 +85,11 @@ class RhythmExtractor2013 : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class RhythmExtractor2013 : public Algorithm {
@@ -134,6 +134,6 @@ class RhythmExtractor2013 : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // RHYTHMEXTRACTOR2013_H

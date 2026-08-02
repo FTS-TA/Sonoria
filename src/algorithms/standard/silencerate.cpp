@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* SilenceRate::name = "SilenceRate";
@@ -65,14 +65,14 @@ void SilenceRate::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* SilenceRate::name = essentia::standard::SilenceRate::name;
-const char* SilenceRate::category = essentia::standard::SilenceRate::category;
-const char* SilenceRate::description = essentia::standard::SilenceRate::description;
+const char* SilenceRate::name = sonoria::standard::SilenceRate::name;
+const char* SilenceRate::category = sonoria::standard::SilenceRate::category;
+const char* SilenceRate::description = sonoria::standard::SilenceRate::description;
 
 void SilenceRate::clearOutputs() {
   for (int i=0; i<(int)_outputs.size(); i++) delete _outputs[i];
@@ -123,4 +123,4 @@ AlgorithmStatus SilenceRate::process() {
 
 
 } // namespace streaming
-} //namespace essentia
+} //namespace sonoria

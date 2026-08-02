@@ -5,8 +5,8 @@ import numpy as np
 from scipy.signal import spectrogram
 from collections import defaultdict
 
-import essentia
-from essentia.standard import *
+import sonoria
+from sonoria.standard import *
 
 from test_hpcp_parameters import *
 from test_hpcp_plots import *

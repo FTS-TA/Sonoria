@@ -22,7 +22,7 @@
 #include <cstdlib>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 YamlNode::~YamlNode() {}
 
@@ -70,7 +70,7 @@ void throwParserError(yaml_parser_t*);
 // parses the yaml file and returns the root of the parsed AST. If optinal 
 // string argument is specified, that load from string, otherwise load from the 
 // file object
-YamlNode* essentia::parseYaml(FILE* file, const string& fileString) {
+YamlNode* sonoria::parseYaml(FILE* file, const string& fileString) {
   // make sure to delete this object with 'yaml_parser_delete', taken care of
   // by cleanState
   yaml_parser_t parser;

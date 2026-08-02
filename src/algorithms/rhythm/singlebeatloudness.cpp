@@ -20,7 +20,7 @@
 #include "singlebeatloudness.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* SingleBeatLoudness::name = "SingleBeatLoudness";
@@ -44,13 +44,13 @@ void SingleBeatLoudness::configure() {
     throw EssentiaException("Parameter beatDuration cannot be larger than beatWindowDuration");
   }
 
-  if (_beatDuration % 2 == 1) _beatDuration++; // as essentia::FFT only runs on even sizes so far. Needs be removed whenever fft will output the whole spectrum
+  if (_beatDuration % 2 == 1) _beatDuration++; // as sonoria::FFT only runs on even sizes so far. Needs be removed whenever fft will output the whole spectrum
 
   if (_beatDuration > _beatWindowSize) {
     throw EssentiaException("SingleBeatLoudness: Parameter beatDuration cannot be larger than beatWindowDuration");
   }
 
-  if (_beatDuration % 2 == 1) _beatDuration++; // as essentia::FFT only runs on even sizes so far. Needs be removed whenever fft will output the whole spectrum
+  if (_beatDuration % 2 == 1) _beatDuration++; // as sonoria::FFT only runs on even sizes so far. Needs be removed whenever fft will output the whole spectrum
 
   _window->input("frame").set(_beatWindow);
   _window->output("frame").set(_windowedBeat);

@@ -23,7 +23,7 @@
 #include <vector>
 #include "types.h"
 
-namespace essentia {
+namespace sonoria {
 
 
 template <typename T>
@@ -100,6 +100,6 @@ void RogueVector<T>::setSize(size_t size) {
 
 #endif
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_ROGUEVECTOR_H

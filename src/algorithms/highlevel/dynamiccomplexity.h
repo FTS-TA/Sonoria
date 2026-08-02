@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class DynamicComplexity : public Algorithm {
@@ -60,12 +60,12 @@ class DynamicComplexity : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmcomposite.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class DynamicComplexity : public AlgorithmComposite {
@@ -106,6 +106,6 @@ class DynamicComplexity : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_DYNAMICCOMPLEXITY_H

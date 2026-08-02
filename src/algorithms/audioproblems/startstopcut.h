@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class StartStopCut : public Algorithm {
@@ -74,12 +74,12 @@ class StartStopCut : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class StartStopCut : public StreamingAlgorithmWrapper {
@@ -98,7 +98,7 @@ class StartStopCut : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // STARTSTOPCUT_H

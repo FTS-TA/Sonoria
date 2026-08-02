@@ -18,8 +18,8 @@
 #! /usr/bin/env python
 
 import sys, os
-import essentia, essentia.standard, essentia.streaming
-from essentia.streaming import *
+import sonoria, sonoria.standard, sonoria.streaming
+from sonoria.streaming import *
 from numpy import argmax, log10, mean, tanh
 
 dynamicFrameSize = 88200
@@ -27,7 +27,7 @@ dynamicHopSize = 44100
 analysisSampleRate = 44100.0
 
 # expects the audio source to already be equal-loudness filtered
-class LevelExtractor(essentia.streaming.CompositeBase):
+class LevelExtractor(sonoria.streaming.CompositeBase):
     #"""describes the dynamics of an audio signal"""
 
     def __init__(self, frameSize=dynamicFrameSize, hopSize=dynamicHopSize):
@@ -89,14 +89,14 @@ usage = 'level.py [options] <inputfilename> <outputfilename>'
 def parse_args():
 
     import numpy
-    essentia_version = '%s\n'\
+    sonoria_version = '%s\n'\
     'python version: %s\n'\
-    'numpy version: %s' % (essentia.__version__,       # full version
+    'numpy version: %s' % (sonoria.__version__,       # full version
                            sys.version.split()[0],     # python major version
                            numpy.__version__)          # numpy version
 
     from optparse import OptionParser
-    parser = OptionParser(usage=usage, version=essentia_version)
+    parser = OptionParser(usage=usage, version=sonoria_version)
 
     parser.add_option("-c","--cpp", action="store_true", dest="generate_cpp",
       help="generate cpp code from CompositeBase algorithm")
@@ -120,9 +120,9 @@ if __name__ == '__main__':
         sys.exit(1)
 
     if opts.generate_dot:
-        essentia.translate(LevelExtractor, 'streaming_extractorlevel', dot_graph=True)
+        sonoria.translate(LevelExtractor, 'streaming_extractorlevel', dot_graph=True)
     elif opts.generate_cpp:
-        essentia.translate(LevelExtractor, 'streaming_extractorlevel', dot_graph=False)
+        sonoria.translate(LevelExtractor, 'streaming_extractorlevel', dot_graph=False)
 
     # find out replay gain:
     loader = EqloudLoader(filename=args[0],
@@ -130,11 +130,11 @@ if __name__ == '__main__':
                           downmix='mix')
     rgain = ReplayGain(applyEqloud=False)
 
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
 
     loader.audio >> rgain.signal
     rgain.replayGain >> (pool, 'replay_gain')
-    essentia.run(loader)
+    sonoria.run(loader)
 
     # get average level:
     loader = EqloudLoader(filename=args[0],
@@ -145,8 +145,8 @@ if __name__ == '__main__':
     levelExtractor = LevelExtractor()
     loader.audio >> levelExtractor.signal
     levelExtractor.loudness >> (pool, 'lowlevel.loudness')
-    essentia.run(loader)
+    sonoria.run(loader)
 
     levelAverage(pool)
 
-    essentia.standard.YamlOutput(filename=args[1])(pool)
+    sonoria.standard.YamlOutput(filename=args[1])(pool)

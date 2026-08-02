@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MinToTotal::name = "MinToTotal";
@@ -43,15 +43,15 @@ void MinToTotal::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* MinToTotal::name = essentia::standard::MinToTotal::name;
-const char* MinToTotal::category = essentia::standard::MinToTotal::category;
-const char* MinToTotal::description = essentia::standard::MinToTotal::description;
+const char* MinToTotal::name = sonoria::standard::MinToTotal::name;
+const char* MinToTotal::category = sonoria::standard::MinToTotal::category;
+const char* MinToTotal::description = sonoria::standard::MinToTotal::description;
 
 
 void MinToTotal::consume() {
@@ -82,4 +82,4 @@ void MinToTotal::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

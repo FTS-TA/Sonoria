@@ -20,9 +20,9 @@
 
 import sys
 
-import essentia.standard as es
-from essentia import db2pow
-from essentia import instantPower
+import sonoria.standard as es
+from sonoria import db2pow
+from sonoria import instantPower
 
 sys.path.insert(0, './')
 from qa_test import *

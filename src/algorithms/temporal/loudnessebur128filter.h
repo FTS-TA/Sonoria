@@ -24,7 +24,7 @@
 #include "network.h"
 #include "streamingalgorithmcomposite.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class LoudnessEBUR128Filter : public AlgorithmComposite {
@@ -63,6 +63,6 @@ class LoudnessEBUR128Filter : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_LOUDNESSEBUR128FILTER_H

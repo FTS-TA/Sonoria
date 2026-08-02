@@ -20,7 +20,7 @@
 #include "typedefs.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 DEFINE_PYTHON_TYPE(VectorTensorReal);
 

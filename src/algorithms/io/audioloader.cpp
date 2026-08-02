@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* AudioLoader::name = essentia::standard::AudioLoader::name;
-const char* AudioLoader::category = essentia::standard::AudioLoader::category;
-const char* AudioLoader::description = essentia::standard::AudioLoader::description;
+const char* AudioLoader::name = sonoria::standard::AudioLoader::name;
+const char* AudioLoader::category = sonoria::standard::AudioLoader::category;
+const char* AudioLoader::description = sonoria::standard::AudioLoader::description;
 
 
 AudioLoader::~AudioLoader() {
@@ -526,10 +526,10 @@ void AudioLoader::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* AudioLoader::name = "AudioLoader";
@@ -612,4 +612,4 @@ void AudioLoader::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

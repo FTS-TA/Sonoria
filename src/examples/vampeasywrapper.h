@@ -29,7 +29,7 @@ class algoname : public VampWrapper  {                                   \
 public:                                                                  \
                                                                          \
   algoname(float sr) :                                                   \
-    VampWrapper(essentia::standard::AlgorithmFactory::create(#algoname), sr) {} \
+    VampWrapper(sonoria::standard::AlgorithmFactory::create(#algoname), sr) {} \
                                                                          \
   std::string getIdentifier() const  { return "essentia_" + info().name; }\
   std::string getName() const        { return info().name; }             \
@@ -63,7 +63,7 @@ class algoname : public VampWrapper  {                                   \
 public:                                                                  \
                                                                          \
   algoname(float sr) :                                                   \
-    VampWrapper(essentia::standard::AlgorithmFactory::create(#algoname), sr) {} \
+    VampWrapper(sonoria::standard::AlgorithmFactory::create(#algoname), sr) {} \
                                                                          \
   std::string getIdentifier() const  { return "essentia_" + info().name; }\
   std::string getName() const        { return info().name; }             \
@@ -95,7 +95,7 @@ class algoname : public VampWrapper  {                                   \
 public:                                                                  \
                                                                          \
   algoname(float sr) :                                                   \
-    VampWrapper(essentia::standard::AlgorithmFactory::create(#algoname), sr) {} \
+    VampWrapper(sonoria::standard::AlgorithmFactory::create(#algoname), sr) {} \
                                                                          \
   OutputList getOutputDescriptors() const {                              \
     return genericDescriptor(unit, ndim);                                \
@@ -122,7 +122,7 @@ class B##algoname : public VampWrapper  {                                       
 public:                                                                            \
                                                                                    \
   B##algoname(float sr) :                                                          \
-    VampWrapper(essentia::standard::AlgorithmFactory::create(#algoname), sr) {}    \
+    VampWrapper(sonoria::standard::AlgorithmFactory::create(#algoname), sr) {}    \
                                                                                    \
   std::string getIdentifier() const  { return std::string("bark_") + info().name; }\
   std::string getName() const        { return std::string("Bark ") + info().name; }\
@@ -150,7 +150,7 @@ class M##algoname : public VampWrapper  {                                       
 public:                                                                            \
                                                                                    \
   M##algoname(float sr) :                                                          \
-    VampWrapper(essentia::standard::AlgorithmFactory::create(#algoname), sr) {}    \
+    VampWrapper(sonoria::standard::AlgorithmFactory::create(#algoname), sr) {}    \
                                                                          \
   OutputList getOutputDescriptors() const {                              \
     return genericDescriptor(unit, ndim);                                \

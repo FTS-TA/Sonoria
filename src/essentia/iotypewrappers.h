@@ -25,7 +25,7 @@
 #include "streaming/sourcebase.h"
 #include "streaming/sinkbase.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -95,6 +95,6 @@ class ESSENTIA_API OutputBase : public TypeProxy {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_IOTYPEWRAPPERS_H

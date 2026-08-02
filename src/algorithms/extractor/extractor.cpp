@@ -25,8 +25,8 @@
 #include "network.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::standard;
+using namespace sonoria;
+using namespace sonoria::standard;
 
 using streaming::connect;
 using streaming::VectorInput;

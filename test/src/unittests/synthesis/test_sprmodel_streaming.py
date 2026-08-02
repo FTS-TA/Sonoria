@@ -19,12 +19,12 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import math
 
-import essentia
-import essentia.streaming as es
-import essentia.standard as std
+import sonoria
+import sonoria.streaming as es
+import sonoria.standard as std
 
 
 def cutFrames(params, input = range(100)):
@@ -79,7 +79,7 @@ def framesToAudio(frames):
 
 
 def analSprModelStreaming(params, signal):
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
     fcut = es.FrameCutter(frameSize = params['frameSize'], hopSize = params['hopSize'], startFromZero =  False);
     w = es.Windowing(type = "blackmanharris92");
     spec = es.Spectrum(size = params['frameSize']);
@@ -87,7 +87,7 @@ def analSprModelStreaming(params, signal):
     smanal = es.SprModelAnal(sampleRate = params['sampleRate'], maxnSines = params['maxnSines'], magnitudeThreshold = params['magnitudeThreshold'], freqDevOffset = params['freqDevOffset'], freqDevSlope = params['freqDevSlope'], minFrequency =  params['minFrequency'], maxFrequency =  params['maxFrequency'])
 
     # add half window of zeros to input signal to reach same ooutput length
-    signal  = numpy.append(signal, essentia.zeros(params['frameSize'] // 2))
+    signal  = numpy.append(signal, sonoria.zeros(params['frameSize'] // 2))
     insignal = VectorInput(signal)
 
     # analysis
@@ -99,7 +99,7 @@ def analSprModelStreaming(params, signal):
     smanal.phases >> (pool, 'phases')
     smanal.res >> (pool, 'res')
 
-    essentia.run(insignal)
+    sonoria.run(insignal)
 
     # remove first half window frames
     mags = pool['magnitudes']
@@ -114,7 +114,7 @@ def analSprModelStreaming(params, signal):
 
 
 def analsynthSprModelStreaming(params, signal):
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
     # windowing and FFT
     fcut = es.FrameCutter(frameSize = params['frameSize'], hopSize = params['hopSize'], startFromZero =  False)
     #w = es.Windowing(type = "blackmanharris92")
@@ -127,7 +127,7 @@ def analsynthSprModelStreaming(params, signal):
                              hopSize=params['hopSize'])
 
     # add half window of zeros to input signal to reach same ooutput length
-    signal = numpy.append(signal, essentia.zeros(params['frameSize'] // 2))
+    signal = numpy.append(signal, sonoria.zeros(params['frameSize'] // 2))
     insignal = VectorInput(signal)
 
     # analysis
@@ -144,7 +144,7 @@ def analsynthSprModelStreaming(params, signal):
     smsyn.sineframe >> (pool, 'sineframes')
     smsyn.resframe >> (pool, 'resframes')
 
-    essentia.run(insignal)
+    sonoria.run(insignal)
 
     outaudio = framesToAudio(pool['frames'])
     outaudio = outaudio[2*params['hopSize']:]
@@ -164,7 +164,7 @@ class TestSprModel(TestCase):
 
         # generate test signal
         signalSize = 10 * self.params['frameSize']
-        signal = essentia.zeros(signalSize)
+        signal = sonoria.zeros(signalSize)
 
         [mags, freqs, phases] = analSprModelStreaming(self.params, signal)
 
@@ -177,7 +177,7 @@ class TestSprModel(TestCase):
         from random import random
         # generate test signal
         signalSize = 10 * self.params['frameSize']
-        signal = array([2*(random()-0.5)*i for i in essentia.ones(signalSize)])
+        signal = array([2*(random()-0.5)*i for i in sonoria.ones(signalSize)])
 
         # for white noise test set sine minimum duration to 50ms, and min threshold of -20dB
         self.params['minSineDur'] = 0.35 # limit pitch tracks of a nimumim length of 350ms for the case of white noise input
@@ -198,7 +198,7 @@ class TestSprModel(TestCase):
 
         # generate noise components
         from random import random
-        noise = 0.1 * array([2*(random()-0.5)*i for i in essentia.ones(signalSize)]) # -10dB
+        noise = 0.1 * array([2*(random()-0.5)*i for i in sonoria.ones(signalSize)]) # -10dB
         signal = signal + noise
 
         outsignal, pool = analsynthSprModelStreaming(self.params, signal)

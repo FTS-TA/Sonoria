@@ -12,8 +12,8 @@
 # NUMCEPS = 12
 # ENORMALISE = F
 # HIFREQ=8000
-import essentia
-import essentia.standard as ess
+import sonoria
+import sonoria.standard as ess
 import matplotlib.pyplot as plt
 
 
@@ -62,9 +62,9 @@ def extractor(filename):
 
 
     # transpose to have it in a better shape
-    # we need to convert the list to an essentia.array first (== numpy.array of floats)
-    # mfccs = essentia.array(pool['MFCC']).T
-    mfccs = essentia.array(mfccs).T
+    # we need to convert the list to an sonoria.array first (== numpy.array of floats)
+    # mfccs = sonoria.array(pool['MFCC']).T
+    mfccs = sonoria.array(mfccs).T
 
     # and plot
     plt.imshow(mfccs[1:,:], aspect = 'auto', interpolation='none') # ignore enery

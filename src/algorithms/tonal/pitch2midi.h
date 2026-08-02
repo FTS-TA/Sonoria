@@ -3,7 +3,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
   class Pitch2Midi : public Algorithm {
@@ -113,6 +113,6 @@ namespace standard {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif

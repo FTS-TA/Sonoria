@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TuningFrequencyExtractor::name = essentia::standard::TuningFrequencyExtractor::name;
-const char* TuningFrequencyExtractor::category = essentia::standard::TuningFrequencyExtractor::category;
-const char* TuningFrequencyExtractor::description = essentia::standard::TuningFrequencyExtractor::description;
+const char* TuningFrequencyExtractor::name = sonoria::standard::TuningFrequencyExtractor::name;
+const char* TuningFrequencyExtractor::category = sonoria::standard::TuningFrequencyExtractor::category;
+const char* TuningFrequencyExtractor::description = sonoria::standard::TuningFrequencyExtractor::description;
 
 
 TuningFrequencyExtractor::TuningFrequencyExtractor(): _frameCutter(0), _spectralPeaks(0), _spectrum(0), _tuningFrequency(0), _windowing(0) {
@@ -83,9 +83,9 @@ TuningFrequencyExtractor::~TuningFrequencyExtractor() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TuningFrequencyExtractor::name = "TuningFrequencyExtractor";
@@ -133,5 +133,5 @@ void TuningFrequencyExtractor::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 

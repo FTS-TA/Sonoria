@@ -20,7 +20,7 @@
 #include "gapsdetector.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char *GapsDetector::name = "GapsDetector";

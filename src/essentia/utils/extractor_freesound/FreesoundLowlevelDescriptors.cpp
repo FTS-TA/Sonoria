@@ -19,8 +19,8 @@
 
 #include "FreesoundLowlevelDescriptors.h"
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
 const string FreesoundLowlevelDescriptors::nameSpace="lowlevel.";  
 

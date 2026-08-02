@@ -22,12 +22,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* BeatsLoudness::name = essentia::standard::BeatsLoudness::name;
-const char* BeatsLoudness::category = essentia::standard::BeatsLoudness::category;
-const char* BeatsLoudness::description = essentia::standard::BeatsLoudness::description;
+const char* BeatsLoudness::name = sonoria::standard::BeatsLoudness::name;
+const char* BeatsLoudness::category = sonoria::standard::BeatsLoudness::category;
+const char* BeatsLoudness::description = sonoria::standard::BeatsLoudness::description;
 
 
 BeatsLoudness::BeatsLoudness() {
@@ -86,13 +86,13 @@ void BeatsLoudness::configure() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "network.h"
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* BeatsLoudness::name = "BeatsLoudness";
@@ -149,4 +149,4 @@ BeatsLoudness::~BeatsLoudness() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

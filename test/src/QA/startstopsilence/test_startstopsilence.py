@@ -22,8 +22,8 @@ import sys
 import numpy as np
 # from librosa.effects import trim
 
-import essentia.standard as es
-from essentia import array as esarray
+import sonoria.standard as es
+from sonoria import array as esarray
 
 sys.path.insert(0, './')
 from qa_test import *

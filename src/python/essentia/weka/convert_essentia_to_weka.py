@@ -23,11 +23,11 @@ all_labels = ["label1", "label2", "label3"]
 
 # all the files + ground-truth
 files = [
-	("c:/some_essentia_file.txt", "label1"),
-	("c:/some_essentia_file.txt", "label2"),
-	("c:/some_essentia_file.txt", "label2"),
-	("c:/some_essentia_file.txt", "label2"),
-	("c:/some_essentia_file.txt", "label3")
+	("c:/some_sonoria_file.txt", "label1"),
+	("c:/some_sonoria_file.txt", "label2"),
+	("c:/some_sonoria_file.txt", "label2"),
+	("c:/some_sonoria_file.txt", "label2"),
+	("c:/some_sonoria_file.txt", "label3")
 ]
 
 # the relation

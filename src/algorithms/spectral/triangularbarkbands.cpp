@@ -20,7 +20,7 @@
 #include "triangularbarkbands.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* TriangularBarkBands::name = "TriangularBarkBands";

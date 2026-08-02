@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 class NoveltyCurveFixedBpmEstimator : public Algorithm {
 
@@ -84,6 +84,6 @@ class NoveltyCurveFixedBpmEstimator : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_NOVELTY_CURVE_FIXED_BPM_ESTIMATOR_H

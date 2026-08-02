@@ -24,12 +24,12 @@
 #include "copy.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
-const char* LowLevelSpectralExtractor::name = essentia::standard::LowLevelSpectralExtractor::name;
-const char* LowLevelSpectralExtractor::category = essentia::standard::LowLevelSpectralExtractor::category;
-const char* LowLevelSpectralExtractor::description = essentia::standard::LowLevelSpectralExtractor::description;
+const char* LowLevelSpectralExtractor::name = sonoria::standard::LowLevelSpectralExtractor::name;
+const char* LowLevelSpectralExtractor::category = sonoria::standard::LowLevelSpectralExtractor::category;
+const char* LowLevelSpectralExtractor::description = sonoria::standard::LowLevelSpectralExtractor::description;
 
 
 LowLevelSpectralExtractor::LowLevelSpectralExtractor() : _configured(false) {
@@ -240,7 +240,7 @@ void LowLevelSpectralExtractor::clearAlgos() {
   delete _network;
 }
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* LowLevelSpectralExtractor::name = "LowLevelSpectralExtractor";
@@ -432,4 +432,4 @@ void LowLevelSpectralExtractor::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

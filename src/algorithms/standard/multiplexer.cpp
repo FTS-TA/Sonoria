@@ -20,12 +20,12 @@
 #include "multiplexer.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* Multiplexer::name = essentia::standard::Multiplexer::name;
-const char* Multiplexer::category = essentia::standard::Multiplexer::category;
-const char* Multiplexer::description = essentia::standard::Multiplexer::description;
+const char* Multiplexer::name = sonoria::standard::Multiplexer::name;
+const char* Multiplexer::category = sonoria::standard::Multiplexer::category;
+const char* Multiplexer::description = sonoria::standard::Multiplexer::description;
 
 
 void Multiplexer::clearInputs() {
@@ -114,10 +114,10 @@ AlgorithmStatus Multiplexer::process() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Multiplexer::name = "Multiplexer";
@@ -230,4 +230,4 @@ void Multiplexer::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

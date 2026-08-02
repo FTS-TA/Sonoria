@@ -1,13 +1,13 @@
-from . import _essentia
+from . import _sonoria
 import sys as _sys
-from ._essentia import reset
+from ._sonoria import reset
 from .common import Pool, array, ones, zeros
 from .progress import Progress
 from .utils import *
 
 
-__version__ = _essentia.version()
-__version_git_sha__ = _essentia.version_git_sha();
+__version__ = _sonoria.version()
+__version_git_sha__ = _sonoria.version_git_sha();
 
 
 # base Exception class
@@ -96,55 +96,55 @@ class BitMask(object):
 
 
 def _getDebugLevel(_):
-    return BitMask(_essentia.debugLevel())
+    return BitMask(_sonoria.debugLevel())
 
 def _setDebugLevel(_, levels):
-    _essentia.setDebugLevel(int(levels))
+    _sonoria.setDebugLevel(int(levels))
 
 
 class EssentiaLogger(object):
     debugLevels = property(_getDebugLevel, _setDebugLevel,
                            doc = 'A bit mask indicating which debugging modules should be activated')
 
-    infoActive = property(lambda l: _essentia.infoLevel(), lambda l, active: _essentia.setInfoLevel(active),
+    infoActive = property(lambda l: _sonoria.infoLevel(), lambda l, active: _sonoria.setInfoLevel(active),
                           doc = 'A boolean indicating whether messages at the info level should be displayed')
 
-    warningActive = property(lambda l: _essentia.warningLevel(), lambda l, active: _essentia.setWarningLevel(active),
+    warningActive = property(lambda l: _sonoria.warningLevel(), lambda l, active: _sonoria.setWarningLevel(active),
                              doc = 'A boolean indicating whether messages at the warning level should be displayed')
 
-    errorActive = property(lambda l: _essentia.errorLevel(), lambda l, active: _essentia.setErrorLevel(active),
+    errorActive = property(lambda l: _sonoria.errorLevel(), lambda l, active: _sonoria.setErrorLevel(active),
                            doc = 'A boolean indicating whether messages at the error level should be displayed')
 
     @staticmethod
     def debug(level, s):
-        _essentia.log_debug(level, s)
+        _sonoria.log_debug(level, s)
 
     @staticmethod
     def info(s):
-        _essentia.log_info(s)
+        _sonoria.log_info(s)
 
     @staticmethod
     def warning(s):
-        _essentia.log_warning(s)
+        _sonoria.log_warning(s)
 
     @staticmethod
     def error(s):
-        _essentia.log_error(s)
+        _sonoria.log_error(s)
 
 # Main logger to be used by the submodules
 log = EssentiaLogger()
 
-# FIXME: remove the use of INFO in favor of essentia.log.info
+# FIXME: remove the use of INFO in favor of sonoria.log.info
 INFO = log.info
 
 # we wrap this here so that we can do the decorator trick in all_tests.py
 # FIXME: what decorator trick? is this comment still valid?
 def run(gen):
-    from essentia.streaming import VectorInput
+    from sonoria.streaming import VectorInput
     # catch this here as the actual type has not been determined yet so trying
     # run it here and now would result in an invalid pointer dereference...
     if isinstance(gen, VectorInput) and not list(gen.connections.values())[0]:
         raise EssentiaError('VectorInput is not connected to anything...')
-    return _essentia.run(gen)
+    return _sonoria.run(gen)
 
-log.debug(EPython, 'Successfully imported essentia python module (log fully available and synchronized with the C++ one)')
+log.debug(EPython, 'Successfully imported sonoria python module (log fully available and synchronized with the C++ one)')

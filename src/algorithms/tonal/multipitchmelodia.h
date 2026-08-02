@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MultiPitchMelodia : public Algorithm {
@@ -116,13 +116,13 @@ class MultiPitchMelodia : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "pool.h"
 #include "streamingalgorithmcomposite.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class MultiPitchMelodia : public AlgorithmComposite {
@@ -191,6 +191,6 @@ class MultiPitchMelodia : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif 

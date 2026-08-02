@@ -19,12 +19,12 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import math
 
-import essentia
-#import essentia.streaming as es
-import essentia.standard as std
+import sonoria
+#import sonoria.streaming as es
+import sonoria.standard as std
 
 counterrunner = 0
 

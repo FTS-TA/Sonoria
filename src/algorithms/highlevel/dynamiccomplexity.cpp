@@ -23,7 +23,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* DynamicComplexity::name = "DynamicComplexity";
@@ -140,12 +140,12 @@ void DynamicComplexity::filter(vector<Real>& result, const vector<Real>& input) 
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "poolstorage.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 DynamicComplexity::DynamicComplexity() : AlgorithmComposite() {
@@ -190,4 +190,4 @@ void DynamicComplexity::reset() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

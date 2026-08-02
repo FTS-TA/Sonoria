@@ -20,7 +20,7 @@
 
 
 import math
-from essentia_test import *
+from sonoria_test import *
 
 
 class TestStrongPeak(TestCase):

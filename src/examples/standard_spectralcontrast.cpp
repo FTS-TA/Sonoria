@@ -25,7 +25,7 @@
 #include "credit_libav.h" 
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 int main(int argc, char* argv[]) {
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
   string audioFilename = argv[1];
   string outputFilename = argv[2];
 
-  essentia::init();
+  sonoria::init();
 
   /********** SETUP ALGORITHMS **********/
 
@@ -145,7 +145,7 @@ int main(int argc, char* argv[]) {
   delete sc;
   delete output;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

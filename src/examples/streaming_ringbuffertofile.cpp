@@ -32,8 +32,8 @@
 
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
 
 //      int  pthread_create(pthread_t  *  thread, pthread_attr_t * attr, void *
@@ -97,7 +97,7 @@ int main(int argc,char** argv)
 		outputFilename = argv[1];
 	}
 
-	essentia::init();
+	sonoria::init();
 
   StreamingAlgorithm* ringBufferInput = streaming::AlgorithmFactory::create("RingBufferInput");
   StreamingAlgorithm* ringBufferOutput = streaming::AlgorithmFactory::create("RingBufferOutput");

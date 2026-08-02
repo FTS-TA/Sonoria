@@ -23,9 +23,9 @@
 #include <essentia/streaming/algorithms/poolstorage.h>
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 
 int main(int argc, char* argv[]) {
@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
   }
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   /////// PARAMS //////////////
   int sr = 44100;
@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
   
   // clean up:
   delete output;
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

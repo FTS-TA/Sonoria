@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import os
 
 
@@ -40,7 +40,7 @@ class TestMetadataReader(TestCase):
         tagsPool = result[7]
         tags = tagsPool.descriptorNames() + [tagsPool[t][0] for t in tagsPool.descriptorNames()]
         
-        self.assertEqualVector(result[:7], ('test flac', 'mtg', 'essentia', '', 'Thrash Metal', '01', '2009'))
+        self.assertEqualVector(result[:7], ('test flac', 'mtg', 'sonoria', '', 'Thrash Metal', '01', '2009'))
         
         # FIXME: Taglib 1.11.0 on OSX outputs bitrate inconsistent with 1.9.1 on Linux for FLAC and OGG
         # It might be due to different versions of Taglib or due to different platforms (we have not tested)
@@ -54,7 +54,7 @@ class TestMetadataReader(TestCase):
                 ['metadata.tags.album', 'metadata.tags.artist', 'metadata.tags.composer', 'metadata.tags.copyright', 
                  'metadata.tags.date', 'metadata.tags.description', 'metadata.tags.discnumber', 'metadata.tags.genre', 
                  'metadata.tags.performer', 'metadata.tags.title', 'metadata.tags.tracknumber', 'metadata.tags.tracktotal', 
-                 'essentia', 'mtg', 'roberto.toscano', 'mtg.upf.edu', '2009', 'This is not thrash metal', '01', 'Thrash Metal', 
+                 'sonoria', 'mtg', 'roberto.toscano', 'mtg.upf.edu', '2009', 'This is not thrash metal', '01', 'Thrash Metal', 
                  'roberto.toscano', 'test flac', '01', '01']
             )
 
@@ -63,7 +63,7 @@ class TestMetadataReader(TestCase):
         tagsPool = result[7]
         tags = tagsPool.descriptorNames() + [tagsPool[t][0] for t in tagsPool.descriptorNames()]
 
-        self.assertEqualVector(result[:7], ('test ogg', 'mtg', 'essentia', 'this is not psychadelic', 'Psychadelic', '01', '2009'))
+        self.assertEqualVector(result[:7], ('test ogg', 'mtg', 'sonoria', 'this is not psychadelic', 'Psychadelic', '01', '2009'))
 
         # see the FIXME note above
         self.assertEqualVector([result[8]] + list(result[10:]), (5, 44100, 1))
@@ -74,7 +74,7 @@ class TestMetadataReader(TestCase):
                 ['metadata.tags.album', 'metadata.tags.artist', 'metadata.tags.comment', 'metadata.tags.composer', 
                  'metadata.tags.copyright', 'metadata.tags.date', 'metadata.tags.description', 'metadata.tags.discnumber', 
                  'metadata.tags.genre', 'metadata.tags.performer', 'metadata.tags.title', 'metadata.tags.tracknumber', 
-                 'metadata.tags.tracktotal', 'essentia', 'mtg', 'this is not psychadelic', 'roberto.toscano', 'mtg.upf.edu', 
+                 'metadata.tags.tracktotal', 'sonoria', 'mtg', 'this is not psychadelic', 'roberto.toscano', 'mtg.upf.edu', 
                  '2009', 'this is not psychadelic', '1', 'Psychadelic', 'roberto.toscano', 'test ogg', '01', '01']
             )
 
@@ -83,12 +83,12 @@ class TestMetadataReader(TestCase):
         tagsPool = result[7]
         tags = tagsPool.descriptorNames() + [tagsPool[t][0] for t in tagsPool.descriptorNames()]
 
-        self.assertEqualVector(result[:7], ('test sound', 'mtg', 'essentia', 'this is not reggae', 'Reggae', '01', '2009'))
+        self.assertEqualVector(result[:7], ('test sound', 'mtg', 'sonoria', 'this is not reggae', 'Reggae', '01', '2009'))
         self.assertEqualVector(result[8:], (5, 128, 44100, 1))
         self.assertEqualVector(
                 tags, 
                 ['metadata.tags.album', 'metadata.tags.artist', 'metadata.tags.comment', 'metadata.tags.date', 
-                 'metadata.tags.genre', 'metadata.tags.title', 'metadata.tags.tracknumber', 'essentia', 'mtg', 
+                 'metadata.tags.genre', 'metadata.tags.title', 'metadata.tags.tracknumber', 'sonoria', 'mtg', 
                  'this is not reggae', '2009', 'Reggae', 'test sound', '01']
             )
 
@@ -97,13 +97,13 @@ class TestMetadataReader(TestCase):
         tagsPool = result[7]
         tags = tagsPool.descriptorNames() + [tagsPool[t][0] for t in tagsPool.descriptorNames()]
 
-        self.assertEqualVector(result[:7], ('ape test file', 'mtg', 'essentia', 'this is not porn', 'Porn Groove', "01/01", "2009"))
+        self.assertEqualVector(result[:7], ('ape test file', 'mtg', 'sonoria', 'this is not porn', 'Porn Groove', "01/01", "2009"))
         self.assertEqualVector(result[8:], (5, 722, 44100, 1))
         self.assertEqualVector(
                 tags, 
                 ['metadata.tags.album', 'metadata.tags.artist', 'metadata.tags.comment', 'metadata.tags.composer', 
                  'metadata.tags.copyright', 'metadata.tags.date', 'metadata.tags.genre', 'metadata.tags.original artist', 
-                 'metadata.tags.part', 'metadata.tags.title', 'metadata.tags.tracknumber', 'essentia', 'mtg', 'this is not porn', 
+                 'metadata.tags.part', 'metadata.tags.title', 'metadata.tags.tracknumber', 'sonoria', 'mtg', 'this is not porn', 
                  'roberto.toscano', 'mtg.upf.edu', '2009', 'Porn Groove', 'roberto.toscano', '1', 'ape test file', '01/01']
             )
 

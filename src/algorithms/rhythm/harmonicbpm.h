@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class HarmonicBpm : public Algorithm {
@@ -61,11 +61,11 @@ class HarmonicBpm : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class HarmonicBpm : public StreamingAlgorithmWrapper {
@@ -83,6 +83,6 @@ class HarmonicBpm : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_HARMONIC_BPM_H

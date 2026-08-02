@@ -21,7 +21,7 @@
 #include "essentiamath.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* HarmonicPeaks::name = "HarmonicPeaks";

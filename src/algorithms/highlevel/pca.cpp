@@ -26,7 +26,7 @@
 using namespace std;
 using namespace TNT;
 using namespace JAMA;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* PCA::name = "PCA";

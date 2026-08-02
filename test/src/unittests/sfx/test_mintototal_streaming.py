@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import MinToTotal as sMinToTotal
+from sonoria_test import *
+from sonoria.streaming import MinToTotal as sMinToTotal
 
 class TestMinToTotal_Streaming(TestCase):
 

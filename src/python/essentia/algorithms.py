@@ -15,58 +15,58 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-def create_python_algorithms(essentia):
+def create_python_algorithms(sonoria):
 
     '''
     # Spectral Decrease
-    class SpectralDecrease(essentia.Decrease):
+    class SpectralDecrease(sonoria.Decrease):
         def configure(self, sampleRate = 44100, **kwargs):
-            essentia.Decrease.configure(self, range = sampleRate*0.5)
+            sonoria.Decrease.configure(self, range = sampleRate*0.5)
 
-    setattr(essentia, 'SpectralDecrease', SpectralDecrease)
+    setattr(sonoria, 'SpectralDecrease', SpectralDecrease)
 
 
     # AudioDecrease
-    class AudioDecrease(essentia.Decrease):
+    class AudioDecrease(sonoria.Decrease):
         def configure(self, blockSize, sampleRate = 44100, **kwargs):
-            essentia.Decrease.configure(self, range = (blockSize-1.0)/sampleRate)
+            sonoria.Decrease.configure(self, range = (blockSize-1.0)/sampleRate)
 
-    setattr(essentia, 'AudioDecrease', AudioDecrease)
+    setattr(sonoria, 'AudioDecrease', AudioDecrease)
 
 
     # SpectralCentroid
-    class SpectralCentroid(essentia.Centroid):
+    class SpectralCentroid(sonoria.Centroid):
         def configure(self, sampleRate = 44100, **kwargs):
-            essentia.Centroid.configure(self, range = sampleRate*0.5)
+            sonoria.Centroid.configure(self, range = sampleRate*0.5)
 
-    setattr(essentia, 'SpectralCentroid', SpectralCentroid)
+    setattr(sonoria, 'SpectralCentroid', SpectralCentroid)
 
 
     # AudioCentroid
-    class AudioCentroid(essentia.Centroid):
+    class AudioCentroid(sonoria.Centroid):
         def configure(self, blockSize, sampleRate = 44100, **kwargs):
-            essentia.Centroid.configure(self, range = (blockSize-1.0)/sampleRate)
+            sonoria.Centroid.configure(self, range = (blockSize-1.0)/sampleRate)
 
-    setattr(essentia, 'AudioCentroid', AudioCentroid)
+    setattr(sonoria, 'AudioCentroid', AudioCentroid)
 
 
     # SpectralCentralMoments
-    class SpectralCentralMoments(essentia.CentralMoments):
+    class SpectralCentralMoments(sonoria.CentralMoments):
         def configure(self, sampleRate = 44100, **kwargs):
-            essentia.CentralMoments.configure(self, range = sampleRate*0.5)
+            sonoria.CentralMoments.configure(self, range = sampleRate*0.5)
 
-    setattr(essentia, 'SpectralCentralMoments', SpectralCentralMoments)
+    setattr(sonoria, 'SpectralCentralMoments', SpectralCentralMoments)
 
 
     # AudioCentralMoments
-    class AudioCentralMoments(essentia.CentralMoments):
+    class AudioCentralMoments(sonoria.CentralMoments):
         def configure(self, blockSize, sampleRate = 44100, **kwargs):
-            essentia.CentralMoments.configure(self, range = (blockSize-1.0)/sampleRate)
+            sonoria.CentralMoments.configure(self, range = (blockSize-1.0)/sampleRate)
 
-    setattr(essentia, 'AudioCentralMoments', AudioCentralMoments)
+    setattr(sonoria, 'AudioCentralMoments', AudioCentralMoments)
     '''
 
-    default_fc = essentia.FrameCutter()
+    default_fc = sonoria.FrameCutter()
 
 
 
@@ -99,7 +99,7 @@ FrameGenerator inherits all the parameters of the FrameCutter. The way to use it
             self.startFromZero = startFromZero
             self.validFrameThresholdRatio = validFrameThresholdRatio
             self.lastFrameToEndOfFile=lastFrameToEndOfFile
-            self.frame_creator = essentia.FrameCutter(frameSize = frameSize,
+            self.frame_creator = sonoria.FrameCutter(frameSize = frameSize,
                                                        hopSize = hopSize,
                                                        startFromZero = startFromZero,
                                                        validFrameThresholdRatio=validFrameThresholdRatio,
@@ -139,4 +139,4 @@ FrameGenerator inherits all the parameters of the FrameCutter. The way to use it
             return times
 
 
-    setattr(essentia, 'FrameGenerator', FrameGenerator)
+    setattr(sonoria, 'FrameGenerator', FrameGenerator)

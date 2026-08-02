@@ -25,7 +25,7 @@
 #include "algorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BarkExtractor : public AlgorithmComposite {
@@ -71,7 +71,7 @@ class BarkExtractor : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_BARK_EXTRACTOR_H

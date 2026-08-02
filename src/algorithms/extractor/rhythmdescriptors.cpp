@@ -24,12 +24,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* RhythmDescriptors::name = essentia::standard::RhythmDescriptors::name;
-const char* RhythmDescriptors::category = essentia::standard::RhythmDescriptors::category;
-const char* RhythmDescriptors::description = essentia::standard::RhythmDescriptors::description;
+const char* RhythmDescriptors::name = sonoria::standard::RhythmDescriptors::name;
+const char* RhythmDescriptors::category = sonoria::standard::RhythmDescriptors::category;
+const char* RhythmDescriptors::description = sonoria::standard::RhythmDescriptors::description;
 
 
 RhythmDescriptors::RhythmDescriptors() {
@@ -132,9 +132,9 @@ void RhythmDescriptors::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* RhythmDescriptors::name = "RhythmDescriptors";
@@ -233,5 +233,5 @@ void RhythmDescriptors::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 

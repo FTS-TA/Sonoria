@@ -25,7 +25,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* PercivalBpmEstimator::name = "PercivalBpmEstimator";
@@ -319,9 +319,9 @@ void PercivalBpmEstimator::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* PercivalBpmEstimator::name = "PercivalBpmEstimator";
@@ -378,4 +378,4 @@ void PercivalBpmEstimator::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

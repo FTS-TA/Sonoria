@@ -25,7 +25,7 @@
 
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* YamlOutput::name = "YamlOutput";
@@ -364,7 +364,7 @@ void YamlOutput::outputToStream(ostream* out) {
   if (_writeVersion) {
       YamlNode* essentiaNode = new YamlNode("essentia");
 
-      essentiaNode->value = new Parameter(essentia::version);
+      essentiaNode->value = new Parameter(sonoria::version);
 
       YamlNode* versionNode = new YamlNode("version");
       versionNode->children.push_back(essentiaNode);

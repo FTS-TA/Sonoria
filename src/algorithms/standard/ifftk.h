@@ -25,7 +25,7 @@
 #include <complex>
 #include "tools/kiss_fftr.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class IFFTK : public Algorithm {
@@ -67,11 +67,11 @@ class IFFTK : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class IFFTK : public StreamingAlgorithmWrapper {
@@ -89,6 +89,6 @@ class IFFTK : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_IFFTK_H

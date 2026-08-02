@@ -33,9 +33,9 @@
 #include "streaming_extractorpostprocess.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 //void SvmClassification(Pool& pool, const Pool& options, bool eqloudness=false); //add this line for svm descriptors
 
@@ -106,7 +106,7 @@ int main(int argc, char* argv[]) {
   string extFilename = outputFilename.substr(outputFilename.rfind('.'));
   string neqOutputFilename = baseFilename + ".neq" + extFilename;
   // Register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   // General variables
   // pool containing profile (configure) options; use default options
@@ -177,7 +177,7 @@ int main(int argc, char* argv[]) {
 
   pool.remove("metadata.audio_properties.downmix");
   oldPool.remove("metadata.audio_properties.downmix");
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

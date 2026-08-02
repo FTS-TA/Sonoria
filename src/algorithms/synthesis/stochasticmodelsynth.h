@@ -25,7 +25,7 @@
 #include <fstream>
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class StochasticModelSynth : public Algorithm {
@@ -92,11 +92,11 @@ class StochasticModelSynth : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class StochasticModelSynth : public StreamingAlgorithmWrapper {
@@ -115,7 +115,7 @@ class StochasticModelSynth : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 

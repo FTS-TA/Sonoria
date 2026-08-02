@@ -20,7 +20,7 @@
 
 
 from numpy import array
-from essentia_test import *
+from sonoria_test import *
 
 class TestSBic(TestCase):
 

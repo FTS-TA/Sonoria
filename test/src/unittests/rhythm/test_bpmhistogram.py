@@ -18,11 +18,11 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
-import essentia
-from essentia import Pool
-from essentia.standard import *
-import essentia.streaming as ess
+from sonoria_test import *
+import sonoria
+from sonoria import Pool
+from sonoria.standard import *
+import sonoria.streaming as ess
 
 from math import ceil, fabs
 from numpy import argmax
@@ -50,7 +50,7 @@ class TestBpmHistogram(TestCase):
         fc.frame >> window.frame >> spec.frame
         spec.spectrum >> freqBands.spectrum
         freqBands.bands >> (pool, 'frequency_bands')
-        essentia.run(loader)
+        sonoria.run(loader)
 
 
         noveltyCurve = NoveltyCurve(frameRate=sampleRate/float(hopSize),
@@ -83,7 +83,7 @@ class TestBpmHistogram(TestCase):
         bpmHist.ticks >> (pool, 'ticks')
         bpmHist.ticksMagnitude >> (pool, 'ticksMagnitude')
         bpmHist.sinusoid >> (pool, 'sinusoid')
-        essentia.run(gen)
+        sonoria.run(gen)
 
         return pool
 

@@ -21,7 +21,7 @@
 #include "parsing.h"
 #include <iostream>
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 
 PyMethodDef PyPool_methods[] = {
@@ -100,7 +100,7 @@ PyTypeObject PyPoolType = {
 
 
 int PyPool::init(PyObject* self, PyObject* args, PyObject* kwds) {
-  reinterpret_cast<PyPool*>(self)->pool = new essentia::Pool();
+  reinterpret_cast<PyPool*>(self)->pool = new sonoria::Pool();
 
   // default constructor with no argument
   if (PyArg_ParseTuple(args, (char*)"")) return 0;

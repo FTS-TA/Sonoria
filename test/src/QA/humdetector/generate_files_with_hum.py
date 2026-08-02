@@ -22,8 +22,8 @@ import os
 
 import numpy as np
 
-import essentia.standard as es
-from essentia import array as esarr
+import sonoria.standard as es
+from sonoria import array as esarr
 
 PI = np.pi
 
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     """
 
     in_folder = '/home/pablo/data/sns-small/samples'
-    out_folder = '/home/pablo/reps/essentia/test/QA-audio/Hum/Songs50HzHum'
+    out_folder = '/home/pablo/reps/sonoria/test/QA-audio/Hum/Songs50HzHum'
     fs = 44100.
     files = [x for x in find_files(in_folder, 'flac')]
     if not files:

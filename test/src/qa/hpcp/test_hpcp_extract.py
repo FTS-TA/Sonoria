@@ -1,8 +1,8 @@
 import numpy as np
 from scipy.signal import spectrogram
 
-import essentia
-from essentia.standard import *
+import sonoria
+from sonoria.standard import *
 
 from test_hpcp_parameters import *
 
@@ -11,7 +11,7 @@ def extractHPCP(audiosignal, frameSize, hopSize, w, speaks, hpcp, signalname):
     # w is the preconfigured windowing algorithm
     # hpcp is the preconfigured HPCP algorithm 
 
-    audio = essentia.array(audiosignal)
+    audio = sonoria.array(audiosignal)
     # TODO: not sure if this is necessary: 
     if len(audio)%2:
         audio = audio[:-1] 
@@ -29,8 +29,8 @@ def extractHPCP(audiosignal, frameSize, hopSize, w, speaks, hpcp, signalname):
         pfreq, pmagn = speaks(frame_spectrum)
         chromagram.append(hpcp(pfreq, pmagn))
 
-    spectrogram = essentia.array(spectrogram).T    
-    chromagram = essentia.array(chromagram).T
+    spectrogram = sonoria.array(spectrogram).T    
+    chromagram = sonoria.array(chromagram).T
        
     hpcp_mean = np.mean(chromagram, axis=1)
     hpcp_median = np.median(chromagram, axis=1)
