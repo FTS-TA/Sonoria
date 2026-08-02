@@ -19,7 +19,7 @@
 
 #include "rhythmtransform.h"
 #include "sonoriamath.h"
-#include "tnt/tnt2vector.h"
+#include "sonoria/utils/tnt/tnt2vector.h"
 #include <cfloat>
 using namespace std;
 

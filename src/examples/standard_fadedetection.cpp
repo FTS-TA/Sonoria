@@ -18,9 +18,9 @@
  */
 
 #include <iostream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/pool.h>
-#include <essentia/utils/tnt/tnt2vector.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/pool.h>
+#include <sonoria/utils/tnt/tnt2vector.h>
 #include "credit_libav.h"
 
 using namespace std;

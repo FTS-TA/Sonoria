@@ -18,9 +18,9 @@
  */
 
 #include <iostream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/sonoriamath.h> // for the isSilent function
-#include <essentia/pool.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/sonoriamath.h> // for the isSilent function
+#include <sonoria/pool.h>
 
 using namespace std;
 using namespace sonoria;

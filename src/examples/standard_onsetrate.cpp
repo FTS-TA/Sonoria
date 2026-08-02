@@ -18,7 +18,7 @@
  */
 
 #include <iostream>
-#include <essentia/algorithmfactory.h>
+#include <sonoria/algorithmfactory.h>
 #include "credit_libav.h"
 using namespace std;
 using namespace sonoria;

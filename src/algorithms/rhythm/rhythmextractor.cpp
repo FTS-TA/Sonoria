@@ -19,7 +19,7 @@
 
 #include <complex>
 #include "rhythmextractor.h"
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 #include "sonoriamath.h"
 #include "poolstorage.h"
 #include "algorithmfactory.h"

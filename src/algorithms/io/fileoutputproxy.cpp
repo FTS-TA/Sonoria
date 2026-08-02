@@ -20,7 +20,7 @@
 #include "fileoutputproxy.h"
 #include "fileoutput.h"
 #include <complex>
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 #include "streamutil.h"
 
 using namespace std;

@@ -19,7 +19,7 @@
 
 #include "sinemodelsynth.h"
 #include "sonoriamath.h"
-#include <essentia/utils/synth_utils.h>
+#include <sonoria/utils/synth_utils.h>
 
 using namespace sonoria;
 using namespace standard;

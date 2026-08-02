@@ -20,10 +20,10 @@
 // Streaming extractor designed for high-level (classifier-based) analysis of
 // music collections.
 
-//#include <essentia/algorithm.h>
-//#include <essentia/algorithmfactory.h>
-//#include <essentia/pool.h>
-#include <essentia/utils/extractor_music/extractor_version.h>
+//#include <sonoria/algorithm.h>
+//#include <sonoria/algorithmfactory.h>
+//#include <sonoria/pool.h>
+#include <sonoria/utils/extractor_music/extractor_version.h>
 #include <gaia2/gaia.h>
 #include "music_extractor/extractor_utils.h"
 

@@ -20,9 +20,9 @@
 #include <vector>
 using namespace std;
 
-#include <essentia/algorithmfactory.h>
-#include <essentia/sonoriamath.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/sonoriamath.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
 using namespace sonoria;
 using namespace sonoria::streaming;
 

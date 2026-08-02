@@ -18,16 +18,16 @@
  */
 
 #include <deque>
-#include <essentia/sonoriamath.h>
+#include <sonoria/sonoriamath.h>
 #include "vamp/vamp.h"
 #include "vamp-sdk/PluginAdapter.h"
 #include "vampeasywrapper.h"
-#include <essentia/utils/tnt/tnt.h>
-#include <essentia/utils/tnt/tnt2vector.h>
-#include <essentia/streaming/algorithms/vectorinput.h>
-#include <essentia/streaming/algorithms/vectoroutput.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/scheduler/network.h>
+#include <sonoria/utils/tnt/tnt.h>
+#include <sonoria/utils/tnt/tnt2vector.h>
+#include <sonoria/streaming/algorithms/vectorinput.h>
+#include <sonoria/streaming/algorithms/vectoroutput.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
+#include <sonoria/scheduler/network.h>
 
 using namespace std;
 using namespace sonoria;

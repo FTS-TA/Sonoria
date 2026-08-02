@@ -21,7 +21,7 @@
 #include "algorithmfactory.h"
 #include "sonoriamath.h"
 #include "sonoriautil.h"
-#include "tnt/tnt2essentiautils.h"
+#include "sonoria/utils/tnt/tnt2sonoriautils.h"
 
 using namespace std;
 using namespace sonoria;

@@ -21,7 +21,7 @@
 #define FADEDETECTION_MEAN_H
 
 #include "algorithmfactory.h"
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 
 namespace sonoria {
 namespace standard {

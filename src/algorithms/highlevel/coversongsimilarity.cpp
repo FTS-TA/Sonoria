@@ -19,7 +19,7 @@
 
 #include "coversongsimilarity.h"
 #include "sonoriamath.h"
-#include "essentia/utils/tnt/tnt2vector.h"
+#include "sonoria/utils/tnt/tnt2vector.h"
 #include <vector>
 #include <iostream>
 #include <string>

@@ -18,8 +18,8 @@
  */
 
 #include <streaming_extractorpanning.h>
-#include <essentia/algorithmfactory.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
 
 using namespace std;
 using namespace sonoria;

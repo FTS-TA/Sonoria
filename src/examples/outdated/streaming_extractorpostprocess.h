@@ -20,8 +20,8 @@
 #ifndef STREAMING_EXTRACTOR_POSTPROCESS_H
 #define STREAMING_EXTRACTOR_POSTPROCESS_H
 
-#include <essentia/pool.h>
-#include <essentia/types.h>
+#include <sonoria/pool.h>
+#include <sonoria/types.h>
 #include <string>
 
 void PostProcess(sonoria::Pool& pool, const sonoria::Pool& options, const std::string& nspace="");

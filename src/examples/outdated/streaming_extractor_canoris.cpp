@@ -17,11 +17,11 @@
  * version 3 along with this program.  If not, see http://www.gnu.org/licenses/
  */
 
-#include <essentia/algorithmfactory.h>
-#include <essentia/sonoriamath.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/sonoriautil.h>
-#include <essentia/scheduler/network.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/sonoriamath.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
+#include <sonoria/sonoriautil.h>
+#include <sonoria/scheduler/network.h>
 
 // helper functions
 #include "streaming_extractorutils.h"

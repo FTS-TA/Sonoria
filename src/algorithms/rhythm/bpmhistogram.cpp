@@ -22,7 +22,7 @@
 #include "sonoriamath.h"
 #include "bpmutil.h"
 #include <cassert>
-#include "tnt/tnt2vector.h"
+#include "sonoria/utils/tnt/tnt2vector.h"
 
 using namespace std;
 using namespace sonoria;

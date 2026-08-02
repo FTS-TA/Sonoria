@@ -21,8 +21,8 @@
 #define ESSENTIA_SINGLEGAUSSIAN_H
 
 #include "algorithm.h"
-#include "tnt/tnt.h"
-#include "tnt/jama_lu.h"
+#include "sonoria/utils/tnt/tnt.h"
+#include "sonoria/utils/tnt/jama_lu.h"
 
 namespace sonoria {
 namespace standard {

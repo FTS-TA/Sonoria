@@ -18,7 +18,7 @@
  */
 
 #include "tensorflowpredict2d.h"
-#include <essentia/utils/tnt/tnt2vector.h>
+#include <sonoria/utils/tnt/tnt2vector.h>
 
 using namespace std;
 using namespace TNT;

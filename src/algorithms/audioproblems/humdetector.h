@@ -24,7 +24,7 @@
 #include "network.h"
 #include "pool.h"
 #include "streamingalgorithmcomposite.h"
-#include <essentia/utils/tnt/tnt2vector.h>
+#include <sonoria/utils/tnt/tnt2vector.h>
 
 namespace sonoria {
 namespace streaming {

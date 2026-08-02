@@ -18,10 +18,10 @@
  */
 
 #include <iostream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/streaming/algorithms/fileoutput.h>
-#include <essentia/scheduler/network.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
+#include <sonoria/streaming/algorithms/fileoutput.h>
+#include <sonoria/scheduler/network.h>
 #include "credit_libav.h"
 #include "music_extractor/extractor_utils.h"
 

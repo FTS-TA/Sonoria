@@ -21,7 +21,7 @@
 #define ESSENTIA_SBIC_H
 
 #include "algorithm.h"
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 
 namespace sonoria {
 namespace standard {

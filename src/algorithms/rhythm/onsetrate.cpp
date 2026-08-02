@@ -19,7 +19,7 @@
 
 #include "onsetrate.h"
 #include <complex>
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 
 using namespace std;
 using namespace TNT;

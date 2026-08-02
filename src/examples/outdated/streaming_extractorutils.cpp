@@ -18,8 +18,8 @@
  */
 
 #include "streaming_extractorutils.h"
-#include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/scheduler/network.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
+#include <sonoria/scheduler/network.h>
 
 using namespace std;
 using namespace sonoria;

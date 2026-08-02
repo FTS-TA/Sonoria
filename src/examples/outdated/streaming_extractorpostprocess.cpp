@@ -18,9 +18,9 @@
  */
 
 #include "streaming_extractorpostprocess.h"
-#include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/algorithmfactory.h>
-#include <essentia/sonoriamath.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/sonoriamath.h>
 
 using namespace std;
 using namespace sonoria;
