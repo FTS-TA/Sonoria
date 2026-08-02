@@ -96,16 +96,11 @@ This fork is based on Sonoria. For the original Sonoria releases see: https://gi
 Github branches (original Sonoria):
 - [master](https://github.com/MTG/sonoria/tree/master): latest updates; if you got any problem, try it first.
 
-**Note:** If you are migrating from Sonoria to Sonoria, be aware that the namespace has changed from `sonoria` to `sonoria`. Update your code accordingly:
-- Change `#include <sonoria/...>` to `#include <sonoria/...>`
-- Change `using namespace sonoria;` to `using namespace sonoria;`
-- Change `sonoria::` to `sonoria::`
+**Note:** If you are migrating from Essentia to Sonoria, be aware that the namespace has changed from `essentia` to `sonoria`. Update your code accordingly:
+- Change `#include <essentia/...>` to `#include <sonoria/...>`
+- Change `using namespace essentia;` to `using namespace sonoria;`
+- Change `essentia::` to `sonoria::`
 
-How to contribute
------------------
-We are more than happy to collaborate and receive your contributions to Sonoria. The best practice of submitting your code is by creating pull requests following our contribution policy. By submitting your code you authorize that it complies with the Developer's Certificate of Origin. 
-
-For original Sonoria contribution guidelines see: http://sonoria.upf.edu/documentation/contribute.html
 
 You are also more than welcome to suggest any improvements, including proposals for new algorithms, etc., by creating issues in this repository.
 
