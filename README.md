@@ -39,18 +39,6 @@ cmake-gui ..
 
 See [CMAKE_BUILD.md](CMAKE_BUILD.md) for detailed installation instructions.
 
-**Original Sonoria installation:**
-- http://sonoria.upf.edu/documentation/installing.html 
-- [doc/sphinxdoc/installing.rst](doc/sphinxdoc/installing.rst)
-
-Install from master for the latest updates.
-
-Docker images (original Sonoria): https://hub.docker.com/r/mtgupf/sonoria/
-
-
-You can download and use prebuilt static binaries for a number of Sonoria's command-line music extractors instead of installing the complete library
-- [doc/sphinxdoc/extractors_out_of_box.rst](doc/sphinxdoc/extractors_out_of_box.rst)
-
 
 Quick start
 -----------
