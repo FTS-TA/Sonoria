@@ -21,7 +21,7 @@
 #define ESSENTIA_TENSORNORMALIZE_H
 
 #include "algorithm.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <unsupported/Eigen/CXX11/Tensor>
 
 namespace sonoria {

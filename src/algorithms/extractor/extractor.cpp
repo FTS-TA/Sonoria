@@ -19,7 +19,7 @@
 
 #include "extractor.h"
 #include "algorithmfactory.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "poolstorage.h"
 #include "vectorinput.h"
 #include "network.h"

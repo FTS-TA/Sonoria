@@ -18,7 +18,7 @@
  */
 
 #include "noveltycurvefixedbpmestimator.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "bpmutil.h"
 
 using namespace std;

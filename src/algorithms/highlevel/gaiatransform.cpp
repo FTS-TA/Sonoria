@@ -18,7 +18,7 @@
  */
 
 #include "gaiatransform.h"
-#include "essentia.h"
+#include "sonoria.h"
 #include <gaia2/point.h>
 #include <gaia2/convert.h>
 

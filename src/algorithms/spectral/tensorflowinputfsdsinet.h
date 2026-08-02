@@ -20,7 +20,7 @@
 #ifndef ESSENTIA_TENSORFLOWINPUTFSDSINET_H
 #define ESSENTIA_TENSORFLOWINPUTFSDSINET_H
 
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithm.h"
 #include "algorithmfactory.h"
 

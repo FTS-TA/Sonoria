@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 #include <chromaprint.h>
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 namespace sonoria {
 namespace standard {

@@ -18,7 +18,7 @@
  */
 
 #include "replaygain.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <algorithm> // sort
 
 using namespace std;

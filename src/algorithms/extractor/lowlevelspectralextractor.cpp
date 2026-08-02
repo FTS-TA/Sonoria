@@ -19,7 +19,7 @@
 
 #include "lowlevelspectralextractor.h"
 #include "algorithmfactory.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "poolstorage.h"
 #include "copy.h"
 

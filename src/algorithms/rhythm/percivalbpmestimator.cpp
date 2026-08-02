@@ -21,7 +21,7 @@
 #include "percivalbpmestimator.h"
 #include "poolstorage.h"
 #include "algorithmfactory.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 using namespace std;
 

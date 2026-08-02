@@ -18,7 +18,7 @@
  */
 
 #include "peakdetection.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "peak.h"
 
 using namespace sonoria;

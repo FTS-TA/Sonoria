@@ -21,7 +21,7 @@
 #define ESSENTIA_FREQBANDS_H
 
 #include "algorithm.h"
-#include "essentiautil.h"
+#include "sonoriautil.h"
 
 namespace sonoria {
 namespace standard {

@@ -18,7 +18,7 @@
  */
 
 #include "temposcalebands.h"
-#include "essentiamath.h" // log10
+#include "sonoriamath.h" // log10
 
 using namespace std;
 using namespace sonoria;

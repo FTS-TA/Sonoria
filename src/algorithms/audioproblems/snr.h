@@ -20,7 +20,7 @@
 #ifndef ESSENTIA_SNR_H
 #define ESSENTIA_SNR_H
 
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithm.h"
 #include "algorithmfactory.h"
 #include "3rdparty/cephes/bessel/bessel.h"

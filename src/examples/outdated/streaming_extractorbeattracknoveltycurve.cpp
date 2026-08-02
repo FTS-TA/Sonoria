@@ -26,7 +26,7 @@
 #include "poolstorage.h"
 #include "vectorinput.h"
 #include "vectoroutput.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "bpmutil.h"
 #include "tnt/tnt2vector.h"
 

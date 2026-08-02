@@ -27,7 +27,7 @@
 // ie: so people can just include "essentia.h" for the basic types and operations
 // and then do not need stringutil.h and streamutil.h, etc... which they might
 // forget otherwise or not even be aware of
-#include "essentiautil.h"
+#include "sonoriautil.h"
 #include "stringutil.h"
 #include "streamutil.h"
 

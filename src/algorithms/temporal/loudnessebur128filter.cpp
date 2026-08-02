@@ -18,7 +18,7 @@
  */
 
 #include "loudnessebur128filter.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithmfactory.h"
 
 using namespace std;

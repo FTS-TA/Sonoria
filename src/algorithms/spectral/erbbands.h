@@ -20,7 +20,7 @@
 #ifndef ESSENTIA_ERBBANDS_H
 #define ESSENTIA_ERBBANDS_H
 
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithm.h"
 #include <complex>
 

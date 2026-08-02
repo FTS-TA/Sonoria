@@ -18,7 +18,7 @@
  */
 
 #include "dynamiccomplexity.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <list>
 
 using namespace std;

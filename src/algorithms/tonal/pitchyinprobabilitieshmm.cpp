@@ -18,7 +18,7 @@
  */
 
 #include "pitchyinprobabilitieshmm.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <time.h>
 
 using namespace std;

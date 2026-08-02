@@ -18,7 +18,7 @@
  */
 
 #include <algorithm>
-#include "essentia_gtest.h"
+#include "sonoria_gtest.h"
 #include "peak.h"
 using namespace std;
 using namespace essentia;

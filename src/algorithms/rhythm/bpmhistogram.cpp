@@ -19,7 +19,7 @@
 
 #include <cassert>
 #include "bpmhistogram.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "bpmutil.h"
 #include <cassert>
 #include "tnt/tnt2vector.h"

@@ -18,7 +18,7 @@
  */
 
 #include "fftw.h"
-#include "essentia.h"
+#include "sonoria.h"
 
 using namespace std;
 using namespace sonoria;

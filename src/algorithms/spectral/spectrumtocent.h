@@ -21,7 +21,7 @@
 #define ESSENTIA_SPECTRUMTOCENT_H
 
 #include "algorithm.h"
-#include "essentiautil.h"
+#include "sonoriautil.h"
 #include "algorithmfactory.h"
 
 using namespace std;

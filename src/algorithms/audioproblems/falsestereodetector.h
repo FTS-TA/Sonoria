@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 #include "algorithmfactory.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 namespace sonoria {
 namespace standard {

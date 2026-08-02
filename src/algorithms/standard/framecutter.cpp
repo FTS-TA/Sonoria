@@ -20,7 +20,7 @@
 
 
 #include "framecutter.h"
-#include "essentiamath.h" // for isSilent
+#include "sonoriamath.h" // for isSilent
 
 using namespace std;
 

@@ -1,5 +1,5 @@
 #include "pitch2midi.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 using namespace std;
 using namespace sonoria;

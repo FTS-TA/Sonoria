@@ -18,7 +18,7 @@
  */
 
 #include "mfcc.h"
-#include "essentiamath.h" // lin2db
+#include "sonoriamath.h" // lin2db
 
 using namespace std;
 using namespace sonoria;

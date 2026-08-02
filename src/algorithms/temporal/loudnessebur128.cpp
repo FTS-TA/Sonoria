@@ -19,7 +19,7 @@
 
 #include "loudnessebur128.h"
 #include <algorithm> // sort
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 using namespace std;
 

@@ -2,9 +2,9 @@ prefix=@PREFIX@
 libdir=${prefix}/lib
 includedir=${prefix}/include
 
-Name: libessentia
+Name: libsonoria
 Description: audio analysis library -- development files
 Version: @VERSION@
 Requires.private: @REQUIRESPRIVATE@
-Libs: -L${libdir} -lessentia @LPATHS@ @LFLAGS@
-Cflags: -I${includedir}/essentia -I${includedir}/essentia/scheduler -I${includedir}/essentia/streaming -I${includedir}/essentia/streaming/algorithms -I${includedir}/essentia/utils
+Libs: -L${libdir} -lsonoria @LPATHS@ @LFLAGS@
+Cflags: -I${includedir}/sonoria -I${includedir}/sonoria/scheduler -I${includedir}/sonoria/streaming -I${includedir}/sonoria/streaming/algorithms -I${includedir}/sonoria/utils

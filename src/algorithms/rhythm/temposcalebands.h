@@ -21,7 +21,7 @@
 #define ESSENTIA_TEMPOSCALE_H
 
 #include "algorithm.h"
-#include "essentiautil.h"
+#include "sonoriautil.h"
 
 namespace sonoria {
 namespace standard {

@@ -18,7 +18,7 @@
  */
 
 #include "tempotapdegara.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <limits>
 
 using namespace std;

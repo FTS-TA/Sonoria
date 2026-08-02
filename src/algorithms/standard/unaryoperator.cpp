@@ -18,7 +18,7 @@
  */
 
 #include "unaryoperator.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <sstream>
 
 using namespace sonoria;

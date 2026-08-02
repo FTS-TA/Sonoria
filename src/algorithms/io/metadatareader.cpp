@@ -29,7 +29,7 @@
 
 #include "metadatareader.h"
 #include "metadatautils.h"
-#include "essentiautil.h"
+#include "sonoriautil.h"
 
 
 using namespace std;

@@ -21,7 +21,7 @@
 #define ESSENTIA_TRIANGULARBANDS_H
 
 #include "algorithm.h"
-#include "essentiautil.h"
+#include "sonoriautil.h"
 
 using namespace std;
 

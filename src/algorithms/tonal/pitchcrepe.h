@@ -21,7 +21,7 @@
 #define ESSENTIA_PITCHCREPE_H
 
 #include "algorithmfactory.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 namespace sonoria {
 namespace standard {

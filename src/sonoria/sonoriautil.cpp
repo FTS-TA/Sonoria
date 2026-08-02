@@ -17,7 +17,7 @@
  * version 3 along with this program.  If not, see http://www.gnu.org/licenses/
  */
 
-#include "essentiautil.h"
+#include "sonoriautil.h"
 
 #ifdef OS_WIN32
 #include <fcntl.h>

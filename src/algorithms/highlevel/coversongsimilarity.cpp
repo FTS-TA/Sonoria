@@ -18,7 +18,7 @@
  */
 
 #include "coversongsimilarity.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "essentia/utils/tnt/tnt2vector.h"
 #include <vector>
 #include <iostream>

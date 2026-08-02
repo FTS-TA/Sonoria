@@ -20,7 +20,7 @@
 #ifndef ESSENTIA_WELCH_H
 #define ESSENTIA_WELCH_H
 
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithm.h"
 #include "algorithmfactory.h"
 

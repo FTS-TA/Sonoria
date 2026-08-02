@@ -18,7 +18,7 @@
  */
 
 #include "rolloff.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 using namespace sonoria;
 using namespace standard;

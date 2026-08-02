@@ -18,7 +18,7 @@
  */
 
 #include "bpmrubato.h"
-#include "essentiamath.h" // abs
+#include "sonoriamath.h" // abs
 
 using namespace std;
 using namespace sonoria;
