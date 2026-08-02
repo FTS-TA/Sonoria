@@ -99,7 +99,7 @@ void TonicIndianArtMusic::compute() {
   const vector<Real>& signal = _signal.get();
   // Prevent segmentation fault
   if (signal.size() == 0) { 
-    throw EssentiaException("TonicIndianArtMusic: Empty Audio passed"); 
+    throw SonoriaException("TonicIndianArtMusic: Empty Audio passed"); 
   }
 
   Real& tonic = _tonic.get();
@@ -199,7 +199,7 @@ void TonicIndianArtMusic::compute() {
 
   // Prevent segmentation fault
   if (peak_locs.size() == 0){ 
-    throw EssentiaException("TonicIndianArtMusic: No peak locations"); 
+    throw SonoriaException("TonicIndianArtMusic: No peak locations"); 
   }
 
   // Peak detection should guarantee the equal number of both types of value.

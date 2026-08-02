@@ -54,7 +54,7 @@ void StartStopCut::configure() {
   _threshold = db2pow(parameter("threshold").toReal());
 
   if (_frameSize < _hopSize)
-    throw(EssentiaException(
+    throw(SonoriaException(
         "StartStopCut: hopSize has to be smaller or equal than the input "
         "frame size"));
 
@@ -72,13 +72,13 @@ void StartStopCut::compute() {
   int& stopCut = _stopCut.get();
 
   if (audio.size() < _maximumStartSamples)
-    throw(EssentiaException(
+    throw(SonoriaException(
         "StartStopCut: current maximumStartTime value requires at least ",
         _maximumStartSamples, " samples, but the input file size is just ",
         audio.size()));
 
   if (audio.size() < _maximumStartSamples)
-    throw(EssentiaException(
+    throw(SonoriaException(
         "StartStopCut: current maximumStopTime value requires at least ",
         _maximumStopSamples, " samples, but the input file size is just ",
         audio.size()));

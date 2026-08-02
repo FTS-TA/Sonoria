@@ -37,7 +37,7 @@ void Energy::compute() {
   const std::vector<Real>& array = _array.get();
 
   if (array.empty()) {
-    throw EssentiaException("Energy: the input array size is zero");
+    throw SonoriaException("Energy: the input array size is zero");
   }
 
   _energy.get() = energy(array);

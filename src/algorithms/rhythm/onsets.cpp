@@ -88,11 +88,11 @@ void Onsets::compute() {
   vector<Real>& onsets = _onsets.get();
 
   if (detections.dim1() == 0) {
-    throw EssentiaException("Onsets: Passing empty matrix as input");
+    throw SonoriaException("Onsets: Passing empty matrix as input");
   }
 
   if (detections.dim1() != int(weights.size())) {
-    throw EssentiaException("Onsets: The size of detection functions and the size of weights cannot be different");
+    throw SonoriaException("Onsets: The size of detection functions and the size of weights cannot be different");
   }
 
   // Copying the Array2D to a vector of vector, much more easy to normalize

@@ -20,8 +20,8 @@
 #ifndef STREAMING_EXTRACTORSFX_H
 #define STREAMING_EXTRACTORSFX_H
 
-#include <essentia/streaming/sourcebase.h>
-#include <essentia/pool.h>
+#include <sonoria/streaming/sourcebase.h>
+#include <sonoria/pool.h>
 
 void SFX(sonoria::streaming::SourceBase& input, sonoria::Pool& pool, const std::string& nspace="");
 void SFXPitch(sonoria::Pool& pool, const std::string& nspace="");

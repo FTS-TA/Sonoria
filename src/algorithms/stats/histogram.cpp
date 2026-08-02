@@ -33,11 +33,11 @@ void Histogram::configure() {
   _numberBins = parameter("numberBins").toInt();
 
   if(_maxValue < _minValue)
-    throw EssentiaException("Histogram: maxValue must be > minValue");
+    throw SonoriaException("Histogram: maxValue must be > minValue");
 
   if(_maxValue == _minValue) {
     if(_numberBins > 1)
-       throw EssentiaException("Histogram: numberBins must = 1 when maxValue = minValue");
+       throw SonoriaException("Histogram: numberBins must = 1 when maxValue = minValue");
   }
 
   binWidth =  (_maxValue - _minValue)/(Real)_numberBins;

@@ -48,7 +48,7 @@ void AudioWriter::configure() {
 
 AlgorithmStatus AudioWriter::process() {
   if (!_configured) {
-    throw EssentiaException("AudioWriter: Trying to call process() on an AudioWriter algo which hasn't been correctly configured");
+    throw SonoriaException("AudioWriter: Trying to call process() on an AudioWriter algo which hasn't been correctly configured");
   }
 
   if (!_audioCtx.isOpen()) _audioCtx.open();
@@ -80,8 +80,8 @@ AlgorithmStatus AudioWriter::process() {
   try {
     _audioCtx.write(_audio.tokens());
   }
-  catch (EssentiaException& e) {
-    throw EssentiaException("AudioWriter: error writing to audio file: ", e.what());
+  catch (SonoriaException& e) {
+    throw SonoriaException("AudioWriter: error writing to audio file: ", e.what());
   }
 
   releaseData();
@@ -100,8 +100,8 @@ void AudioWriter::reset() {
                                              parameter("sampleRate").toInt(),
                                              parameter("bitrate").toInt()*1000);
   }
-  catch (EssentiaException& e) {
-    throw EssentiaException("AudioWriter: Error creating audio file: ", e.what());
+  catch (SonoriaException& e) {
+    throw SonoriaException("AudioWriter: Error creating audio file: ", e.what());
   }
 
   _audio.setAcquireSize(recommendedBufferSize);
@@ -141,7 +141,7 @@ void AudioWriter::configure() {
                        INHERIT("format"),
                        INHERIT("sampleRate"));
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     // no file has been specified, do not do anything
     // we let the inner loader take care of correctness and sending a nice
     // error message if necessary
@@ -155,7 +155,7 @@ void AudioWriter::configure() {
 
 void AudioWriter::compute() {
   if (!_configured) {
-    throw EssentiaException("AudioWriter: Trying to call compute() on an AudioWriter algo which hasn't been correctly configured...");
+    throw SonoriaException("AudioWriter: Trying to call compute() on an AudioWriter algo which hasn't been correctly configured...");
   }
 
   const vector<StereoSample>& audio = _audio.get();

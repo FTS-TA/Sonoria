@@ -11,7 +11,7 @@
     "libav",
     "libsamplerate",
     "taglib",
-    "yaml-cpp",
+    "libyaml",
     "chromaprint"
   ],
   "features": {

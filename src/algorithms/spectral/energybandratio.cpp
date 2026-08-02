@@ -42,7 +42,7 @@ void EnergyBandRatio::configure() {
   Real stopFreq = parameter("stopFrequency").toReal();
 
   if (stopFreq < startFreq) {
-    throw EssentiaException("EnergyBandRatio: stopFrequency is less than startFrequency");
+    throw SonoriaException("EnergyBandRatio: stopFrequency is less than startFrequency");
   }
 
   _startFreqNormalized = startFreq / freqRange;
@@ -55,7 +55,7 @@ void EnergyBandRatio::compute() {
   const vector<Real>& spectrum = _spectrum.get();
 
   if (spectrum.empty()) {
-    throw EssentiaException("EnergyBandRatio: input audio spectrum empty");
+    throw SonoriaException("EnergyBandRatio: input audio spectrum empty");
   }
 
   Real& energyBandRatio = _energyBandRatio.get();

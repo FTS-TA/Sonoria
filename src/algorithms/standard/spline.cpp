@@ -55,7 +55,7 @@ void Spline::compute() {
       yOutput=(Real)y;
       return;
     default: // should never get here
-      throw EssentiaException("Spline: unknown spline type");
+      throw SonoriaException("Spline: unknown spline type");
   }
 }
 
@@ -69,19 +69,19 @@ void Spline::configure() {
   vector<Real> x = parameter("xPoints").toVectorReal();
   vector<Real> y = parameter("yPoints").toVectorReal();
   if (x.size() != y.size() ) {
-    throw EssentiaException("parameter 'xPoints' must have the same size than parameter 'yPoints')");
+    throw SonoriaException("parameter 'xPoints' must have the same size than parameter 'yPoints')");
   }
   int size = x.size();
   for (int i=0; i<size-1; ++i) {
     if (x[i]>=x[i+1]) {
-      throw EssentiaException("parameter 'xPoints' must be in ascendant order and cannot contain duplicates)");
+      throw SonoriaException("parameter 'xPoints' must be in ascendant order and cannot contain duplicates)");
     }
   }
   _xPoints.resize(size);
   _yPoints.resize(size);
 
   if ((size&1)==0 && _type==QUADRATIC) {
-      throw EssentiaException("size of input must be odd when spline type is quadratic");
+      throw SonoriaException("size of input must be odd when spline type is quadratic");
   }
   for (int i=0; i<size; ++i) {
     _xPoints[i] = double(x[i]);

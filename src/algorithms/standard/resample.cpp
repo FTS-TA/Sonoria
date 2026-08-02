@@ -43,7 +43,7 @@ void Resample::configure() {
 
   // check to make sure Real is typedef'd as float
   if (sizeof(Real) != sizeof(float)) {
-    throw EssentiaException("Resample: Error, Essentia has to be compiled with Real=float for resampling to work.");
+    throw SonoriaException("Resample: Error, Essentia has to be compiled with Real=float for resampling to work.");
   }
 }
 
@@ -72,7 +72,7 @@ void Resample::compute() {
   // do the conversion
   int error = src_simple(&src, _quality, 1);
 
-  if (error) throw EssentiaException("Resample: Error in resampling: ", src_strerror(error));
+  if (error) throw SonoriaException("Resample: Error in resampling: ", src_strerror(error));
 
   resampled.resize(src.output_frames_gen);
 }
@@ -164,11 +164,11 @@ AlgorithmStatus Resample::process() {
     int error = src_process(_state, &_data);
 
     if (error) {
-      throw EssentiaException("Resample: ", src_strerror(error));
+      throw SonoriaException("Resample: ", src_strerror(error));
     }
 
     if (_data.input_frames_used == 0) {
-      throw EssentiaException("Resample: Internal consumption problem while resampling");
+      throw SonoriaException("Resample: Internal consumption problem while resampling");
     }
   }
 
@@ -212,7 +212,7 @@ void Resample::reset() {
   _resampled.setBufferInfo(buf);
 
   int error = src_reset(_state);
-  if (error) throw EssentiaException("Resample: ", src_strerror(error));
+  if (error) throw SonoriaException("Resample: ", src_strerror(error));
 }
 
 } // namespace streaming

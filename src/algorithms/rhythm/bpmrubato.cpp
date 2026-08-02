@@ -60,7 +60,7 @@ void BpmRubato::compute() {
       || beats[i-2] <= beats[i-3]
       || beats[i-3] <= beats[i-4]
       || beats[i-4] <= beats[i-5]) {
-      throw EssentiaException("BpmRubato: beat ticks must be in ascending order and must not contain duplicates");
+      throw SonoriaException("BpmRubato: beat ticks must be in ascending order and must not contain duplicates");
     }
 
     // compute distances between ticks
@@ -126,7 +126,7 @@ void BpmRubato::compute() {
       tmp5 = tmp4; tmp4 = tmp3; tmp3 = tmp2; tmp2 = tmp1;
 
       if (beats[i] <= beats[i-1]) {
-        throw EssentiaException("BpmRubato: beat ticks must be in ascending order and must not contain duplicates");
+        throw SonoriaException("BpmRubato: beat ticks must be in ascending order and must not contain duplicates");
       }
 
       tmp1 = 60./ (beats[i] - beats[i-1]);

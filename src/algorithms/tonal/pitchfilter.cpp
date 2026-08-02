@@ -54,21 +54,21 @@ void PitchFilter::compute() {
 
   // sanity checks, pitch and pitchConfidence values should be non-negative
   if (pitch.size() != pitchConfidence.size()) {
-    throw EssentiaException("PitchFilter: Pitch and pitchConfidence vectors should be of the same size.");
+    throw SonoriaException("PitchFilter: Pitch and pitchConfidence vectors should be of the same size.");
   }
   if (pitch.size() == 0) {
-    throw EssentiaException("PitchFilter: Pitch and pitchConfidence vectors are empty.");
+    throw SonoriaException("PitchFilter: Pitch and pitchConfidence vectors are empty.");
   }
   for (size_t i=0; i<pitch.size(); i++) {
     if (pitch[i] < 0) {
-      throw EssentiaException("PitchFilter: Pitch values should be non-negative.");
+      throw SonoriaException("PitchFilter: Pitch values should be non-negative.");
     }
     Real con = pitchConfidence[i];
     if (con < 0) {
       if (_useAbsolutePitchConfidence) {
         con = -con;
       } else {
-        throw EssentiaException("PitchFilter: Pitch confidence values should be non-negative.");
+        throw SonoriaException("PitchFilter: Pitch confidence values should be non-negative.");
       }
     }
     modifiedPitchConfidence[i] = con;

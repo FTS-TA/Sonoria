@@ -41,7 +41,7 @@ void RollOff::compute() {
   rolloff = 0.0;
 
   if (spectrum.size() < 2) {
-    throw EssentiaException("RollOff: input audio spectrum is smaller than 2");
+    throw SonoriaException("RollOff: input audio spectrum is smaller than 2");
   }
 
   Real cumEnergy = 0.0; // cumulative energy

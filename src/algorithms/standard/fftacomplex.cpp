@@ -64,7 +64,7 @@ void FFTAComplex::compute() {
   // check if input is OK
   int size = int(signal.size());
   if (size == 0) {
-    throw EssentiaException("FFTC: Input size cannot be 0");
+    throw SonoriaException("FFTC: Input size cannot be 0");
   }
  
   if ((fftSetup == 0) ||
@@ -103,7 +103,7 @@ void FFTAComplex::createFFTObject(int size) {
   // which means that there are 2 different input signals that could yield the
   // same FFT...
   if (size % 2 == 1) {
-    throw EssentiaException("FFTC: can only compute FFTC of arrays which have an even size");
+    throw SonoriaException("FFTC: can only compute FFTC of arrays which have an even size");
   }
 
   if (_negativeFrequencies) {

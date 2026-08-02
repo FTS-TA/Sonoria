@@ -36,7 +36,7 @@ void MinToTotal::compute() {
   Real& minToTotal = _minToTotal.get();
 
   if (envelope.empty()) {
-    throw EssentiaException("MinToTotal: envelope is empty, minToTotal is not defined for an empty envelope");
+    throw SonoriaException("MinToTotal: envelope is empty, minToTotal is not defined for an empty envelope");
   }
 
   minToTotal = Real(argmin(envelope)) / envelope.size();
@@ -68,7 +68,7 @@ void MinToTotal::consume() {
 
 void MinToTotal::finalProduce() {
   if (_size == 0) {
-    throw EssentiaException("MinToTotal: envelope is empty, minToTotal is not defined for an empty envelope");
+    throw SonoriaException("MinToTotal: envelope is empty, minToTotal is not defined for an empty envelope");
   }
 
   _minToTotal.push(Real(_minIdx) / _size);

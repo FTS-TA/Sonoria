@@ -218,7 +218,7 @@ void RhythmDescriptors::compute() {
   //_rubatoStart.get()  = _pool.value<vector<Real> >("rubato_start");
   //_rubatoStop.get()   = _pool.value<vector<Real> >("rubato_stop");
   //}
-  //catch (EssentiaException &) { // no rubato regions found
+  //catch (SonoriaException &) { // no rubato regions found
   //  _rubatoStart.get() = vector<Real>();
   //  _rubatoStop.get() = vector<Real>();
   //}

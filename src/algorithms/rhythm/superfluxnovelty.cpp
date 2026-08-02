@@ -40,16 +40,16 @@ const vector< vector<Real> >& bands = _bands.get();
   
   int nFrames = bands.size();
   if(!nFrames) {
-    throw EssentiaException("SuperFluxNovelty: empty frames");
+    throw SonoriaException("SuperFluxNovelty: empty frames");
   }
 
   int nBands= bands[0].size();
   if(!nBands){
-    throw EssentiaException("SuperFluxNovelty: empty bands");
+    throw SonoriaException("SuperFluxNovelty: empty bands");
   }
             
   if (_frameWidth >= nFrames) {
-    throw EssentiaException("SuperFluxNovelty: not enough frames for the specified frameWidth");
+    throw SonoriaException("SuperFluxNovelty: not enough frames for the specified frameWidth");
   }
 
   vector<Real> maxsBuffer(nBands, 0);

@@ -46,7 +46,7 @@ void ConstantQ::compute() {
   vector<complex<Real> >& constantQ = _constantQ.get();
 
   if (frame.size() != _windowSize) {
-    throw EssentiaException("ConstantQ: input frame size must be equal to: ", _windowSize);
+    throw SonoriaException("ConstantQ: input frame size must be equal to: ", _windowSize);
   }
 
   _fft->input("frame").set(frame);
@@ -132,7 +132,7 @@ void ConstantQ::configure() {
         msg << "ConstantQ: Attempted to create a filter whose pass-band (" << passBand
             << " Hz) is beyond the Nyquist frequency (" << _sampleRate / 2
             << " Hz). A possible fix is to reduce the 'numberBins' parameter";
-        throw EssentiaException(msg.str());
+        throw SonoriaException(msg.str());
       }
     }
 

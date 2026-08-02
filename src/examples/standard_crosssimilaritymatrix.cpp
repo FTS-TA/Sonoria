@@ -18,11 +18,11 @@
  */
 #include <iostream>
 #include <fstream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/sonoriamath.h>
-#include <essentia/pool.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/sonoriamath.h>
+#include <sonoria/pool.h>
 #include "credit_libav.h"
-#include "essentia/utils/tnt/tnt2vector.h"
+#include "sonoria/utils/tnt/tnt2vector.h"
 
 using namespace std;
 using namespace sonoria;

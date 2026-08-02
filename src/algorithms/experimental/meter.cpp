@@ -49,7 +49,7 @@ void Meter::compute() {
   Real& meter = _meter.get();
   int nbands= beatogram.size();
   if (nbands<1) {
-    throw EssentiaException("Meter: empty beatogram");
+    throw SonoriaException("Meter: empty beatogram");
   }
   int nticks = beatogram[0].size();
 

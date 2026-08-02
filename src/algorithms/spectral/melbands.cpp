@@ -47,10 +47,10 @@ const char* MelBands::description = DOC("This algorithm computes energy in mel b
 
 void MelBands::configure() {
   if (parameter("highFrequencyBound").toReal() > parameter("sampleRate").toReal()*0.5 ) {
-    throw EssentiaException("MelBands: High frequency bound cannot be higher than Nyquist frequency");
+    throw SonoriaException("MelBands: High frequency bound cannot be higher than Nyquist frequency");
   }
   if (parameter("highFrequencyBound").toReal() <= parameter("lowFrequencyBound").toReal()) {
-    throw EssentiaException("MelBands: High frequency bound cannot be lower than the low frequency bound.");
+    throw SonoriaException("MelBands: High frequency bound cannot be lower than the low frequency bound.");
   }
   _numBands = parameter("numberBands").toInt();
   _sampleRate = parameter("sampleRate").toReal();
@@ -111,7 +111,7 @@ void MelBands::setWarpingFunctions(std::string warping, std::string weighting){
   }
   else{
     E_INFO("Melbands: 'warpingFormula' = "<<warping);
-    throw EssentiaException(" Melbands: Bad 'warpingFormula' parameter");
+    throw SonoriaException(" Melbands: Bad 'warpingFormula' parameter");
   }
 
   if (weighting == "warping") {
@@ -121,7 +121,7 @@ void MelBands::setWarpingFunctions(std::string warping, std::string weighting){
     _weighting = "linear";
   }
   else{
-    throw EssentiaException("Melbands: Bad 'weighting' parameter");
+    throw SonoriaException("Melbands: Bad 'weighting' parameter");
   }
 
 }

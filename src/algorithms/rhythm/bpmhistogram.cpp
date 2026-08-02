@@ -22,7 +22,7 @@
 #include "sonoriamath.h"
 #include "bpmutil.h"
 #include <cassert>
-#include "tnt/tnt2vector.h"
+#include "sonoria/utils/tnt/tnt2vector.h"
 
 using namespace std;
 using namespace sonoria;
@@ -147,7 +147,7 @@ void BpmHistogram::computeBpm() {
 
       //threshold = max(Real(1e-4), min(median(peaksValue), mean(peaksValue)));
     }
-    catch(const EssentiaException& ) { // no peaks found
+    catch(const SonoriaException& ) { // no peaks found
       threshold = numeric_limits<int>::max();
     }
 

@@ -41,11 +41,11 @@ void Crest::compute() {
   Real& crest = _crest.get();
 
   if (array.size() == 0) {
-    throw EssentiaException("Crest: array does not contain any values");
+    throw SonoriaException("Crest: array does not contain any values");
   }
 
   if (find_if(array.begin(), array.end(), [](Real value){ return value < 0; }) != array.end()) {
-    throw EssentiaException("Crest: array must not contain negative values");
+    throw SonoriaException("Crest: array must not contain negative values");
   }
 
   Real maximum = *max_element(array.begin(), array.end());

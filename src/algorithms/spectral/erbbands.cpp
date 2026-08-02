@@ -40,12 +40,12 @@ const Real ERBBands::minBW = 24.7;
 void ERBBands::configure() {
   if (parameter("highFrequencyBound").toReal() >
         parameter("sampleRate").toReal()*0.5 ) {
-    throw EssentiaException(
+    throw SonoriaException(
         "ERBBands: High frequency bound cannot be higher than Nyquist frequency");
   }
   if (parameter("highFrequencyBound").toReal() <=
         parameter("lowFrequencyBound").toReal()) {
-    throw EssentiaException(
+    throw SonoriaException(
         "ERBands: High frequency bound cannot be lower than low frequency bound");
   }
 
@@ -74,7 +74,7 @@ void ERBBands::calculateFilterFrequencies() {
 
 void ERBBands::createFilters(int spectrumSize) {
   if (spectrumSize < 2) {
-    throw EssentiaException("ERBBands: Filter bank cannot be computed from a spectrum with less than 2 bins");
+    throw SonoriaException("ERBBands: Filter bank cannot be computed from a spectrum with less than 2 bins");
   }
 
   int filterSize = _numberBands;

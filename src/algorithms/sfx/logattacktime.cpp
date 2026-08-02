@@ -36,7 +36,7 @@ void LogAttackTime::configure() {
   _sampleRate = parameter("sampleRate").toReal();
 
   if (_startThreshold > _stopThreshold) {
-    throw EssentiaException("LogAttackTime: stopAttackThreshold is not greater than startAttackThreshold");
+    throw SonoriaException("LogAttackTime: stopAttackThreshold is not greater than startAttackThreshold");
   }
 }
 
@@ -48,7 +48,7 @@ void LogAttackTime::compute() {
   Real& attackStop = _attackStop.get();
 
   if (signal.empty()) {
-    throw EssentiaException("LogAttackTime: logAttackTime not defined for empty input");
+    throw SonoriaException("LogAttackTime: logAttackTime not defined for empty input");
   }
 
   Real maxvalue = *max_element(signal.begin(), signal.end());

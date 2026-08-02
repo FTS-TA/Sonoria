@@ -36,7 +36,7 @@ const char* InstantPower::description = DOC("This algorithm computes the instant
 void InstantPower::compute() {
   const std::vector<Real>& array = _array.get();
   if (array.empty()) {
-    throw EssentiaException("InstantPower: cannot compute the instant power of an empty array");
+    throw SonoriaException("InstantPower: cannot compute the instant power of an empty array");
   }
 
   _power.get() = instantPower(array);

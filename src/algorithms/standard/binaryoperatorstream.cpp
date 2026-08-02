@@ -37,7 +37,7 @@ BinaryOperatorStream::OpType BinaryOperatorStream::typeFromString(const std::str
   if (name == "multiply") return MULTIPLY;
   if (name == "divide") return DIVIDE;
 
-  throw EssentiaException("BinaryOperatorStream: Unknown binary operator type: ", name);
+  throw SonoriaException("BinaryOperatorStream: Unknown binary operator type: ", name);
 }
 
 
@@ -55,7 +55,7 @@ void BinaryOperatorStream::compute() {
   std::vector<Real>& output = _output.get();
   
   if (input1.size() != input2.size()) {
-    throw EssentiaException("BinaryOperatorStream: input vectors are not of equal size");
+    throw SonoriaException("BinaryOperatorStream: input vectors are not of equal size");
   }
   output.resize(input1.size());
 
@@ -91,7 +91,7 @@ void BinaryOperatorStream::compute() {
         if (!input2[i]) {
           std::ostringstream e ;
           e <<  "BinaryOperatorStream: Divide by zero found in array position " << i;
-          throw EssentiaException(e);
+          throw SonoriaException(e);
         }
         output[i] = input1[i] / input2[i];
       }
@@ -99,6 +99,6 @@ void BinaryOperatorStream::compute() {
     }
   
   default:
-    throw EssentiaException("BinaryOperatorStream: Unknown unary operator type");
+    throw SonoriaException("BinaryOperatorStream: Unknown unary operator type");
   }
 }

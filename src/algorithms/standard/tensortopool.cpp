@@ -60,7 +60,7 @@ AlgorithmStatus TensorToPool::process() {
   }
 
   else {
-    throw EssentiaException("TensorToPool: Invalid operation mode.");
+    throw SonoriaException("TensorToPool: Invalid operation mode.");
   }
 
   EXEC_DEBUG("releasing");

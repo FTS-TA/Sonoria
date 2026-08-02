@@ -18,10 +18,10 @@
  */
 
 #include <iostream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/sonoriamath.h>
-#include <essentia/scheduler/network.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/sonoriamath.h>
+#include <sonoria/scheduler/network.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
 #include "credit_libav.h" 
 using namespace std;
 using namespace sonoria;

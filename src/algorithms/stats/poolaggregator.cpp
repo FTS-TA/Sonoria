@@ -21,7 +21,7 @@
 #include "algorithmfactory.h"
 #include "sonoriamath.h"
 #include "sonoriautil.h"
-#include "tnt/tnt2essentiautils.h"
+#include "sonoria/utils/tnt/tnt2sonoriautils.h"
 
 using namespace std;
 using namespace sonoria;
@@ -575,14 +575,14 @@ void PoolAggregator::configure() {
   // is the only one
   if (indexOf<string>(_defaultStats, "copy") != -1 &&
       int(_defaultStats.size()) != 1) {
-    throw EssentiaException("PoolAggregator: the 'copy' aggregation statistic "
+    throw SonoriaException("PoolAggregator: the 'copy' aggregation statistic "
                             "is exclusive, it cannot be used with other "
                             "statistics for the same descriptor");
   }
 
   if (indexOf<string>(_defaultStats, "last") != -1 &&
       int(_defaultStats.size()) != 1) {
-    throw EssentiaException("PoolAggregator: the 'last' aggregation statistic "
+    throw SonoriaException("PoolAggregator: the 'last' aggregation statistic "
                             "is exclusive, it cannot be used with other "
                             "statistics for the same descriptor");
   }
@@ -590,7 +590,7 @@ void PoolAggregator::configure() {
   // make sure there are no unsupported statistics in 'defaultStats'
   for (int i=0; i<(int)_defaultStats.size(); ++i) {
     if (_supportedStats.find(_defaultStats[i]) == _supportedStats.end()) {
-      throw EssentiaException("PoolAggregator: unsupported aggregation statistic: '" + _defaultStats[i] + "'");
+      throw SonoriaException("PoolAggregator: unsupported aggregation statistic: '" + _defaultStats[i] + "'");
     }
   }
 
@@ -604,21 +604,21 @@ void PoolAggregator::configure() {
 
     if (indexOf<string>(exceptionStats, "copy") != -1 &&
         int(exceptionStats.size()) != 1) {
-      throw EssentiaException("PoolAggregator: the 'copy' aggregation statistic "
+      throw SonoriaException("PoolAggregator: the 'copy' aggregation statistic "
                               "is exclusive, it cannot be used with other "
                               "statistics for the same descriptor");
     }
 
     if (indexOf<string>(exceptionStats, "last") != -1 &&
         int(exceptionStats.size()) != 1) {
-      throw EssentiaException("PoolAggregator: the 'last' aggregation statistic "
+      throw SonoriaException("PoolAggregator: the 'last' aggregation statistic "
                               "is exclusive, it cannot be used with other "
                               "statistics for the same descriptor");
     }
 
     for (int i=0; i<(int)exceptionStats.size(); ++i) {
       if (_supportedStats.find(exceptionStats[i]) == _supportedStats.end()) {
-        throw EssentiaException("PoolAggregator: unsupported aggregation statistic: '" + exceptionStats[i] + "'");
+        throw SonoriaException("PoolAggregator: unsupported aggregation statistic: '" + exceptionStats[i] + "'");
       }
     }
   }

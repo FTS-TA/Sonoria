@@ -18,10 +18,10 @@
  */
 
 #include <iostream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/sonoriamath.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/scheduler/network.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/sonoriamath.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
+#include <sonoria/scheduler/network.h>
 #include "credit_libav.h"
 
 using namespace std;
@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
     cout << "Tuning frequency: " 
          << mean(pool.value<std::vector<Real> >("tonal.tuningFrequency")) << endl;
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
       cerr << "Error: " << e.what() << endl;
   }
 

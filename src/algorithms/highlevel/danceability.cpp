@@ -52,7 +52,7 @@ void Danceability::configure() {
   Real tauIncrement = parameter("tauMultiplier").toReal();
 
   if (minTau > maxTau) {
-    throw EssentiaException("Danceability: minTau cannot be larger than maximumTauInMs");
+    throw SonoriaException("Danceability: minTau cannot be larger than maximumTauInMs");
   }
 
   // tau is the number of blocks of 10ms we calculate each time

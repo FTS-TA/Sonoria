@@ -20,9 +20,9 @@
 #ifndef STREAMING_EXTRACTORTONAL_H
 #define STREAMING_EXTRACTORTONAL_H
 
-#include <essentia/streaming/sourcebase.h>
-#include <essentia/pool.h>
-#include <essentia/types.h>
+#include <sonoria/streaming/sourcebase.h>
+#include <sonoria/pool.h>
+#include <sonoria/types.h>
 
 void TuningFrequency(sonoria::streaming::SourceBase& input, sonoria::Pool& pool,
                      const sonoria::Pool& options, const std::string& nspace="");

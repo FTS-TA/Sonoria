@@ -44,7 +44,7 @@ void FlatnessDB::compute() {
   const std::vector<Real>& array = _array.get();
 
   if (array.empty()) {
-    throw EssentiaException("FlatnessDB: size of input array is zero");
+    throw SonoriaException("FlatnessDB: size of input array is zero");
   }
 
   Real& flatnessDB = _flatnessDB.get();

@@ -21,10 +21,10 @@
 #include <windows.h>
 #endif
 
-#include <essentia/essentia.h>
-#include <essentia/algorithm.h>
-#include <essentia/algorithmfactory.h> 
-#include <essentia/utils/extractor_music/extractor_version.h>
+#include <sonoria/essentia.h>
+#include <sonoria/algorithm.h>
+#include <sonoria/algorithmfactory.h> 
+#include <sonoria/utils/extractor_music/extractor_version.h>
 #include "music_extractor/extractor_utils.h"
 
 #include "credit_libav.h"
@@ -78,7 +78,7 @@ int essentia_main(string audioFilename, string outputFilename, string profileFil
     delete extractor;
     sonoria::shutdown();
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     cerr << e.what() << endl;
     return 1;
   }

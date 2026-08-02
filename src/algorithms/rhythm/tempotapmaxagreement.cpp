@@ -78,11 +78,11 @@ void TempoTapMaxAgreement::compute() {
   for(int i=0; i<(int) tickCandidates.size(); ++i) {
     for (size_t j=0; j<tickCandidates[i].size(); ++j) {
       if (tickCandidates[i][j]<0) {
-        throw EssentiaException("TempoTapMaxAgreement: tick values must be non-negative");
+        throw SonoriaException("TempoTapMaxAgreement: tick values must be non-negative");
       }
       if (j>=1) {
         if (tickCandidates[i][j] <= tickCandidates[i][j-1]) {
-          throw EssentiaException("TempoTapMaxAgreement: tick values must be in ascending order");
+          throw SonoriaException("TempoTapMaxAgreement: tick values must be in ascending order");
         }
       }
     }

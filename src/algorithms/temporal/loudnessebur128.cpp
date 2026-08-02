@@ -334,7 +334,7 @@ void LoudnessEBUR128::createInnerNetwork() {
 void LoudnessEBUR128::compute() {
   const vector<StereoSample>& signal = _signal.get();
   if (!signal.size()) {
-    throw EssentiaException("LoudnessEBUR128: empty input signal");
+    throw SonoriaException("LoudnessEBUR128: empty input signal");
   }
 
   _vectorInput->setVector(&signal);

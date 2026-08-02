@@ -36,7 +36,7 @@ const Real FlatnessSFX::upperThreshold = 95.0;
 // envelope needs to be sorted
 Real FlatnessSFX::rollOff(const vector<Real>& sortedEnvelope, Real threshold) const {
   if (threshold < 0 || threshold > 100.0) {
-    throw EssentiaException("FlatnessSFX: threshold out of bounds");
+    throw SonoriaException("FlatnessSFX: threshold out of bounds");
   }
 
   int max_index = sortedEnvelope.size() - 1;
@@ -56,7 +56,7 @@ void FlatnessSFX::compute() {
   Real& flatnessSFX = _flatnessSFX.get();
 
   if (envelope.empty()) {
-    throw EssentiaException("FlatnessSFX: input signal is empty");
+    throw SonoriaException("FlatnessSFX: input signal is empty");
   }
 
   vector<Real> sortedEnvelope = envelope;

@@ -19,9 +19,9 @@
 
 #include <iostream>
 #include <fstream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/pool.h>
-#include <essentia/utils/synth_utils.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/pool.h>
+#include <sonoria/utils/synth_utils.h>
 
 
 using namespace std;

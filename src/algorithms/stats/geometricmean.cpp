@@ -41,12 +41,12 @@ void GeometricMean::compute() {
   Real& geometricMean = _geometricMean.get();
 
   if (array.empty()) {
-    throw EssentiaException("GeometricMean: input array empty, cannot compute the geometric mean of an empty array");
+    throw SonoriaException("GeometricMean: input array empty, cannot compute the geometric mean of an empty array");
   }
 
   for (std::vector<Real>::size_type i=0; i<array.size(); i++) {
     if (array[i] < 0) {
-      throw EssentiaException("GeometricMean: input array contains negative numbers");
+      throw SonoriaException("GeometricMean: input array contains negative numbers");
     }
   }
 

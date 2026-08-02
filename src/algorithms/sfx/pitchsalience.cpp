@@ -44,11 +44,11 @@ void PitchSalience::configure() {
   _highBoundary = parameter("highBoundary").toReal();
 
   if (_lowBoundary > _highBoundary) {
-    throw EssentiaException("PitchSalience: lowBoundary is larger than highBoundary");
+    throw SonoriaException("PitchSalience: lowBoundary is larger than highBoundary");
   }
 
   if (_highBoundary >= _sampleRate/2) {
-    throw EssentiaException("PitchSalience: highBoundary is not smaller than half sampleRate");
+    throw SonoriaException("PitchSalience: highBoundary is not smaller than half sampleRate");
   }
 }
 
@@ -58,7 +58,7 @@ void PitchSalience::compute() {
   Real& pitchSalience = _pitchSalience.get();
 
   if (spectrum.empty()) {
-    throw EssentiaException("PitchSalience: spectrum is an empty vector");
+    throw SonoriaException("PitchSalience: spectrum is an empty vector");
   }
 
   vector<Real> acf;

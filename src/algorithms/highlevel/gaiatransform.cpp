@@ -55,7 +55,7 @@ void GaiaTransform::configure() {
   _history.load(QString::fromStdString(filename));
   }
   catch (gaia2::GaiaException& e) {
-    throw EssentiaException("GaiaTransform: error loading gaia history: ", e.what());
+    throw SonoriaException("GaiaTransform: error loading gaia history: ", e.what());
   }
 
   _configured = true;
@@ -102,7 +102,7 @@ gaia2::Point* poolToPoint(const Pool& pool, const gaia2::PointLayout& layout) {
       result->setValue(d, vecmat);
     }
     else {
-      throw EssentiaException("Descriptor ", dname, " could not be found in pool");
+      throw SonoriaException("Descriptor ", dname, " could not be found in pool");
     }
 
   }
@@ -128,7 +128,7 @@ gaia2::Point* poolToPoint(const Pool& pool, const gaia2::PointLayout& layout) {
       result->setLabel(d, gaia2::convert::VectorString_to_StringDescriptor(label));
     }
     else {
-      throw EssentiaException("Descriptor ", dname, " could not be found in pool");
+      throw SonoriaException("Descriptor ", dname, " could not be found in pool");
     }
   }
 
@@ -137,7 +137,7 @@ gaia2::Point* poolToPoint(const Pool& pool, const gaia2::PointLayout& layout) {
 
 void checkNotIn(const string& desc, const set<string>& alldescs) {
   if (alldescs.find(desc) != alldescs.end()) {
-    throw EssentiaException("GaiaTransform is trying to overwrite the ", desc, " value, which is already present in the pool. You can't do that.");
+    throw SonoriaException("GaiaTransform is trying to overwrite the ", desc, " value, which is already present in the pool. You can't do that.");
   }
 }
 
@@ -218,7 +218,7 @@ void pointToPool(const gaia2::Point* p, Pool& pool, const Pool& origPool) {
 
 void GaiaTransform::compute() {
   if (!_configured) {
-    throw EssentiaException("GaiaTransform: Algorithm is not properly configured");
+    throw SonoriaException("GaiaTransform: Algorithm is not properly configured");
   }
 
   const Pool& inputPool = _inputPool.get();

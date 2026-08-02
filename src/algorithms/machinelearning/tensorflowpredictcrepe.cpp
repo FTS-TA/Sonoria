@@ -207,7 +207,7 @@ void TensorflowPredictCREPE::compute() {
   vector<vector<Real> >& predictions = _predictions.get();
 
   if (!signal.size()) {
-    throw EssentiaException("TensorflowPredictCREPE: empty input signal");
+    throw SonoriaException("TensorflowPredictCREPE: empty input signal");
   }
 
   _vectorInput->setVector(&signal);
@@ -217,7 +217,7 @@ void TensorflowPredictCREPE::compute() {
   try {
     predictions = _pool.value<vector<vector<Real> > >("predictions");
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     predictions.clear();
   }
 

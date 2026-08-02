@@ -19,9 +19,9 @@
 
 #include <iostream>
 #include <fstream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/pool.h>
-#include <essentia/sonoriamath.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/pool.h>
+#include <sonoria/sonoriamath.h>
 #include "credit_libav.h" 
 
 using namespace std;

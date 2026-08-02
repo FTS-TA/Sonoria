@@ -76,7 +76,7 @@ void OnsetDetection::compute() {
   const vector<Real>& phase = _phase.get();
 
   if (spectrum.empty()) {
-    throw EssentiaException("OnsetDetection: OnsetDetection cannot be computed on an empty spectrum");
+    throw SonoriaException("OnsetDetection: OnsetDetection cannot be computed on an empty spectrum");
   }
 
   Real& onsetDetection = _onsetDetection.get();
@@ -98,7 +98,7 @@ void OnsetDetection::compute() {
   // this version ignores magnitude difference
   if (_method == "complex_phase") {
     if (spectrum.size() != phase.size()) {
-      throw EssentiaException("OnsetDetection: Spectrum and phase cannot be of different size");
+      throw SonoriaException("OnsetDetection: Spectrum and phase cannot be of different size");
     }
     if (phase.size() != _phase_2.size() || phase.size() != _phase_1.size()) {
       _phase_1.resize(phase.size());
@@ -129,7 +129,7 @@ void OnsetDetection::compute() {
   // Complex-domain detection function for non-percussive onsets (Bello, [1])
   if (_method == "complex") {
     if (spectrum.size() != phase.size()) {
-      throw EssentiaException("OnsetDetection: Spectrum and phase cannot be of different size");
+      throw SonoriaException("OnsetDetection: Spectrum and phase cannot be of different size");
     }
     if (phase.size() != _phase_2.size() || phase.size() != _phase_1.size()) {
       _phase_1.resize(phase.size());

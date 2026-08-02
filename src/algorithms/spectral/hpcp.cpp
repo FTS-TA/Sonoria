@@ -47,13 +47,13 @@ void HPCP::configure() {
   _size = parameter("size").toInt();
 
   if (_size % 12 != 0) {
-    throw EssentiaException("HPCP: The size parameter is not a multiple of 12.");
+    throw SonoriaException("HPCP: The size parameter is not a multiple of 12.");
   }
 
   _windowSize = parameter("windowSize").toReal();
 
   if (_windowSize * _size/12 < 1.0) {
-    throw EssentiaException("HPCP: Your windowSize needs to span at least one hpcp bin (windowSize >= 12/size)");
+    throw SonoriaException("HPCP: Your windowSize needs to span at least one hpcp bin (windowSize >= 12/size)");
   }
 
   _referenceFrequency = parameter("referenceFrequency").toReal();
@@ -63,7 +63,7 @@ void HPCP::configure() {
   _maxFrequency = parameter("maxFrequency").toReal();
 
   if ((_maxFrequency - _minFrequency) < 200.0) {
-    throw EssentiaException("HPCP: Minimum and maximum frequencies are too close");
+    throw SonoriaException("HPCP: Minimum and maximum frequencies are too close");
   }
 
   _splitFrequency = parameter("bandSplitFrequency").toReal();
@@ -71,10 +71,10 @@ void HPCP::configure() {
 
   if (_bandPreset) {
     if ((_splitFrequency - _minFrequency) < 200.0) {
-      throw EssentiaException("HPCP: Low band frequency range too small");
+      throw SonoriaException("HPCP: Low band frequency range too small");
     }
     if ((_maxFrequency - _splitFrequency) < 200.0) {
-      throw EssentiaException("HPCP: High band frequency range too small");
+      throw SonoriaException("HPCP: High band frequency range too small");
     }
   }
 
@@ -82,7 +82,7 @@ void HPCP::configure() {
   if      (weightType == "none") _weightType = NONE;
   else if (weightType == "cosine") _weightType = COSINE;
   else if (weightType == "squaredcosine") _weightType = SQUARED_COSINE;
-  else throw EssentiaException("Invalid weight type for HPCP: ", weightType);
+  else throw SonoriaException("Invalid weight type for HPCP: ", weightType);
 
   _nonLinear = parameter("nonLinear").toBool();
   _maxShifted = parameter("maxShifted").toBool();
@@ -94,7 +94,7 @@ void HPCP::configure() {
 
 
   if (_nonLinear && _normalized != N_UNIT_MAX) {
-    throw EssentiaException("HPCP: Cannot apply non-linear filter when HPCP vector is not normalized to unit max.");
+    throw SonoriaException("HPCP: Cannot apply non-linear filter when HPCP vector is not normalized to unit max.");
   }
 
   initHarmonicContributionTable();
@@ -224,7 +224,7 @@ void HPCP::compute() {
 
   // Check inputs
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("HPCP: Frequency and magnitude input vectors are not of equal size");
+    throw SonoriaException("HPCP: Frequency and magnitude input vectors are not of equal size");
   }
 
   // Initialize data structures

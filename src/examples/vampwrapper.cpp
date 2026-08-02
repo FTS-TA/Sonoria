@@ -31,7 +31,7 @@ VampWrapper::VampWrapper(standard::Algorithm* algo, float inputSampleRate)
   try {
     _algo->configure("sampleRate", inputSampleRate);
   }
-  catch (const EssentiaException&) {
+  catch (const SonoriaException&) {
     ;
   }
   _pluginId = essentiaVampPluginId++;

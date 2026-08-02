@@ -132,7 +132,7 @@ void TensorflowPredict::configure() {
 
     if (isTrainingValue == NULL) {
       TF_DeleteTensor(isTraining);
-      throw EssentiaException("TensorflowPredict: Error generating training phase flag");
+      throw SonoriaException("TensorflowPredict: Error generating training phase flag");
     }
 
     memcpy(isTrainingValue, &_isTraining, sizeof(bool));
@@ -157,7 +157,7 @@ void TensorflowPredict::openGraph() {
       _graph, NULL, _status);
 
     if (TF_GetCode(_status) != TF_OK) {
-      throw EssentiaException("TensorflowPredict: Error importing SavedModel specified in the `savedModel` parameter. ", TF_Message(_status));
+      throw SonoriaException("TensorflowPredict: Error importing SavedModel specified in the `savedModel` parameter. ", TF_Message(_status));
     }
 
     E_INFO("TensorflowPredict: Successfully loaded SavedModel: `" << _savedModel << "`");
@@ -169,7 +169,7 @@ void TensorflowPredict::openGraph() {
     // First we load and initialize the model.
     const auto f = fopen(_graphFilename.c_str(), "rb");
     if (f == NULL) {
-      throw EssentiaException(
+      throw SonoriaException(
           "TensorflowPredict: could not open the Tensorflow graph file.");
     }
 
@@ -180,7 +180,7 @@ void TensorflowPredict::openGraph() {
     // Graph size sanity check.
     if (fsize < 1) {
       fclose(f);
-      throw(EssentiaException("TensorflowPredict: Graph file is empty."));
+      throw(SonoriaException("TensorflowPredict: Graph file is empty."));
     }
 
     // Reserve memory and read the graph.
@@ -198,7 +198,7 @@ void TensorflowPredict::openGraph() {
     TF_DeleteBuffer(buffer);
 
     if (TF_GetCode(_status) != TF_OK) {
-      throw EssentiaException("TensorflowPredict: Error importing graph. ", TF_Message(_status));
+      throw SonoriaException("TensorflowPredict: Error importing graph. ", TF_Message(_status));
     }
 
     E_INFO("TensorflowPredict: Successfully loaded graph file: `" << _graphFilename << "`");
@@ -211,24 +211,24 @@ void TensorflowPredict::reset() {
 
   TF_CloseSession(_session, _status);
   if (TF_GetCode(_status) != TF_OK) {
-    throw EssentiaException("TensorflowPredict: Error closing session. ", TF_Message(_status));
+    throw SonoriaException("TensorflowPredict: Error closing session. ", TF_Message(_status));
   }
 
   TF_DeleteSession(_session, _status);
   if (TF_GetCode(_status) != TF_OK) {
-    throw EssentiaException("TensorflowPredict: Error deleting session. ", TF_Message(_status));
+    throw SonoriaException("TensorflowPredict: Error deleting session. ", TF_Message(_status));
   }
 
   _session = TF_NewSession(_graph, _sessionOptions, _status);
   if (TF_GetCode(_status) != TF_OK) {
-    throw EssentiaException("TensorflowPredict: Error creating new session after reset. ", TF_Message(_status));
+    throw SonoriaException("TensorflowPredict: Error creating new session after reset. ", TF_Message(_status));
   }
 }
 
 
 void TensorflowPredict::compute() {
   if (!_isConfigured) {
-    throw EssentiaException("TensorflowPredict: This algorithm is not configured. To configure this algorithm you "
+    throw SonoriaException("TensorflowPredict: This algorithm is not configured. To configure this algorithm you "
                             "should specify a valid `graphFilename` or `savedModel` as input parameter.");
   }
 
@@ -262,7 +262,7 @@ void TensorflowPredict::compute() {
                );
 
   if (TF_GetCode(_status) != TF_OK) {
-    throw EssentiaException("TensorflowPredict: Error running the Tensorflow session. ", TF_Message(_status));
+    throw SonoriaException("TensorflowPredict: Error running the Tensorflow session. ", TF_Message(_status));
   }
 
   // Copy the desired tensors into the output pool.
@@ -315,7 +315,7 @@ TF_Tensor* TensorflowPredict::TensorToTF(
       (size_t)tensorIn.size() * sizeof(Real));
 
   if (tensorOut == NULL) {
-    throw EssentiaException("TensorflowPredict: Error generating input tensor.");
+    throw SonoriaException("TensorflowPredict: Error generating input tensor.");
   }
 
   // Get a pointer to the data and fill the tensor.
@@ -323,7 +323,7 @@ TF_Tensor* TensorflowPredict::TensorToTF(
 
   if (tensorData == NULL) {
     TF_DeleteTensor(tensorOut);
-    throw EssentiaException("TensorflowPredict: Error generating input tensors data.");
+    throw SonoriaException("TensorflowPredict: Error generating input tensors data.");
   }
 
   memcpy(tensorData, tensorIn.data(),
@@ -342,7 +342,7 @@ const Tensor<Real> TensorflowPredict::TFToTensor(
   size_t outNDims = TF_GraphGetTensorNumDims(_graph, node, _status);
 
   if (TF_GetCode(_status) != TF_OK) {
-    throw EssentiaException("TensorflowPredict: Error getting the output tensor's shape. ", TF_Message(_status));
+    throw SonoriaException("TensorflowPredict: Error getting the output tensor's shape. ", TF_Message(_status));
   }
 
   // Create and array to store the shape of the tensor.
@@ -380,7 +380,7 @@ TF_Output TensorflowPredict::graphOperationByName(const string nodeName) {
       index = stoi(nodeName.substr(n + 1, nodeName.size()));
 
     } catch (const invalid_argument& ) {
-      throw EssentiaException("TensorflowPredict: `" + nodeName + "` is not a valid node name. Make sure that all "
+      throw SonoriaException("TensorflowPredict: `" + nodeName + "` is not a valid node name. Make sure that all "
                               "your inputs and outputs follow the pattern `nodeName:n`, where `n` in an integer that "
                               "goes from 0 to the number of outputs of the node - 1.");
     }
@@ -392,14 +392,14 @@ TF_Output TensorflowPredict::graphOperationByName(const string nodeName) {
   TF_Output output = {oper, index};
 
   if (output.oper == NULL) {
-    throw EssentiaException("TensorflowPredict: '" + string(nodeName) +
+    throw SonoriaException("TensorflowPredict: '" + string(nodeName) +
                             "' is not a valid node name of this graph.\n" +
                             availableNodesInfo());
   }
 
   int n_outputs = TF_OperationNumOutputs(oper);
   if (index > n_outputs - 1) {
-    throw EssentiaException("TensorflowPredict: Asked for the output with index `" + to_string(index) +
+    throw SonoriaException("TensorflowPredict: Asked for the output with index `" + to_string(index) +
                             "`, but the node `" + name + "` only has `" + to_string(n_outputs) + "` outputs.");
   }
 

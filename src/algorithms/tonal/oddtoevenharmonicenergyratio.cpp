@@ -46,7 +46,7 @@ void OddToEvenHarmonicEnergyRatio::compute() {
   Real& oddtoevenharmonicenergyratio = _oddtoevenharmonicenergyratio.get();
 
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("OddToEvenHarmonicEnergyRatio: frequency and magnitude vectors have different size");
+    throw SonoriaException("OddToEvenHarmonicEnergyRatio: frequency and magnitude vectors have different size");
   }
   if (frequencies.empty()) {
     // if no peaks supplied then we assume the spectrum was flat or completely
@@ -63,7 +63,7 @@ void OddToEvenHarmonicEnergyRatio::compute() {
 
   for (int i=0; i<int(frequencies.size()); i++) {
     if (frequencies[i] < prevFreq) {
-      throw EssentiaException("OddToEvenHarmonicEnergyRatio: harmonic peaks are not ordered by ascending frequency");
+      throw SonoriaException("OddToEvenHarmonicEnergyRatio: harmonic peaks are not ordered by ascending frequency");
     }
     prevFreq = frequencies[i];
 

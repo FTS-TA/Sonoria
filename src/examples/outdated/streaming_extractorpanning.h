@@ -20,9 +20,9 @@
 #ifndef STREAMING_EXTRACTORPANNING_H
 #define STREAMING_EXTRACTORPANNING_H
 
-#include <essentia/streaming/sourcebase.h>
-#include <essentia/pool.h>
-#include <essentia/types.h>
+#include <sonoria/streaming/sourcebase.h>
+#include <sonoria/pool.h>
+#include <sonoria/types.h>
 
 void Panning(sonoria::streaming::SourceBase& input, sonoria::Pool& pool,
              const sonoria::Pool& options, const std::string& nspace="");

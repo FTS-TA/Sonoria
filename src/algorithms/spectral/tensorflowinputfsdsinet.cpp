@@ -81,7 +81,7 @@ void TensorflowInputFSDSINet::compute() {
   const std::vector<Real>& frame = _frame.get();
 
   if ((int)frame.size() != _frameSize) {
-    throw(EssentiaException("TensorflowInputFSDSINet: This algorithm only accepts input frames of size 660."));
+    throw(SonoriaException("TensorflowInputFSDSINet: This algorithm only accepts input frames of size 660."));
   }
 
   _windowing->input("frame").set(frame);

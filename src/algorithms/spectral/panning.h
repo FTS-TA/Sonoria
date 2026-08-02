@@ -21,7 +21,7 @@
 #define ESSENTIA_PANNING_H
 
 #include "algorithmfactory.h"
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 #include <complex>
 
 namespace sonoria {

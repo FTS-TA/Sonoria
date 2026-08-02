@@ -38,7 +38,7 @@ void TCToTotal::compute() {
   Real& TCToTotal = _TCToTotal.get();
 
   if (envelope.size() < 2) {
-    throw EssentiaException("TCToTotal: the given envelope's size is not larger than 1");
+    throw SonoriaException("TCToTotal: the given envelope's size is not larger than 1");
   }
 
   double num = 0.0;
@@ -80,7 +80,7 @@ void TCToTotal::consume() {
 void TCToTotal::finalProduce() {
   
   if (_idx < 2) {
-    throw EssentiaException("TCToTotal: the given envelope is not larger than 1 element");
+    throw SonoriaException("TCToTotal: the given envelope is not larger than 1 element");
   }
   
   if (_den == 0) {

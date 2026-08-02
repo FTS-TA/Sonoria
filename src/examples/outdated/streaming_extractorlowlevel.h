@@ -20,9 +20,9 @@
 #ifndef STREAMING_EXTRACTORLOWLEVEL_H
 #define STREAMING_EXTRACTORLOWLEVEL_H
 
-#include <essentia/streaming/sourcebase.h>
-#include <essentia/pool.h>
-#include <essentia/types.h>
+#include <sonoria/streaming/sourcebase.h>
+#include <sonoria/pool.h>
+#include <sonoria/types.h>
 
 void LowLevelSpectral(sonoria::streaming::SourceBase& input,
                       sonoria::Pool& pool,

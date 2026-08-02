@@ -56,7 +56,7 @@ void IDCT::configure() {
     createIDctTableIII(inputSize, _outputSize);
   }
   else {
-    throw EssentiaException("IDCT: Bad DCT type.");
+    throw SonoriaException("IDCT: Bad DCT type.");
   }
 }
 
@@ -64,7 +64,7 @@ void IDCT::createIDctTableII(int inputSize, int outputSize) {
   // simple implementation using matrix multiplication, can probably be sped up
   // using a library like FFTW, for instance.
   if (outputSize < inputSize) {
-    throw EssentiaException("IDCT: 'outputSize' is smaller than 'inputSize'. You can only compute the IDCT with an output size greater or equal than the input size");
+    throw SonoriaException("IDCT: 'outputSize' is smaller than 'inputSize'. You can only compute the IDCT with an output size greater or equal than the input size");
   }
 
   _idctTable = vector<vector<Real> >(outputSize, vector<Real>(inputSize));
@@ -90,7 +90,7 @@ void IDCT::createIDctTableIII(int inputSize, int outputSize) {
   // simple implementation using matrix multiplication, can probably be sped up
   // using a library like FFTW, for instance.
   if (outputSize < inputSize) {
-    throw EssentiaException("IDCT: 'outputSize' is smaller than 'inputSize'. You can only compute the IDCT with an output size greater or equal than the input size");
+    throw SonoriaException("IDCT: 'outputSize' is smaller than 'inputSize'. You can only compute the IDCT with an output size greater or equal than the input size");
   }
 
   _idctTable = vector<vector<Real> >(outputSize, vector<Real>(inputSize));
@@ -120,7 +120,7 @@ void IDCT::compute() {
   int inputSize = int(input.size());
 
   if (inputSize == 0) {
-    throw EssentiaException("IDCT: input array cannot be of size 0");
+    throw SonoriaException("IDCT: input array cannot be of size 0");
   }
 
   if (_idctTable.empty() ||
@@ -133,7 +133,7 @@ void IDCT::compute() {
       createIDctTableIII(inputSize, _outputSize);
     }
     else {
-      throw EssentiaException("Bad DCT type.");
+      throw SonoriaException("Bad DCT type.");
     }
   }
 

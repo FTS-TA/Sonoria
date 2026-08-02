@@ -42,7 +42,7 @@ void Chromagram::configure() {
   if (normalizeType == "none") _normalizeType = NormalizeNone;
   else if (normalizeType == "unit_sum") _normalizeType = NormalizeUnitSum;
   else if (normalizeType == "unit_max") _normalizeType = NormalizeUnitMax;
-  else throw EssentiaException("Invalid normalize type for chromagram (none/unit_sum/unit_max): ", normalizeType);
+  else throw SonoriaException("Invalid normalize type for chromagram (none/unit_sum/unit_max): ", normalizeType);
 
   _spectrumCQ->configure(INHERIT("minFrequency"), INHERIT("numberBins"),
                          INHERIT("binsPerOctave"), INHERIT("sampleRate"),

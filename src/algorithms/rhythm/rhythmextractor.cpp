@@ -19,7 +19,7 @@
 
 #include <complex>
 #include "rhythmextractor.h"
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 #include "sonoriamath.h"
 #include "poolstorage.h"
 #include "algorithmfactory.h"
@@ -183,7 +183,7 @@ void RhythmExtractor::configure() {
   _lastBeatInterval = parameter("lastBeatInterval").toReal();
 
   if (!_useOnset && !_useBands) {
-    throw EssentiaException("RhythmExtractor: No input features selected.");
+    throw SonoriaException("RhythmExtractor: No input features selected.");
   }
 
 
@@ -491,7 +491,7 @@ void RhythmExtractor::compute() {
   //    rubatoStart = _pool.value<vector<Real> >("internal.rubatoStart");
   //    rubatoStop = _pool.value<vector<Real> >("internal.rubatoStop");
   //}
-  //catch (EssentiaException&) {
+  //catch (SonoriaException&) {
   //  // no rubato regions then
   //}
 
@@ -509,7 +509,7 @@ void RhythmExtractor::reset() {
   //  _pool.remove("internal.rubatoStart");
   //  _pool.remove("internal.rubatoStop");
   //}
-  //catch (EssentiaException&) {
+  //catch (SonoriaException&) {
   //  // were not in pool
   //}
 }

@@ -40,7 +40,7 @@ void Leq::compute() {
   Real& leq = _leq.get();
 
   if (signal.empty()) {
-    throw EssentiaException("Leq: input signal is empty");
+    throw SonoriaException("Leq: input signal is empty");
   }
 
   leq = pow2db(instantPower(signal));
@@ -70,7 +70,7 @@ void Leq::consume() {
 }
 
 void Leq::finalProduce() {
-  if (_size == 0) throw EssentiaException("Leq: signal is empty");
+  if (_size == 0) throw SonoriaException("Leq: signal is empty");
 
   _leq.push(pow2db(_energy/_size));
 }

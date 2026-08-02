@@ -43,7 +43,7 @@ void WarpedAutoCorrelation::configure() {
   _lambda = 1.0674*sqrt(2.0*atan(0.00006583*sampleRate)/M_PI) - 0.1916;
 
   if (fabs(_lambda) >= 1.0)
-    throw EssentiaException("WarpedAutoCorrelation: invalid sampling rate given");
+    throw SonoriaException("WarpedAutoCorrelation: invalid sampling rate given");
 }
 
 void WarpedAutoCorrelation::compute() {
@@ -54,7 +54,7 @@ void WarpedAutoCorrelation::compute() {
   int maxLag = parameter("maxLag").toInt();
 
   if (maxLag >= int(signal.size())) {
-    throw EssentiaException("WarpedAutoCorrelation: maxLag is not smaller than the input signal size");
+    throw SonoriaException("WarpedAutoCorrelation: maxLag is not smaller than the input signal size");
   }
 
   warpedAutoCorrelation.resize(maxLag);

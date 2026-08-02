@@ -28,7 +28,7 @@
 #include "vectoroutput.h"
 #include "sonoriamath.h"
 #include "bpmutil.h"
-#include "tnt/tnt2vector.h"
+#include "sonoria/utils/tnt/tnt2vector.h"
 
 // NB: this file contains fuctions requred for outdated beat tracker back from
 // 2009. It provided very low accuracy of beat trackign and has been replaced

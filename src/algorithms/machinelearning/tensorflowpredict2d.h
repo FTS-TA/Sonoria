@@ -25,7 +25,7 @@
 #include "algorithmfactory.h"
 #include "algorithm.h"
 #include "network.h"
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 
 namespace sonoria {
 namespace streaming {

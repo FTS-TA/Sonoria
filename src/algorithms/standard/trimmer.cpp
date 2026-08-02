@@ -35,7 +35,7 @@ void Trimmer::configure() {
   _startIndex = (long long)(parameter("startTime").toReal() * sampleRate);
   _endIndex = (long long)(parameter("endTime").toReal() * sampleRate);
   if (_startIndex > _endIndex) {
-    throw EssentiaException("Trimmer: startTime cannot be larger than endTime.");
+    throw SonoriaException("Trimmer: startTime cannot be larger than endTime.");
   }
   _checkRange = parameter("checkRange").toBool();
 }
@@ -48,7 +48,7 @@ void Trimmer::compute() {
   if (_startIndex < 0) _startIndex = 0; // should never happen
   if (_startIndex > size) {
     if (_checkRange) {
-      throw EssentiaException("Trimmer: cannot trim beyond the size of the input signal");
+      throw SonoriaException("Trimmer: cannot trim beyond the size of the input signal");
     }
     E_WARNING("Trimmer: empty output due to insufficient input signal size");
     _startIndex = size;
@@ -76,7 +76,7 @@ void Trimmer::configure() {
   _startIndex = (long long)(parameter("startTime").toReal() * sampleRate);
   _endIndex = (long long)(parameter("endTime").toReal() * sampleRate);
   if (_startIndex > _endIndex) {
-    throw EssentiaException("Trimmer: startTime cannot be larger than endTime.");
+    throw SonoriaException("Trimmer: startTime cannot be larger than endTime.");
   }
   _consumed = 0;
   _preferredSize = defaultPreferredSize;

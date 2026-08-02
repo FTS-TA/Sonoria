@@ -35,7 +35,7 @@ const char* Decrease::description = DOC("This algorithm computes the decrease of
 void Decrease::configure() {
   _range = parameter("range").toReal();
 
-  if (_range == 0) throw EssentiaException("Decrease: range parameter cannot be zero");
+  if (_range == 0) throw SonoriaException("Decrease: range parameter cannot be zero");
 }
 
 void Decrease::compute() {
@@ -43,7 +43,7 @@ void Decrease::compute() {
   Real& decrease = _decrease.get();
 
   if (array.size() <= 1) {
-    throw EssentiaException("Decrease: array size must be greater than 1");
+    throw SonoriaException("Decrease: array size must be greater than 1");
   }
 
   Real scaler = _range / (array.size() - 1.0);

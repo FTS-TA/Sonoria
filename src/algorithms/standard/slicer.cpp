@@ -36,7 +36,7 @@ void Slicer::configure() {
   _timeUnits = parameter("timeUnits").toString();
 
   if (_startTimes.size() != _endTimes.size()) {
-    throw EssentiaException("Slicer: startTimes and endTimes do not have the same number of elements");
+    throw SonoriaException("Slicer: startTimes and endTimes do not have the same number of elements");
   }
 
   // check given times correspond to valid slices
@@ -44,7 +44,7 @@ void Slicer::configure() {
     if (_startTimes[i] > _endTimes[i]) {
       ostringstream msg;
       msg << "Slicer: Slice number " << i+1 << ": [" << _startTimes[i] << ", " << _endTimes[i] << "] is invalid because its start time is after its end time";
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     // if the time units are in seconds, we have to make sure that the
@@ -56,7 +56,7 @@ void Slicer::configure() {
       msg << "Slicer: start or end time, multiplied by the sampleRate (" <<
         _sampleRate << "Hz), is too large (greater than 31 bits): [" <<
         _startTimes[i] << "s, " << _endTimes[i] << "s]";
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
   }
 

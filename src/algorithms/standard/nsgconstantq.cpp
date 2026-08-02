@@ -76,13 +76,13 @@ void NSGConstantQ::designWindow() {
 
   // Some sanity checks after computing Nyquist frequency.
   if (_minFrequency < 0) {
-    throw EssentiaException("NSGConstantQ: 'minimumFrequency' parameter is out of the range (0 - fs/2)");
+    throw SonoriaException("NSGConstantQ: 'minimumFrequency' parameter is out of the range (0 - fs/2)");
   }
   if (_maxFrequency > nf) {
-    throw EssentiaException("NSGConstantQ: 'maximunFrequency' parameter is out of the range (0 - fs/2)");
+    throw SonoriaException("NSGConstantQ: 'maximunFrequency' parameter is out of the range (0 - fs/2)");
   }
   if (_minFrequency >= _maxFrequency) {
-    throw EssentiaException("NSGConstantQ: 'minimumFrequency' has to be lower than 'maximunFrequency'");
+    throw SonoriaException("NSGConstantQ: 'minimumFrequency' has to be lower than 'maximunFrequency'");
   }
 
 
@@ -105,7 +105,7 @@ void NSGConstantQ::designWindow() {
   if (_baseFreqs[0] - cqtbw[0] / 2 < 0) {
     E_INFO("NSGConstantQ: Attempted to create a band with a low bound of "
            << _baseFreqs[0] - cqtbw[0] << "Hz");
-    throw EssentiaException("NSGConstantQ: Attempted to create a filter below frequency 0");
+    throw SonoriaException("NSGConstantQ: Attempted to create a filter below frequency 0");
   }
   if (_baseFreqs[b] + cqtbw[b] / 2 > nf) {
     _baseFreqs.pop_back();
@@ -288,7 +288,7 @@ void NSGConstantQ::compute() {
   vector<Real> paddedSignal;
 
   if (originalSignal.size() <= 1) {
-    throw EssentiaException("NSGConstantQ: the size of the input signal is not greater than one");
+    throw SonoriaException("NSGConstantQ: the size of the input signal is not greater than one");
   }
 
   // FFT requires an even input, but in order to push back
@@ -389,7 +389,7 @@ void NSGConstantQ::compute() {
 
 
     if (_winsLen[j] < Lg[j]) {
-      throw EssentiaException("NSGConstantQ: non painless frame found. This case is currently not supported.");
+      throw SonoriaException("NSGConstantQ: non painless frame found. This case is currently not supported.");
       // TODO Implement non-painless case.
     }
     else {

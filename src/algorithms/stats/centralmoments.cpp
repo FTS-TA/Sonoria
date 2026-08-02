@@ -49,11 +49,11 @@ void CentralMoments::compute() {
   centralMoments.resize(5);
 
   if (array.empty()) {
-    throw EssentiaException("CentralMoments: cannot compute the central moments of an empty array");
+    throw SonoriaException("CentralMoments: cannot compute the central moments of an empty array");
   }
 
   if (array.size() == 1) {
-    throw EssentiaException("CentralMoments: cannot compute the central moments of an array of size 1");
+    throw SonoriaException("CentralMoments: cannot compute the central moments of an array of size 1");
   }
 
   if (_mode == "sample") {

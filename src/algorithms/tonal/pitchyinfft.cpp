@@ -93,7 +93,7 @@ void PitchYinFFT::configure() {
     
   if (_weighting != "custom" && _weighting != "A" && _weighting != "B" && _weighting != "C" && _weighting != "D" && _weighting != "Z") {
     E_INFO("PitchYinFFT: 'weighting' = "<<_weighting<<"\n");
-    throw EssentiaException("PitchYinFFT: Bad 'weighting' parameter");
+    throw SonoriaException("PitchYinFFT: Bad 'weighting' parameter");
   }
   // allocate memory
   spectralWeights(_weighting);
@@ -102,7 +102,7 @@ void PitchYinFFT::configure() {
   _tauMin = min(int(floor(_sampleRate / parameter("maxFrequency").toReal())), _frameSize/2);
 
   if (_tauMax <= _tauMin) {
-    throw EssentiaException("PitchYinFFT: maxFrequency is lower than minFrequency, or they are too close, or they are out of the interval of detectable frequencies with respect to the specified frameSize. Minimum detectable frequency is ", _sampleRate / (_frameSize/2), " Hz");
+    throw SonoriaException("PitchYinFFT: maxFrequency is lower than minFrequency, or they are too close, or they are out of the interval of detectable frequencies with respect to the specified frameSize. Minimum detectable frequency is ", _sampleRate / (_frameSize/2), " Hz");
   }
 
   // configure peak detection algorithm
@@ -169,7 +169,7 @@ void PitchYinFFT::spectralWeights(std::string weighting) {
 void PitchYinFFT::compute() {
   const vector<Real>& spectrum = _spectrum.get();
   if (spectrum.empty()) {
-    throw EssentiaException("PitchYinFFT: Cannot compute pitch detection on empty spectrum.");
+    throw SonoriaException("PitchYinFFT: Cannot compute pitch detection on empty spectrum.");
   }
   Real& pitch = _pitch.get();
   Real& pitchConfidence = _pitchConfidence.get();

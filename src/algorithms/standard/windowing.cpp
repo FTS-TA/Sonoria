@@ -85,7 +85,7 @@ void Windowing::compute() {
   std::vector<Real>& windowedSignal = _windowedFrame.get();
 
   if (signal.size() <= 1) {
-    throw EssentiaException("Windowing: frame size should be larger than 1");
+    throw SonoriaException("Windowing: frame size should be larger than 1");
   }
 
   if (signal.size() != _window.size()) {

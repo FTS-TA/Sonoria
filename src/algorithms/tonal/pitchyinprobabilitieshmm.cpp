@@ -142,7 +142,7 @@ void PitchYinProbabilitiesHMM::compute() {
   const vector<vector<Real> >& probabilities = _probabilities.get();
 
   if (pitchCandidates.empty() || probabilities.empty()) {
-    throw EssentiaException("PitchYin: Cannot compute pitch detection on empty inputs.");
+    throw SonoriaException("PitchYin: Cannot compute pitch detection on empty inputs.");
   }
 
   vector<Real>& pitch = _pitch.get();

@@ -20,14 +20,14 @@
 #include <iostream>
 #include <fstream> // to write ticks to output file
 #include <deque>
-#include <essentia/algorithmfactory.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/streaming/algorithms/vectorinput.h>
-#include <essentia/streaming/algorithms/vectoroutput.h>
-#include <essentia/sonoriamath.h>
-#include <essentia/scheduler/network.h>
-#include <essentia/utils/bpmutil.h>
-#include <essentia/utils/tnt/tnt2vector.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
+#include <sonoria/streaming/algorithms/vectorinput.h>
+#include <sonoria/streaming/algorithms/vectoroutput.h>
+#include <sonoria/sonoriamath.h>
+#include <sonoria/scheduler/network.h>
+#include <sonoria/utils/bpmutil.h>
+#include <sonoria/utils/tnt/tnt2vector.h>
 
 using namespace std;
 using namespace sonoria;

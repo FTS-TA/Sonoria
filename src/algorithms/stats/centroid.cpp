@@ -60,11 +60,11 @@ void Centroid::compute() {
   Real& centroid = _centroid.get();
 
   if (array.empty()) {
-    throw EssentiaException("Centroid: cannot compute the centroid of an empty array");
+    throw SonoriaException("Centroid: cannot compute the centroid of an empty array");
   }
 
   if (array.size() == 1) {
-    throw EssentiaException("Centroid: cannot compute the centroid of an array of size 1");
+    throw SonoriaException("Centroid: cannot compute the centroid of an array of size 1");
   }
 
   centroid = 0.0;

@@ -46,7 +46,7 @@ void PolarToCartesian::compute() {
     ostringstream msg;
     msg << "PolarToCartesian: Could not merge magnitude array (size " << magnitude.size()
         << ") with phase array (size " << phase.size() << ") because of their different sizes";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   complexVec.resize(magnitude.size());

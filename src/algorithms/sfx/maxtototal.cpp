@@ -36,7 +36,7 @@ void MaxToTotal::compute() {
   Real& maxToTotal = _maxToTotal.get();
 
   if (envelope.empty()) {
-    throw EssentiaException("MaxToTotal: envelope is empty, maxToTotal is not defined for an empty envelope");
+    throw SonoriaException("MaxToTotal: envelope is empty, maxToTotal is not defined for an empty envelope");
   }
 
   maxToTotal = Real(argmax(envelope)) / envelope.size();
@@ -68,7 +68,7 @@ void MaxToTotal::consume() {
 
 void MaxToTotal::finalProduce() {
   if (_size == 0) {
-    throw EssentiaException("MaxToTotal: envelope is empty, maxToTotal is not defined for an empty envelope");
+    throw SonoriaException("MaxToTotal: envelope is empty, maxToTotal is not defined for an empty envelope");
   }
 
   _maxToTotal.push(Real(_maxIdx) / _size);

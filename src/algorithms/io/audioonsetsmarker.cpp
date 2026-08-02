@@ -37,13 +37,13 @@ void AudioOnsetsMarker::configure() {
   _beep = parameter("type").toString() == "beep";
   _onsets = parameter("onsets").toVectorReal();
   if(!_onsets.empty() && _onsets[0] < 0) {
-      throw EssentiaException("AudioOnsetsMarker: onsets cannot be negative");
+      throw SonoriaException("AudioOnsetsMarker: onsets cannot be negative");
   }
   for (int i=0; i<(int)(_onsets.size()-1); i++) {
     if (_onsets[i] >= _onsets[i+1]) {
       ostringstream msg;
       msg << "AudioOnsetsMarker: list of onsets not in ascending order: " << _onsets[i] << " >= " << _onsets[i+1];
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
   }
 }
@@ -104,12 +104,12 @@ void AudioOnsetsMarker::configure()
   _onsets = parameter("onsets").toVectorReal();
 
   if(!_onsets.empty() && _onsets[0] < 0) {
-      throw EssentiaException("AudioOnsetsMarker: onsets cannot be negative");
+      throw SonoriaException("AudioOnsetsMarker: onsets cannot be negative");
   }
 
   for (int i=0; i<(int)_onsets.size()-1; i++) {
     if (_onsets[i] >= _onsets[i+1]) {
-      throw EssentiaException("AudioOnsetsMarker: list of onsets not in ascending order: ", _onsets[i], " >= ", _onsets[i+1]);
+      throw SonoriaException("AudioOnsetsMarker: list of onsets not in ascending order: ", _onsets[i], " >= ", _onsets[i+1]);
     }
     _onsets[i] = int(_onsets[i]*_sampleRate); // cast to ints so it yields same results as standard version
   }

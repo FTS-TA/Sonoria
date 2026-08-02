@@ -148,7 +148,7 @@ void Extractor::connectRhythm(VectorInput<Real>* gen, Pool& pool) {
 
 void Extractor::computeMidLevel(const vector<Real>& signal, Pool& pool) {
   if (!_tuning) {
-    throw EssentiaException("Extractor: Mid level features depend on the tuning frequency. The algorithm should be reconfigured with the tuning parameter set to true");
+    throw SonoriaException("Extractor: Mid level features depend on the tuning frequency. The algorithm should be reconfigured with the tuning parameter set to true");
   }
   Real tuningFreq = pool.value<vector<Real> >(_tonalspace + "tuning_frequency").back();
 
@@ -197,7 +197,7 @@ void Extractor::computeHighLevel(Pool& pool) {
 
 void Extractor::computeRelativeIoi(Pool& p) {
   if (!_rhythm) {
-    throw EssentiaException("Extractor: relative ioi depends on the rhythm features. The algorithm should be reconfigured with the rhythm parameter set to true");
+    throw SonoriaException("Extractor: relative ioi depends on the rhythm features. The algorithm should be reconfigured with the rhythm parameter set to true");
   }
   const vector<string>& desc = p.descriptorNames();
   if (!contains(desc, _rhythmspace + "onset_times")) {
@@ -269,7 +269,7 @@ void Extractor::postProcessOnsetRate(VectorInput<Real>* gen, Pool& pool) {
   try {
     nOnsets = pool.value<vector<Real> >(_rhythmspace + "onset_times").size();
   }
-  catch (const EssentiaException& ) { // no onsets found
+  catch (const SonoriaException& ) { // no onsets found
     pool.set(_rhythmspace + "onset_rate", 0.0);
     return;
   }

@@ -55,7 +55,7 @@ void RawMoments::compute() {
   rawMoments.resize(5);
 
   if (frame.size() <= 1) {
-    throw EssentiaException("RawMoments: the input array size is smaller than 2");
+    throw SonoriaException("RawMoments: the input array size is smaller than 2");
   }
 
   int frameSize = frame.size() - 1;

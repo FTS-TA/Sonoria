@@ -20,9 +20,9 @@
 #ifndef STREAMING_EXTRACTOR_METADATA_H
 #define STREAMING_EXTRACTOR_METADATA_H
 
-#include <essentia/algorithmfactory.h>
-#include <essentia/pool.h>
-#include <essentia/types.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/pool.h>
+#include <sonoria/types.h>
 #include <string>
 
 void setDefaultOptions(sonoria::Pool& pool);

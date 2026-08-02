@@ -19,9 +19,9 @@
 
 #include <iostream>
 #include <complex>
-#include <essentia/algorithmfactory.h>
-#include <essentia/sonoriamath.h>
-#include <essentia/utils/tnt/tnt_array2d.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/sonoriamath.h>
+#include <sonoria/utils/tnt/tnt_array2d.h>
 
 using namespace std;
 using namespace sonoria;

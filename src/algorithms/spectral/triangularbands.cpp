@@ -38,15 +38,15 @@ void TriangularBands::configure() {
   _normalize = parameter("normalize").toLower();
   _type = parameter("type").toLower();
   if ( _bandFrequencies.size() < 2 ) {
-    throw EssentiaException("TriangularBands: the 'frequencyBands' parameter contains only one element (at least two elements are required)");
+    throw SonoriaException("TriangularBands: the 'frequencyBands' parameter contains only one element (at least two elements are required)");
   }
 
   if (_bandFrequencies.front() < 0) {
-    throw EssentiaException("TriangularBands: the 'frequencyBands' parameter contains a negative value");
+    throw SonoriaException("TriangularBands: the 'frequencyBands' parameter contains a negative value");
   }
   for (int i=1; i < (int)_bandFrequencies.size(); ++i) {
     if (_bandFrequencies[i-1] >= _bandFrequencies[i]) {
-      throw EssentiaException("TriangularBands: the values in the 'frequencyBands' parameter are not in ascending order or there exists a duplicate value");
+      throw SonoriaException("TriangularBands: the values in the 'frequencyBands' parameter are not in ascending order or there exists a duplicate value");
     }
   }
 
@@ -61,7 +61,7 @@ void TriangularBands::compute() {
   vector<Real>& bands = _bandsOutput.get();
 
   if (spectrum.size() <= 1) {
-    throw EssentiaException("TriangularBands: the size of the input spectrum is not greater than one");
+    throw SonoriaException("TriangularBands: the size of the input spectrum is not greater than one");
   }
 
   if (_filterCoefficients.empty() || _filterCoefficients[0].size() != spectrum.size()) {
@@ -117,7 +117,7 @@ void TriangularBands::createFilters(int spectrumSize) {
   */
 
   if (spectrumSize < 2) {
-    throw EssentiaException("TriangularBands: Filter bank cannot be computed from a spectrum with less than 2 bins");
+    throw SonoriaException("TriangularBands: Filter bank cannot be computed from a spectrum with less than 2 bins");
   }
 
   _filterCoefficients = vector<vector<Real> >(_nBands, vector<Real>(spectrumSize, 0.0));
@@ -134,7 +134,7 @@ void TriangularBands::createFilters(int spectrumSize) {
     int jend = floor(_bandFrequencies[i+2] / frequencyScale);
 
     if (jend >= spectrumSize) {
-      throw EssentiaException("TriangularBands: the 'frequencyBands' parameter contains a value above the Nyquist frequency (", _sampleRate/2, " Hz): ", _bandFrequencies.back());
+      throw SonoriaException("TriangularBands: the 'frequencyBands' parameter contains a value above the Nyquist frequency (", _sampleRate/2, " Hz): ", _bandFrequencies.back());
     }
 
     Real weight = 0.;
@@ -152,7 +152,7 @@ void TriangularBands::createFilters(int spectrumSize) {
     }
 
     if (!weight) {
-      throw EssentiaException("TriangularBands: the number of spectrum bins is insufficient for the specified number of triangular bands. Use zero padding to increase the number of FFT bins.");
+      throw SonoriaException("TriangularBands: the number of spectrum bins is insufficient for the specified number of triangular bands. Use zero padding to increase the number of FFT bins.");
     }
 
     // Normalize the filter weights.
@@ -182,7 +182,7 @@ void TriangularBands::setWeightingFunctions(std::string weighting) {
     _weighter = hz2mel10;
   }
   else{
-    throw EssentiaException("TriangularBands: Bad 'weighting' parameter");
+    throw SonoriaException("TriangularBands: Bad 'weighting' parameter");
   }
 }
 

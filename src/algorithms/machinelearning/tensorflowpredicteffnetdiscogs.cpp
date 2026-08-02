@@ -95,7 +95,7 @@ void TensorflowPredictEffnetDiscogs::configure() {
   int batchSize = parameter("batchSize").toInt();
 
   if (patchSize == 0) {
-    throw EssentiaException("TensorflowPredictEffnetDiscogs: `patchSize` cannot be 0");
+    throw SonoriaException("TensorflowPredictEffnetDiscogs: `patchSize` cannot be 0");
   }
 
 
@@ -208,7 +208,7 @@ void TensorflowPredictEffnetDiscogs::compute() {
   vector<vector<Real> >& predictions = _predictions.get();
 
   if (!signal->size()) {
-    throw EssentiaException("TensorflowPredictEffnetDiscogs: empty input signal");
+    throw SonoriaException("TensorflowPredictEffnetDiscogs: empty input signal");
   }
 
   vector<Real> paddedSignal;
@@ -232,7 +232,7 @@ void TensorflowPredictEffnetDiscogs::compute() {
       predictions.erase(predictions.end() - paddingPatches, predictions.end());
     }
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     predictions.clear();
   }
 
@@ -264,7 +264,7 @@ int TensorflowPredictEffnetDiscogs::padSignal(const std::vector<Real> &signal, s
   } else if (_lastPatchMode == "discard") {
     nPatches = 1 + floor(patchHops);
   } else {
-    throw EssentiaException("TensorflowPredictEffnetDiscogs: incorrect `lastPatchMode`");
+    throw SonoriaException("TensorflowPredictEffnetDiscogs: incorrect `lastPatchMode`");
   }
 
   // Patches to batches.

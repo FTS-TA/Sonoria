@@ -59,7 +59,7 @@ void LogSpectrum::compute() {
   vector<Real>& meanTuning = _meanTuning.get();
 
   if (spectrum.size() <= 1)
-    throw EssentiaException("LogSpectrum: input vector is empty");
+    throw SonoriaException("LogSpectrum: input vector is empty");
 
   if (spectrum.size() != _frameSize) {
     E_INFO("LogSpectrum: input spectrum size does not match '_frameSize' "

@@ -38,16 +38,16 @@ void EnergyBand::configure() {
   Real sampleRate = parameter("sampleRate").toReal();
 
   if (startFreq >= stopFreq) {
-    throw EssentiaException("EnergyBand: stopCutoffFrequency must be larger than startCutoffFrequency");
+    throw SonoriaException("EnergyBand: stopCutoffFrequency must be larger than startCutoffFrequency");
   }
 
   Real nyquist=sampleRate/2.0;
 
   if (startFreq >= nyquist) {
-    throw EssentiaException("EnergyBand: start frequency must be below the Nyquist frequency", nyquist);
+    throw SonoriaException("EnergyBand: start frequency must be below the Nyquist frequency", nyquist);
   }
   if (stopFreq > nyquist) {
-    throw EssentiaException("EnergyBand: stop frequency must be below or equal to the Nyquist frequency", nyquist);
+    throw SonoriaException("EnergyBand: stop frequency must be below or equal to the Nyquist frequency", nyquist);
   }
 
   _normStartIdx = startFreq/nyquist;
@@ -58,7 +58,7 @@ void EnergyBand::compute() {
   const std::vector<Real>& spectrum = _spectrum.get();
   Real& energyBand = _energyBand.get();
   if (spectrum.empty()) {
-    throw EssentiaException("EnergyBand: spectrum is empty");
+    throw SonoriaException("EnergyBand: spectrum is empty");
   }
 
   // start/stop is the index corresponding to the start/stop cut-off frequency

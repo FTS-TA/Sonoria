@@ -171,7 +171,7 @@ void Key::configure() {
   else if (_profileType == "braw")          { SET_PROFILE_OTHER(1); }
   else if (_profileType == "edma")          { SET_PROFILE_OTHER(2); }
   else {
-    throw EssentiaException("Key: Unsupported profile type: ", _profileType);
+    throw SonoriaException("Key: Unsupported profile type: ", _profileType);
   }
 
   // Compute the other vectors getting into account chords:
@@ -290,7 +290,7 @@ void Key::compute() {
   int n = pcpsize/12;
 
   if (pcpsize < 12 || pcpsize % 12 != 0)
-    throw EssentiaException("Key: input PCP size is not a positive multiple of 12");
+    throw SonoriaException("Key: input PCP size is not a positive multiple of 12");
 
   if (pcpsize != (int)_profile_dom.size()) {
     resize(pcpsize);
@@ -394,7 +394,7 @@ void Key::compute() {
   // maximum
   if (_profileType == "weichai") {
     if (scale == MINOR)
-      throw EssentiaException("Key: error in Wei Chai algorithm. Wei Chai algorithm does not support minor scales.");
+      throw SonoriaException("Key: error in Wei Chai algorithm. Wei Chai algorithm does not support minor scales.");
 
     int fifth = keyIndex + 7*n;
     if (fifth > pcpsize)
@@ -413,7 +413,7 @@ void Key::compute() {
   // keyIndex = (int)(keyIndex * 12.0 / pcpsize + 0.5) % 12;
 
   if (keyIndex < 0) {
-    throw EssentiaException("Key: keyIndex smaller than zero. Could not find key.");
+    throw SonoriaException("Key: keyIndex smaller than zero. Could not find key.");
   }
 
   //////////////////////////////////////////////////////////////////////////////

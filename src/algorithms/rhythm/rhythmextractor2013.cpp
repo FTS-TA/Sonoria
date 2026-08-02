@@ -19,7 +19,7 @@
 
 #include <complex>
 #include "rhythmextractor2013.h"
-#include "tnt/tnt.h"
+#include "sonoria/utils/tnt/tnt.h"
 #include "sonoriamath.h"
 #include "poolstorage.h"
 #include "algorithmfactory.h"
@@ -276,7 +276,7 @@ void RhythmExtractor2013::compute() {
   //    rubatoStart = _pool.value<vector<Real> >("internal.rubatoStart");
   //    rubatoStop = _pool.value<vector<Real> >("internal.rubatoStop");
   //}
-  //catch (EssentiaException&) {
+  //catch (SonoriaException&) {
   //  // no rubato regions then
   //}
 
@@ -295,7 +295,7 @@ void RhythmExtractor2013::reset() {
   //  _pool.remove("internal.rubatoStart");
   //  _pool.remove("internal.rubatoStop");
   //}
-  //catch (EssentiaException&) {
+  //catch (SonoriaException&) {
   //  // were not in pool
   //}
 }

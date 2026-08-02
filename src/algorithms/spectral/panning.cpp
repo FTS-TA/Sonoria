@@ -123,10 +123,10 @@ void Panning::compute() {
   // and the parameters used in the configuration of those.
 
   if (spectrumLeft.size() != spectrumRight.size()) {
-    throw EssentiaException("Panning: spectra for left and right are not of the same size.");
+    throw SonoriaException("Panning: spectra for left and right are not of the same size.");
   }
   if (spectrumLeft.empty() || spectrumRight.empty()) {
-    throw EssentiaException("Panning: input spectrum empty");
+    throw SonoriaException("Panning: input spectrum empty");
   }
   Real minReal = numeric_limits<Real>::min();
   int specSize = (int) spectrumLeft.size();

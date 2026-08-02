@@ -93,7 +93,7 @@ void StereoMuxer::compute() {
   vector<StereoSample>& audio = _audio.get();
 
   if (left.size() != right.size()) {
-    throw EssentiaException("StereoMuxer: \"left\" and \"right\" inputs should contain equal number of audiosamples");
+    throw SonoriaException("StereoMuxer: \"left\" and \"right\" inputs should contain equal number of audiosamples");
   }
 
   audio.resize(left.size());

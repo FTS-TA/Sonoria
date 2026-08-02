@@ -47,17 +47,17 @@ void VectorRealToTensor::configure() {
   for (size_t i = 0; i < shape.size(); i++) {
 
     if ((i == 0) && (shape[i] < -1)) {
-    throw EssentiaException("VectorRealToTensor: The first dimension (batch size) cannot smaller than -1.");
+    throw SonoriaException("VectorRealToTensor: The first dimension (batch size) cannot smaller than -1.");
     }
     if ((i > 0) && (shape[i] <= 0)) {
-    throw EssentiaException("VectorRealToTensor: Only the first dimension (batch size) can have size 0 or -1.");
+    throw SonoriaException("VectorRealToTensor: Only the first dimension (batch size) can have size 0 or -1.");
     }
 
     _shape[i] = shape[i];
   }
 
   if (shape[1] != 1) {
-    throw EssentiaException("VectorRealToTensor: Currently only single-channel tensors are supported.");
+    throw SonoriaException("VectorRealToTensor: Currently only single-channel tensors are supported.");
   }
 
   _timeStamps = shape[2];
@@ -79,13 +79,13 @@ void VectorRealToTensor::configure() {
   _push = false;
 
   if (_patchHopSize > _timeStamps) {
-    throw EssentiaException("VectorRealToTensor: `patchHopSize` has to be smaller than the number of timestamps");
+    throw SonoriaException("VectorRealToTensor: `patchHopSize` has to be smaller than the number of timestamps");
   }
 
 
   if (shape[0] > 0) {
     if (_batchHopSize > shape[0]) {
-      throw EssentiaException("VectorRealToTensor: `batchHopSize` has to be smaller than the batch size (shape[0])");
+      throw SonoriaException("VectorRealToTensor: `batchHopSize` has to be smaller than the batch size (shape[0])");
     }
   }
 
@@ -163,7 +163,7 @@ AlgorithmStatus VectorRealToTensor::process() {
     // Sanity check.
     for (size_t i = 0; i < frame.size(); i++) {
       if ((int)frame[i].size() != _shape[3]) {
-        throw EssentiaException("VectorRealToTensor: Found input frame with size ", frame[i].size(),
+        throw SonoriaException("VectorRealToTensor: Found input frame with size ", frame[i].size(),
                                 " while the algorithm was configured to work with frames with size ", _shape[3]);
       }
     }
@@ -196,7 +196,7 @@ AlgorithmStatus VectorRealToTensor::process() {
         EXEC_DEBUG("VectorRealToTensor: Discarding last frames");
 
       } else {
-        throw EssentiaException("VectorRealToTensor: Incomplete patch found "
+        throw SonoriaException("VectorRealToTensor: Incomplete patch found "
                                 "before reaching the end of the stream. This is not supposed to happen");
       }
     }
@@ -227,7 +227,7 @@ AlgorithmStatus VectorRealToTensor::process() {
       batchHopSize = _acc.size();
 
       if (_acc.size() == 0) {
-        throw EssentiaException("VectorRealToTensor: The stream has finished without enough frames to "
+        throw SonoriaException("VectorRealToTensor: The stream has finished without enough frames to "
                                 "produce a patch of the desired size. Consider setting the `lastPatchMode` "
                                 "parameter to `repeat` in order to produce a batch.");
       }

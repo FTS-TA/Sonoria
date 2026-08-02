@@ -18,7 +18,7 @@
  */
 
 #include "tensorflowpredict2d.h"
-#include <essentia/utils/tnt/tnt2vector.h>
+#include <sonoria/utils/tnt/tnt2vector.h>
 
 using namespace std;
 using namespace TNT;
@@ -215,7 +215,7 @@ void TensorflowPredict2D::compute() {
 
 
   if (!features.dim1()) {
-    throw EssentiaException("TensorflowPredict2D: empty input signal");
+    throw SonoriaException("TensorflowPredict2D: empty input signal");
   }
   vector<vector<Real> > featuresVector = array2DToVecvec(features);
   _vectorVectorInput->setVector(&featuresVector);
@@ -225,7 +225,7 @@ void TensorflowPredict2D::compute() {
   try {
     predictions = _pool.value<vector<vector<Real> > >("predictions");
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     predictions.clear();
   }
 

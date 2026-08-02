@@ -18,9 +18,9 @@
  */
 
 #include <iostream>
-#include <essentia/algorithmfactory.h>
-#include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/scheduler/network.h>
+#include <sonoria/algorithmfactory.h>
+#include <sonoria/streaming/algorithms/poolstorage.h>
+#include <sonoria/scheduler/network.h>
 #include "credit_libav.h"
 
 using namespace std;
@@ -89,7 +89,7 @@ int main(int argc, char* argv[]) {
   //    cout << "rubatoStart: " << pool.value<vector<Real> >("rhythm.rubatoStart") << endl;
   //    cout << "rubatoStop: " << pool.value<vector<Real> >("rhythm.rubatoStop") << endl;
   //}
-  //catch (EssentiaException&) {
+  //catch (SonoriaException&) {
   //  cout << "No rubato regions found" << endl;
   //}
 

@@ -193,7 +193,7 @@ void PitchYinProbabilities::fastDifference(const std::vector<Real> in, std::vect
 void PitchYinProbabilities::compute() {
   const vector<Real>& signal = _signal.get();
   if (signal.empty()) {
-    throw EssentiaException("PitchYinProbabilities: Cannot compute pitch detection on empty signal frame.");
+    throw SonoriaException("PitchYinProbabilities: Cannot compute pitch detection on empty signal frame.");
   }
   if ((int) signal.size() != _frameSize) {
     Algorithm::configure( "frameSize", int(signal.size()) );

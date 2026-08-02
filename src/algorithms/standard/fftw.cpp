@@ -59,7 +59,7 @@ void FFTW::compute() {
   // check if input is OK
   int size = int(signal.size());
   if (size == 0) {
-    throw EssentiaException("FFT: Input size cannot be 0");
+    throw SonoriaException("FFT: Input size cannot be 0");
   }
 
   if ((_fftPlan == 0) ||
@@ -90,7 +90,7 @@ void FFTW::createFFTObject(int size) {
   // which means that there are 2 different input signals that could yield the
   // same FFT...
   if (size % 2 == 1) {
-    throw EssentiaException("FFT: can only compute FFT of arrays which have an even size");
+    throw SonoriaException("FFT: can only compute FFT of arrays which have an even size");
   }
 
   // create the temporary storage array

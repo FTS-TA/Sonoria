@@ -37,7 +37,7 @@ BinaryOperator::OpType BinaryOperator::typeFromString(const std::string& name) c
   if (name == "multiply") return MULTIPLY;
   if (name == "divide") return DIVIDE;
 
-  throw EssentiaException("BinaryOperator: Unknown binary operator type: ", name);
+  throw SonoriaException("BinaryOperator: Unknown binary operator type: ", name);
 }
 
 
@@ -55,7 +55,7 @@ void BinaryOperator::compute() {
   std::vector<Real>& output = _output.get();
   
   if (input1.size() != input2.size()) {
-    throw EssentiaException("BinaryOperator: input vectors are not of equal size");
+    throw SonoriaException("BinaryOperator: input vectors are not of equal size");
   }
   output.resize(input1.size());
 
@@ -91,7 +91,7 @@ void BinaryOperator::compute() {
         if (!input2[i]) {
           std::ostringstream e ;
           e <<  "BinaryOperator: Divide by zero found in array position " << i;
-          throw EssentiaException(e);
+          throw SonoriaException(e);
         }
         output[i] = input1[i] / input2[i];
       }
@@ -99,6 +99,6 @@ void BinaryOperator::compute() {
     }
   
   default:
-    throw EssentiaException("BinaryOperator: Unknown unary operator type");
+    throw SonoriaException("BinaryOperator: Unknown unary operator type");
   }
 }

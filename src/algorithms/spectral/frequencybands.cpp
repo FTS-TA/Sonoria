@@ -39,14 +39,14 @@ void FrequencyBands::configure() {
   _bandFrequencies = parameter("frequencyBands").toVectorReal();
   _sampleRate = parameter("sampleRate").toReal();
   if ( _bandFrequencies.size() < 2 ) {
-    throw EssentiaException("FrequencyBands: the 'frequencyBands' parameter contains only one element (i.e. two elements are required to construct a band)");
+    throw SonoriaException("FrequencyBands: the 'frequencyBands' parameter contains only one element (i.e. two elements are required to construct a band)");
   }
   for (int i = 1; i < int(_bandFrequencies.size()); ++i) {
     if ( _bandFrequencies[i] < 0 ) {
-      throw EssentiaException("FrequencyBands: the 'frequencyBands' parameter contains a negative value");
+      throw SonoriaException("FrequencyBands: the 'frequencyBands' parameter contains a negative value");
     }
     if (_bandFrequencies[i-1] >= _bandFrequencies[i] ) {
-      throw EssentiaException("FrequencyBands: the values in the 'frequencyBands' parameter are not in ascending order or there exists a duplicate value");
+      throw SonoriaException("FrequencyBands: the values in the 'frequencyBands' parameter are not in ascending order or there exists a duplicate value");
     }
   }
 }
@@ -56,7 +56,7 @@ void FrequencyBands::compute() {
   std::vector<Real>& bands = _bandsOutput.get();
 
   if (spectrum.size() <= 1) {
-    throw EssentiaException("FrequencyBands: the size of the input spectrum is not greater than one");
+    throw SonoriaException("FrequencyBands: the size of the input spectrum is not greater than one");
   }
 
   Real frequencyscale = (_sampleRate / 2.0) / (spectrum.size() - 1);

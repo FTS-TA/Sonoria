@@ -77,16 +77,16 @@ string unescapeJsonString(const string& input) {
 // phase converts the AST into a Pool.
 void YamlInput::compute() {
   if (!parameter("filename").isConfigured()) {
-    throw EssentiaException("YamlInput: 'filename' parameter has not been configured");
+    throw SonoriaException("YamlInput: 'filename' parameter has not been configured");
   }
-  if (_filename == "") throw EssentiaException("YamlInput: please provide a valid filename");
+  if (_filename == "") throw SonoriaException("YamlInput: please provide a valid filename");
 
   Pool& p = _pool.get();
 
   FILE* file = fopen(_filename.c_str(), "rb");
 
   // check that the file exists:
-  if (!file) throw EssentiaException("YamlInput: could not open file ", _filename);
+  if (!file) throw SonoriaException("YamlInput: could not open file ", _filename);
 
   // First phase, build AST
   YamlNode* root = NULL;
@@ -104,7 +104,7 @@ void YamlInput::compute() {
       // Load to string
       size_t result = fread(jsonChar, sizeof(char), filesize, file);
       if (result != filesize) {
-        throw EssentiaException("YamlInput: error reading the json file");
+        throw SonoriaException("YamlInput: error reading the json file");
       }
       
       string yamlString = JsonConvert(string(jsonChar, filesize)).parseDict();
@@ -112,7 +112,7 @@ void YamlInput::compute() {
       delete[] jsonChar;
 
       if(yamlString.empty()) {
-        throw EssentiaException("YamlInput: error during parsing: empty json file");
+        throw SonoriaException("YamlInput: error during parsing: empty json file");
       }
       root = parseYaml(file, yamlString);
     }
@@ -124,7 +124,7 @@ void YamlInput::compute() {
     if (fclose(file) != 0) {
       E_WARNING("YamlInput: an error occured while closing the yaml/json file");
     }
-    throw EssentiaException("YamlInput: error during parsing: ", e.what());
+    throw SonoriaException("YamlInput: error during parsing: ", e.what());
   }
 
   if (fclose(file) != 0) {
@@ -134,7 +134,7 @@ void YamlInput::compute() {
   YamlMappingNode* rootMap = dynamic_cast<YamlMappingNode*>(root);
 
   if (!rootMap) {
-    throw EssentiaException("YamlInput: root node is not a mapping node, yaml "
+    throw SonoriaException("YamlInput: root node is not a mapping node, yaml "
                             "was not generated from a valid Pool");
   }
 
@@ -185,7 +185,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
         for (int i=0; i<int(data.size()); ++i) {
           const YamlScalarNode* sclrElmt = dynamic_cast<const YamlScalarNode*>(data[i]);
           if (!sclrElmt || sclrElmt->getType() != tp) {
-            throw EssentiaException("YamlInput: mixed sequence types are not supported");
+            throw SonoriaException("YamlInput: mixed sequence types are not supported");
           }
           p->add(keyPrefix, sclrElmt->toString());
         }
@@ -197,14 +197,14 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
         for (int i=0; i<int(data.size()); ++i) {
           const YamlScalarNode* sclrElmt = dynamic_cast<const YamlScalarNode*>(data[i]);
           if (!sclrElmt || sclrElmt->getType() != tp) {
-            throw EssentiaException("YamlInput: mixed sequence types are not supported");
+            throw SonoriaException("YamlInput: mixed sequence types are not supported");
           }
           p->add(keyPrefix, sclrElmt->toFloat());
         }
         return;
       }
 
-      throw EssentiaException("YamlInput: only string and Real data types are the only supported scalars within a sequence");
+      throw SonoriaException("YamlInput: only string and Real data types are the only supported scalars within a sequence");
     }
 
     // sequence of sequences
@@ -216,7 +216,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
         for (int i=1; i<int(data.size()); ++i) {
           const YamlSequenceNode* subSeq = dynamic_cast<const YamlSequenceNode*>(data[i]);
           if (!subSeq) {
-            throw EssentiaException("YamlInput: mixed sequence types are not supported");
+            throw SonoriaException("YamlInput: mixed sequence types are not supported");
           }
 
           if (subSeq->empty()) continue;
@@ -245,7 +245,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
           for (int i=0; i<int(data.size()); ++i) {
             const YamlSequenceNode* subSeq = dynamic_cast<const YamlSequenceNode*>(data[i]);
             if (!subSeq) {
-              throw EssentiaException("YamlInput: mixed sequence types are not supported");
+              throw SonoriaException("YamlInput: mixed sequence types are not supported");
             }
 
             const vector<YamlNode*>& subData = subSeq->getData();
@@ -253,7 +253,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
             for (int j=0; j<int(strVec.size()); ++j) {
               const YamlScalarNode* subSeqScalar = dynamic_cast<const YamlScalarNode*>(subData[j]);
               if (!subSeqScalar) {
-                throw EssentiaException("YamlInput: mixed sub-sequence types are not supported");
+                throw SonoriaException("YamlInput: mixed sub-sequence types are not supported");
               }
 
               strVec[j] = subSeqScalar->toString();
@@ -269,7 +269,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
           for (int i=0; i<int(data.size()); ++i) {
             const YamlSequenceNode* subSeq = dynamic_cast<const YamlSequenceNode*>(data[i]);
             if (!subSeq) {
-              throw EssentiaException("YamlInput: mixed sequence types are not supported");
+              throw SonoriaException("YamlInput: mixed sequence types are not supported");
             }
 
             const vector<YamlNode*>& subData = subSeq->getData();
@@ -277,7 +277,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
             for (int j=0; j<int(realVec.size()); ++j) {
               const YamlScalarNode* subSeqScalar = dynamic_cast<const YamlScalarNode*>(subData[j]);
               if (!subSeqScalar) {
-                throw EssentiaException("YamlInput: mixed sub-sequence types are not supported");
+                throw SonoriaException("YamlInput: mixed sub-sequence types are not supported");
               }
 
               realVec[j] = subSeqScalar->toFloat();
@@ -288,7 +288,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
           return;
         }
 
-        throw EssentiaException("YamlInput: only string and Real data types are supported as YamlScalarNodes");
+        throw SonoriaException("YamlInput: only string and Real data types are supported as YamlScalarNodes");
       }
 
       // we have yet another sequence (a subsubsequence)
@@ -296,13 +296,13 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
         for (int i=0; i<int(data.size()); ++i) {
           const YamlSequenceNode* subseq = dynamic_cast<const YamlSequenceNode*>(data[i]);
 
-          if (!subseq) throw EssentiaException("YamlInput: mixed sub-sequence types are not supported");
+          if (!subseq) throw SonoriaException("YamlInput: mixed sub-sequence types are not supported");
 
           const vector<YamlNode*>& subdata = subseq->getData();
           const YamlSequenceNode* subsubseq = dynamic_cast<const YamlSequenceNode*>(subdata[0]);
 
           if (subsubseq->empty()) {
-            throw EssentiaException("YamlInput: sequences of matrices that have at least one dimension equal to 0 are not permitted");
+            throw SonoriaException("YamlInput: sequences of matrices that have at least one dimension equal to 0 are not permitted");
           }
 
           // get dimensions
@@ -313,19 +313,19 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
           for (int j=0; j<d1; ++j) {
             subsubseq = dynamic_cast<const YamlSequenceNode*>(subdata[j]);
 
-            if (!subsubseq) throw EssentiaException("YamlInput: mixed sub-sequence types are not supported");
+            if (!subsubseq) throw SonoriaException("YamlInput: mixed sub-sequence types are not supported");
 
             const vector<YamlNode*>& subsubdata = subsubseq->getData();
 
             if (int(subsubdata.size()) != d2) {
-              throw EssentiaException("YamlInput: in sequences of matrices, each matrix must be rectangular");
+              throw SonoriaException("YamlInput: in sequences of matrices, each matrix must be rectangular");
             }
 
             for (int k=0; k<d2; ++k) {
               const YamlScalarNode* sclr = dynamic_cast<const YamlScalarNode*>(subsubdata[k]);
 
               if (!sclr || sclr->getType() != YamlScalarNode::FLOAT) {
-                throw EssentiaException("YamlInput: sequences of matrices can only consist of Reals");
+                throw SonoriaException("YamlInput: sequences of matrices can only consist of Reals");
               }
 
               mat[j][k] = sclr->toFloat();
@@ -338,7 +338,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
         return;
       }
 
-      throw EssentiaException("YamlInput: unsupported YamlNode type encountered, within a subsequence");
+      throw SonoriaException("YamlInput: unsupported YamlNode type encountered, within a subsequence");
     }
 
     // looks like a vector of StereoSamples (since StereoSamples are
@@ -348,7 +348,7 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
       for (int i=0; i<int(data.size()); ++i) {
         const YamlMappingNode* elmt = dynamic_cast<const YamlMappingNode*>(data[i]);
         if (!elmt) {
-          throw EssentiaException("YamlInput: mixed sequence types are not supported");
+          throw SonoriaException("YamlInput: mixed sequence types are not supported");
         }
 
         p->add(keyPrefix, parseStereoSample(*elmt));
@@ -357,26 +357,26 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
       return;
     }
 
-    throw EssentiaException("YamlInput: unsupported YamlNode type encountered, within a sequence");
+    throw SonoriaException("YamlInput: unsupported YamlNode type encountered, within a sequence");
   }
 
   // scalar nodes
   if (const YamlScalarNode* sclrNode = dynamic_cast<const YamlScalarNode*>(n)) {
     if (keyPrefix == "") {
-      throw EssentiaException("YamlInput: adding a root level scalar, this shouldn't happen in valid YAML");
+      throw SonoriaException("YamlInput: adding a root level scalar, this shouldn't happen in valid YAML");
     }
 
     switch (sclrNode->getType()) {
       case YamlScalarNode::FLOAT:  p->set(keyPrefix, sclrNode->toFloat()); break;
       case YamlScalarNode::STRING: p->set(keyPrefix, sclrNode->toString()); break;
       default:
-        throw EssentiaException("YamlInput: unsupported YamlScalarNode type encountered, expecting Reals or strings");
+        throw SonoriaException("YamlInput: unsupported YamlScalarNode type encountered, expecting Reals or strings");
     }
 
     return;
   }
 
-  throw EssentiaException("YamlInput: unsupported YamlNode type encountered");
+  throw SonoriaException("YamlInput: unsupported YamlNode type encountered");
 }
 
 // helper function used in updatePool to parse a StereoSample from a
@@ -385,13 +385,13 @@ void updatePool(const YamlNode* n, Pool* p, const string& keyPrefix) {
 StereoSample parseStereoSample(const YamlMappingNode& node) {
   // validate mapping node
   if (node.size() != 2) {
-    throw EssentiaException("YamlInput: invalid StereoSample format--mapping node should consist of only 2 pairs, contains ", node.size());
+    throw SonoriaException("YamlInput: invalid StereoSample format--mapping node should consist of only 2 pairs, contains ", node.size());
   }
 
   // check if contains 'left' and 'right' keys
   if (node.getData().find("left") == node.getData().end() ||
       node.getData().find("right") == node.getData().end()) {
-    throw EssentiaException("YamlInput: invalid StereoSample format--mapping node should contain the keys 'left' and 'right'");
+    throw SonoriaException("YamlInput: invalid StereoSample format--mapping node should contain the keys 'left' and 'right'");
   }
 
   // make sure values of 'left' and 'right' are scalar nodes
@@ -399,13 +399,13 @@ StereoSample parseStereoSample(const YamlMappingNode& node) {
   YamlScalarNode* rightNode = dynamic_cast<YamlScalarNode*>(node.getData().find("right")->second);
 
   if (leftNode == NULL || rightNode == NULL) {
-    throw EssentiaException("YamlInput: invalid StereoSample format--the keys 'left' and 'right' must have scalare nodes as their values");
+    throw SonoriaException("YamlInput: invalid StereoSample format--the keys 'left' and 'right' must have scalare nodes as their values");
   }
 
   // make sure scalar values are of type Real
   if (leftNode->getType() != YamlScalarNode::FLOAT ||
       rightNode->getType() != YamlScalarNode::FLOAT) {
-    throw EssentiaException("YamlInput: invalid StereoSample format--the keys 'left' and 'right' must have scalare nodes as their values which are Reals");
+    throw SonoriaException("YamlInput: invalid StereoSample format--the keys 'left' and 'right' must have scalare nodes as their values which are Reals");
   }
 
   StereoSample result;

@@ -40,11 +40,11 @@ void SpectralCentroidTime::compute() {
   double a, b, aPowerSum = 0, bPowerSum = 0;
 
   if (signal.empty()) {
-    throw EssentiaException("Centroid: cannot compute the centroid of an empty array");
+    throw SonoriaException("Centroid: cannot compute the centroid of an empty array");
   }
 
   if (signal.size() == 1) {
-    throw EssentiaException("Centroid: cannot compute the centroid of an array of size 1");
+    throw SonoriaException("Centroid: cannot compute the centroid of an array of size 1");
   }
 
   for (int i=1; i<int(signal.size()); ++i) {

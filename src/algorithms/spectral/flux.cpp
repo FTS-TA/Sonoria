@@ -54,7 +54,7 @@ void Flux::compute() {
     _spectrumMemory.resize(spectrum.size());
   }
   else if (spectrum.size() != _spectrumMemory.size()) {
-    throw EssentiaException("Flux: the size of the input spectrum does not equal the previous input spectrum's size");
+    throw SonoriaException("Flux: the size of the input spectrum does not equal the previous input spectrum's size");
   }
 
   flux = 0.0;

@@ -42,7 +42,7 @@ void DerivativeSFX::compute() {
   Real& maxDerBeforeMax = _maxDerBeforeMax.get();
 
   if (envelope.empty()) {
-    throw EssentiaException("DerivativeSFX: input signal is empty");
+    throw SonoriaException("DerivativeSFX: input signal is empty");
   }
 
   int max = argmax(envelope);

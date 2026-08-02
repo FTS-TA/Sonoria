@@ -118,7 +118,7 @@ void PercivalBpmEstimator::configure() {
   _srOSS        = (Real)_sampleRate / _hopSize;
 
   if (_minBPM >= _maxBPM) {
-    throw EssentiaException("PercivalBpmEstimator: The minimum BPM should not be equal or larger than the maximum BPM");
+    throw SonoriaException("PercivalBpmEstimator: The minimum BPM should not be equal or larger than the maximum BPM");
   }
 
   createInnerNetwork();

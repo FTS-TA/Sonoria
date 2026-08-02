@@ -212,7 +212,7 @@ void MusicExtractor::compute() {
   if (requireMbid
       && !results.contains<vector<string> >("metadata.tags.musicbrainz_trackid")
       && !results.contains<string>("metadata.tags.musicbrainz_trackid")) {
-      throw EssentiaException("MusicExtractor: Error processing ", audioFilename, " file: cannot find musicbrainz recording id");
+      throw SonoriaException("MusicExtractor: Error processing ", audioFilename, " file: cannot find musicbrainz recording id");
   }
   
   E_INFO("MusicExtractor: Compute md5 audio hash, codec, length, and EBU 128 loudness");
@@ -515,7 +515,7 @@ void MusicExtractor::computeAudioMetadata(const string& audioFilename, Pool& res
     ostringstream msg;
     msg << "MusicExtractor: empty input signal (analysis startTime: " << startTime
         << ", endTime: " <<  endTime << ", input audio length: " << length << ")";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   results.set("metadata.audio_properties.length", length);
@@ -561,19 +561,19 @@ void MusicExtractor::computeReplayGain(const string& audioFilename, Pool& result
       replayGain = results.value<Real>("metadata.audio_properties.replay_gain");
     }
 
-    catch (const EssentiaException&) {
+    catch (const SonoriaException&) {
       if (downmix == "mix") {
         downmix = "left";
       }
       else {
-        throw EssentiaException("File looks like a completely silent file");
+        throw SonoriaException("File looks like a completely silent file");
         //exit(4);
       }
 
       try {
         results.remove("metadata.audio_properties.replay_gain");
       }
-      catch (EssentiaException&) {}
+      catch (SonoriaException&) {}
       continue;
     }
 
@@ -591,7 +591,7 @@ void MusicExtractor::computeReplayGain(const string& audioFilename, Pool& result
       results.remove("metadata.audio_properties.replay_gain");
     }
     else {
-      throw EssentiaException("File looks like a completely silent file... Aborting...");
+      throw SonoriaException("File looks like a completely silent file... Aborting...");
       //exit(5);
     }
   }
@@ -640,8 +640,8 @@ void MusicExtractor::computeChromaPrint(const string& audioFilename, Pool& resul
     else
     results.set("chromaprint.duration", chromaprintDuration);
   }
-  catch (const EssentiaException& e) {
-    throw EssentiaException("MusicExtractor: exception thrown while computing the Chromaprint. ", e.what());
+  catch (const SonoriaException& e) {
+    throw SonoriaException("MusicExtractor: exception thrown while computing the Chromaprint. ", e.what());
   }
 }
 #endif

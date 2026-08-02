@@ -62,7 +62,7 @@ void MonoMixer::compute() {
     }
   }
   else //should never get here
-    throw EssentiaException("MonoMixer: Uknown downmixing type");
+    throw SonoriaException("MonoMixer: Uknown downmixing type");
 }
 
 } // namespace standard
@@ -128,7 +128,7 @@ AlgorithmStatus MonoMixer::process() {
     }
     else {
       // should never be able to arrive here
-      throw EssentiaException("MonoMixer: Uknown downmixing type");
+      throw SonoriaException("MonoMixer: Uknown downmixing type");
     }
   }
 

@@ -19,9 +19,9 @@
 
 #include "pca.h"
 #include "algorithmfactory.h"
-#include "tnt/tnt2vector.h"
-#include "tnt/jama_lu.h"
-#include "tnt/jama_eig.h"
+#include "sonoria/utils/tnt/tnt2vector.h"
+#include "sonoria/utils/tnt/jama_lu.h"
+#include "sonoria/utils/tnt/jama_eig.h"
 
 using namespace std;
 using namespace TNT;

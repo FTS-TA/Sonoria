@@ -37,7 +37,7 @@ void MedianFilter::configure() {
   _kernelSize = parameter("kernelSize").toInt();
 
   if (_kernelSize % 2 != 1)
-    throw(EssentiaException("MedianFilter: kernelSize has to be odd"));
+    throw(SonoriaException("MedianFilter: kernelSize has to be odd"));
 }
 
 void MedianFilter::compute() {
@@ -49,7 +49,7 @@ void MedianFilter::compute() {
 
   if (_kernelSize >= inputSize)
     throw(
-        EssentiaException("kernelSize has to be smaller than the input size"));
+        SonoriaException("kernelSize has to be smaller than the input size"));
   output.resize(inputSize);
 
   // add padding at the beginning and end so the ouput fits the input size.

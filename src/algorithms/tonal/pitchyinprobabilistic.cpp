@@ -191,7 +191,7 @@ void PitchYinProbabilistic::createInnerNetwork() {
 void PitchYinProbabilistic::compute() {
   const vector<Real>& signal = _signal.get();
   if (!signal.size()) {
-    throw EssentiaException("PitchYinProbabilistic: empty input signal");
+    throw SonoriaException("PitchYinProbabilistic: empty input signal");
   }
 
   _vectorInput->setVector(&signal);

@@ -44,18 +44,18 @@ void Inharmonicity::compute() {
   Real& inharmonicity = _inharmonicity.get();
 
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("Inharmonicity: frequency and magnitude vectors have different size");
+    throw SonoriaException("Inharmonicity: frequency and magnitude vectors have different size");
   }
 
   if (frequencies.empty()) {
     inharmonicity = 0.0;
     return;
-    //throw EssentiaException("Inharmonicity: input vectors empty");
+    //throw SonoriaException("Inharmonicity: input vectors empty");
   }
 
   Real f0 = frequencies[0];
   if (f0 == 0) {
-    throw EssentiaException("Inharmonicity: fundamental frequency found at 0 Hz");
+    throw SonoriaException("Inharmonicity: fundamental frequency found at 0 Hz");
   }
 
   Real ratio = 1.0;
@@ -65,10 +65,10 @@ void Inharmonicity::compute() {
   for (int i=1; i<int(frequencies.size()); ++i) {
     // validate input
     if (frequencies[i] < frequencies[i-1]) {
-       throw EssentiaException("Inharmonicity: spectral peaks must be sorted in ascending-frequency order");
+       throw SonoriaException("Inharmonicity: spectral peaks must be sorted in ascending-frequency order");
     }
     if (frequencies[i] == frequencies[i-1]) {
-       throw EssentiaException("Inharmonicity: duplicate spectral peak frequency cannot exist");
+       throw SonoriaException("Inharmonicity: duplicate spectral peak frequency cannot exist");
     }
 
     // first find what will be the closest harmonic:

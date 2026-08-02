@@ -109,11 +109,11 @@ void PitchContoursMultiMelody::compute() {
 
   // do sanity checks
   if (duration < 0) {
-    throw EssentiaException("PitchContoursMultiMelody: specified duration of the input signal must be non-negative");
+    throw SonoriaException("PitchContoursMultiMelody: specified duration of the input signal must be non-negative");
   }
 
   if (_numberContours != contoursSaliences.size() && _numberContours != contoursStartTimes.size()) {
-    throw EssentiaException("PitchContoursMelody: contoursBins, contoursSaliences, and contoursStartTimes input vectors must have the same size");
+    throw SonoriaException("PitchContoursMelody: contoursBins, contoursSaliences, and contoursStartTimes input vectors must have the same size");
   }
 
   pitch.resize(_numberFrames);
@@ -125,17 +125,17 @@ void PitchContoursMultiMelody::compute() {
 
   for (size_t i=0; i<_numberContours; i++) {
     if (contoursBins[i].size() != contoursSaliences[i].size()) {
-      throw EssentiaException("PitchContoursMelody: contoursBins and contoursSaliences input vectors must have the same size");
+      throw SonoriaException("PitchContoursMelody: contoursBins and contoursSaliences input vectors must have the same size");
     }
     if (contoursStartTimes[i] < 0) {
-      throw EssentiaException("PitchContoursMelody: contoursStartTimes input vector must contain non-negative values");
+      throw SonoriaException("PitchContoursMelody: contoursStartTimes input vector must contain non-negative values");
     }
     for (size_t j=0; j<contoursBins[i].size(); j++) {
       if (contoursBins[i][j] < 0) {
-        throw EssentiaException("PitchContoursMelody: contour bin numbers must be non-negative");
+        throw SonoriaException("PitchContoursMelody: contour bin numbers must be non-negative");
       }
       if (contoursSaliences[i][j] < 0) {
-        throw EssentiaException("PitchContoursMelody: contour pitch saliences must be non-negative");
+        throw SonoriaException("PitchContoursMelody: contour pitch saliences must be non-negative");
       }
     }
   }

@@ -34,7 +34,7 @@ void MaxMagFreq::compute() {
   Real& maxMagFreq = _maxMagFreq.get();
 
   if (spectrum.size() < 2) {
-    throw EssentiaException("MaxMagFreq: input audio spectrum must be larger than 1 element");
+    throw SonoriaException("MaxMagFreq: input audio spectrum must be larger than 1 element");
   }
 
   int index = std::max_element(spectrum.begin(), spectrum.end()) - spectrum.begin();

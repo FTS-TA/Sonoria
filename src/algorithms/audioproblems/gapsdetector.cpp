@@ -60,7 +60,7 @@ void GapsDetector::configure() {
   _updateSize = std::min(_hopSize, _prepowerSamples);
 
   if (_frameSize < _hopSize)
-    throw(EssentiaException(
+    throw(SonoriaException(
       "GapsDetector: hopSize has to be smaller or equal than the input "
       "frame size"));
 
@@ -79,7 +79,7 @@ void GapsDetector::compute() {
   // resizing as probably the hop size is mismatching too.
   if (_frameSize != frame.size())
     throw(
-        EssentiaException("GapsDetector: frameSize is not matching the actual "
+        SonoriaException("GapsDetector: frameSize is not matching the actual "
                           "input size. Please make sure frameSize, hopSize and "
                           "sampleRate are properly set so the output units "
                           "make sense."));

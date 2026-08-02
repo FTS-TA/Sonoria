@@ -63,7 +63,7 @@ void LPC::compute() {
   vector<Real>& reflection = _reflection.get();
 
   if (_p > (int)signal.size()) {
-    throw EssentiaException("LPC: you can't compute more coefficients than the size of your input");
+    throw SonoriaException("LPC: you can't compute more coefficients than the size of your input");
   }
 
   if (isSilent(signal)) {

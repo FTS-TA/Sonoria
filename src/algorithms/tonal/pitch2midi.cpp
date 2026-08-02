@@ -131,7 +131,7 @@ void Pitch2Midi::compute()
     
   // do sanity checks
   if (pitch < 0) {
-    throw EssentiaException("Pitch2Midi: specified duration of the input signal must be non-negative");
+    throw SonoriaException("Pitch2Midi: specified duration of the input signal must be non-negative");
   }
 
   _detectedPitch = pitch;
