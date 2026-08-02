@@ -57,7 +57,7 @@ AlgorithmStatus AccumulatorAlgorithm::process() {
 
     status = acquireData();
     if (status != OK) {
-      throw EssentiaException("Accumulator EOS internal scheduling error...");
+      throw SonoriaException("Accumulator EOS internal scheduling error...");
     }
 
     // consume our very last tokens

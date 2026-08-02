@@ -102,7 +102,7 @@ inline std::vector<Peak> realsToPeaks(const std::vector<Real>& pos,
                                       const std::vector<Real>& mag) {
   int size = pos.size();
   if (size != int(mag.size())) {
-      throw EssentiaException("realsToPeaks: position vector size != magnitude vector size");
+      throw SonoriaException("realsToPeaks: position vector size != magnitude vector size");
   }
   std::vector<Peak> peaks(size);
   for (int i=0; i<size; i++) {

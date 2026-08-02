@@ -53,7 +53,7 @@ void Configurable::setParameters(const ParameterMap& params) {
     msg << "Trying to configure algorithm '" << _name
         << "' with parameters: " << givenParams
         << "\nbut you need to define the following ones: " << allParams;
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
 #endif // !ALLOW_DEFAULT_PARAMETERS
@@ -72,7 +72,7 @@ void Configurable::setParameters(const ParameterMap& params) {
       msg << "Trying to configure algorithm '" << _name
           << "' with parameter '" << name
           << "' but it only accepts the following ones: " << _params.keys();
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     Parameter::ParamType valueType = value.type();
@@ -106,7 +106,7 @@ void Configurable::setParameters(const ParameterMap& params) {
             << "' 's parameter '" << name << "'"
             << " with a parameter of type '" << valueType << "'"
             << " but the required parameter type is '" << definedType << "'";
-        throw EssentiaException(msg);
+        throw SonoriaException(msg);
       }
     }
 
@@ -117,16 +117,16 @@ void Configurable::setParameters(const ParameterMap& params) {
     try {
       r = unique_ptr<Range>{Range::create(srange)};
     }
-    catch (EssentiaException& e) {
+    catch (SonoriaException& e) {
       ostringstream msg;
       msg << "Parameter " << name << ": " << e.what() << ": \"" << srange << "\"";
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     if (!r->contains(value)) {
       ostringstream msg;
       msg << "Parameter " << name << " = " << value << " is not within specified range: " << srange;
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     // otherwise, just set the new value

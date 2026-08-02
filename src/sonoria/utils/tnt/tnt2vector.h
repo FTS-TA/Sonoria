@@ -28,7 +28,7 @@ namespace sonoria {
   inline TNT::Array2D<Real> vecvecToArray2D(const std::vector<std::vector<Real> >& v) {
 
     if (v.size() == 0) {
-      throw EssentiaException("You are trying to convert an empty vector of vector into a Array2D.");
+      throw SonoriaException("You are trying to convert an empty vector of vector into a Array2D.");
     }
 
     TNT::Array2D<Real> v2D((int)v.size(), (int)v[0].size());
@@ -44,7 +44,7 @@ namespace sonoria {
   inline std::vector<std::vector<Real> > array2DToVecvec(const TNT::Array2D<Real>& v2D) {
 
     if (v2D.dim1() == 0) {
-      throw EssentiaException("You are trying to convert an empty Array2D into a vector of vector.");
+      throw SonoriaException("You are trying to convert an empty Array2D into a vector of vector.");
     }
 
     std::vector<std::vector<Real> > v;

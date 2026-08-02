@@ -45,14 +45,14 @@ class SinkProxyBase : public SinkBase {
 
   const void* buffer() const {
     if (!_source)
-      throw EssentiaException("SinkProxy ", fullName(), " is not currently connected to another Source");
+      throw SonoriaException("SinkProxy ", fullName(), " is not currently connected to another Source");
 
     return _source->buffer();
   }
 
   void* buffer() {
     if (!_source)
-      throw EssentiaException("SinkProxy ", fullName(), " is not currently connected to another Source");
+      throw SonoriaException("SinkProxy ", fullName(), " is not currently connected to another Source");
 
     return _source->buffer();
   }
@@ -73,12 +73,12 @@ class SinkProxyBase : public SinkBase {
   inline void acquire() { StreamConnector::acquire(); }
 
   virtual bool acquire(int n) {
-    throw EssentiaException("Cannot acquire for SinkProxy ", fullName(), ": you need to call acquire() on the Sink which is proxied by it");
+    throw SonoriaException("Cannot acquire for SinkProxy ", fullName(), ": you need to call acquire() on the Sink which is proxied by it");
   }
 
   virtual int acquireSize() const {
     if (!_proxiedSink)
-      throw EssentiaException("Cannot call ::acquireSize() on SinkProxy ", fullName(), " because it is not attached");
+      throw SonoriaException("Cannot call ::acquireSize() on SinkProxy ", fullName(), " because it is not attached");
 
     return _proxiedSink->acquireSize();
   }
@@ -86,12 +86,12 @@ class SinkProxyBase : public SinkBase {
   inline void release() { StreamConnector::release(); }
 
   virtual void release(int n) {
-    throw EssentiaException("Cannot release for SinkProxy ", fullName(), ": you need to call release() on the Sink which is proxied by it");
+    throw SonoriaException("Cannot release for SinkProxy ", fullName(), ": you need to call release() on the Sink which is proxied by it");
   }
 
   virtual int releaseSize() const {
     if (!_proxiedSink)
-      throw EssentiaException("Cannot call ::releaseSize() on SinkProxy ", fullName(), " because it is not attached");
+      throw SonoriaException("Cannot call ::releaseSize() on SinkProxy ", fullName(), " because it is not attached");
 
     return _proxiedSink->releaseSize();
   }
@@ -140,7 +140,7 @@ protected:
       std::ostringstream msg;
       msg << "Could not attach SinkProxy " << fullName() << " to " << sink->fullName()
           << " because it is already attached to " << _proxiedSink->fullName();
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     E_DEBUG(EConnectors, "  SinkProxy::attach: " << fullName() << "::_proxiedSink = " << sink->fullName());
@@ -202,7 +202,7 @@ class SinkProxy : public SinkProxyBase {
   void connect(SourceBase& source) {
     checkSameTypeAs(source);
     if (_source)
-      throw EssentiaException("You cannot connect more than one Source to a Sink: ", fullName());
+      throw SonoriaException("You cannot connect more than one Source to a Sink: ", fullName());
 
     _source = &source;
     E_DEBUG(EConnectors, "SinkProxy: sink " << fullName() << " now has source " << source.fullName());
@@ -218,12 +218,12 @@ class SinkProxy : public SinkProxyBase {
   }
 
   virtual const void* getTokens() const {
-    throw EssentiaException("Cannot get tokens for SinkProxy ", fullName(),
+    throw SonoriaException("Cannot get tokens for SinkProxy ", fullName(),
                             ": you need to call getTokens() on the Sink which is proxied by it");
   }
 
   virtual const void* getFirstToken() const {
-    throw EssentiaException("Cannot get first token for SinkProxy ", fullName(),
+    throw SonoriaException("Cannot get first token for SinkProxy ", fullName(),
                             ": you need to call getFirstToken() on the Sink which is proxied by it");
   }
 
@@ -243,7 +243,7 @@ inline void attach(SinkProxyBase& proxy, SinkBase& innerSink) {
     std::ostringstream msg;
     msg << "Cannot attach SinkProxy " << proxy.fullName() << " (type: " << nameOfType(proxy) << ") to "
         << innerSink.fullName() << " (type: " << nameOfType(innerSink) << ")";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
   proxy.attach(&innerSink);
   innerSink.attachProxy(&proxy);

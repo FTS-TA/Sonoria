@@ -118,7 +118,7 @@ class PoolStorage : public PoolStorageBase {
     _pool->add(_descriptorName, value);
     /*
       if (_setSingle) {
-      throw EssentiaException("PoolStorage::addToPool, setting Array2D as single value"
+      throw SonoriaException("PoolStorage::addToPool, setting Array2D as single value"
                               " is not supported by Pool.");
       }
       else _pool->add(_descriptorName, value);
@@ -132,7 +132,7 @@ class PoolStorage : public PoolStorageBase {
 
   void addToPool(const StereoSample& value) {
     if (_setSingle) {
-      throw EssentiaException("PoolStorage::addToPool, setting StereoSample as single value"
+      throw SonoriaException("PoolStorage::addToPool, setting StereoSample as single value"
                               " is not supported by Pool.");
     }
     else {

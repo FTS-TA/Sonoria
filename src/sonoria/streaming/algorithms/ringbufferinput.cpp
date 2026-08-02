@@ -54,7 +54,7 @@ void RingBufferInput::add(Real* inputData, int size)
 {
 	//std::cerr << "adding " << size << " to ringbuffer with space " << _impl->_space << std::endl;
 	int added = _impl->add(inputData,size);
-	if (added < size) throw EssentiaException("Not enough space in ringbuffer at input");
+	if (added < size) throw SonoriaException("Not enough space in ringbuffer at input");
 }
 
 AlgorithmStatus RingBufferInput::process() {
@@ -66,7 +66,7 @@ AlgorithmStatus RingBufferInput::process() {
 
   if (status != OK) {
     //std::cerr << "leaving the ringbufferinput while loop" << std::endl;
-    if (status == NO_OUTPUT) throw EssentiaException("internal error: output buffer full");
+    if (status == NO_OUTPUT) throw SonoriaException("internal error: output buffer full");
     return status;
   }
 

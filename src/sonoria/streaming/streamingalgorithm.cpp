@@ -37,12 +37,12 @@ void connect(SourceBase& source, SinkBase& sink) {
     source.connect(sink);
     E_DEBUG(EConnectors, "  " << sink.fullName() << " ok");
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     std::ostringstream msg;
     msg << "While connecting " << source.fullName()
         << " to " << sink.fullName() << ":\n"
         << e.what();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 
@@ -54,12 +54,12 @@ void connect(Algorithm* sourceAlgo, const std::string& sourcePort,
 
     connect(source, sink);
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     std::ostringstream msg;
     msg << "While connecting " << sourceAlgo->name() << "::" << sourcePort
         << " to " << sinkAlgo->name() << "::" << sinkPort << ":\n"
         << e.what();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 
@@ -71,12 +71,12 @@ void disconnect(SourceBase& source, SinkBase& sink) {
     source.disconnect(sink);
     sink.disconnect(source);
   }
-  catch (const EssentiaException& e) {
+  catch (const SonoriaException& e) {
     std::ostringstream msg;
     msg << "While disconnecting " << source.fullName()
         << " (output) from " << sink.fullName() << " (input):\n"
         << e.what();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 
@@ -132,7 +132,7 @@ SinkBase& Algorithm::input(const std::string& name) {
   try {
     return *_inputs[name];
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     std::ostringstream msg;
     msg << "Couldn't find '" << name << "' in " << this->name() << "::inputs.";
     msg << " Available input names are:";
@@ -140,7 +140,7 @@ SinkBase& Algorithm::input(const std::string& name) {
     for (uint i=0; i<availableInputs.size(); i++) {
       msg << ' ' << availableInputs[i];
     }
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 
@@ -148,7 +148,7 @@ SourceBase& Algorithm::output(const std::string& name) {
   try {
     return *_outputs[name];
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     std::ostringstream msg;
     msg << "Couldn't find '" << name << "' in " << this->name() << "::outputs.";
     msg << " Available output names are:";
@@ -156,7 +156,7 @@ SourceBase& Algorithm::output(const std::string& name) {
     for (uint i=0; i<availableOutputs.size(); i++) {
       msg << ' ' << availableOutputs[i];
     }
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 
@@ -164,7 +164,7 @@ SinkBase& Algorithm::input(int idx) {
   if ((idx < 0) || (idx >= _inputs.size())) {
     ostringstream msg;
     msg << "Cannot access input number " << idx << " because " << this->name() << " only has " << _inputs.size() << " inputs.";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   return *_inputs[idx].second;
@@ -174,7 +174,7 @@ SourceBase& Algorithm::output(int idx) {
   if ((idx < 0) || (idx >= _outputs.size())) {
     ostringstream msg;
     msg << "Cannot access output number " << idx << " because " << this->name() << " only has " << _outputs.size() << " outputs.";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   return *_outputs[idx].second;

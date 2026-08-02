@@ -24,7 +24,7 @@
 #include "multiratebuffer.h"
 #include "../roguevector.h"
 #include "../threading.h"
-#include "../essentiautil.h"
+#include "../sonoriautil.h"
 
 
 namespace sonoria {
@@ -90,7 +90,7 @@ class PhantomBuffer : public MultiRateBuffer<T> {
       break;
 
     default:
-      throw EssentiaException("Unknown buffer type");
+      throw SonoriaException("Unknown buffer type");
     }
 
     setBufferInfo(buf);
@@ -178,7 +178,7 @@ class PhantomBuffer : public MultiRateBuffer<T> {
   const T& lastTokenProduced() const {
     MutexLocker lock(mutex); NOWARN_UNUSED(lock);
     if (_writeWindow.total(_bufferSize) == 0) {
-      throw EssentiaException("Tried to call ::lastTokenProduced() on ", _parent->fullName(),
+      throw SonoriaException("Tried to call ::lastTokenProduced() on ", _parent->fullName(),
                               " which hasn't produced any token yet");
     }
 

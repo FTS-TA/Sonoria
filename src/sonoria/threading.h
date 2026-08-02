@@ -83,7 +83,7 @@ class ForcedMutex {
  public:
   ForcedMutex() {
     if (pthread_mutex_init(&pthreadMutex,0) != 0)
-      throw EssentiaException("can't create mutex type");
+      throw SonoriaException("can't create mutex type");
   }
   ~ForcedMutex() { pthread_mutex_destroy(&pthreadMutex); }
   void lock()    { pthread_mutex_lock(&pthreadMutex); }

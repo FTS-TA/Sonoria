@@ -96,14 +96,14 @@ class SourceBase : public Connector {
     try {
       checkType<TokenType>();
       if (!acquire(1))
-        throw EssentiaException(fullName(), ": Could not push 1 value, output buffer is full");
+        throw SonoriaException(fullName(), ": Could not push 1 value, output buffer is full");
 
       *(TokenType*)getFirstToken() = value;
 
       release(1);
     }
-    catch (EssentiaException& e) {
-      throw EssentiaException("While trying to push item into source ", fullName(), ":\n", e.what());
+    catch (SonoriaException& e) {
+      throw SonoriaException("While trying to push item into source ", fullName(), ":\n", e.what());
     }
   }
 

@@ -25,7 +25,7 @@ namespace sonoria {
 
 string Parameter::toLower() const {
   if (!_configured)
-    throw EssentiaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");
+    throw SonoriaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");
 
   string result = toString();
   for (int i=0; i<(int)result.size(); ++i) {
@@ -88,7 +88,7 @@ Parameter::~Parameter() {
 
 string Parameter::toString(int precision) const {
   if (!_configured) {
-    throw EssentiaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");
+    throw SonoriaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");
   }
 
   ostringstream result;
@@ -156,7 +156,7 @@ string Parameter::toString(int precision) const {
       ostringstream msg;
       msg << "Parameter: cannot convert parameter (type=" << _type;
       msg << ") to a string";
-      throw EssentiaException(msg.str());
+      throw SonoriaException(msg.str());
   }
 
   return result.str();
@@ -222,7 +222,7 @@ bool Parameter::operator==(const Parameter& p) const {
       return true;
 
     default:
-      throw EssentiaException("Parameter: the == operator does not support parameter type: ", _type);
+      throw SonoriaException("Parameter: the == operator does not support parameter type: ", _type);
   }
 }
 

@@ -40,16 +40,16 @@ namespace sonoria {
           _xPoints = xPoints;
           _yPoints = yPoints;
           if (_xPoints.size() != _yPoints.size()) {
-            throw EssentiaException("BPF: xPoints and yPoints do not have the same size");
+            throw SonoriaException("BPF: xPoints and yPoints do not have the same size");
           }
 
           if (_xPoints.size() < 2) {
-            throw EssentiaException("BPF: There are less than 2 points, which is the minimum required for the break-point function");
+            throw SonoriaException("BPF: There are less than 2 points, which is the minimum required for the break-point function");
           }
 
           for (int i=1; i<int(_xPoints.size()); ++i) {
             if (_xPoints[i-1] >= _xPoints[i] ) {
-              throw EssentiaException("BPF: xPoints are not sorted by increasing values");
+              throw SonoriaException("BPF: xPoints are not sorted by increasing values");
             }
           }
 
@@ -63,11 +63,11 @@ namespace sonoria {
 
         inline float operator()(float x) {
           if (x < _xPoints[0]) {
-            throw EssentiaException("BPF: Input x-value is before the first point");
+            throw SonoriaException("BPF: Input x-value is before the first point");
           }
 
           if (x > _xPoints.back()) {
-            throw EssentiaException("BPF: Input x-value is past the last point");
+            throw SonoriaException("BPF: Input x-value is past the last point");
           }
 
           std::vector<Real>::size_type j = 0;

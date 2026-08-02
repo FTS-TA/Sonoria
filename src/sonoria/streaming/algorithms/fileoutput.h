@@ -66,13 +66,13 @@ class FileOutput : public Algorithm {
 
   void configure() {
     if (!parameter("filename").isConfigured()) {
-      throw EssentiaException("FileOutput: please provide the 'filename' parameter");
+      throw SonoriaException("FileOutput: please provide the 'filename' parameter");
     }
 
     _filename = parameter("filename").toString();
 
     if (_filename == "") {
-      throw EssentiaException("FileOutput: empty filenames are not allowed.");
+      throw SonoriaException("FileOutput: empty filenames are not allowed.");
     }
 
     _binary = (parameter("mode").toString() == "binary");
@@ -87,7 +87,7 @@ class FileOutput : public Algorithm {
                         : new std::ofstream(_filename.c_str());
 
       if (_stream->fail()) {
-        throw EssentiaException("FileOutput: Could not open file for writing: ", _filename);
+        throw SonoriaException("FileOutput: Could not open file for writing: ", _filename);
       }
     }
   }
@@ -109,7 +109,7 @@ class FileOutput : public Algorithm {
   }
 
   void write(const TokenType& value) {
-    if (!_stream) throw EssentiaException("FileOutput: not configured properly");
+    if (!_stream) throw SonoriaException("FileOutput: not configured properly");
     if (_binary) {
       write_binary(_stream, value);
     }

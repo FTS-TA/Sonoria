@@ -73,7 +73,7 @@ bool isInitialized() {
 template<> standard::AlgorithmFactory* standard::AlgorithmFactory::_instance = 0;
 template<> streaming::AlgorithmFactory* streaming::AlgorithmFactory::_instance = 0;
 
-EssentiaMap<string,string> * TypeMap::_typeMap = 0;
+SonoriaMap<string,string> * TypeMap::_typeMap = 0;
 
 
 #ifndef OS_WIN32
@@ -103,7 +103,7 @@ string nameOfType(const std::type_info& type) {
   try {
     return TypeMap::instance()[type.name()];
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     return demangle(type.name());
   }
 }

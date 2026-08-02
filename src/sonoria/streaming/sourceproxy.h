@@ -24,7 +24,7 @@
 #include "sourcebase.h"
 #include "multiratebuffer.h"
 #include "sink.h"
-#include "essentiautil.h"
+#include "sonoriautil.h"
 
 
 namespace sonoria {
@@ -56,14 +56,14 @@ class SourceProxyBase : public SourceBase {
 
   const void* buffer() const {
     if (!_proxiedSource)
-      throw EssentiaException("SourceProxy ", fullName(), " is not currently attached to another Source");
+      throw SonoriaException("SourceProxy ", fullName(), " is not currently attached to another Source");
 
     return _proxiedSource->buffer();
   }
 
   void* buffer() {
     if (!_proxiedSource)
-      throw EssentiaException("SourceProxy ", fullName(), " is not currently attached to another Source");
+      throw SonoriaException("SourceProxy ", fullName(), " is not currently attached to another Source");
 
     return _proxiedSource->buffer();
   }
@@ -86,12 +86,12 @@ class SourceProxyBase : public SourceBase {
   inline void acquire() { StreamConnector::acquire(); }
 
   virtual bool acquire(int n) {
-    throw EssentiaException("Cannot acquire for SourceProxy ", fullName(), ": you need to call acquire() on the Source which is proxied by it");
+    throw SonoriaException("Cannot acquire for SourceProxy ", fullName(), ": you need to call acquire() on the Source which is proxied by it");
   }
 
   virtual int acquireSize() const {
     if (!_proxiedSource)
-      throw EssentiaException("Cannot call ::acquireSize() on SourceProxy ", fullName(), " because it is not attached");
+      throw SonoriaException("Cannot call ::acquireSize() on SourceProxy ", fullName(), " because it is not attached");
 
     return _proxiedSource->acquireSize();
   }
@@ -99,12 +99,12 @@ class SourceProxyBase : public SourceBase {
   inline void release() { StreamConnector::release(); }
 
   virtual void release(int n) {
-    throw EssentiaException("Cannot release for SourceProxy ", fullName(), ": you need to call release() on the Source which is proxied by it");
+    throw SonoriaException("Cannot release for SourceProxy ", fullName(), ": you need to call release() on the Source which is proxied by it");
   }
 
   virtual int releaseSize() const {
     if (!_proxiedSource)
-      throw EssentiaException("Cannot call ::releaseSize() on SourceProxy ", fullName(), " because it is not attached");
+      throw SonoriaException("Cannot call ::releaseSize() on SourceProxy ", fullName(), " because it is not attached");
 
     return _proxiedSource->releaseSize();
   }
@@ -146,7 +146,7 @@ class SourceProxyBase : public SourceBase {
       std::ostringstream msg;
       msg << "Could not attach SourceProxy " << fullName() << " to " << source->fullName()
           << " because it is already attached to " << _proxiedSource->fullName();
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     E_DEBUG(EConnectors, "  SourceProxy::attach: " << fullName() << "::_proxiedSource = " << source->fullName());
@@ -211,12 +211,12 @@ class SourceProxy : public SourceProxyBase {
   }
 
   virtual void* getTokens() {
-    throw EssentiaException("Cannot get tokens for SourceProxy ", fullName(),
+    throw SonoriaException("Cannot get tokens for SourceProxy ", fullName(),
                             ": you need to call getTokens() on the Source which is proxied by it");
   }
 
   virtual void* getFirstToken() {
-    throw EssentiaException("Cannot get first token for SourceProxy ", fullName(),
+    throw SonoriaException("Cannot get first token for SourceProxy ", fullName(),
                             ": you need to call getFirstToken() on the Source which is proxied by it");
   }
 
@@ -227,7 +227,7 @@ class SourceProxy : public SourceProxyBase {
 
   int totalProduced() const {
     if (!_proxiedSource)
-      throw EssentiaException("Cannot call ::totalProduced() on SourceProxy ", fullName(), " because it is not attached");
+      throw SonoriaException("Cannot call ::totalProduced() on SourceProxy ", fullName(), " because it is not attached");
 
     return _proxiedSource->totalProduced();
   }
@@ -247,7 +247,7 @@ inline void attach(SourceBase& innerSource, SourceProxyBase& proxy) {
     std::ostringstream msg;
     msg << "Cannot attach " << innerSource.fullName() << " (type: " << nameOfType(innerSource)
         << ") to SourceProxy " << proxy.fullName() << " (type: " << nameOfType(proxy) << ")";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
   proxy.attach(&innerSource);
   innerSource.attachProxy(&proxy);

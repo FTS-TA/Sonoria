@@ -66,7 +66,7 @@ class ESSENTIA_API Configurable {
   /**
    * Set the given parameters as the current ones. Parameters which are not
    * redefined will keep their old values, while this method will throw an
-   * @c EssentiaException if passing it an unknown parameter (i.e.: not declared
+   * @c SonoriaException if passing it an unknown parameter (i.e.: not declared
    * using @c declareParameters() ).
    * As a general rule, it is better to use the configure(const ParameterMap&)
    * method, but in certain cases you may want to set parameters _without_

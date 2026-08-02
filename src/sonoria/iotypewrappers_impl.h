@@ -39,8 +39,8 @@ void InputBase::set(const Type& data) {
     checkType<Type>();
     _data = &data;
   }
-  catch (EssentiaException& e) {
-    throw EssentiaException("In ", fullName(), "::set(): ", e.what());
+  catch (SonoriaException& e) {
+    throw SonoriaException("In ", fullName(), "::set(): ", e.what());
   }
 }
 
@@ -52,7 +52,7 @@ class Input : public InputBase {
  public:
   const Type& get() const {
     if (!_data) {
-      throw EssentiaException("In ", fullName(), "::get(): Input not bound to concrete object");
+      throw SonoriaException("In ", fullName(), "::get(): Input not bound to concrete object");
     }
     return *(Type*)_data;
   }
@@ -72,8 +72,8 @@ void OutputBase::set(Type& data) {
     checkType<Type>();
     _data = &data;
   }
-  catch (EssentiaException& e) {
-    throw EssentiaException("In ", fullName(), "::set(): ", e.what());
+  catch (SonoriaException& e) {
+    throw SonoriaException("In ", fullName(), "::set(): ", e.what());
   }
 }
 
@@ -84,7 +84,7 @@ class Output : public OutputBase {
  public:
   Type& get() {
     if (!_data) {
-      throw EssentiaException("In ", fullName(), "::set(): Output not bound to concrete object");
+      throw SonoriaException("In ", fullName(), "::set(): Output not bound to concrete object");
     }
     return *(Type*)_data;
   }

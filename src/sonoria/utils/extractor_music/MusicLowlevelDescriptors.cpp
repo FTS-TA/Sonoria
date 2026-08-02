@@ -370,8 +370,8 @@ void MusicLowlevelDescriptors::computeAverageLoudness(Pool& pool){ // after comp
   try {
     pool.value<vector<Real> >(nameSpace + "loudness")[0];
   }
-  catch (EssentiaException&) {
-    throw EssentiaException("File is too short for loudness estimation... Aborting...");
+  catch (SonoriaException&) {
+    throw SonoriaException("File is too short for loudness estimation... Aborting...");
     //exit(6);
   }
 

@@ -28,7 +28,7 @@ ReaderID SinkBase::id() const {
   // NOTE: if this sink is connected to a sourceproxy, it will have a _source set, but the ID is still invalid...
   if (_source) return _id;
   else
-    throw EssentiaException("Undefined reader ID for sink ", fullName());
+    throw SonoriaException("Undefined reader ID for sink ", fullName());
 }
 
 void SinkBase::setId(ReaderID id) {
@@ -44,11 +44,11 @@ void SinkBase::setSource(SourceBase* source) {
 void SinkBase::connect(SourceBase& source) {
   checkSameTypeAs(source);
   if (_source)
-    throw EssentiaException("You cannot connect more than one Source to a Sink: ",
+    throw SonoriaException("You cannot connect more than one Source to a Sink: ",
                             fullName(), " is already connected to ", _source->fullName());
 
   if (_sproxy)
-    throw EssentiaException("You cannot connect a Source to a Sink which is already attached to a SinkProxy: ",
+    throw SonoriaException("You cannot connect a Source to a Sink which is already attached to a SinkProxy: ",
                             fullName(), " is connected to proxy ", _sproxy->fullName());
 
   E_DEBUG(EConnectors, "  SinkBase::connect: " << fullName() << "::_source = " << source.fullName());
@@ -71,11 +71,11 @@ void SinkBase::attachProxy(SinkProxyBase* sproxy) {
   checkSameTypeAs(*sproxy);
 
   if (_source)
-    throw EssentiaException("You cannot attach a SinkProxy to a Sink which is already connected: ",
+    throw SonoriaException("You cannot attach a SinkProxy to a Sink which is already connected: ",
                             fullName(), " is already connected to ", _source->fullName());
 
   if (_sproxy)
-    throw EssentiaException("You cannot attach a SinkProxy to a Sink which is already attached to a SinkProxy: ",
+    throw SonoriaException("You cannot attach a SinkProxy to a Sink which is already attached to a SinkProxy: ",
                             fullName(), " is attached to proxy ", _sproxy->fullName());
 
   E_DEBUG(EConnectors, "  SinkBase::attachProxy: " << fullName() << "::_sproxy = " << sproxy->fullName());

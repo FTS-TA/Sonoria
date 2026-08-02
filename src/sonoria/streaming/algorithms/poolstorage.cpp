@@ -46,17 +46,17 @@ void connect(SourceBase& source, Pool& pool, const string& descriptorName, bool 
   // convert int to Real
   if (sameType(sourceType, typeid(int))) ps = new PoolStorage<int, Real>(&pool, descriptorName, setSingle);
 
-  if (!ps) throw EssentiaException("Pool Storage doesn't work for type: ", nameOfType(sourceType));
+  if (!ps) throw SonoriaException("Pool Storage doesn't work for type: ", nameOfType(sourceType));
 
   try {
     connect(source, ps->input("data"));
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     std::ostringstream msg;
     msg << "While connecting " << source.fullName()
         << " to Pool[" << descriptorName << "]:\n"
         << e.what();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 }
 
@@ -107,7 +107,7 @@ void disconnect(SourceBase& source, Pool& pool, const string& descriptorName) {
         msg << "internal error: it seems that a source (";
         msg << source.parent()->name() << "::" << source.name();
         msg << ") with an invalid type has been connected to a Pool, this shouldn't happen";
-        throw EssentiaException(msg);
+        throw SonoriaException(msg);
       }
 
       if (p == &pool && dname == descriptorName) {
@@ -125,7 +125,7 @@ void disconnect(SourceBase& source, Pool& pool, const string& descriptorName) {
   msg << "the source you are disconnecting (";
   msg << source.parent()->name() << "::" << source.name();
   msg << ") is not connected to a Pool";
-  throw EssentiaException(msg);
+  throw SonoriaException(msg);
 }
 
 

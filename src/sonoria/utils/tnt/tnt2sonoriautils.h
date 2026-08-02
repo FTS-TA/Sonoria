@@ -1,5 +1,5 @@
-#ifndef ESSENTIA_TNT2ESSENTIAUTILS_H
-#define ESSENTIA_TNT2ESSENTIAUTILS_H
+#ifndef SONORIA_TNT2SONORIAUTILS_H
+#define SONORIA_TNT2SONORIAUTILS_H
 
 #include <fstream>
 #include "tnt.h"
@@ -12,7 +12,7 @@ namespace sonoria {
     int n = A.dim2();
 
     if (k == 0) {
-      throw EssentiaException("Error: Division of an TNT::Array2D by zero");
+      throw SonoriaException("Error: Division of an TNT::Array2D by zero");
     }
 
     for (int i=0; i<m; i++)
@@ -27,7 +27,7 @@ namespace sonoria {
     int n = A.dim2();
 
     if (k == 0) {
-      throw EssentiaException("Error: Division of an TNT::Array2D by zero");
+      throw SonoriaException("Error: Division of an TNT::Array2D by zero");
     }
 
     if (m == 0 || n == 0 )
@@ -53,4 +53,4 @@ namespace sonoria {
 
 } // namespace sonoria
 
-#endif // ESSENTIA_TNT2ESSENTIAUTILS_H
+#endif // SONORIA_TNT2SONORIAUTILS_H

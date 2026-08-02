@@ -70,9 +70,9 @@ namespace streaming {
 class TypeMap {
  public:
 
-  static EssentiaMap<std::string, std::string>& instance() {
+  static SonoriaMap<std::string, std::string>& instance() {
     if (!_typeMap) {
-      throw EssentiaException("Essentia TypeMap not initialised!");
+      throw SonoriaException("Essentia TypeMap not initialised!");
     }
     return *_typeMap;
   }
@@ -80,7 +80,7 @@ class TypeMap {
   static void init() {
     if (_typeMap) return;
 
-    _typeMap = new EssentiaMap<std::string, std::string>();
+    _typeMap = new SonoriaMap<std::string, std::string>();
 
 #define registerEssentiaType(type) TypeMap::_typeMap->insert(typeid(type).name(), #type)
 
@@ -104,7 +104,7 @@ class TypeMap {
 
 protected:
   TypeMap() {}
-  static EssentiaMap<std::string, std::string>* _typeMap;
+  static SonoriaMap<std::string, std::string>* _typeMap;
 };
 
 } // namespace sonoria

@@ -1,36 +1,22 @@
 ```
 # Build artifacts
+build/
+cmake-build-*/
+Makefile
 *.o
 *.obj
 *.a
 *.lib
 *.so
-*.dll
 *.dylib
+*.dll
 *.exe
-*.out
 
-# CMake build directories
-build/
-cmake-build-*/
+# CMake generated files
 CMakeFiles/
 CMakeCache.txt
-Makefile
 cmake_install.cmake
 compile_commands.json
-
-# Compiled binaries and libraries
-bin/
-lib/
-src/**/*.o
-src/**/*.[oa]
-src/**/*.so
-src/**/*.dll
-src/**/*.dylib
-
-# Test build outputs
-test/build/
-test/bin/
 
 # IDE files
 .vscode/
@@ -38,53 +24,11 @@ test/bin/
 *.swp
 *.swo
 
-# Logs
+# Logs and temp files
 *.log
+*.tmp
 
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# Package manager files
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Python specific
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.log
-.git/modules/
-*.sublime-workspace
-
-# Environment variables
-.env
-.env.local
-.env.*
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Dependencies
+.externalNativeBuild/
+.dependency-metadata/
 ```

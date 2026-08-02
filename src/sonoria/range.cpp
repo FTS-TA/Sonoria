@@ -41,7 +41,7 @@ Range* Range::create(const std::string& s) {
     return new Set(s);
   }
   else {
-  throw EssentiaException("Invalid range '" + s + "' for parameter. Should contain '[]', '()' or '{}' to specify the range of given parameter.");
+  throw SonoriaException("Invalid range '" + s + "' for parameter. Should contain '[]', '()' or '{}' to specify the range of given parameter.");
   }
 }
 
@@ -49,12 +49,12 @@ Interval::Interval(const string& strrange) {
   string s = strrange;
 
   if(strrange.find_first_of(' ') != std::string::npos) {
-    throw EssentiaException("Invalid interval, should not contain space characters");
+    throw SonoriaException("Invalid interval, should not contain space characters");
   }
 
   string::size_type idx = s.find(",");
   if (idx == string::npos) {
-    throw EssentiaException("Invalid interval, should contain the ',' symbol to separate both ends of the interval");
+    throw SonoriaException("Invalid interval, should contain the ',' symbol to separate both ends of the interval");
   }
 
   string sleft = toLower(s.substr(0, idx));
@@ -67,7 +67,7 @@ Interval::Interval(const string& strrange) {
     _lincluded = false;
   }
   else {
-    throw EssentiaException("Invalid interval, should contain the '[' or '(' as first character");
+    throw SonoriaException("Invalid interval, should contain the '[' or '(' as first character");
   }
 
   int endIdx = sright.size()-1;
@@ -78,7 +78,7 @@ Interval::Interval(const string& strrange) {
     _uincluded = true;
   }
   else {
-    throw EssentiaException("Invalid interval, should contain the ']' or ')' as last character");
+    throw SonoriaException("Invalid interval, should contain the ']' or ')' as last character");
   }
 
   sleft = sleft.substr(1);
@@ -123,16 +123,16 @@ bool Interval::contains(const Parameter& param) const {
 
 Set::Set(const string& srange) {
   if (srange[0] != '{') {
-    throw EssentiaException("Invalid set, should contain the '{' as first character");
+    throw SonoriaException("Invalid set, should contain the '{' as first character");
   }
   if (srange[srange.size() - 1] != '}') {
-    throw EssentiaException("Invalid set, should contain the '}' as last character");
+    throw SonoriaException("Invalid set, should contain the '}' as last character");
   }
 
  string s = srange.substr(1, srange.size() - 2);
 
   if (s.empty()) {
-    throw EssentiaException("Invalid set, mustn't be empty");
+    throw SonoriaException("Invalid set, mustn't be empty");
   }
 
   vector<string> elems = tokenize(s, ",");

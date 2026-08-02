@@ -25,7 +25,7 @@ namespace sonoria {
 template <typename BaseAlgorithm>
 EssentiaFactory<BaseAlgorithm>& EssentiaFactory<BaseAlgorithm>::instance() {
   if (!_instance) {
-    throw EssentiaException("You haven't initialized the factory yet... Please do it now!");
+    throw SonoriaException("You haven't initialized the factory yet... Please do it now!");
   }
   return *_instance;
 }
@@ -52,7 +52,7 @@ BaseAlgorithm* EssentiaFactory<BaseAlgorithm>::create_i(const std::string& id) c
     for (it=_map.begin(); it!=_map.end(); ++it) {
       msg << ' ' << it->first;
     }
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   E_DEBUG_INDENT;
@@ -77,7 +77,7 @@ BaseAlgorithm* EssentiaFactory<BaseAlgorithm>::create_i(const std::string& id) c
     E_DEBUG(EFactory, BaseAlgorithm::processingMode << ": Configuring " << id << " with default parameters");
     algo->configure();
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     // We should never arrive here, because it means that we can have algorithms
     // which are not configured at all, hence in an invalid state. This cannot
     // happen, hence the message explaining why and we rethrow the exception.
@@ -89,7 +89,7 @@ BaseAlgorithm* EssentiaFactory<BaseAlgorithm>::create_i(const std::string& id) c
         << "       currently be impossible to call it (for example, by checking if the state\n"
         << "       is valid upon entering the process() method).\n\n"
         << e.what();
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   E_DEBUG(EFactory, BaseAlgorithm::processingMode << ": Creating " << id << " ok!");
@@ -112,7 +112,7 @@ BaseAlgorithm* EssentiaFactory<BaseAlgorithm>::create_i(const std::string& id) c
     for (it=_map.begin(); it!=_map.end(); ++it) {                                                           \
       msg << ' ' << it->first;                                                                              \
     }                                                                                                       \
-    throw EssentiaException(msg);                                                                           \
+    throw SonoriaException(msg);                                                                           \
   }                                                                                                         \
   E_DEBUG_INDENT;                                                                                           \
   BaseAlgorithm* algo = it->second.create();                                                                \

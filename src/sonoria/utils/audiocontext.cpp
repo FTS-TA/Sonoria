@@ -32,7 +32,7 @@ AudioContext::AudioContext()
   // Modern FFmpeg automatically registers formats and codecs
 
   if (sizeof(float) != av_get_bytes_per_sample(AV_SAMPLE_FMT_FLT)) {
-    throw EssentiaException("Unsupported float size");
+    throw SonoriaException("Unsupported float size");
   }
 }
 
@@ -45,14 +45,14 @@ int AudioContext::create(const std::string& filename,
 
   const AVOutputFormat* av_output_format = av_guess_format(format.c_str(), 0, 0);
   if (!av_output_format) {
-    throw EssentiaException("Could not find a suitable output format for \"", filename, "\"");
+    throw SonoriaException("Could not find a suitable output format for \"", filename, "\"");
   }
   if (format != av_output_format->name) {
     E_WARNING("Essentia is using a different format than the one supplied. Format used is " << av_output_format->name);
   }
 
   _muxCtx = avformat_alloc_context();
-  if (!_muxCtx) throw EssentiaException("Could not allocate the format context");
+  if (!_muxCtx) throw SonoriaException("Could not allocate the format context");
 
   _muxCtx->oformat = const_cast<AVOutputFormat*>(av_output_format);
 
@@ -63,16 +63,16 @@ int AudioContext::create(const std::string& filename,
     audioCodec = avcodec_find_encoder(_muxCtx->oformat->audio_codec);
   }
   if (!audioCodec) {
-    throw EssentiaException("Codec for ", format, " files not found or not supported");
+    throw SonoriaException("Codec for ", format, " files not found or not supported");
   }
 
   // Create audio stream and pass the codec to help FFmpeg initialize defaults
   _avStream = avformat_new_stream(_muxCtx, audioCodec);
-  if (!_avStream) throw EssentiaException("Could not allocate stream");
+  if (!_avStream) throw SonoriaException("Could not allocate stream");
 
   // Create codec context
   _codecCtx = avcodec_alloc_context3(audioCodec);
-  if (!_codecCtx) throw EssentiaException("Could not allocate codec context");
+  if (!_codecCtx) throw SonoriaException("Could not allocate codec context");
 
   // Set codec context fields
   _codecCtx->codec_id = audioCodec->id;
@@ -112,7 +112,7 @@ int AudioContext::create(const std::string& filename,
     av_strerror(result, errstring, sizeof(errstring));
     ostringstream msg;
     msg << "AudioWriter: Could not open codec \"" << audioCodec->long_name << "\" for " << format << " files: " << errstring;
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   // Copy codec parameters to muxer stream (modern API)
@@ -122,7 +122,7 @@ int AudioContext::create(const std::string& filename,
     av_strerror(result, errstring, sizeof(errstring));
     ostringstream msg;
     msg << "Failed to copy codec parameters: " << errstring;
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   // Ensure stream is marked as audio and set a sensible time_base for muxer
@@ -147,7 +147,7 @@ int AudioContext::create(const std::string& filename,
           // vorbis and flac can accept arbitrary nb_samples; choose a reasonable default
           _codecCtx->frame_size = 1024;
         } else {
-          throw EssentiaException("Do not know how to encode given format: ", format);
+          throw SonoriaException("Do not know how to encode given format: ", format);
         }
       }
   }
@@ -159,7 +159,7 @@ int AudioContext::create(const std::string& filename,
                                              AV_SAMPLE_FMT_FLT, 0);
   _buffer = (float*)av_malloc(_inputBufSize);
   if (!_buffer) {
-    throw EssentiaException("Could not allocate input float buffer");
+    throw SonoriaException("Could not allocate input float buffer");
   }
   
   _pts = 0;  // reset PTS counter for new file
@@ -168,7 +168,7 @@ int AudioContext::create(const std::string& filename,
   E_DEBUG(EAlgorithm, "AudioContext: using sample format conversion from libswresample");
   _convertCtxAv = swr_alloc();
   if (!_convertCtxAv) {
-    throw EssentiaException("Could not allocate SwrContext");
+    throw SonoriaException("Could not allocate SwrContext");
   }
 
   av_opt_set_chlayout(_convertCtxAv, "in_chlayout", &_codecCtx->ch_layout, 0);
@@ -179,7 +179,7 @@ int AudioContext::create(const std::string& filename,
   av_opt_set_int(_convertCtxAv, "out_sample_fmt", _codecCtx->sample_fmt, 0);
 
   if (swr_init(_convertCtxAv) < 0) {
-    throw EssentiaException("AudioLoader: Could not initialize swresample context");
+    throw SonoriaException("AudioLoader: Could not initialize swresample context");
   }
 
   return _codecCtx->frame_size;
@@ -189,14 +189,14 @@ int AudioContext::create(const std::string& filename,
 void AudioContext::open() {
   if (_isOpen) return;
 
-  if (!_muxCtx) throw EssentiaException("Trying to open an audio file that has not been created yet or has been closed");
+  if (!_muxCtx) throw SonoriaException("Trying to open an audio file that has not been created yet or has been closed");
   
   // Open the output IO
   int err = avio_open(&_muxCtx->pb, _filename.c_str(), AVIO_FLAG_WRITE);
   if (err < 0) {
     char errstring[1204];
     av_strerror(err, errstring, sizeof(errstring));
-    throw EssentiaException("Could not open \"", _filename, "\": ", errstring);
+    throw SonoriaException("Could not open \"", _filename, "\": ", errstring);
   }
 
   // Write header
@@ -204,7 +204,7 @@ void AudioContext::open() {
   if (err < 0) {
     char errstring[1204];
     av_strerror(err, errstring, sizeof(errstring));
-    throw EssentiaException("Could not write header for \"", _filename, "\": ", errstring);
+    throw SonoriaException("Could not write header for \"", _filename, "\": ", errstring);
   }
   
   _isOpen = true;
@@ -259,7 +259,7 @@ void AudioContext::close() {
 
 void AudioContext::write(const vector<StereoSample>& stereoData) {
   if (_codecCtx->ch_layout.nb_channels != 2) {
-    throw EssentiaException("Trying to write stereo audio data to an audio file with ", _codecCtx->ch_layout.nb_channels, " channels");
+    throw SonoriaException("Trying to write stereo audio data to an audio file with ", _codecCtx->ch_layout.nb_channels, " channels");
   }
 
   int dsize = (int)stereoData.size();
@@ -270,7 +270,7 @@ void AudioContext::write(const vector<StereoSample>& stereoData) {
     ostringstream msg;
     msg << "Audio frame size " << _codecCtx->frame_size << 
            " is not sufficent to store " << dsize << " samples";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   for (int i=0; i<dsize; ++i) {
@@ -284,7 +284,7 @@ void AudioContext::write(const vector<StereoSample>& stereoData) {
 
 void AudioContext::write(const vector<AudioSample>& monoData) {
   if (_codecCtx->ch_layout.nb_channels != 1) {
-    throw EssentiaException("Trying to write mono audio data to an audio file with ", _codecCtx->ch_layout.nb_channels, " channels");
+    throw SonoriaException("Trying to write mono audio data to an audio file with ", _codecCtx->ch_layout.nb_channels, " channels");
   }
 
   int dsize = (int)monoData.size();
@@ -293,7 +293,7 @@ void AudioContext::write(const vector<AudioSample>& monoData) {
     ostringstream msg;
     msg << "Audio frame size " << _codecCtx->frame_size << 
            " is not sufficent to store " << dsize << " samples";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   for (int i=0; i<dsize; ++i) _buffer[i] = (float) monoData[i];
@@ -309,7 +309,7 @@ void AudioContext::encodePacket(int size) {
     _codecCtx->frame_size = size;
   }
   else if (size > _codecCtx->frame_size) {
-    throw EssentiaException("AudioLoader: Input audio segment is larger than the codec's frame size");
+    throw SonoriaException("AudioLoader: Input audio segment is larger than the codec's frame size");
   }
 
   // prepare conversion buffers (bufferFmt[ch]) and linesize[ch]
@@ -324,7 +324,7 @@ void AudioContext::encodePacket(int size) {
                          size,
                          _codecCtx->sample_fmt,
                          0) < 0) {
-      throw EssentiaException("Could not allocate output buffer for sample format conversion");
+      throw SonoriaException("Could not allocate output buffer for sample format conversion");
     }
 
     // perform sample format conversion
@@ -340,14 +340,14 @@ void AudioContext::encodePacket(int size) {
           << " from " << av_get_sample_fmt_name(AV_SAMPLE_FMT_FLT)
           << " to "   << av_get_sample_fmt_name(_codecCtx->sample_fmt);
       av_freep(&bufferFmt[0]);
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     // allocate frame
     frame = av_frame_alloc();
     if (!frame) {
         av_freep(&bufferFmt[0]);
-        throw EssentiaException("Error allocating audio frame");
+        throw SonoriaException("Error allocating audio frame");
     }
 
     frame->nb_samples = _codecCtx->frame_size;
@@ -357,7 +357,7 @@ void AudioContext::encodePacket(int size) {
     if (av_frame_get_buffer(frame, 0) < 0) {
       av_frame_free(&frame);
       av_freep(&bufferFmt[0]);
-      throw EssentiaException("Could not allocate audio frame buffer");
+      throw SonoriaException("Could not allocate audio frame buffer");
     }
 
     // Copy converted audio into AVFrame
@@ -379,7 +379,7 @@ void AudioContext::encodePacket(int size) {
       av_strerror(result, errstring, sizeof(errstring));
       ostringstream msg;
       msg << "Error sending frame to encoder: " << errstring;
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     // receive packets and write them (may be 0..N packets)
@@ -396,7 +396,7 @@ void AudioContext::encodePacket(int size) {
         av_strerror(result, errstring, sizeof(errstring));
         ostringstream msg;
         msg << "Error receiving packet from encoder: " << errstring;
-        throw EssentiaException(msg);
+        throw SonoriaException(msg);
       }
 
       // ensure stream index set
@@ -412,7 +412,7 @@ void AudioContext::encodePacket(int size) {
         av_packet_unref(&packet);
         av_frame_free(&frame);
         av_freep(&bufferFmt[0]);
-        throw EssentiaException("Error while writing audio frame");
+        throw SonoriaException("Error while writing audio frame");
       }
 
       av_packet_unref(&packet);
@@ -439,7 +439,7 @@ void AudioContext::writeEOF() {
     av_strerror(result, errstring, sizeof(errstring));
     ostringstream msg;
     msg << "Error flushing encoder: " << errstring;
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   // Receive all remaining packets from encoder
@@ -456,7 +456,7 @@ void AudioContext::writeEOF() {
       } else if (result < 0) {
         char errstring[1024];
         av_strerror(result, errstring, sizeof(errstring));
-        throw EssentiaException("Error receiving packet from encoder during EOF flush: ", errstring);
+        throw SonoriaException("Error receiving packet from encoder during EOF flush: ", errstring);
       }
 
       // Assign stream index
@@ -470,7 +470,7 @@ void AudioContext::writeEOF() {
       // Write with interleaving
       if (av_write_frame(_muxCtx, &packet) < 0) {
         av_packet_unref(&packet);
-        throw EssentiaException("Error while writing delayed audio frame");
+        throw SonoriaException("Error while writing delayed audio frame");
       }
       av_packet_unref(&packet);
     }

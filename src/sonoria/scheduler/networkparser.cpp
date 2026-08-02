@@ -92,7 +92,7 @@ void NetworkParser::createConnections() {
           << " because they don't have the same number of inputs/outputs. ("
           << src->name() << ": " << src->outputs().size() << " outputs - "
           << dst->name() << ": " << dst->inputs().size() << " inputs)";
-      throw EssentiaException(msg);
+      throw SonoriaException(msg);
     }
 
     // connect the inputs/outputs in the order they have been defined

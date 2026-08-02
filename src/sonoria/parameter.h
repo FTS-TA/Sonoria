@@ -161,9 +161,9 @@ class ESSENTIA_API Parameter {
   #define TO(fname, valueType, paramType, mName)                              \
   valueType to##fname() const {                                               \
     if (!_configured)                                                         \
-      throw EssentiaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")"); \
+      throw SonoriaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")"); \
     if (_type != paramType)                                                   \
-      throw EssentiaException("Parameter: parameter is not a " #valueType ", it is a ", _type); \
+      throw SonoriaException("Parameter: parameter is not a " #valueType ", it is a ", _type); \
                                                                               \
     return (valueType)_##mName;                                               \
   }
@@ -175,9 +175,9 @@ class ESSENTIA_API Parameter {
 
   int toInt() const {
     if (!_configured)
-      throw EssentiaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");
+      throw SonoriaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");
     if (_type != INT && _type != REAL)
-      throw EssentiaException("Parameter: parameter is not an int nor a Real, it is a ", _type);
+      throw SonoriaException("Parameter: parameter is not an int nor a Real, it is a ", _type);
 
     return (int)_real;
   }
@@ -185,9 +185,9 @@ class ESSENTIA_API Parameter {
   // special case for toReal because it can return an int or a real
   Real toReal() const {
     if (!_configured)
-      throw EssentiaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");
+      throw SonoriaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");
     if (_type != INT && _type != REAL)
-      throw EssentiaException("Parameter: parameter is not an int nor a Real, it is a ", _type);
+      throw SonoriaException("Parameter: parameter is not an int nor a Real, it is a ", _type);
 
     return _real;
   }
@@ -195,9 +195,9 @@ class ESSENTIA_API Parameter {
   #define TOVECTOR(fname, valueType, paramType)                               \
   std::vector<valueType > toVector##fname() const {                           \
     if (!_configured)                                                         \
-      throw EssentiaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")"); \
+      throw SonoriaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")"); \
     if (_type != paramType)                                                   \
-      throw EssentiaException("Parameter: parameter is not of type: ", paramType); \
+      throw SonoriaException("Parameter: parameter is not of type: ", paramType); \
                                                                               \
     std::vector<valueType > result(_vec.size());                              \
     for (int i=0; i<(int)_vec.size(); ++i) {                                  \
@@ -220,9 +220,9 @@ class ESSENTIA_API Parameter {
   #define TOMAP(fname, valueType, paramType)                                   \
   std::map<std::string, valueType > toMap##fname() const {                     \
     if (!_configured)                                                          \
-      throw EssentiaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")"); \
+      throw SonoriaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")"); \
     if (_type != paramType)                                                    \
-      throw EssentiaException("Parameter: parameter is not of type: ", paramType); \
+      throw SonoriaException("Parameter: parameter is not of type: ", paramType); \
                                                                                \
     std::map<std::string, valueType > result;                                  \
                                                                                \
@@ -247,9 +247,9 @@ class ESSENTIA_API Parameter {
   #define TOMATRIX(fname, valueType, paramType)                                \
   TNT::Array2D<valueType> toMatrix##fname() const {                            \
     if (!_configured)                                                          \
-      throw EssentiaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");\
+      throw SonoriaException("Parameter: parameter has not been configured yet (ParamType=", _type, ")");\
     if (_type != paramType)                                                    \
-      throw EssentiaException("Parameter: parameter is not of type: ", paramType);\
+      throw SonoriaException("Parameter: parameter is not of type: ", paramType);\
     TNT::Array2D<valueType> result(_vec.size(), _vec[0]->_vec.size());         \
                                                                                \
     for (int i=0; i<result.dim1(); ++i) {                                      \
@@ -273,10 +273,10 @@ class ESSENTIA_API Parameter {
  * functions for adding new values in it: add() with or without a
  * default value.
  */
-class ParameterMap : public EssentiaMap<std::string, Parameter, string_cmp> {
+class ParameterMap : public SonoriaMap<std::string, Parameter, string_cmp> {
 
  protected:
-  typedef EssentiaMap<std::string, Parameter, string_cmp> ParameterMapBase;
+  typedef SonoriaMap<std::string, Parameter, string_cmp> ParameterMapBase;
 
  public:
   void add(const std::string& name, const Parameter& value);

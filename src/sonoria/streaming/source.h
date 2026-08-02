@@ -123,7 +123,7 @@ template <typename T>
 const T& lastTokenProduced(const SourceBase& source) {
   const Source<T>* src = dynamic_cast<const Source<T>*>(&source);
   if (!src)
-    throw EssentiaException(source.fullName(), " does not produce ", nameOfType(typeid(T)), " tokens");
+    throw SonoriaException(source.fullName(), " does not produce ", nameOfType(typeid(T)), " tokens");
 
   return src->lastTokenProduced();
 }

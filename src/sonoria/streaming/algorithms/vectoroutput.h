@@ -54,7 +54,7 @@ class VectorOutput : public Algorithm {
 
   AlgorithmStatus process() {
     if (!_v) {
-      throw EssentiaException("VectorOutput algorithm has no output vector set...");
+      throw SonoriaException("VectorOutput algorithm has no output vector set...");
     }
 
     EXEC_DEBUG("process()");
