@@ -67,7 +67,7 @@ void OnsetRate::compute() {
   Real& onsetRate = _onsetRate.get();
   vector<Real>& onsetTimes = _onsetTimes.get();
   if (signal.empty()) {
-    throw EssentiaException("OnsetRate: empty input signal");
+    throw SonoriaException("OnsetRate: empty input signal");
   }
 
   // Pre-processing

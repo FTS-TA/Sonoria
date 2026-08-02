@@ -77,7 +77,7 @@ void GFCC::compute() {
        _logbands[i] = bands[i];
      }
      else {
-       throw EssentiaException("GFCC: Bad 'logType' parameter");
+       throw SonoriaException("GFCC: Bad 'logType' parameter");
      }
   }
 

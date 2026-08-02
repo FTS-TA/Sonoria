@@ -52,7 +52,7 @@ void SaturationDetector::configure() {
   _minimumDuration = parameter("minimumDuration").toReal() / 1000.f;
 
   if (_frameSize < _hopSize)
-    throw(EssentiaException(
+    throw(SonoriaException(
         "SaturationDetector: hopSize has to be smaller or equal than the input "
         "frame size"));
 
@@ -136,7 +136,7 @@ void SaturationDetector::compute() {
   // when dessigning the algorithm.
   if (uFlanks.size() != dFlanks.size())
     throw(
-        EssentiaException("SaturationDetector: At this point rising and "
+        SonoriaException("SaturationDetector: At this point rising and "
                           "falling are expected to have the same length!"));
 
   // Output the saturated regions.

@@ -46,7 +46,7 @@ class FileOutputProxy : public Algorithm {
 
   AlgorithmStatus process() {
     if (!_configured) {
-      throw EssentiaException("FileOutputProxy: trying to run without proper configuration.");
+      throw SonoriaException("FileOutputProxy: trying to run without proper configuration.");
     }
     return _file->process();
   }

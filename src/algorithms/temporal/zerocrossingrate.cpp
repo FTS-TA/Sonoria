@@ -49,7 +49,7 @@ void ZeroCrossingRate::compute() {
   const std::vector<Real>& signal = _signal.get();
   Real& zeroCrossingRate = _zeroCrossingRate.get();
 
-  if (signal.empty()) throw EssentiaException("ZeroCrossingRate: the input signal is empty");
+  if (signal.empty()) throw SonoriaException("ZeroCrossingRate: the input signal is empty");
 
   zeroCrossingRate = 0.0;
   Real val = signal[0];

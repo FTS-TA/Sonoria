@@ -58,7 +58,7 @@ jobs:
           ffmpeg \
           libsamplerate \
           taglib \
-          yaml-cpp \
+          libyaml \
           chromaprint
 
     - name: Install dependencies (Windows)

@@ -49,7 +49,7 @@ void DCT::configure() {
     createDctTableIII(inputSize, _outputSize);
   }
   else {
-    throw EssentiaException("Bad DCT type.");
+    throw SonoriaException("Bad DCT type.");
   }
 }
 
@@ -57,7 +57,7 @@ void DCT::createDctTableII(int inputSize, int outputSize) {
   // simple implementation using matrix multiplication, can probably be sped up
   // using a library like FFTW, for instance.
   if (outputSize > inputSize) {
-    throw EssentiaException("DCT: 'outputSize' is greater than 'inputSize'. You can only compute the DCT with an output size smaller than the input size (i.e. you can only compress information)");
+    throw SonoriaException("DCT: 'outputSize' is greater than 'inputSize'. You can only compute the DCT with an output size smaller than the input size (i.e. you can only compress information)");
   }
 
   _dctTable = vector<vector<Real> >(outputSize, vector<Real>(inputSize));
@@ -83,7 +83,7 @@ void DCT::createDctTableIII(int inputSize, int outputSize) {
   // simple implementation using matrix multiplication, can probably be sped up
   // using a library like FFTW, for instance.
   if (outputSize > inputSize) {
-    throw EssentiaException("DCT: 'outputSize' is greater than 'inputSize'. You can only compute the DCT with an output size smaller than the input size (i.e. you can only compress information)");
+    throw SonoriaException("DCT: 'outputSize' is greater than 'inputSize'. You can only compute the DCT with an output size smaller than the input size (i.e. you can only compress information)");
   }
 
   _dctTable = vector<vector<Real> >(outputSize, vector<Real>(inputSize));
@@ -129,7 +129,7 @@ void DCT::compute() {
   int inputSize = int(array.size());
 
   if (inputSize == 0) {
-    throw EssentiaException("DCT: input array cannot be of size 0");
+    throw SonoriaException("DCT: input array cannot be of size 0");
   }
 
   if (_dctTable.empty() ||
@@ -142,7 +142,7 @@ void DCT::compute() {
       createDctTableIII(inputSize, _outputSize);
     }
     else {
-      throw EssentiaException("Bad DCT type.");
+      throw SonoriaException("Bad DCT type.");
     }
   }
 

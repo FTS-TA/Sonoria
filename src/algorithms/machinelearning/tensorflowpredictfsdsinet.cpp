@@ -218,7 +218,7 @@ void TensorflowPredictFSDSINet::compute() {
   vector<Real> normalizedSignal;
 
   if (!signal->size()) {
-    throw EssentiaException("TensorflowPredictFSDSINet: empty input signal");
+    throw SonoriaException("TensorflowPredictFSDSINet: empty input signal");
   }
 
   if (_normalize) {
@@ -235,7 +235,7 @@ void TensorflowPredictFSDSINet::compute() {
   try {
     predictions = _pool.value<vector<vector<Real> > >("predictions");
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     predictions.clear();
   }
 

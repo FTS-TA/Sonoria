@@ -170,7 +170,7 @@ int main(int argc, char* argv[]) {
     try {
       compute(audioFilename, outputFilename, neqOutputFilename, startTime, endTime, pool, oldPool, options);
     }
-    catch (EssentiaException& e) {
+    catch (SonoriaException& e) {
       cout << e.what() << endl;
     }
   }
@@ -208,7 +208,7 @@ void computeSegments(const string& audioFilename, Real startTime, Real endTime, 
   try {
     features = pool.value<vector<vector<Real> > >("lowlevel.mfcc");
   }
-  catch(const EssentiaException&) {
+  catch(const SonoriaException&) {
     cout << "Error: could not find MFCC features in low level pool. Aborting..." << endl;
     exit(3);
   }
@@ -231,8 +231,8 @@ void computeSegments(const string& audioFilename, Real startTime, Real endTime, 
   try {
     analysisSampleRate = pool.value<Real>("metadata.audio_properties.analysis_sample_rate");
   }
-  catch(const EssentiaException& e) {
-    throw EssentiaException("Warning: StreamingSchizoExtractor::computeSegments, could not find analysis sampling rate: ", e.what());
+  catch(const SonoriaException& e) {
+    throw SonoriaException("Warning: StreamingSchizoExtractor::computeSegments, could not find analysis sampling rate: ", e.what());
   }
   for (int i=0; i<int(segments.size()); ++i) {
     segments[i] *= Real(lowlevelHopSize)/analysisSampleRate;
@@ -289,7 +289,7 @@ void computeReplayGain(const string& audioFilename, Real startTime, Real endTime
       length = audio_1->output("audio").totalProduced();
       tryReallyHard = false;
     }
-    catch (EssentiaException&) {
+    catch (SonoriaException&) {
       cout << "ERROR: File is a completely silent file... Aborting..." << endl;
       exit(2);
     }
@@ -353,15 +353,15 @@ void computeLowLevel(const string& audioFilename, Real startTime, Real endTime,
   try {
     analysisSampleRate = pool.value<Real>("metadata.audio_properties.analysis_sample_rate");
   }
-  catch(const EssentiaException& e) {
-    throw EssentiaException("Warning: StreamingExtractor::computeLowLevel, could not find analysis sampling rate: ", e.what());
+  catch(const SonoriaException& e) {
+    throw SonoriaException("Warning: StreamingExtractor::computeLowLevel, could not find analysis sampling rate: ", e.what());
   }
   string downmix = "mix";
   try {
     downmix = pool.value<string>("metadata.audio_properties.downmix");
   }
-  catch (const EssentiaException&) {
-    throw EssentiaException("StreamingExtractor::computeLowLevel, could not determine downmix type");
+  catch (const SonoriaException&) {
+    throw SonoriaException("StreamingExtractor::computeLowLevel, could not determine downmix type");
   }
 
   streaming::AlgorithmFactory& factory = streaming::AlgorithmFactory::instance();
@@ -463,7 +463,7 @@ void computeLowLevel(const string& audioFilename, Real startTime, Real endTime,
   try {
     pool.value<vector<Real> >(llspace + "loudness");
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     cout << "ERROR: File is too short (< 2sec)... Aborting..." << endl;
     exit(1);
   }
@@ -500,15 +500,15 @@ void computeMidLevel(const string& audioFilename, Real startTime, Real endTime,
   try {
     analysisSampleRate = pool.value<Real>("metadata.audio_properties.analysis_sample_rate");
   }
-  catch(const EssentiaException&) {
-    throw EssentiaException("Warning: StreamingExtractor::computeMidLevel, could not find analysis sampling rate");
+  catch(const SonoriaException&) {
+    throw SonoriaException("Warning: StreamingExtractor::computeMidLevel, could not find analysis sampling rate");
   }
   string downmix = "mix";
   try {
     downmix = pool.value<string>("metadata.audio_properties.downmix");
   }
-  catch (const EssentiaException&) {
-    throw EssentiaException("StreamingExtractor::computeLowLevel, could not determine downmix type");
+  catch (const SonoriaException&) {
+    throw SonoriaException("StreamingExtractor::computeLowLevel, could not determine downmix type");
   }
 
   streaming::AlgorithmFactory& factory = streaming::AlgorithmFactory::instance();

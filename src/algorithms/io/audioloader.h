@@ -100,12 +100,12 @@ class AudioLoader : public Algorithm {
     // use av_malloc, allocate bytes; interpret as float* when needed
     _buffer = (uint8_t*)av_malloc(FFMPEG_BUFFER_SIZE);
     if (!_buffer) {
-      throw EssentiaException("Error allocating FFmpeg buffer");
+      throw SonoriaException("Error allocating FFmpeg buffer");
     }
 
     _md5Encoded = av_md5_alloc();
     if (!_md5Encoded) {
-        throw EssentiaException("Error allocating the MD5 context");
+        throw SonoriaException("Error allocating the MD5 context");
     }
   }
 

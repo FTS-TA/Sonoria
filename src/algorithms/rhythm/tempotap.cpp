@@ -59,14 +59,14 @@ void TempoTap::configure() {
   Real maxTempo = parameter("maxTempo").toInt();
 
   if (maxTempo < minTempo + 20) {
-    throw EssentiaException("maxTempo should be larger than minTempo + 20");
+    throw SonoriaException("maxTempo should be larger than minTempo + 20");
   }
 
   _numberFrames = parameter("numberFrames").toInt();
   _frameHop = parameter("frameHop").toInt();
 
   if (_numberFrames < _frameHop) {
-    throw EssentiaException("frameHop should be smaller or equal to numberFrames");
+    throw SonoriaException("frameHop should be smaller or equal to numberFrames");
   }
 
   _frameTime = parameter("frameSize").toReal() / parameter("sampleRate").toReal();
@@ -115,7 +115,7 @@ void TempoTap::configure() {
       }
     }
     else {
-      throw EssentiaException("TempoTap: tempoHints were not found to match any realistic BPM value");
+      throw SonoriaException("TempoTap: tempoHints were not found to match any realistic BPM value");
     }
   }
 

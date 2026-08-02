@@ -96,7 +96,7 @@ void Intensity::compute() {
   _frameCutter->compute();
 
   if (frame.empty()) {
-    throw EssentiaException("Intensity: the intensity of empty input is undefined.");
+    throw SonoriaException("Intensity: the intensity of empty input is undefined.");
   }
 
   // compute descriptors

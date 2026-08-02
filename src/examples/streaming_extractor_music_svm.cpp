@@ -129,7 +129,7 @@ int main(int argc, char* argv[]) {
     
     extractor = AlgorithmFactory::create("MusicExtractorSVM", "svms", svmModels);
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     cerr << e.what() << endl;
     return 1;
   }
@@ -146,7 +146,7 @@ int main(int argc, char* argv[]) {
       try {
         process_single_file(extractor, inputFilename, outputFilename, format, options);
       // On Essentia Exception for a single file, skip it
-      } catch (EssentiaException& e) {
+      } catch (SonoriaException& e) {
         cerr << "skipping " << inputFilename << " due to error: " << e.what() << endl;
       }
   }
@@ -155,7 +155,7 @@ int main(int argc, char* argv[]) {
     delete extractor;
     sonoria::shutdown();
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     cout << e.what() << endl;
     return 1;
   }

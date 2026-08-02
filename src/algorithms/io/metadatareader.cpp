@@ -197,7 +197,7 @@ void MetadataReader::configure() {
 
 void MetadataReader::compute() {
   if (!parameter("filename").isConfigured()) {
-    throw EssentiaException("MetadataReader: 'filename' parameter has not been configured");
+    throw SonoriaException("MetadataReader: 'filename' parameter has not been configured");
   }
 
 #ifdef _WIN32
@@ -225,9 +225,9 @@ void MetadataReader::compute() {
       // 24bit or 32bit float files, therefore, print a warning
       E_WARNING("MetadataReader: TagLib could not get metadata for this file. The output bitrate is estimated treating the input as 16-bit PCM, and therefore may be incorrect.");
     }
-    catch (EssentiaException& e) {
+    catch (SonoriaException& e) {
       if (parameter("failOnError").toBool())
-        throw EssentiaException("MetadataReader: File does not exist or does not seem to be of a supported filetype. ", e.what());
+        throw SonoriaException("MetadataReader: File does not exist or does not seem to be of a supported filetype. ", e.what());
     }
 
     _title.get()   = "";
@@ -320,9 +320,9 @@ AlgorithmStatus MetadataReader::process() {
     try {
       pcmMetadata(_filename, pcmSampleRate, pcmChannels, pcmBitrate);
     }
-    catch (EssentiaException& e) {
+    catch (SonoriaException& e) {
       if (parameter("failOnError").toBool())
-        throw EssentiaException("MetadataReader: File does not exist or does not seem to be of a supported filetype. ", e.what());
+        throw SonoriaException("MetadataReader: File does not exist or does not seem to be of a supported filetype. ", e.what());
     }
     string ns = "";
     _title.push(ns);

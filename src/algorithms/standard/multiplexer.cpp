@@ -64,7 +64,7 @@ SinkBase& Multiplexer::input(const string& name) {
     int inputNumber;
     parser >> inputNumber;
     if (inputNumber > int(_realInputs.size())) {
-      throw EssentiaException("Multiplexer: not enough real inputs: ", inputNumber);
+      throw SonoriaException("Multiplexer: not enough real inputs: ", inputNumber);
     }
     return *_realInputs[inputNumber];
   }
@@ -74,13 +74,13 @@ SinkBase& Multiplexer::input(const string& name) {
     int inputNumber;
     parser >> inputNumber;
     if (inputNumber > int(_vectorRealInputs.size())) {
-      throw EssentiaException("Multiplexer: not enough vector<real> inputs: ", inputNumber);
+      throw SonoriaException("Multiplexer: not enough vector<real> inputs: ", inputNumber);
     }
     return *_vectorRealInputs[inputNumber];
   }
 
   else {
-    throw EssentiaException("unknown input name: ", name);
+    throw SonoriaException("unknown input name: ", name);
   }
 }
 
@@ -162,7 +162,7 @@ InputBase& Multiplexer::input(const string& name) {
     int inputNumber;
     parser >> inputNumber;
     if (inputNumber > int(_realInputs.size())) {
-      throw EssentiaException("Multiplexer: not enough real inputs: ", inputNumber);
+      throw SonoriaException("Multiplexer: not enough real inputs: ", inputNumber);
     }
     return *_realInputs[inputNumber];
   }
@@ -172,13 +172,13 @@ InputBase& Multiplexer::input(const string& name) {
     int inputNumber;
     parser >> inputNumber;
     if (inputNumber > int(_vectorRealInputs.size())) {
-      throw EssentiaException("Multiplexer: not enough vector<real> inputs: ", inputNumber);
+      throw SonoriaException("Multiplexer: not enough vector<real> inputs: ", inputNumber);
     }
     return *_vectorRealInputs[inputNumber];
   }
 
   else {
-    throw EssentiaException("unknown input name: ", name);
+    throw SonoriaException("unknown input name: ", name);
   }
 }
 
@@ -189,12 +189,12 @@ void Multiplexer::compute() {
     int nFrames = 0;
     if (int(_realInputs.size())) nFrames = _realInputs[0]->get().size();
     else if (int(_vectorRealInputs.size())) nFrames = _vectorRealInputs[0]->get().size();
-    else throw EssentiaException("Multiplexer: no inputs available");
+    else throw SonoriaException("Multiplexer: no inputs available");
 
     for (int i=0; i<int(_realInputs.size()); i++) {
       const vector<Real> vec = _realInputs[i]->get();
       if (int(vec.size()) != nFrames) {
-        throw EssentiaException("Multiplexer: inputs with different length are not allowed");
+        throw SonoriaException("Multiplexer: inputs with different length are not allowed");
       }
       //size += vec.size();
     }
@@ -203,7 +203,7 @@ void Multiplexer::compute() {
       int maxVecSize = 0;
       const vector<vector<Real> >& frame = _vectorRealInputs[i]->get();
       if (int(frame.size()) != nFrames) {
-        throw EssentiaException("Multiplexer: inputs with different length are not allowed");
+        throw SonoriaException("Multiplexer: inputs with different length are not allowed");
       }
       for (int j=0; j<nFrames;++j) {
         if (int(frame[j].size()) > maxVecSize) maxVecSize = frame.size();

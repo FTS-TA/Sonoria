@@ -50,11 +50,11 @@ void ClickDetector::configure() {
 
   if (_frameSize <= _order)
     throw(
-      EssentiaException("ClickDetector: the number of LPC coefficientes has to be smaller "
+      SonoriaException("ClickDetector: the number of LPC coefficientes has to be smaller "
                         "than the size of the input frame"));
 
   if (_frameSize < _hopSize)
-    throw(EssentiaException(
+    throw(SonoriaException(
       "ClickDetector: hopSize has to be smaller or equal than the input frame size"));
 
   _startProc = int(_frameSize / 2 - _hopSize / 2);

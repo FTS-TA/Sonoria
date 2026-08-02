@@ -90,13 +90,13 @@ void NSGIConstantQ::designWindow() {
 
   // Some sanity checks after computing Nyquist frequency.
   if (_minFrequency < 0) {
-    throw EssentiaException("NSGIConstantQ: 'minimumFrequency' parameter is out of the range (0 - fs/2)");
+    throw SonoriaException("NSGIConstantQ: 'minimumFrequency' parameter is out of the range (0 - fs/2)");
   }
   if (_maxFrequency > nf) {
-    throw EssentiaException("NSGIConstantQ: 'maximunFrequency' parameter is out of the range (0 - fs/2)");
+    throw SonoriaException("NSGIConstantQ: 'maximunFrequency' parameter is out of the range (0 - fs/2)");
   }
   if (_minFrequency >= _maxFrequency) {
-    throw EssentiaException("NSGIConstantQ: 'minimumFrequency' has to be lower than 'maximunFrequency'");
+    throw SonoriaException("NSGIConstantQ: 'minimumFrequency' has to be lower than 'maximunFrequency'");
   }
 
 
@@ -119,7 +119,7 @@ void NSGIConstantQ::designWindow() {
   if (_baseFreqs[0] - cqtbw[0] / 2 < 0) {
     E_INFO("NSGIConstantQ: Attempted to create a band with a low bound of "
            << _baseFreqs[0] - cqtbw[0] << "Hz");
-    throw EssentiaException("NSGConstantQ: Attempted to create a filter below frequency 0");
+    throw SonoriaException("NSGConstantQ: Attempted to create a filter below frequency 0");
   }
   if (_baseFreqs[b] + cqtbw[b] / 2 > nf) {
     _baseFreqs.pop_back();
@@ -299,7 +299,7 @@ void NSGIConstantQ::compute() {
   CQ.insert(CQ.begin(), constantQDC);
 
   if ((int)CQ.size() != _N) {
-    throw EssentiaException(
+    throw SonoriaException(
         "NSGIConstantQ: input data donesn't match the shape of the generated "
         "dual frames. Make sure to configure this algorithm with the same "
         "parameters used in the analysis by NSGConstantQ");

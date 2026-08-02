@@ -24,7 +24,7 @@ void SpectrumToCent::configure() {
   _minFrequency = parameter("minimumFrequency").toReal();
 
   if ( _minFrequency >= _sampleRate / 2 ) {
-    throw EssentiaException("SpectrumToCent: 'minimumFrequency' parameter is out of the range (0 - fs/2)");
+    throw SonoriaException("SpectrumToCent: 'minimumFrequency' parameter is out of the range (0 - fs/2)");
   }
 
   _centBinRes= parameter("centBinResolution").toReal();
@@ -34,7 +34,7 @@ void SpectrumToCent::configure() {
 
   if ( _bandFrequencies.back() > _sampleRate / 2 ) {
     E_INFO("Attempted to create bands up to " << _bandFrequencies.back() << "Hz with a Nyquist frequency of " << _sampleRate / 2 << "Hz.");
-    throw EssentiaException("SpectrumToCent: Band frequencies cannot be above the Nyquist frequency.");
+    throw SonoriaException("SpectrumToCent: Band frequencies cannot be above the Nyquist frequency.");
   }
 
   _triangularBands->configure(INHERIT("inputSize"),
@@ -52,7 +52,7 @@ void SpectrumToCent::compute() {
   vector<Real>& freqs = _freqOutput.get();
 
   if (spectrum.size() <= 1) {
-    throw EssentiaException("SpectrumToCent: the size of the input spectrum is not greater than one");
+    throw SonoriaException("SpectrumToCent: the size of the input spectrum is not greater than one");
   }
 
   Real frequencyScale = (_sampleRate / 2.0) / (spectrum.size() - 1);
@@ -70,7 +70,7 @@ void SpectrumToCent::compute() {
     if (endBin > int(spectrum.size())) endBin = spectrum.size();
 
     if ((midBin == startBin) || (midBin == endBin) || (endBin == startBin)) {
-      throw EssentiaException("SpectrumToCent: the number of spectrum bins is insufficient to compute the band (",
+      throw SonoriaException("SpectrumToCent: the number of spectrum bins is insufficient to compute the band (",
                               _bandFrequencies[i+1], "Hz). Use zero padding to increase the number of FFT bins.");
     }
   }

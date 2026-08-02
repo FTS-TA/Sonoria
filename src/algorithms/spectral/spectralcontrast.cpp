@@ -45,11 +45,11 @@ void SpectralContrast::configure() {
 
   Real upperBound = parameter("highFrequencyBound").toReal();
   if (upperBound > parameter("sampleRate").toReal() / 2)
-    throw EssentiaException("SpectralContrast: highFrequencyBound cannot be higher than the Nyquist frequency");
+    throw SonoriaException("SpectralContrast: highFrequencyBound cannot be higher than the Nyquist frequency");
 
   Real lowerBound = parameter("lowFrequencyBound").toReal();
   if (lowerBound >= upperBound)
-    throw EssentiaException("SpectralContrast: lowFrequencyBound cannot be higher than highFrequencyBound");
+    throw SonoriaException("SpectralContrast: lowFrequencyBound cannot be higher than highFrequencyBound");
 
   int numberBands = parameter("numberBands").toInt();
 
@@ -87,7 +87,7 @@ void SpectralContrast::compute() {
   if (int(spectrum.size()) != _frameSize/2 + 1) {
     ostringstream msg;
     msg << "SpectralContrast: the size of the input spectrum should be half the frameSize parameter + 1. Current spectrum size is: " << spectrum.size() << " while frameSize is " << _frameSize;
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
   //substitute minReal for a static value that is the same in all architectures. i.e.: 1e-30
   Real minReal = 1e-30; //numeric_limits<Real>::min();

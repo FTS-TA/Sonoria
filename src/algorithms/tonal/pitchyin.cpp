@@ -53,7 +53,7 @@ void PitchYin::configure() {
   _tauMin = min(int(floor(_sampleRate / parameter("maxFrequency").toReal())), _frameSize/2);
 
   if (_tauMax <= _tauMin) {
-    throw EssentiaException("PitchYin: maxFrequency is lower than minFrequency, or they are too close, or they are out of the interval of detectable frequencies with respect to the specified frameSize.");
+    throw SonoriaException("PitchYin: maxFrequency is lower than minFrequency, or they are too close, or they are out of the interval of detectable frequencies with respect to the specified frameSize.");
   }
 
   _peakDetectLocal->configure("interpolate", _interpolate,
@@ -76,7 +76,7 @@ void PitchYin::configure() {
 void PitchYin::compute() {
   const vector<Real>& signal = _signal.get();
   if (signal.empty()) {
-    throw EssentiaException("PitchYin: Cannot compute pitch detection on empty signal frame.");
+    throw SonoriaException("PitchYin: Cannot compute pitch detection on empty signal frame.");
   }
   if ((int) signal.size() != _frameSize) {
     Algorithm::configure( "frameSize", int(signal.size()) );

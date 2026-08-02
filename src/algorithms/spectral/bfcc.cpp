@@ -127,7 +127,7 @@ void BFCC::setCompressor(std::string logType){
     _compressor = log;
   }
   else{
-    throw EssentiaException("BFCC: Bad 'logType' parameter");
+    throw SonoriaException("BFCC: Bad 'logType' parameter");
   }
 
 }

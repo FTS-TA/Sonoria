@@ -40,11 +40,11 @@ void Entropy::compute() {
     Real& entropy = _entropy.get();
     
     if (array.size() == 0) {
-        throw EssentiaException("Entropy: array does not contain any values");
+        throw SonoriaException("Entropy: array does not contain any values");
     }
     
     if (find_if(array.begin(), array.end(), [](Real value){ return value < 0; }) != array.end()) {
-        throw EssentiaException("Entropy: array must not contain negative values");
+        throw SonoriaException("Entropy: array must not contain negative values");
     }
     
     normalizeSum(array);

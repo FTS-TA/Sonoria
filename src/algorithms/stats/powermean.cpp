@@ -40,7 +40,7 @@ void PowerMean::compute() {
   const std::vector<Real>& array = _array.get();
   Real& powerMean = _powerMean.get();
 
-  if (array.empty()) throw EssentiaException("PowerMean: input array is empty");
+  if (array.empty()) throw SonoriaException("PowerMean: input array is empty");
 
   powerMean = 0.0;
 
@@ -55,7 +55,7 @@ void PowerMean::compute() {
   else {
     for (int i = 0; i < int(array.size()); ++i) {
       if (array[i] < 0.0) {
-        throw EssentiaException("PowerMean: input array contains non-positive real numbers (e.g. ", array[i], ")");
+        throw SonoriaException("PowerMean: input array contains non-positive real numbers (e.g. ", array[i], ")");
       }
       powerMean += powf(array[i], p);
     }

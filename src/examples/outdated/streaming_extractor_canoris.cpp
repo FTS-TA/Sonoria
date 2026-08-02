@@ -94,14 +94,14 @@ int main(int argc, char* argv[]) {
   bool eqloud =  options.value<Real>("equalLoudness")  != 0;
 
   if (!eqloud && !neqloud) {
-    throw EssentiaException("Configuration for both equal loudness and non\
+    throw SonoriaException("Configuration for both equal loudness and non\
        equal loudness is set to false. At least one must set to true");
   }
 
   try {
     compute(audioFilename, outputFilename, neqloudPool, eqloudPool, options);
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     cout << e.what() << endl;
     throw;
   }
@@ -235,7 +235,7 @@ void computeSegments(const string& audioFilename, Pool& neqloudPool,
       features = eqloudPool.value<vector<vector<Real> > >("lowlevel.mfcc");
     else features = neqloudPool.value<vector<vector<Real> > >("lowlevel.mfcc");
   }
-  catch(const EssentiaException&) {
+  catch(const SonoriaException&) {
     cout << "Error: could not find MFCC features in low level pool. Aborting..." << endl;
     exit(3);
   }
@@ -318,7 +318,7 @@ void computeReplayGain(const string& audioFilename, Pool& neqloudPool, Pool& eql
       tryReallyHard = false;
     }
 
-    catch (const EssentiaException&) {
+    catch (const SonoriaException&) {
       if (downmix == "mix") {
         downmix = "left";
         try {
@@ -327,7 +327,7 @@ void computeReplayGain(const string& audioFilename, Pool& neqloudPool, Pool& eql
           eqloudPool.remove("metadata.audio_properties.downmix");
           eqloudPool.remove("metadata.audio_properties.replay_gain");
         }
-        catch (EssentiaException&) {}
+        catch (SonoriaException&) {}
 
         continue;
       }
@@ -544,7 +544,7 @@ void computeLowLevel(const string& audioFilename, Pool& neqloudPool, Pool& eqlou
       if (eqloud) eqloudPool.value<vector<Real> >(llspace + "loudness")[0];
       else neqloudPool.value<vector<Real> >(llspace + "loudness")[0];
     }
-    catch (EssentiaException&) {
+    catch (SonoriaException&) {
       cout << "ERROR: File is too short (< 2sec)... Aborting..." << endl;
       exit(6);
     }

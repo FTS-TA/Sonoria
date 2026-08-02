@@ -48,7 +48,7 @@ void PeakDetection::configure() {
   _minPeakDistance = parameter("minPeakDistance").toReal();
 
   if (_minPos >= _maxPos) {
-    throw EssentiaException("PeakDetection: The minimum position has to be less than the maximum position");
+    throw SonoriaException("PeakDetection: The minimum position has to be less than the maximum position");
   }
 
   // blunt test to make sure some compiler which we won't name isn't going berserk...
@@ -66,7 +66,7 @@ void PeakDetection::compute() {
   const int size = (int)array.size();
 
   if (size < 2) {
-    throw EssentiaException("PeakDetection: The size of the array must be at least 2, for the peak detection to work");
+    throw SonoriaException("PeakDetection: The size of the array must be at least 2, for the peak detection to work");
   }
 
   // dividing by array.size()-1 means the last bin is included in the range
@@ -210,7 +210,7 @@ void PeakDetection::compute() {
       // already sorted by amplitude
     }
     else {
-      throw EssentiaException("PeakDetection: Unsupported ordering type: '" + _orderBy + "'");
+      throw SonoriaException("PeakDetection: Unsupported ordering type: '" + _orderBy + "'");
     }
 
   } else {
@@ -226,7 +226,7 @@ void PeakDetection::compute() {
       // already sorted by position
     }
     else {
-      throw EssentiaException("PeakDetection: Unsupported ordering type: '" + _orderBy + "'");
+      throw SonoriaException("PeakDetection: Unsupported ordering type: '" + _orderBy + "'");
     }
   }
 

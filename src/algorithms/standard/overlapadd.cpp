@@ -109,7 +109,7 @@ void OverlapAdd::compute() {
 
   //vector<AudioSample>& audio = _audio.get();
 
-  if (windowedFrame.empty()) throw EssentiaException("OverlapAdd: the input frame is empty");
+  if (windowedFrame.empty()) throw SonoriaException("OverlapAdd: the input frame is empty");
 
   output.resize(_hopSize);
 
@@ -168,7 +168,7 @@ AlgorithmStatus OverlapAdd::process() {
   assert(frames.size() == 1 && (int) output.size() == _hopSize);
   const vector<Real> & windowedFrame = frames[0];
 
-  if (windowedFrame.empty()) throw EssentiaException("OverlapAdd: the input frame is empty");
+  if (windowedFrame.empty()) throw SonoriaException("OverlapAdd: the input frame is empty");
 
   processFrame(_tmpFrame, windowedFrame, output, _frameHistory, _frameSize,
                _hopSize, _normalizationGain);

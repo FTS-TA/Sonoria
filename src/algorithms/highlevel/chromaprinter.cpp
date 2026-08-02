@@ -48,7 +48,7 @@ void Chromaprinter::compute() {
   if (inputSize > signal.size()) inputSize = signal.size();
 
   if (inputSize <= 0) {
-    throw EssentiaException("Chromaprinter: the number of samples to compute Chromaprint should be grater than 0 but it is ", inputSize);
+    throw SonoriaException("Chromaprinter: the number of samples to compute Chromaprint should be grater than 0 but it is ", inputSize);
   }
 
   // Copy the signal to new vector to expand it to the int16_t dynamic range before the cast.
@@ -66,23 +66,23 @@ void Chromaprinter::compute() {
 
   ok = chromaprint_start(_ctx, (int)_sampleRate, num_channels);
   if (!ok) {
-    throw EssentiaException("Chromaprinter: chromaprint_start returned error");
+    throw SonoriaException("Chromaprinter: chromaprint_start returned error");
   }
 
   ok = chromaprint_feed(_ctx, &signalCast[0], inputSize);
   if (!ok) {
-    throw EssentiaException("Chromaprinter: chromaprint_feed returned error");
+    throw SonoriaException("Chromaprinter: chromaprint_feed returned error");
   }
 
   ok = chromaprint_finish(_ctx);
   if (!ok) {
-    throw EssentiaException("Chromaprinter: chromaprint_finish returned error");
+    throw SonoriaException("Chromaprinter: chromaprint_finish returned error");
   }
 
   char *fp;
   ok = chromaprint_get_fingerprint(_ctx, &fp);
   if (!ok) {
-    throw EssentiaException("Chromaprinter: chromaprint_get_fingerprint returned error");
+    throw SonoriaException("Chromaprinter: chromaprint_get_fingerprint returned error");
   }
 
   fingerprint = const_cast<char*>(fp);
@@ -202,7 +202,7 @@ void Chromaprinter::initChromaprint(){
 
   _ok = chromaprint_start(_ctx, (int)_sampleRate, num_channels);
     if (!_ok) {
-      throw EssentiaException("Chromaprinter: chromaprint_start returned error");
+      throw SonoriaException("Chromaprinter: chromaprint_start returned error");
     }
 }
 
@@ -210,18 +210,18 @@ std::string Chromaprinter::getChromaprint(){
 
   _ok = chromaprint_feed(_ctx, &_buffer[0], _chromaprintSize);
   if (!_ok) {
-    throw EssentiaException("Chromaprinter: chromaprint_feed returned error");
+    throw SonoriaException("Chromaprinter: chromaprint_feed returned error");
   }
 
   _ok = chromaprint_finish(_ctx);
   if (!_ok) {
-    throw EssentiaException("Chromaprinter: chromaprint_finish returned error");
+    throw SonoriaException("Chromaprinter: chromaprint_finish returned error");
   }
 
   char *fp;
   _ok = chromaprint_get_fingerprint(_ctx, &fp);
   if (!_ok) {
-    throw EssentiaException("Chromaprinter: chromaprint_get_fingerprint returned error");
+    throw SonoriaException("Chromaprinter: chromaprint_get_fingerprint returned error");
   }
 
   std::string chromaprint = const_cast<char*>(fp);

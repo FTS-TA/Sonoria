@@ -387,7 +387,7 @@ int essentia_main(string audioFilename, string outputFilename) {
     sonoria::shutdown();
     cout << "-------- Done! ---------" << endl;
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     cerr << e.what() << endl;
     return 1;
   }

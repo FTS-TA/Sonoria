@@ -83,7 +83,7 @@ void HighResolutionFeatures::compute() {
   const int binsPerSemitone = hpcpSize / 12;
 
   if (hpcpSize % 12 != 0 || hpcpSize == 0) {
-    throw EssentiaException("HighResolutionFeatures: Cannot compute high-resolution features of an hpcp vector which size is not a non-zero multiple of 12");
+    throw SonoriaException("HighResolutionFeatures: Cannot compute high-resolution features of an hpcp vector which size is not a non-zero multiple of 12");
   }
 
   // 1.- Equal-temperament deviation: measure of the deviation of HPCP local

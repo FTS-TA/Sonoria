@@ -43,7 +43,7 @@ void SpectralPeaks::configure() {
     orderBy = "position";
   }
   else {
-    throw EssentiaException("Unsupported ordering type: '" + orderBy + "'");
+    throw SonoriaException("Unsupported ordering type: '" + orderBy + "'");
   }
 
   _peakDetect->configure("interpolate", true,

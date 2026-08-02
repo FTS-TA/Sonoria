@@ -88,7 +88,7 @@ void TuningFrequency::compute() {
   const vector<Real>& magnitudes = _magnitudes.get();
 
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("TuningFrequency: Frequency and magnitude vector have different size");
+    throw SonoriaException("TuningFrequency: Frequency and magnitude vector have different size");
   }
 
   if (magnitudes.empty()) {
@@ -118,7 +118,7 @@ void TuningFrequency::compute() {
       index = 0;
     }
     //if (index >= (int)_histogram.size() || index < 0) { // this case will never occur
-    //  throw EssentiaException("TuningFrequency: Index smaller or equal to zero.");
+    //  throw SonoriaException("TuningFrequency: Index smaller or equal to zero.");
     //}
 
 

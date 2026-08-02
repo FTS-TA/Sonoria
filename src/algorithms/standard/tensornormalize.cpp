@@ -41,7 +41,7 @@ const char* TensorNormalize::description = DOC("This algorithm performs normaliz
     if (name == "standard") return STANDARD;
     if (name == "minMax") return MINMAX;
 
-    throw EssentiaException("TensorNormalize: Unknown scaler type: ", name);
+    throw SonoriaException("TensorNormalize: Unknown scaler type: ", name);
   }
 
   void TensorNormalize::configure() {
@@ -140,7 +140,7 @@ void TensorNormalize::compute() {
       break;
     }
     default: {
-      throw EssentiaException("TensorNormalize: Unknown scaler type.");
+      throw SonoriaException("TensorNormalize: Unknown scaler type.");
     }
   }
 

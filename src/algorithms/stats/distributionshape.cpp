@@ -48,7 +48,7 @@ void DistributionShape::compute() {
   Real& kurtosis = _kurtosis.get();
 
   if (centralMoments.size() != 5) {
-    throw EssentiaException("DistributionShape: the size of 'centralMoments' input is not 5");
+    throw SonoriaException("DistributionShape: the size of 'centralMoments' input is not 5");
   }
 
   spread = centralMoments[2];

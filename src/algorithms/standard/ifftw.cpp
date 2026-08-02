@@ -53,7 +53,7 @@ void IFFTW::compute() {
   // check if input is OK
   int size = ((int)fft.size()-1)*2;
   if (size <= 0) {
-    throw EssentiaException("IFFT: Input size cannot be 0 or 1");
+    throw SonoriaException("IFFT: Input size cannot be 0 or 1");
   }
   if ((_fftPlan == 0) ||
       ((_fftPlan != 0) && _fftPlanSize != size)) {

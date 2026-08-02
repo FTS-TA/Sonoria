@@ -33,7 +33,7 @@ MinMax::OpType MinMax::typeFromString(const std::string& name) const {
   if (name == "min") return MIN;
   if (name == "max") return MAX;
 
-  throw EssentiaException("MinMax: Unknown operation: ", name);
+  throw SonoriaException("MinMax: Unknown operation: ", name);
 }
 
 void MinMax::compute() {
@@ -49,10 +49,10 @@ void MinMax::compute() {
       try {
           index = argmin(input);
           value = input[index];
-      } catch (EssentiaException& ex) {
+      } catch (SonoriaException& ex) {
           std::string message = "MinMax: ";
           message = message + ex.what();
-          throw EssentiaException(message);
+          throw SonoriaException(message);
       }
       break;
     }
@@ -62,16 +62,16 @@ void MinMax::compute() {
         try {
             index = argmax(input);
             value = input[index];
-        } catch (EssentiaException& ex) {
+        } catch (SonoriaException& ex) {
             std::string message = "MinMax: ";
             message = message + ex.what();
-            throw EssentiaException(message);
+            throw SonoriaException(message);
         }
       break;
     }
 
   default:
-    throw EssentiaException("MinMax: Unknown operation");
+    throw SonoriaException("MinMax: Unknown operation");
   }
 
   return;

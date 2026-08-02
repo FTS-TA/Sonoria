@@ -147,12 +147,12 @@ void Dissonance::compute() {
   Real& dissonance = _dissonance.get();
 
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("Dissonance: frequency and magnitude input vectors are not the same size");
+    throw SonoriaException("Dissonance: frequency and magnitude input vectors are not the same size");
   }
 
   for (int i=1; i<int(frequencies.size()); i++) {
     if (frequencies[i] < frequencies[i-1]) {
-      throw EssentiaException("Dissonance: spectral peaks must be sorted by frequency");
+      throw SonoriaException("Dissonance: spectral peaks must be sorted by frequency");
     }
   }
 

@@ -53,7 +53,7 @@ void connect(SourceBase& source, FileOutputProxy& file) {
   CREATE_FILE_STORAGE(TNT::Array1D<Real>, file);
   CREATE_FILE_STORAGE(TNT::Array2D<Real>, file);
 
-  if (!fs) throw EssentiaException("FileOutputProxy: File Storage doesn't work for type: ", nameOfType(sourceType));
+  if (!fs) throw SonoriaException("FileOutputProxy: File Storage doesn't work for type: ", nameOfType(sourceType));
   else file.setFileStorage(fs);
 
   connect(source, fs->input("data"));
@@ -61,7 +61,7 @@ void connect(SourceBase& source, FileOutputProxy& file) {
 
 void connect(SourceBase& source, Algorithm& file) {
   FileOutputProxy* proxy = dynamic_cast<FileOutputProxy*>(&file);
-  if (!proxy) throw EssentiaException("Cannot connect source ", source.fullName(), " to algorithm ", file.name());
+  if (!proxy) throw SonoriaException("Cannot connect source ", source.fullName(), " to algorithm ", file.name());
   connect(source, *proxy);
 }
 

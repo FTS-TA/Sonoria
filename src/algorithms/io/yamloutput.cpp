@@ -68,7 +68,7 @@ void YamlOutput::configure() {
   }
   _writeVersion = parameter("writeVersion").toBool();
 
-  if (_filename == "") throw EssentiaException("please provide a valid filename");
+  if (_filename == "") throw SonoriaException("please provide a valid filename");
 }
 
 
@@ -252,14 +252,14 @@ void emitYaml(StreamType* s, YamlNode* n, const string& indent) {
       *s << " " << *(n->value) << "\n";  // Parameters know how to be emitted to streams
     }
     else { // you should never have this case: a key without any children or associated value
-      throw EssentiaException("YamlOutput: input pool is invalid, contains key with no associated value");
+      throw SonoriaException("YamlOutput: input pool is invalid, contains key with no associated value");
     }
   }
   else {
     // we can make the assumption that this node has no value because the pool
     // doesn't not allow parent nodes to have values
     if (n->value != NULL) {
-      throw EssentiaException(
+      throw SonoriaException(
           "YamlOutput: input pool is invalid, a parent key should not have a"
           "value in addition to child keys");
     }
@@ -301,14 +301,14 @@ void emitJson(StreamType* s, YamlNode* n, int indentsize, int indentincr) {
       }
     }
     else { // you should never have this case: a key without any children or associated value
-      throw EssentiaException("JsonOutput: input pool is invalid, contains key with no associated value");
+      throw SonoriaException("JsonOutput: input pool is invalid, contains key with no associated value");
     }
   }
   else {
     // we can make the assumption that this node has no value because the pool
     // doesn't not allow parent nodes to have values
     if (n->value != NULL) {
-      throw EssentiaException(
+      throw SonoriaException(
           "JsonOutput: input pool is invalid, a parent key should not have a"
           "value in addition to child keys");
     }
@@ -402,14 +402,14 @@ void YamlOutput::compute() {
       // read the file we just wrote...
       ifstream f(_filename.c_str());
       if (!f.good()) {
-        throw EssentiaException("YamlOutput: error when double-checking the output file; it doesn't look like it was written at all");
+        throw SonoriaException("YamlOutput: error when double-checking the output file; it doesn't look like it was written at all");
       }
       ostringstream written;
       // we need to compare using streambuffers or otherwise
       // the check fails on windows due to new lines
       written << f.rdbuf();
       if (written.str() != expected.str()) {
-        throw EssentiaException("YamlOutput: error when double-checking the output file; it doesn't match the expected output");
+        throw SonoriaException("YamlOutput: error when double-checking the output file; it doesn't match the expected output");
       }
     }
   }

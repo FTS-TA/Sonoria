@@ -34,7 +34,7 @@ const char* CrossCorrelation::description = DOC("This algorithm computes the cro
 
 void CrossCorrelation::configure() {
   if (parameter("minLag").toInt() > parameter("maxLag").toInt()) {
-    throw EssentiaException("CrossCorrelation: minLag parameter cannot be larger than maxLag parameter");
+    throw SonoriaException("CrossCorrelation: minLag parameter cannot be larger than maxLag parameter");
   }
 }
 
@@ -45,7 +45,7 @@ void CrossCorrelation::compute() {
   std::vector<Real>& correlation = _correlation.get();
 
   if (signal_x.empty() || signal_y.empty()) {
-    throw EssentiaException("CrossCorrelation: one or both of the input vectors are empty");
+    throw SonoriaException("CrossCorrelation: one or both of the input vectors are empty");
   }
 
   int wantedMinLag = parameter("minLag").toInt();

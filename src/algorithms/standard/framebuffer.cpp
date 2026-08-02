@@ -56,7 +56,7 @@ void FrameBuffer::compute() {
   const vector<Real>& frame = _frame.get();
   vector<Real>& bufferedFrame = _bufferedFrame.get();
 
-  if (frame.empty()) throw EssentiaException("FrameBuffer: the input frame is empty");
+  if (frame.empty()) throw SonoriaException("FrameBuffer: the input frame is empty");
 
   int shift = (int) frame.size();
   

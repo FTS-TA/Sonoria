@@ -183,7 +183,7 @@ void BeatTrackerDegara::compute() {
   try {
     ticks = _pool.value<vector<Real> >("internal.ticks");
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     // no ticks were found because audio signal was too short
     ticks.clear();
   }

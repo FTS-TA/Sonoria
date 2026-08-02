@@ -55,12 +55,12 @@ void CubicSpline::configure() {
   vector<Real> x = parameter("xPoints").toVectorReal();
   vector<Real> y = parameter("yPoints").toVectorReal();
   if (x.size() != y.size() ) {
-    throw EssentiaException("CubicSpline: parameter 'xPoints' must have the same size than parameter 'yPoints')");
+    throw SonoriaException("CubicSpline: parameter 'xPoints' must have the same size than parameter 'yPoints')");
   }
   int size = x.size();
   for (int i=0; i<size-1; ++i) {
     if (x[i]>=x[i+1]) {
-      throw EssentiaException("CubicSpline: parameter 'xPoints' must be in ascendant order and cannot contain duplicates)");
+      throw SonoriaException("CubicSpline: parameter 'xPoints' must be in ascendant order and cannot contain duplicates)");
     }
   }
   _xPoints.resize(size);

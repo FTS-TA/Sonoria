@@ -47,7 +47,7 @@ UnaryOperator::OpType UnaryOperator::typeFromString(const std::string& name) con
   if (name == "sqrt") return SQRT;
   if (name == "square") return SQUARE;
 
-  throw EssentiaException("UnaryOperator: Unknown unary operator type: ", name);
+  throw SonoriaException("UnaryOperator: Unknown unary operator type: ", name);
 }
 
 inline Real square_func(Real x) {
@@ -114,7 +114,7 @@ void UnaryOperator::compute() {
         if (input[i] < 0) {
           std::ostringstream e ;
           e <<  "UnaryOperator: Cannot compute sqrt(" << input[i] << "). Found in array position " << i;
-          throw EssentiaException(e);
+          throw SonoriaException(e);
         }
         output[i] = sqrt(input[i]);
       }
@@ -124,7 +124,7 @@ void UnaryOperator::compute() {
   case SQUARE: APPLY_FUNCTION(square_func);
 
   default:
-    throw EssentiaException("UnaryOperator: Unknown unary operator type");
+    throw SonoriaException("UnaryOperator: Unknown unary operator type");
   }
 
   if (_scale != 1. || _shift != 0.) {

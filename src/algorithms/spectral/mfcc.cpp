@@ -132,7 +132,7 @@ void MFCC::compute() {
       _logbands[i] = bands[i]; 
     }
     else {
-      throw EssentiaException("MFCC: Bad 'logType' parameter");
+      throw SonoriaException("MFCC: Bad 'logType' parameter");
     }
   }
 

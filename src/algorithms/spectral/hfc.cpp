@@ -56,7 +56,7 @@ void HFC::compute() {
   Real& hfc = _hfc.get();
 
   if (spectrum.size() == 0) {
-    throw EssentiaException( "HFC: input audio spectrum empty" );
+    throw SonoriaException( "HFC: input audio spectrum empty" );
   }
 
   // Coefficient to convert bins into frequency

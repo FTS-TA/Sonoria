@@ -45,7 +45,7 @@ void Viterbi::compute() {
   const vector<Real>&transProb = _transitionProbabilities.get();
 
   if (obs.size() == 0 || init.size() == 0 || from.size() == 0 || to.size() == 0 || transProb.size() == 0) {
-    throw EssentiaException("Viterbi: one of the inputs has size zero");
+    throw SonoriaException("Viterbi: one of the inputs has size zero");
   }
 
   vector<int>& path = _path.get();

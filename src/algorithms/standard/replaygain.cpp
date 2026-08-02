@@ -58,7 +58,7 @@ void ReplayGain::compute() {
   // we do not have enough input data to construct a single frame...
   // return the same value as if it was silence
   if ((int)signal.size() < _rmsWindowSize) {
-      throw EssentiaException("ReplayGain: The input size must not be less than 0.05ms");
+      throw SonoriaException("ReplayGain: The input size must not be less than 0.05ms");
   }
 
   // 1. Equal loudness filter

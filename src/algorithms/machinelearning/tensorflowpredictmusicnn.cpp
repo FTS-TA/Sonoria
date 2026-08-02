@@ -208,7 +208,7 @@ void TensorflowPredictMusiCNN::compute() {
   vector<vector<Real> >& predictions = _predictions.get();
 
   if (!signal.size()) {
-    throw EssentiaException("TensorflowPredictMusiCNN: empty input signal");
+    throw SonoriaException("TensorflowPredictMusiCNN: empty input signal");
   }
 
   _vectorInput->setVector(&signal);
@@ -218,7 +218,7 @@ void TensorflowPredictMusiCNN::compute() {
   try {
     predictions = _pool.value<vector<vector<Real> > >("predictions");
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     predictions.clear();
   }
 

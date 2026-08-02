@@ -58,11 +58,11 @@ void HarmonicPeaks::compute() {
   vector<Real>& harmonicMagnitudes = _harmonicMagnitudes.get();
 
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("HarmonicPeaks: frequency and magnitude input vectors must have the same size");
+    throw SonoriaException("HarmonicPeaks: frequency and magnitude input vectors must have the same size");
   }
 
   if (f0 < 0) {
-    throw EssentiaException("HarmonicPeaks: input pitch must be greater than zero");
+    throw SonoriaException("HarmonicPeaks: input pitch must be greater than zero");
   }
 
   harmonicFrequencies.resize(0);
@@ -79,17 +79,17 @@ void HarmonicPeaks::compute() {
   }
 
   if (frequencies[0] <= 0) {
-    throw EssentiaException("HarmonicPeaks: spectral peak frequencies must be greater than 0Hz");
+    throw SonoriaException("HarmonicPeaks: spectral peak frequencies must be greater than 0Hz");
   }
   for (int i=1; i<int(frequencies.size()); ++i) {
     if (frequencies[i] < frequencies[i-1]) {
-      throw EssentiaException("HarmonicPeaks: spectral peaks input must be ordered by frequency");
+      throw SonoriaException("HarmonicPeaks: spectral peaks input must be ordered by frequency");
     }
     if (frequencies[i] == frequencies[i-1]) {
-      throw EssentiaException("HarmonicPeaks: duplicate spectral peak found, peaks cannot be duplicated");
+      throw SonoriaException("HarmonicPeaks: duplicate spectral peak found, peaks cannot be duplicated");
     }
     if (frequencies[i] <= 0) {
-      throw EssentiaException("HarmonicPeaks: spectral peak frequencies must be greater than 0Hz");
+      throw SonoriaException("HarmonicPeaks: spectral peak frequencies must be greater than 0Hz");
     }
   }
 

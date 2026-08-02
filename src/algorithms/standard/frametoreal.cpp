@@ -46,7 +46,7 @@ void FrameToReal::compute() {
   vector<Real>& audio = _audio.get();
 
 
-  if (frames.empty()) throw EssentiaException("FrameToReal: the input signal is empty");
+  if (frames.empty()) throw SonoriaException("FrameToReal: the input signal is empty");
 
   // output
   audio.resize(_hopSize);

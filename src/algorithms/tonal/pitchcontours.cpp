@@ -63,7 +63,7 @@ void PitchContours::compute() {
 
   // do sanity checks
   if (peakBins.size() != peakSaliences.size()) {
-    throw EssentiaException("PitchContours: peakBins and peakSaliences input vectors must have the same size");
+    throw SonoriaException("PitchContours: peakBins and peakSaliences input vectors must have the same size");
   }
   _numberFrames = peakBins.size();
   duration = _numberFrames * _frameDuration;
@@ -71,7 +71,7 @@ void PitchContours::compute() {
   for (size_t i=0; i<_numberFrames; i++) {
 
     if (peakBins[i].size() != peakSaliences[i].size()) {
-      throw EssentiaException("PitchContours: peakBins and peakSaliences input vectors must have the same size");
+      throw SonoriaException("PitchContours: peakBins and peakSaliences input vectors must have the same size");
     }
 
     int numPeaks = peakBins[i].size();
@@ -81,7 +81,7 @@ void PitchContours::compute() {
 
     for (int j=0; j<numPeaks; j++) {
       if (peakSaliences[i][j] < 0) {
-        throw EssentiaException("PitchContours: salience peaks values input must be non-negative");
+        throw SonoriaException("PitchContours: salience peaks values input must be non-negative");
       }
     }
 

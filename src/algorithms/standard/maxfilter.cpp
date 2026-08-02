@@ -56,7 +56,7 @@ void MaxFilter::compute() {
 
   int size = array.size();
   if (size < 1) { 
-    throw EssentiaException("MaxFilter has recieved an empty vector");
+    throw SonoriaException("MaxFilter has recieved an empty vector");
   }
 
   filtered.resize(size);

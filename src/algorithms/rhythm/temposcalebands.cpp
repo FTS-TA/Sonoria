@@ -44,11 +44,11 @@ void TempoScaleBands::compute() {
 
   int size = bands.size();
   if (size < 1) {
-    throw EssentiaException("TempoScaleBands: a power spectrum should have 1 band, at least");
+    throw SonoriaException("TempoScaleBands: a power spectrum should have 1 band, at least");
   }
 
   if ((int)_bandsGain.size() != size) {
-    throw EssentiaException("TempoScaleBands: bandsGain and bands have different sizes");
+    throw SonoriaException("TempoScaleBands: bandsGain and bands have different sizes");
   }
 
   scaledBands.resize(size);
@@ -77,7 +77,7 @@ void TempoScaleBands::configure() {
   _frameFactor = sqrt( 256. / parameter("frameTime").toReal() );
   _bandsGain = parameter("bandsGain").toVectorReal();
   if (_bandsGain.size() == 0) {
-    throw EssentiaException("TempoScaleBands: bandsGain should have 1 gain, at least");
+    throw SonoriaException("TempoScaleBands: bandsGain should have 1 gain, at least");
   }
   reset();
 }

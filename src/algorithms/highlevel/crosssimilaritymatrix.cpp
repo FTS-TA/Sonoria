@@ -76,9 +76,9 @@ void CrossSimilarityMatrix::compute() {
   std::vector<std::vector<Real> >& csm = _csm.get();
 
   if (queryFeature.empty())
-    throw EssentiaException("CrossSimilarityMatrix: input queryFeature array is empty.");
+    throw SonoriaException("CrossSimilarityMatrix: input queryFeature array is empty.");
   if (referenceFeature.empty())
-    throw EssentiaException("CrossSimilarityMatrix: input referenceFeature array is empty.");
+    throw SonoriaException("CrossSimilarityMatrix: input referenceFeature array is empty.");
 
   // construct a new vector by stacking the input features by an specified 'frameStackStride' and 'frameStackSize'
   std::vector<std::vector<Real> >  queryFeatureStack = stackFrames(queryFeature, _frameStackSize, _frameStackStride);

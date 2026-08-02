@@ -119,7 +119,7 @@ void SineModelAnal::configure() {
     orderBy = "position";
   }
   else {
-    throw EssentiaException("Unsupported ordering type: '" + orderBy + "'");
+    throw SonoriaException("Unsupported ordering type: '" + orderBy + "'");
   }
 
   Real maxFrequency  = std::min(float(parameter("sampleRate").toReal()/2.0), float(parameter("maxFrequency").toReal()));

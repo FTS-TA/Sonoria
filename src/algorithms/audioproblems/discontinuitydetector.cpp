@@ -49,19 +49,19 @@ void DiscontinuityDetector::configure() {
 
   if (_frameSize <= _order)
     throw(
-        EssentiaException("DiscontinuityDetector: the number of LPC coefficientes has to be smaller "
+        SonoriaException("DiscontinuityDetector: the number of LPC coefficientes has to be smaller "
                           "than the size of the input frame"));
 
   if (_frameSize < _hopSize)
-    throw(EssentiaException(
+    throw(SonoriaException(
         "DiscontinuityDetector: hopSize has to be smaller or equal than the input frame size"));
 
   if (_frameSize < _kernelSize)
-    throw(EssentiaException(
+    throw(SonoriaException(
         "DiscontinuityDetector: kernelSize has to be smaller or equal than the input frame size"));
 
   if (_frameSize < _subFrameSize)
-    throw(EssentiaException(
+    throw(SonoriaException(
         "DiscontinuityDetector: subFrameSize has to be smaller than the input frame size"));
 }
 
@@ -78,18 +78,18 @@ void DiscontinuityDetector::compute() {
 
   if (inputSize <= _order)
     throw(
-        EssentiaException("DiscontinuityDetector: the number of LPC coefficientes has to be smaller "
+        SonoriaException("DiscontinuityDetector: the number of LPC coefficientes has to be smaller "
                           "than the size of the input frame"));
 
   if (inputSize < _hopSize)
-    throw(EssentiaException("DiscontinuityDetector: hopSize has to be smaller than the input frame size"));
+    throw(SonoriaException("DiscontinuityDetector: hopSize has to be smaller than the input frame size"));
 
   if (inputSize < _kernelSize)
     throw(
-        EssentiaException("DiscontinuityDetector: kernelSize has to be smaller than the input frame size"));
+        SonoriaException("DiscontinuityDetector: kernelSize has to be smaller than the input frame size"));
 
   if (inputSize < _subFrameSize)
-    throw(EssentiaException(
+    throw(SonoriaException(
         "DiscontinuityDetector: subFrameSize has to be smaller than the input frame size"));
 
   if (inputSize != _frameSize) {

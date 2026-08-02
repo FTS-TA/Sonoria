@@ -43,14 +43,14 @@ void StrongPeak::compute() {
   Real& strongPeak = _strongPeak.get();
 
   if (spectrum.size() < 2) {
-    throw EssentiaException("StrongPeak: the input spectrum size is less than 2 elements. StrongPeak ratio requires that a spectrum contains at least two elements");
+    throw SonoriaException("StrongPeak: the input spectrum size is less than 2 elements. StrongPeak ratio requires that a spectrum contains at least two elements");
   }
 
   int maxIndex = argmax(spectrum);
   int minIndex = argmin(spectrum);
 
   if (spectrum[minIndex] < 0) {
-    throw EssentiaException("StrongPeak: input spectrum contains negative values");
+    throw SonoriaException("StrongPeak: input spectrum contains negative values");
   }
 
   Real maxMag = spectrum[maxIndex];

@@ -72,9 +72,9 @@ void ChromaCrossSimilarity::compute() {
   std::vector<std::vector<Real> >& csm = _csm.get();
 
   if (queryFeature.empty())
-    throw EssentiaException("CrossSimilarityMatrix: input queryFeature is empty.");
+    throw SonoriaException("CrossSimilarityMatrix: input queryFeature is empty.");
   if (referenceFeature.empty())
-    throw EssentiaException("CrossSimilarityMatrix: input referenceFeature is empty.");
+    throw SonoriaException("CrossSimilarityMatrix: input referenceFeature is empty.");
 
   // check whether to use oti-based binary similarity 
   if (_otiBinary) {
@@ -347,7 +347,7 @@ std::vector<std::vector<Real> > stackChromaFrames(std::vector<std::vector<Real> 
   int increment = frameStackSize * frameStackStride;
 
   if ((int)frames.size() < (increment + 1)) {
-    throw EssentiaException("Too short frame size for stacking, no of input feature frames (" + std::to_string(frames.size()) + 
+    throw SonoriaException("Too short frame size for stacking, no of input feature frames (" + std::to_string(frames.size()) + 
                       ") should be always greater than '(frameStackSize * frameStackStride) + 1', ie. (" + 
                       std::to_string(((frameStackSize + frameStackStride) + 1)) +  ")");
 

@@ -43,7 +43,7 @@ void EqualLoudness::configure() {
   Real fs = parameter("sampleRate").toReal();
 
   if ((fs != 44100.0) && (fs != 48000.0) && (fs != 32000.0) && (fs != 16000.0) && (fs != 8000.0)) {
-    throw EssentiaException("EqualLoudness: the sample rate is neither 44100, 48000, 32000, 16000 nor 8000 Hz, it must be one of these values");
+    throw SonoriaException("EqualLoudness: the sample rate is neither 44100, 48000, 32000, 16000 nor 8000 Hz, it must be one of these values");
   }
 
   vector<Real> By(11, 0.0);

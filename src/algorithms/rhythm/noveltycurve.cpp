@@ -93,15 +93,15 @@ vector<Real> NoveltyCurve::weightCurve(int size, WeightType type) {
     case SUPPLIED:
       result = parameter("weightCurve").toVectorReal();
       if (int(result.size()) != size) {
-        throw EssentiaException("NoveltyCurve::weightCurve, the size of the supplied weights must be the same as the number of the frequency bands", size);
+        throw SonoriaException("NoveltyCurve::weightCurve, the size of the supplied weights must be the same as the number of the frequency bands", size);
       }
       break;
     default:
-      throw EssentiaException("Weighting Curve type not known");
+      throw SonoriaException("Weighting Curve type not known");
     }
 
   //Real max = *max_element(result.begin(), result.end());
-  //if (max == 0) throw EssentiaException("Weighting curves has null maximum");
+  //if (max == 0) throw SonoriaException("Weighting curves has null maximum");
   //for (int i=0; i<size; i++) result[i] /= max;
 
   return result;
@@ -182,7 +182,7 @@ void NoveltyCurve::compute() {
   const vector<vector<Real> >& frequencyBands = _frequencyBands.get();
   vector<Real>& novelty = _novelty.get();
   if (frequencyBands.empty())
-    throw EssentiaException("NoveltyCurve::compute, cannot compute from an empty input matrix");
+    throw SonoriaException("NoveltyCurve::compute, cannot compute from an empty input matrix");
 
   int nFrames = frequencyBands.size();
   int nBands = (int)frequencyBands[0].size();

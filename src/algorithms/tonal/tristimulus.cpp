@@ -44,12 +44,12 @@ void Tristimulus::compute() {
   vector<Real>& tristimulus = _tristimulus.get();
 
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("Tristimulus: frequency and magnitude vectors are of different size");
+    throw SonoriaException("Tristimulus: frequency and magnitude vectors are of different size");
   }
 
   for (int i=1; i<int(frequencies.size()); i++) {
     if (frequencies[i] <= frequencies[i-1]) {
-       throw EssentiaException("Tristimulus: harmonic peaks are not ordered by frequency");
+       throw SonoriaException("Tristimulus: harmonic peaks are not ordered by frequency");
     }
   }
 

@@ -85,7 +85,7 @@ void PitchSalienceFunction::compute() {
 
   // do sanity checks
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("PitchSalienceFunction: frequency and magnitude input vectors must have the same size");
+    throw SonoriaException("PitchSalienceFunction: frequency and magnitude input vectors must have the same size");
   }
 
   if (frequencies.empty()) {
@@ -98,10 +98,10 @@ void PitchSalienceFunction::compute() {
   int numberPeaks = frequencies.size();
   for (int i=0; i<numberPeaks; i++) {
     if (frequencies[i] <= 0) {
-      throw EssentiaException("PitchSalienceFunction: spectral peak frequencies must be positive");
+      throw SonoriaException("PitchSalienceFunction: spectral peak frequencies must be positive");
     }
     if (magnitudes[i] <= 0) {
-      throw EssentiaException("PitchSalienceFunction: spectral peak magnitudes must be positive");
+      throw SonoriaException("PitchSalienceFunction: spectral peak magnitudes must be positive");
     }
   }
 

@@ -52,13 +52,13 @@ void IIR::configure() {
   _b = parameter("numerator").toVectorReal();
 
   if (_b.empty()) {
-    throw EssentiaException("IIR: the numerator vector is empty");
+    throw SonoriaException("IIR: the numerator vector is empty");
   }
   if (_a.empty()) {
-    throw EssentiaException("IIR: the denominator vector is empty");
+    throw SonoriaException("IIR: the denominator vector is empty");
   }
   if (_a[0] == 0.0) {
-    throw EssentiaException("IIR: the first coefficient of the denominator vector must not be 0");
+    throw SonoriaException("IIR: the first coefficient of the denominator vector must not be 0");
   }
 
   // normalize everything with a[0]

@@ -25,14 +25,14 @@ void Audio2Pitch::configure() {
   _loudnessThresholdGain = db2amp(_loudnessThreshold);
 
   if (_maxFrequency > _sampleRate * 0.5) {
-    throw EssentiaException("Audio2Pitch: Max frequency cannot be higher than Nyquist frequency");
+    throw SonoriaException("Audio2Pitch: Max frequency cannot be higher than Nyquist frequency");
   }
   if (_maxFrequency <= _minFrequency) {
-    throw EssentiaException("Audio2Pitch: Max frequency cannot be lower or equal than the minimum frequency");
+    throw SonoriaException("Audio2Pitch: Max frequency cannot be lower or equal than the minimum frequency");
   }
 
   if (_pitchAlgorithmName != "pitchyinfft" && _pitchAlgorithmName != "pitchyin") {
-    throw EssentiaException("Audio2Pitch: Bad 'pitchAlgorithm' =", _pitchAlgorithmName);
+    throw SonoriaException("Audio2Pitch: Bad 'pitchAlgorithm' =", _pitchAlgorithmName);
   }
 
   if (_pitchAlgorithmName == "pitchyinfft") {
@@ -76,11 +76,11 @@ void Audio2Pitch::compute() {
   int& voiced = _voiced.get();
 
   if (frame.empty()) {
-    throw EssentiaException("Audio2Pitch: cannot compute the pitch of an empty frame");
+    throw SonoriaException("Audio2Pitch: cannot compute the pitch of an empty frame");
   }
 
   if (frame.size() == 1) {
-    throw EssentiaException("Audio2Pitch: cannot compute the pitch of a frame of size 1");
+    throw SonoriaException("Audio2Pitch: cannot compute the pitch of a frame of size 1");
   }
 
   _loudnessAlgorithm->input("array").set(frame);

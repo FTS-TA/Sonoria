@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
     cout << "Tuning frequency: " 
          << mean(pool.value<std::vector<Real> >("tonal.tuningFrequency")) << endl;
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
       cerr << "Error: " << e.what() << endl;
   }
 

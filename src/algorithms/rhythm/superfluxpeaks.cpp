@@ -40,10 +40,10 @@ void SuperFluxPeaks::configure() {
   _pre_max = int(frameRate * parameter("pre_max").toReal() / 1000.);
   
   if(_pre_avg <= 1) {
-    throw EssentiaException("SuperFluxPeaks: too small _pre_averaging filter size");
+    throw SonoriaException("SuperFluxPeaks: too small _pre_averaging filter size");
   }
   if(_pre_max<=1) {
-    throw EssentiaException("SuperFluxPeaks: too small _pre_maximum filter size");
+    throw SonoriaException("SuperFluxPeaks: too small _pre_maximum filter size");
   }
   
   // convert to seconds

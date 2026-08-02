@@ -56,7 +56,7 @@ void NSGConstantQStreaming::configure() {
   std::string rasterize = parameter("rasterize").toLower();
 
   if (rasterize != "full") {
-    throw EssentiaException("NSGConstantQStreaming: This algorithm was designed to work only with 'rasterize' = 'full'");
+    throw SonoriaException("NSGConstantQStreaming: This algorithm was designed to work only with 'rasterize' = 'full'");
   }
   _wrapper->configure(INHERIT("sampleRate"),
                       INHERIT("minFrequency"),

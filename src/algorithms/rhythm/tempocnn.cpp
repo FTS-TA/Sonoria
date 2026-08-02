@@ -137,7 +137,7 @@ void TempoCNN::compute() {
     }
   }
   else {
-    throw EssentiaException("TempoCNN: Bad 'aggregationMethod' parameter");
+    throw SonoriaException("TempoCNN: Bad 'aggregationMethod' parameter");
   }
 
 }

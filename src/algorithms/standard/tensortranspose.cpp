@@ -34,21 +34,21 @@ const char* TensorTranspose::description = DOC("This algorithm performs transpos
     _permutation = parameter("permutation").toVectorInt();
 
     if (_permutation.size() != TENSORRANK) {
-      throw EssentiaException("TensorTranspose: the size of the permutation vector is ",
+      throw SonoriaException("TensorTranspose: the size of the permutation vector is ",
                               _permutation.size(), " while it should be ", TENSORRANK );
     }
 
     int minimun = *min_element(_permutation.begin(), _permutation.end());
-    if (minimun < 0) throw EssentiaException("TensorTranspose: one of the elements of the permutation vector was set to ",
+    if (minimun < 0) throw SonoriaException("TensorTranspose: one of the elements of the permutation vector was set to ",
                                              minimun, ", while the minimum value has to be be 0");
 
     int maximum = *max_element(_permutation.begin(), _permutation.end());
-    if (maximum > TENSORRANK -1) throw EssentiaException("TensorTranspose: one of the elements of the permutation vector was set to ",
+    if (maximum > TENSORRANK -1) throw SonoriaException("TensorTranspose: one of the elements of the permutation vector was set to ",
                                                           maximum, ", while the maximum value has to be ", TENSORRANK -1);
 
     for (int i = 0; i < TENSORRANK; i++) {
       if (!count(_permutation.begin(), _permutation.end(), i)) {
-        throw EssentiaException("TensorTranspose: Index (", i, ") not found in `permutaiton`.");
+        throw SonoriaException("TensorTranspose: Index (", i, ") not found in `permutaiton`.");
       }
     }
     

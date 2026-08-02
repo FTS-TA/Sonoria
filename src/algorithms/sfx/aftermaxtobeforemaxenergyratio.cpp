@@ -47,7 +47,7 @@ void AfterMaxToBeforeMaxEnergyRatio::compute() {
   }
 
   if (pitch.empty()) {
-    throw EssentiaException("AfterMaxToBeforeMaxEnergyRatio: pitch array doesn't contain any non-zero values or is empty");
+    throw SonoriaException("AfterMaxToBeforeMaxEnergyRatio: pitch array doesn't contain any non-zero values or is empty");
   }
 
   int nMax = argmax(pitch);

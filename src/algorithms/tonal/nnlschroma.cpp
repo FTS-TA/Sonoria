@@ -156,10 +156,10 @@ void NNLSChroma::compute() {
   vector<vector<Real> >& chromagram = _chromagram.get();
 
   if (logSpectrum.size() <= 1)
-    throw EssentiaException("NNLSChroma: input vector is empty");
+    throw SonoriaException("NNLSChroma: input vector is empty");
 
   if (logSpectrum[0].size() != 256) {
-    throw EssentiaException("NNLSChroma: log spectrum size should be 256 but it is ", 
+    throw SonoriaException("NNLSChroma: log spectrum size should be 256 but it is ", 
                             logSpectrum[0].size(), ".");
   }
 
@@ -223,7 +223,7 @@ void NNLSChroma::compute() {
           (tunedLogfreqSpectrum[i][j] - runningmean[j]) / pow(runningstd[j], _whitening) : 0;
       }
       if (tunedLogfreqSpectrum[i][j] < 0) {
-        throw EssentiaException("ERROR: negative value in log-frequency spectrum");
+        throw SonoriaException("ERROR: negative value in log-frequency spectrum");
       }
     }
   }

@@ -48,7 +48,7 @@ void FadeDetection::compute() {
   const vector<Real>& rms = _rms.get();
   if (rms.empty()) {
     // throw exception as mean of empty arrays cannot be computed
-    throw EssentiaException("FadeDetection: RMS array is empty");
+    throw SonoriaException("FadeDetection: RMS array is empty");
   }
   Array2D<Real>& fade_in  = _fade_in.get();
   Array2D<Real>& fade_out = _fade_out.get();

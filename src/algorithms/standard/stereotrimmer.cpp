@@ -35,7 +35,7 @@ void StereoTrimmer::configure() {
   _startIndex = (long long)(parameter("startTime").toReal() * sampleRate);
   _endIndex = (long long)(parameter("endTime").toReal() * sampleRate);
   if (_startIndex > _endIndex) {
-    throw EssentiaException("StereoTrimmer: startTime cannot be larger than endTime.");
+    throw SonoriaException("StereoTrimmer: startTime cannot be larger than endTime.");
   }
   _checkRange = parameter("checkRange").toBool();
 }
@@ -48,7 +48,7 @@ void StereoTrimmer::compute() {
   if (_startIndex < 0) _startIndex = 0;
   if (_startIndex > size) {
     if (_checkRange) {
-      throw EssentiaException("StereoTrimmer: cannot trim beyond the size of the input signal");
+      throw SonoriaException("StereoTrimmer: cannot trim beyond the size of the input signal");
     }
     _startIndex = size;
     E_WARNING("StereoTrimmer: empty output due to insufficient input signal size");
@@ -76,7 +76,7 @@ void StereoTrimmer::configure() {
   _startIndex = (long long)(parameter("startTime").toReal() * sampleRate);
   _endIndex = (long long)(parameter("endTime").toReal() * sampleRate);
   if (_startIndex > _endIndex) {
-    throw EssentiaException("StereoTrimmer: startTime cannot be larger than endTime.");
+    throw SonoriaException("StereoTrimmer: startTime cannot be larger than endTime.");
   }
   _consumed = 0;
   _preferredSize = defaultPreferredSize;

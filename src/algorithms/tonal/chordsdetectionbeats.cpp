@@ -49,7 +49,7 @@ void ChordsDetectionBeats::configure() {
   _hopSize = parameter("hopSize").toInt();
   _chromaPick = parameter("chromaPick").toLower();
   if (!(_chromaPick == "interbeat_median" || _chromaPick == "starting_beat"))
-    throw EssentiaException("Bad chromaPick type.");
+    throw SonoriaException("Bad chromaPick type.");
 }
 
 void ChordsDetectionBeats::compute() {
@@ -64,7 +64,7 @@ void ChordsDetectionBeats::compute() {
   Real firstToSecondRelativeStrength;
 
   if(ticks.size() < 2) { 
-    throw EssentiaException("Ticks vector should contain at least 2 elements.");
+    throw SonoriaException("Ticks vector should contain at least 2 elements.");
   } 
 
   chords.reserve(ticks.size() - 1); 

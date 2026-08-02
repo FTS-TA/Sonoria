@@ -38,7 +38,7 @@ void RMS::compute() {
   Real& rms = _rms.get();
 
   if (array.empty()) {
-    throw EssentiaException("RMS: input array is empty");
+    throw SonoriaException("RMS: input array is empty");
   }
 
   rms = 0.0;

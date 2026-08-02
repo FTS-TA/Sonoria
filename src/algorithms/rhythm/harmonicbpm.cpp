@@ -47,7 +47,7 @@ vector<Real> HarmonicBpm::findHarmonicBpms(const vector<Real>& bpms) {
   // Accept only BPM values >= 1 for consistency with the `bpm` parameter.
   for(int i=0; i<int(bpms.size()); i++) {
     if (bpms[i] < 1)
-      throw(EssentiaException("HarmonicBpm: bpm values below 1 are not allowed"));
+      throw(SonoriaException("HarmonicBpm: bpm values below 1 are not allowed"));
   }
 
   vector<Real> harmonicBpms, harmonicRatios;

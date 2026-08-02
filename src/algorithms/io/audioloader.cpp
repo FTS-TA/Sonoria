@@ -58,7 +58,7 @@ void AudioLoader::openAudioFile(const string& filename) {
         char errorstr[128];
         string error = "Unknown error";
         if (av_strerror(errnum, errorstr, 128) == 0) error = errorstr;
-        throw EssentiaException("AudioLoader: Could not open file \"", filename, "\", error = ", error);
+        throw SonoriaException("AudioLoader: Could not open file \"", filename, "\", error = ", error);
     }
 
     // Retrieve stream information
@@ -68,7 +68,7 @@ void AudioLoader::openAudioFile(const string& filename) {
         if (av_strerror(errnum, errorstr, 128) == 0) error = errorstr;
         avformat_close_input(&_demuxCtx);
         _demuxCtx = 0;
-        throw EssentiaException("AudioLoader: Could not find stream information, error = ", error);
+        throw SonoriaException("AudioLoader: Could not find stream information, error = ", error);
     }
 
     // Check that we have only 1 audio stream in the file
@@ -85,13 +85,13 @@ void AudioLoader::openAudioFile(const string& filename) {
     if (nAudioStreams == 0) {
         avformat_close_input(&_demuxCtx);
         _demuxCtx = 0;
-        throw EssentiaException("AudioLoader ERROR: found 0 streams in the file, expecting one or more audio streams");
+        throw SonoriaException("AudioLoader ERROR: found 0 streams in the file, expecting one or more audio streams");
     }
 
     if (_selectedStream >= nAudioStreams) {
         avformat_close_input(&_demuxCtx);
         _demuxCtx = 0;
-        throw EssentiaException("AudioLoader ERROR: 'audioStream' parameter set to ", _selectedStream ,". It should be smaller than the audio streams count, ", nAudioStreams);
+        throw SonoriaException("AudioLoader ERROR: 'audioStream' parameter set to ", _selectedStream ,". It should be smaller than the audio streams count, ", nAudioStreams);
     }
 
     _streamIdx = _streams[_selectedStream];
@@ -101,23 +101,23 @@ void AudioLoader::openAudioFile(const string& filename) {
     _audioCodec = avcodec_find_decoder(codecParams->codec_id);
 
     if (!_audioCodec) {
-        throw EssentiaException("AudioLoader: Unsupported codec!");
+        throw SonoriaException("AudioLoader: Unsupported codec!");
     }
 
     _audioCtx = avcodec_alloc_context3(_audioCodec);
     if (!_audioCtx) {
-        throw EssentiaException("AudioLoader: Could not allocate codec context");
+        throw SonoriaException("AudioLoader: Could not allocate codec context");
     }
 
     // Copy parameters from stream to codec context
     if (avcodec_parameters_to_context(_audioCtx, codecParams) < 0) {
         avcodec_free_context(&_audioCtx);
-        throw EssentiaException("AudioLoader: Could not copy codec parameters");
+        throw SonoriaException("AudioLoader: Could not copy codec parameters");
     }
 
     if (avcodec_open2(_audioCtx, _audioCodec, NULL) < 0) {
         avcodec_free_context(&_audioCtx);
-        throw EssentiaException("AudioLoader: Unable to instantiate codec...");
+        throw SonoriaException("AudioLoader: Unable to instantiate codec...");
     }
   
     // Configure format conversion (no samplerate conversion yet)
@@ -142,14 +142,14 @@ void AudioLoader::openAudioFile(const string& filename) {
     av_opt_set_int(_convertCtxAv, "out_sample_fmt", AV_SAMPLE_FMT_FLT, 0);
 
     if (swr_init(_convertCtxAv) < 0) {
-        throw EssentiaException("AudioLoader: Could not initialize swresample context");
+        throw SonoriaException("AudioLoader: Could not initialize swresample context");
     }
 
     av_init_packet(&_packet);
 
     _decodedFrame = av_frame_alloc();
     if (!_decodedFrame) {
-        throw EssentiaException("AudioLoader: Could not allocate audio frame");
+        throw SonoriaException("AudioLoader: Could not allocate audio frame");
     }
 
     av_md5_init(_md5Encoded);
@@ -184,10 +184,10 @@ void AudioLoader::closeAudioFile() {
 
 void AudioLoader::pushChannelsSampleRateInfo(int nChannels, Real sampleRate) {
     if (nChannels > 2) {
-        throw EssentiaException("AudioLoader: could not load audio. Audio file has more than 2 channels.");
+        throw SonoriaException("AudioLoader: could not load audio. Audio file has more than 2 channels.");
     }
     if (sampleRate <= 0) {
-        throw EssentiaException("AudioLoader: could not load audio. Audio sampling rate must be greater than 0.");
+        throw SonoriaException("AudioLoader: could not load audio. Audio sampling rate must be greater than 0.");
     }
 
     _nChannels = nChannels;
@@ -214,7 +214,7 @@ string uint8_t_to_hex(uint8_t* input, int size) {
 
 AlgorithmStatus AudioLoader::process() {
     if (!parameter("filename").isConfigured()) {
-        throw EssentiaException("AudioLoader: Trying to call process() on an AudioLoader algo which hasn't been correctly configured.");
+        throw SonoriaException("AudioLoader: Trying to call process() on an AudioLoader algo which hasn't been correctly configured.");
     }
 
     // read frames until we get a good one
@@ -308,7 +308,7 @@ int AudioLoader::decode_audio_frame(AVCodecContext* audioCtx,
 
         if (outputBufferSamples < inputSamples) { 
             // this should never happen, throw exception here
-            throw EssentiaException("AudioLoader: Insufficient buffer size for format conversion");
+            throw SonoriaException("AudioLoader: Insufficient buffer size for format conversion");
         }
 
         if (audioCtx->sample_fmt == AV_SAMPLE_FMT_FLT) {
@@ -331,7 +331,7 @@ int AudioLoader::decode_audio_frame(AVCodecContext* audioCtx,
               msg << "AudioLoader: Incomplete format conversion (some samples missing)"
                   << " from " << av_get_sample_fmt_name(_audioCtx->sample_fmt)
                   << " to "   << av_get_sample_fmt_name(AV_SAMPLE_FMT_FLT);
-              throw EssentiaException(msg);
+              throw SonoriaException(msg);
           }
         }
         *outputSize = outputPlaneSize;
@@ -488,7 +488,7 @@ void AudioLoader::copyFFmpegOutput() {
     // acquire necessary data
     bool ok = _audio.acquire(nsamples);
     if (!ok) {
-        throw EssentiaException("AudioLoader: could not acquire output for audio");
+        throw SonoriaException("AudioLoader: could not acquire output for audio");
     }
 
     vector<StereoSample>& audio = *((vector<StereoSample>*)_audio.getTokens());
@@ -573,7 +573,7 @@ void AudioLoader::configure() {
 
 void AudioLoader::compute() {
     if (!parameter("filename").isConfigured()) {
-        throw EssentiaException("AudioLoader: Trying to call compute() on an "
+        throw SonoriaException("AudioLoader: Trying to call compute() on an "
                                 "AudioLoader algo which hasn't been correctly configured.");
     }
 

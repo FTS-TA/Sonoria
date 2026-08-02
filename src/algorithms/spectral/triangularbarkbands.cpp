@@ -33,10 +33,10 @@ const char* TriangularBarkBands::description = DOC("This algorithm computes ener
 
 void TriangularBarkBands::configure() {
   if (parameter("highFrequencyBound").toReal() > parameter("sampleRate").toReal()*0.5 ) {
-    throw EssentiaException("TriangularBarkBands: High frequency bound cannot be higher than Nyquist frequency");
+    throw SonoriaException("TriangularBarkBands: High frequency bound cannot be higher than Nyquist frequency");
   }
   if (parameter("highFrequencyBound").toReal() <= parameter("lowFrequencyBound").toReal()) {
-    throw EssentiaException("TriangularBarkBands: High frequency bound cannot be lower than the low frequency bound.");
+    throw SonoriaException("TriangularBarkBands: High frequency bound cannot be lower than the low frequency bound.");
   }
   _numBands = parameter("numberBands").toInt();
   _sampleRate = parameter("sampleRate").toReal();
@@ -115,7 +115,7 @@ void TriangularBarkBands::compute() {
   std::vector<Real>& bands = _bandsOutput.get();
     
     if (spectrum.size() <= 1) {
-        throw EssentiaException("TriangularBands: the size of the input spectrum is not greater than one");
+        throw SonoriaException("TriangularBands: the size of the input spectrum is not greater than one");
     }
     
     int filterSize = _numBands;

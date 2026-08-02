@@ -439,7 +439,7 @@ void HumDetector::createInnerNetwork() {
 void HumDetector::compute() {
   const vector<Real>& signal = _signal.get();
   if (!signal.size()) {
-    throw EssentiaException("HumDetector: empty input signal");
+    throw SonoriaException("HumDetector: empty input signal");
   }
 
   _vectorInput->setVector(&signal);

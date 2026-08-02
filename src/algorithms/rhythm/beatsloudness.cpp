@@ -124,7 +124,7 @@ void BeatsLoudness::configure() {
 void BeatsLoudness::compute() {
   const vector<Real>& signal = _signal.get();
   if (signal.empty())
-    throw EssentiaException("BeatsLoudness: Cannot compute loudness of an empty signal");
+    throw SonoriaException("BeatsLoudness: Cannot compute loudness of an empty signal");
 
   vector<Real>& loudness = _loudness.get();
   vector<vector<Real> >& loudnessBand = _loudnessBand.get();
@@ -136,7 +136,7 @@ void BeatsLoudness::compute() {
     loudness = _pool.value<vector<Real> >("internal.loudness");
     loudnessBand = _pool.value<vector<vector<Real> > >("internal.loudnessBandRatio");
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     // probably beats were not specified, or slicer did not produce any windows
     // due to mismatch between beat positions and the duration of audio
     loudness.clear();

@@ -255,7 +255,7 @@ void FreesoundExtractor::compute() {
 
   // Check if whole audio is silence and raise exception if that is the case
   if(stats.value<Real>("lowlevel.silence_rate_90dB.mean") == 1.0){
-    throw EssentiaException("File looks like a completely silent file... Aborting...");
+    throw SonoriaException("File looks like a completely silent file... Aborting...");
   }
 
   if (options.value<Real>("highlevel.compute")) {
@@ -474,7 +474,7 @@ void FreesoundExtractor::computeAudioMetadata(const string& audioFilename, Pool&
     ostringstream msg;
     msg << "FreesoundExtractor: empty input signal (analysis startTime: " << startTime
         << ", endTime: " <<  endTime << ", input audio length: " << length << ")";
-    throw EssentiaException(msg);
+    throw SonoriaException(msg);
   }
 
   results.set("metadata.audio_properties.length", length);
@@ -520,18 +520,18 @@ void FreesoundExtractor::computeReplayGain(const string& audioFilename, Pool& re
       replayGain = results.value<Real>("metadata.audio_properties.replay_gain");
     }
 
-    catch (const EssentiaException&) {
+    catch (const SonoriaException&) {
       if (downmix == "mix") {
         downmix = "left";
       }
       else {
-        throw EssentiaException("File looks like a completely silent file");
+        throw SonoriaException("File looks like a completely silent file");
       }
 
       try {
         results.remove("metadata.audio_properties.replay_gain");
       }
-      catch (EssentiaException&) {}
+      catch (SonoriaException&) {}
       continue;
     }
 
@@ -549,7 +549,7 @@ void FreesoundExtractor::computeReplayGain(const string& audioFilename, Pool& re
       results.remove("metadata.audio_properties.replay_gain");
     }
     else {
-      throw EssentiaException("File looks like a completely silent file... Aborting...");
+      throw SonoriaException("File looks like a completely silent file... Aborting...");
       //exit(5);
     }
   }

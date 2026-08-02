@@ -45,7 +45,7 @@ Real quantize(const T& val, int steps) {
       return ival+(i+1)*q;
     }
   }
-  throw EssentiaException("quantize should not have reached this point");
+  throw SonoriaException("quantize should not have reached this point");
 }
 
 template <typename T, typename U>

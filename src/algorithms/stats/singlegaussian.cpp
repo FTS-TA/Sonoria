@@ -64,7 +64,7 @@ vector<Real> SingleGaussian::meanMatrix(const Array2D<Real>& matrix, int dim = 1
       }
     }
     else {
-      throw EssentiaException("SingleGaussian: The dimension for meanMatrix must be 1 or 2");
+      throw SonoriaException("SingleGaussian: The dimension for meanMatrix must be 1 or 2");
     }
   }
 
@@ -151,7 +151,7 @@ Array2D<Real> SingleGaussian::covarianceMatrix(const Array2D<Real>& matrix, bool
 
 Array2D<Real> SingleGaussian::inverseMatrix(const Array2D<Real>& matrix) const {
   if (matrix.dim1() != matrix.dim2()) {
-    throw EssentiaException("SingleGaussian: Cannot solve linear system because matrix is not a square matrix");
+    throw SonoriaException("SingleGaussian: Cannot solve linear system because matrix is not a square matrix");
   }
 
   // make a copy to ensure that the computation of the inverse matrix is done with double precission
@@ -163,7 +163,7 @@ Array2D<Real> SingleGaussian::inverseMatrix(const Array2D<Real>& matrix) const {
 
   LU<double> solver(matrixDouble);
   if (!solver.isNonsingular()) {
-    throw EssentiaException("SingleGaussian: Cannot solve linear system because matrix is singular");
+    throw SonoriaException("SingleGaussian: Cannot solve linear system because matrix is singular");
   }
 
   int dim = matrixDouble.dim1();
@@ -188,10 +188,10 @@ void SingleGaussian::compute() {
   const Array2D<Real>& matrix = _matrix.get();
 
   if (matrix.dim1() == 0 || matrix.dim2() == 0) {
-    throw EssentiaException("SingleGaussian: Cannot operate on an empty input matrix");
+    throw SonoriaException("SingleGaussian: Cannot operate on an empty input matrix");
   }
   if (matrix.dim1() == 1) {
-    throw EssentiaException("SingleGaussian: Cannot operate on a matrix with one row");
+    throw SonoriaException("SingleGaussian: Cannot operate on a matrix with one row");
   }
 
   vector<Real>& mean = _mean.get();

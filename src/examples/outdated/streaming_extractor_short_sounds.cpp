@@ -147,7 +147,7 @@ int main(int argc, char* argv[]) {
       Pool stats = computeAggregation(pool);
       outputToFile(stats, outputFilename);
     }
-    catch (EssentiaException& e) {
+    catch (SonoriaException& e) {
       cout << e.what() << endl;
     }
   }
@@ -172,7 +172,7 @@ void computeSegments(const string& audioFilename, Real startTime, Real endTime, 
   try {
     features = pool.value<vector<vector<Real> > >("lowlevel.mfcc");
   }
-  catch(const EssentiaException&) {
+  catch(const SonoriaException&) {
     cerr << "Error: could not find MFCC features in low level pool. Aborting..." << endl;
     exit(3);
   }
@@ -241,14 +241,14 @@ void computeReplayGain(const string& audioFilename, Real startTime, Real endTime
       length = audio_1->output("audio").totalProduced();
       tryReallyHard = false;
     }
-    catch (const EssentiaException&) {
+    catch (const SonoriaException&) {
       if (downmix == "mix") {
         downmix = "left";
         try {
           pool.remove("metadata.audio_properties.downmix");
           pool.remove("metadata.audio_properties.replay_gain");
         }
-        catch (EssentiaException&) {}
+        catch (SonoriaException&) {}
 
         continue;
       }
@@ -312,8 +312,8 @@ void computeLowLevel(const string& audioFilename, Real startTime, Real endTime, 
   try {
     downmix = pool.value<string>("metadata.audio_properties.downmix");
   }
-  catch (const EssentiaException&) {
-    throw EssentiaException("StreamingExtractor::computeLowLevel, could not determine downmix type");
+  catch (const SonoriaException&) {
+    throw SonoriaException("StreamingExtractor::computeLowLevel, could not determine downmix type");
   }
 
   streaming::AlgorithmFactory& factory = streaming::AlgorithmFactory::instance();
@@ -383,7 +383,7 @@ void computeLowLevel(const string& audioFilename, Real startTime, Real endTime, 
 //  try {
 //    pool.value<vector<Real> >(llspace + "loudness")[0];
 //  }
-//  catch (EssentiaException&) {
+//  catch (SonoriaException&) {
 //    cout << "ERROR: File is too short (< 2sec)... Aborting..." << endl;
 //    exit(6);
 //  }
@@ -413,8 +413,8 @@ void computeMidLevel(const string& audioFilename, Real startTime, Real endTime, 
   try {
     downmix = pool.value<string>("metadata.audio_properties.downmix");
   }
-  catch (const EssentiaException&) {
-    throw EssentiaException("StreamingExtractor::computeLowLevel, could not determine downmix type");
+  catch (const SonoriaException&) {
+    throw SonoriaException("StreamingExtractor::computeLowLevel, could not determine downmix type");
   }
 
   streaming::AlgorithmFactory& factory = streaming::AlgorithmFactory::instance();

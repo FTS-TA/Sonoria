@@ -54,7 +54,7 @@ void TempoTapDegara::configure() {
   Real maxTempo = parameter("maxTempo").toInt();
 
   if (maxTempo < minTempo + 20) {
-    throw EssentiaException("TempoTapDegara: maxTempo should be larger than minTempo + 20");
+    throw SonoriaException("TempoTapDegara: maxTempo should be larger than minTempo + 20");
   }
 
   if(parameter("resample") == "none") _resample = 1;
@@ -126,7 +126,7 @@ void TempoTapDegara::compute() {
   // sanity checks
   for(size_t i=0; i<detections.size(); ++i) {
     if (detections[i]<0) {
-      throw EssentiaException("TempoTapDegara: onset detection values must be non-negative");
+      throw SonoriaException("TempoTapDegara: onset detection values must be non-negative");
     }
   }
 

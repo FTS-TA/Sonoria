@@ -40,8 +40,8 @@ void MonoWriter::reset() {
                                              parameter("sampleRate").toInt(),
                                              parameter("bitrate").toInt()*1000);
   }
-  catch (EssentiaException& e) {
-    throw EssentiaException("MonoWriter: Error creating audio file: ", e.what());
+  catch (SonoriaException& e) {
+    throw SonoriaException("MonoWriter: Error creating audio file: ", e.what());
   }
 
   _audio.setAcquireSize(recommendedBufferSize);
@@ -63,7 +63,7 @@ void MonoWriter::configure() {
 
 AlgorithmStatus MonoWriter::process() {
   if (!_configured) {
-    throw EssentiaException("MonoWriter: Trying to call process() on an MonoWriter algo which hasn't been correctly configured");
+    throw SonoriaException("MonoWriter: Trying to call process() on an MonoWriter algo which hasn't been correctly configured");
   }
 
   if (!_audioCtx.isOpen()) _audioCtx.open();
@@ -95,8 +95,8 @@ AlgorithmStatus MonoWriter::process() {
   try {
     _audioCtx.write(_audio.tokens());
   }
-  catch (EssentiaException& e) {
-    throw EssentiaException("MonoWriter: error writing to audio file: ", e.what());
+  catch (SonoriaException& e) {
+    throw SonoriaException("MonoWriter: error writing to audio file: ", e.what());
   }
 
   releaseData();
@@ -141,7 +141,7 @@ void MonoWriter::configure() {
 
 void MonoWriter::compute() {
   if (!_configured) {
-    throw EssentiaException("MonoWriter: Trying to call compute() on an MonoWriter algo which hasn't been correctly configured...");
+    throw SonoriaException("MonoWriter: Trying to call compute() on an MonoWriter algo which hasn't been correctly configured...");
   }
 
   const vector<AudioSample>& audio = _audio.get();

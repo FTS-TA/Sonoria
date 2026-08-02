@@ -78,7 +78,7 @@ int essentia_main(string audioFilename, string outputFilename, string profileFil
     delete extractor;
     sonoria::shutdown();
   }
-  catch (EssentiaException& e) {
+  catch (SonoriaException& e) {
     cerr << e.what() << endl;
     return 1;
   }

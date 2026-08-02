@@ -51,7 +51,7 @@ void SpectralWhitening::compute() {
   vector<Real>& magnitudesWhite = _magnitudesWhite.get();
 
   if (magnitudes.size() != frequencies.size()) {
-    throw EssentiaException("SpectralWhitening: frequency and magnitude input vectors have different size");
+    throw SonoriaException("SpectralWhitening: frequency and magnitude input vectors have different size");
   }
 
   const int nPeaks = magnitudes.size();

@@ -258,7 +258,7 @@ void TensorflowPredictMAEST::compute() {
   Tensor<Real>& predictions = _predictions.get();
 
   if (!signal.size()) {
-    throw EssentiaException("TensorflowPredictMAEST: empty input signal");
+    throw SonoriaException("TensorflowPredictMAEST: empty input signal");
   }
 
   _vectorInput->setVector(&signal);
@@ -274,10 +274,10 @@ void TensorflowPredictMAEST::compute() {
        predictions = new_predictions;
     }
   }
-  catch (EssentiaException&) {
+  catch (SonoriaException&) {
     reset();
 
-    throw EssentiaException("TensorflowPredictMAEST: input signal is too short.");
+    throw SonoriaException("TensorflowPredictMAEST: input signal is too short.");
   }
 
   reset();

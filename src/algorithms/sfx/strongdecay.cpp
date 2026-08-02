@@ -97,7 +97,7 @@ void StrongDecay::consume() {
 
 void StrongDecay::finalProduce() {
   if (_idx < 2) {
-    throw EssentiaException("StrongDecay: cannot compute centroid of an array of size < 2");
+    throw SonoriaException("StrongDecay: cannot compute centroid of an array of size < 2");
   }
 
   if (_weights == 0) {

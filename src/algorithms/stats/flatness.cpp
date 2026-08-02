@@ -39,12 +39,12 @@ void Flatness::compute() {
   const std::vector<Real>& array = _array.get();
 
   if (array.size() == 0) {
-    throw EssentiaException("Flatness: the input array has size zero");
+    throw SonoriaException("Flatness: the input array has size zero");
   }
 
   for (std::vector<Real>::size_type i=0; i<array.size(); i++) {
     if (array[i] < 0) {
-      throw EssentiaException("Flatness: the input array has negative values");
+      throw SonoriaException("Flatness: the input array has negative values");
     }
   }
 

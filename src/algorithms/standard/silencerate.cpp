@@ -105,7 +105,7 @@ AlgorithmStatus SilenceRate::process() {
   const vector<Real>& frame = _frame.firstToken();
 
   if (frame.empty()) {
-    throw EssentiaException("SilenceRate: a given input frame was empty, "
+    throw SonoriaException("SilenceRate: a given input frame was empty, "
                             "cannot compute the power of an empty frame.");
   }
 

@@ -215,7 +215,7 @@ void SBic::compute() {
   int nFrames = features.dim2();
 
   if (nFrames < 2) {
-    throw EssentiaException("SBic: second dimension of features matrix is less than 2, unable to perform segmentation with less than 2 frames");
+    throw SonoriaException("SBic: second dimension of features matrix is less than 2, unable to perform segmentation with less than 2 frames");
   }
 
   // We only have enough frames for one segment, put it in the array and return

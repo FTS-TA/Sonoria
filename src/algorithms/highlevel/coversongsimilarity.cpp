@@ -52,10 +52,10 @@ void CoverSongSimilarity::configure() {
   std::string simType = toLower(parameter("alignmentType").toString());
   if      (simType == "serra09") _simType = SERRA09;
   else if (simType == "chen17") _simType = CHEN17;
-  else throw EssentiaException("CoverSongSimilarity: Invalid cover similarity type: ", simType);
+  else throw SonoriaException("CoverSongSimilarity: Invalid cover similarity type: ", simType);
   if      (distanceType == "symmetric") _distanceType = SYMMETRIC;
   else if (distanceType == "asymmetric") _distanceType = ASYMMETRIC;
-  else throw EssentiaException("CoverSongSimilarity: Invalid distance type: ", simType);
+  else throw SonoriaException("CoverSongSimilarity: Invalid distance type: ", simType);
 }
 
 void CoverSongSimilarity::compute() {
@@ -65,7 +65,7 @@ void CoverSongSimilarity::compute() {
   Real& distance = _distance.get();
 
   if (simMatrix.empty())
-      throw EssentiaException("CoverSongSimilarity: Input similarity matrix is empty");
+      throw SonoriaException("CoverSongSimilarity: Input similarity matrix is empty");
 
   size_t xFrames = simMatrix.size();
   size_t yFrames = simMatrix[0].size();
@@ -160,7 +160,7 @@ void CoverSongSimilarity::configure() {
   std::string distanceType = toLower(parameter("distanceType").toString());
   if      (distanceType == "symmetric") _distanceType = SYMMETRIC;
   else if (distanceType == "asymmetric") _distanceType = ASYMMETRIC;
-  else throw EssentiaException("CoverSongSimilarity: Invalid distance type: ", distanceType);
+  else throw SonoriaException("CoverSongSimilarity: Invalid distance type: ", distanceType);
   _c1 = 0;
   _c2 = 0;
   _c3 = 0;
@@ -238,7 +238,7 @@ AlgorithmStatus CoverSongSimilarity::process() {
 // compute smith-waterman alignment based on [2] for each 3 frames streams of array input
 void CoverSongSimilarity::subFrameQmax(std::vector<std::vector<Real> >& inputFrames) {
   
-  if (int(_xFrames) != _minFrameAcquireSize) throw EssentiaException("CoverSongSimilarity: Wrong input frame size!");
+  if (int(_xFrames) != _minFrameAcquireSize) throw SonoriaException("CoverSongSimilarity: Wrong input frame size!");
   int i = 2;
   for (size_t j=2; j<_yFrames; j++) {
     // measure the diagonal when a similarity is found in the input matrix
@@ -271,7 +271,7 @@ void CoverSongSimilarity::subFrameQmax(std::vector<std::vector<Real> >& inputFra
 Real gammaState(Real value, const Real disOnset, const Real disExtension) {
   if      (int(value) == 1) return disOnset;
   else if (int(value) == 0) return disExtension;
-  else throw EssentiaException("CoverSongSimilarity:Non-binary elements found in the input similarity matrix. Expected a binary similarity matrix!");
+  else throw SonoriaException("CoverSongSimilarity:Non-binary elements found in the input similarity matrix. Expected a binary similarity matrix!");
 }
 
 

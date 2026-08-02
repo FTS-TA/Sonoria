@@ -89,7 +89,7 @@ int main(int argc, char* argv[]) {
   //    cout << "rubatoStart: " << pool.value<vector<Real> >("rhythm.rubatoStart") << endl;
   //    cout << "rubatoStop: " << pool.value<vector<Real> >("rhythm.rubatoStop") << endl;
   //}
-  //catch (EssentiaException&) {
+  //catch (SonoriaException&) {
   //  cout << "No rubato regions found" << endl;
   //}
 

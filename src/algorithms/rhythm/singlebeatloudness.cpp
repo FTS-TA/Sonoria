@@ -41,13 +41,13 @@ void SingleBeatLoudness::configure() {
   _peakEnergy = (parameter("onsetStart").toString()=="peakEnergy");
 
   if (_beatDuration > _beatWindowSize) {
-    throw EssentiaException("Parameter beatDuration cannot be larger than beatWindowDuration");
+    throw SonoriaException("Parameter beatDuration cannot be larger than beatWindowDuration");
   }
 
   if (_beatDuration % 2 == 1) _beatDuration++; // as sonoria::FFT only runs on even sizes so far. Needs be removed whenever fft will output the whole spectrum
 
   if (_beatDuration > _beatWindowSize) {
-    throw EssentiaException("SingleBeatLoudness: Parameter beatDuration cannot be larger than beatWindowDuration");
+    throw SonoriaException("SingleBeatLoudness: Parameter beatDuration cannot be larger than beatWindowDuration");
   }
 
   if (_beatDuration % 2 == 1) _beatDuration++; // as sonoria::FFT only runs on even sizes so far. Needs be removed whenever fft will output the whole spectrum
@@ -81,7 +81,7 @@ void SingleBeatLoudness::compute() {
   vector<Real>& loudnessBand = _loudnessBand.get();
 
   if (int(beat.size()) < _beatWindowSize + _beatDuration) {
-    throw EssentiaException("SingleBeatLoudness: the size of the input beat segment cannot be smaller than beatWindowSize + beatDuration");
+    throw SonoriaException("SingleBeatLoudness: the size of the input beat segment cannot be smaller than beatWindowSize + beatDuration");
   }
 
   // first find the max peak of energy in the window size, this will be the

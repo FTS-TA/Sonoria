@@ -45,7 +45,7 @@ void FrameCutter::configure() {
 
   Real ratio = parameter("validFrameThresholdRatio").toReal();
   if (ratio > 0.5 && !_startFromZero) {
-    throw EssentiaException("FrameCutter: validFrameThresholdRatio cannot be "
+    throw SonoriaException("FrameCutter: validFrameThresholdRatio cannot be "
                             "larger than 0.5 if startFromZero is false (this "
                             "is to prevent loss of the first frame which would "
                             "be only half a valid frame since the first frame "
@@ -191,7 +191,7 @@ void FrameCutter::configure() {
 
   Real ratio = parameter("validFrameThresholdRatio").toReal();
   if (ratio > 0.5 && !_startFromZero) {
-    throw EssentiaException("FrameCutter: validFrameThresholdRatio cannot be "
+    throw SonoriaException("FrameCutter: validFrameThresholdRatio cannot be "
                             "larger than 0.5 if startFromZero is false (this "
                             "is to prevent loss of the first frame which would "
                             "be only half a valid frame since the first frame "
@@ -320,7 +320,7 @@ AlgorithmStatus FrameCutter::process() {
   if (status != OK) {
     if (status == NO_INPUT) return NO_INPUT;
     if (status == NO_OUTPUT) return NO_OUTPUT;
-    throw EssentiaException("FrameCutter: something weird happened.");
+    throw SonoriaException("FrameCutter: something weird happened.");
   }
 
   // some semantic description to not get mixed up between the 2 meanings

@@ -223,7 +223,7 @@ void KeyExtractor::compute() {
      * consistency, and to bring the awareness of such a potentially problematic scenario to the user, we decided to
      * raise an exceptiong
      */
-     throw EssentiaException("KeyExtractor: empty input signal");
+     throw SonoriaException("KeyExtractor: empty input signal");
   }
 
   _vectorInput->setVector(&audio);
