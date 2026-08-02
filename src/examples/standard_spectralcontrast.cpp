@@ -21,7 +21,7 @@
 #include <fstream>
 #include <essentia/algorithmfactory.h>
 #include <essentia/pool.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 #include "credit_libav.h" 
 
 using namespace std;

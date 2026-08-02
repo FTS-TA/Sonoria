@@ -20,7 +20,7 @@
 #include <iostream>
 #include <fstream>
 #include <essentia/algorithmfactory.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 #include <essentia/pool.h>
 #include "credit_libav.h"
 #include "essentia/utils/tnt/tnt2vector.h"

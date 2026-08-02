@@ -24,7 +24,7 @@
 #include <essentia/streaming/algorithms/poolstorage.h>
 #include <essentia/streaming/algorithms/vectorinput.h>
 #include <essentia/streaming/algorithms/vectoroutput.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 #include <essentia/scheduler/network.h>
 #include <essentia/utils/bpmutil.h>
 #include <essentia/utils/tnt/tnt2vector.h>

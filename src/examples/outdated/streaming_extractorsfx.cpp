@@ -21,7 +21,7 @@
 using namespace std;
 
 #include <essentia/algorithmfactory.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 #include <essentia/streaming/algorithms/poolstorage.h>
 using namespace sonoria;
 using namespace sonoria::streaming;

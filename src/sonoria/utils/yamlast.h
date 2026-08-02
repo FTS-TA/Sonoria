@@ -25,7 +25,9 @@
 #include <vector>
 #include <exception>
 #include <sstream>
+#ifdef HAVE_YAML
 #include <yaml.h>
+#endif
 
 namespace sonoria {
 

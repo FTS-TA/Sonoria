@@ -20,7 +20,7 @@
 #include <iostream>
 #include <complex>
 #include <essentia/algorithmfactory.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 #include <essentia/utils/tnt/tnt_array2d.h>
 
 using namespace std;

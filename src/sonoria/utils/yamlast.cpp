@@ -20,6 +20,8 @@
 #include "yamlast.h"
 #include <stack>
 #include <cstdlib>
+#include <cstring>
+#include <yaml.h>
 
 using namespace std;
 using namespace sonoria;

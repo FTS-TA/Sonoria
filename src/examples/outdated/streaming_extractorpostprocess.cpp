@@ -20,7 +20,7 @@
 #include "streaming_extractorpostprocess.h"
 #include <essentia/streaming/algorithms/poolstorage.h>
 #include <essentia/algorithmfactory.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 
 using namespace std;
 using namespace sonoria;

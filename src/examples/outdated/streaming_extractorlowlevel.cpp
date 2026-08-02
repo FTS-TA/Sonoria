@@ -19,7 +19,7 @@
 
 #include "streaming_extractorlowlevel.h"
 #include <essentia/algorithmfactory.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 #include <essentia/streaming/algorithms/poolstorage.h>
 
 using namespace std;
