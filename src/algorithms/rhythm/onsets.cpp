@@ -18,7 +18,7 @@
  */
 
 #include "onsets.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 using namespace TNT;
 using namespace std;

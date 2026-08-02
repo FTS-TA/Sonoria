@@ -23,7 +23,7 @@
 #include "types.h"
 #include "threading.h"
 #include "utils/tnt/tnt.h"
-#include "essentiautil.h"
+#include "sonoriautil.h"
 
 namespace sonoria {
 

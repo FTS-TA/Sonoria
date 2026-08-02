@@ -21,7 +21,7 @@
 #define ESSENTIA_KEY_H
 
 #include "algorithm.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 namespace sonoria {
 namespace standard {

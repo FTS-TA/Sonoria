@@ -24,7 +24,7 @@
 #include <sstream>
 #include <iostream>
 #include "types.h"
-#include "essentia.h"
+#include "sonoria.h"
 #include "parameter.h"
 
 

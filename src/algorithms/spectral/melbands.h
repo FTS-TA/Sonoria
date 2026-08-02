@@ -20,7 +20,7 @@
 #ifndef ESSENTIA_MELBANDS_H
 #define ESSENTIA_MELBANDS_H
 
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithm.h"
 #include "algorithmfactory.h"
 

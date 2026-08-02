@@ -1,7 +1,5 @@
 ```
-# Build artifacts and dependencies
-build/
-dist/
+# Build artifacts
 *.o
 *.obj
 *.a
@@ -12,73 +10,81 @@ dist/
 *.exe
 *.out
 
-# Python specific
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.egg-info/
-.eggs/
-.Python
-env/
-venv/
-.venv/
-.ENV
-.env
-.env.local
-.env.*
+# CMake build directories
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+compile_commands.json
 
-# Virtual environments
-venv/
-env/
-ENV/
+# Compiled binaries and libraries
+bin/
+lib/
+src/**/*.o
+src/**/*.[oa]
+src/**/*.so
+src/**/*.dll
+src/**/*.dylib
 
-# Testing
-.coverage
-coverage/
-htmlcov/
-.nyc_output/
-.pytest_cache/
-.mypy_cache/
+# Test build outputs
+test/build/
+test/bin/
 
-# IDE and editor files
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
-.DS_Store
-Thumbs.db
 
 # Logs
 *.log
 
-# Temporary files
-*.tmp
-*.temp
-*.bak
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
 
-# Distribution / packaging
-*.tar.gz
-*.zip
-*.whl
+# Package manager files
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# CMake and Waf
-CMakeFiles/
-CMakeCache.txt
-cmake_install_manifest.txt
-waf-*
-.deps/
+# Python specific
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/modules/
+*.sublime-workspace
 
-# VCPKG
-vcpkg_installed/
-vcpkg-manifest-lock.json
+# Environment variables
+.env
+.env.local
+.env.*
 
-# Audio/test data (if they follow common patterns)
-*.wav
-*.mp3
-*.flac
-*.aac
-*.ogg
-
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 ```

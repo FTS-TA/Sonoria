@@ -19,7 +19,7 @@
 
 #include "pitchyinprobabilistic.h"
 #include <algorithm> // sort
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <time.h>
 
 using namespace std;

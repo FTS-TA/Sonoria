@@ -22,7 +22,7 @@
 
 #include "streamingalgorithm.h"
 #include "streamingalgorithmcomposite.h"
-#include "essentia_gtest.h"
+#include "sonoria_gtest.h"
 
 namespace essentia {
 namespace streaming {

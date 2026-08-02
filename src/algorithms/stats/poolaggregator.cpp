@@ -19,8 +19,8 @@
 
 #include "poolaggregator.h"
 #include "algorithmfactory.h"
-#include "essentiamath.h"
-#include "essentiautil.h"
+#include "sonoriamath.h"
+#include "sonoriautil.h"
 #include "tnt/tnt2essentiautils.h"
 
 using namespace std;

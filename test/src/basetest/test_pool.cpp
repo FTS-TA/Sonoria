@@ -18,7 +18,7 @@
  */
 
 #include <algorithm>
-#include "essentia_gtest.h"
+#include "sonoria_gtest.h"
 using namespace std;
 using essentia::Real;
 using essentia::EssentiaException;

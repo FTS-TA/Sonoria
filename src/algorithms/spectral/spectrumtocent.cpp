@@ -6,7 +6,7 @@
  */
 
 #include "spectrumtocent.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 namespace sonoria {
 namespace standard {

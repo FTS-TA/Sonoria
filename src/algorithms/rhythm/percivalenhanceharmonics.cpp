@@ -18,7 +18,7 @@
  */
 
 #include "percivalenhanceharmonics.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 using namespace std;
 using namespace sonoria;

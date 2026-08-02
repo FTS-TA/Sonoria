@@ -18,7 +18,7 @@
  */
 
 #include "lpc.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithmfactory.h"
 
 using namespace std;

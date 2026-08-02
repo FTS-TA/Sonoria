@@ -17,7 +17,7 @@
  * version 3 along with this program.  If not, see http://www.gnu.org/licenses/
  */
 
-#include "essentia.h"
+#include "sonoria.h"
 #include "algorithmfactory.h"
 // Need to do this to keep essentia FFT "agnostic"
 // #include <fftw3.h>

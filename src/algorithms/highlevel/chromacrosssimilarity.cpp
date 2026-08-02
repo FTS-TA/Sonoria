@@ -17,7 +17,7 @@
  * version 3 along with this program.  If not, see http://www.gnu.org/licenses/
  */
 #include "chromacrosssimilarity.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <vector>
 #include <iostream>
 #include <string>

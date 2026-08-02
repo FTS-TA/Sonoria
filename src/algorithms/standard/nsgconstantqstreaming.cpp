@@ -18,8 +18,8 @@
  */
 
 #include "nsgconstantqstreaming.h"
-#include "essentia.h"
-#include "essentiamath.h"
+#include "sonoria.h"
+#include "sonoriamath.h"
 
 using namespace std;
 

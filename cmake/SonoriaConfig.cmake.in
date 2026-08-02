@@ -15,8 +15,8 @@ if(PkgConfig_FOUND)
     pkg_check_modules(SWRESAMPLE libswresample QUIET)
 endif()
 
-if(NOT TARGET Essentia::essentia)
-    include("${CMAKE_CURRENT_LIST_DIR}/EssentiaTargets.cmake")
+if(NOT TARGET Sonoria::sonoria)
+    include("${CMAKE_CURRENT_LIST_DIR}/SonoriaTargets.cmake")
 endif()
 
-check_required_components(Essentia)
+check_required_components(Sonoria)

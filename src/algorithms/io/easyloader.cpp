@@ -19,7 +19,7 @@
 
 #include "easyloader.h"
 #include "algorithmfactory.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 using namespace std;
 

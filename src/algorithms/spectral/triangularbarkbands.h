@@ -20,7 +20,7 @@
 #ifndef ESSENTIA_TRIANGULARBARKBANDS_H
 #define ESSENTIA_TRIANGULARBARKBANDS_H
 
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithm.h"
 #include "algorithmfactory.h"
 #include <cmath>

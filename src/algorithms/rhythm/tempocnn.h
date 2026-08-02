@@ -21,7 +21,7 @@
 #define ESSENTIA_TEMPOCNN_H
 
 #include "algorithmfactory.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 namespace sonoria {
 namespace standard {

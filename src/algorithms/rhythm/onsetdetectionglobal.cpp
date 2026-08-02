@@ -20,7 +20,7 @@
 #include "onsetdetectionglobal.h"
 #include <complex>
 #include <limits>
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 using namespace std;
 

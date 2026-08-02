@@ -18,7 +18,7 @@
  */
 
 #include "yamloutput.h"
-#include "essentia.h"
+#include "sonoria.h"
 #include "output.h" // ../utils/output
 #include <fstream>
 #include <sstream> // escapeJsonString

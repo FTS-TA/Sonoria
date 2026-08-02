@@ -22,7 +22,7 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "essentia.h"
+#include "sonoria.h"
 #include "algorithmfactory.h"
 #include "streamingalgorithm.h"
 #include "streamingalgorithmcomposite.h"

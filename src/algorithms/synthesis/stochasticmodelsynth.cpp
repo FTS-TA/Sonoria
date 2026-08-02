@@ -18,7 +18,7 @@
  */
 
 #include "stochasticmodelsynth.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <essentia/utils/synth_utils.h>
 
 using namespace sonoria;

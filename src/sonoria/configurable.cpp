@@ -20,7 +20,7 @@
 #include <memory>
 #include "configurable.h"
 #include "range.h"
-#include "essentiautil.h"
+#include "sonoriautil.h"
 using namespace std;
 
 namespace sonoria {

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Essentia
+project(Sonoria
     VERSION 2.1.0
     DESCRIPTION "Audio analysis library"
     LANGUAGES CXX C
@@ -514,7 +514,7 @@ set_target_properties(sonoria PROPERTIES
 include(GNUInstallDirs)
 
 install(TARGETS sonoria
-    EXPORT EssentiaTargets
+    EXPORT SonoriaTargets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -544,31 +544,31 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/sonoria.pc"
 )
 
 # Export targets
-install(EXPORT EssentiaTargets
-    FILE EssentiaTargets.cmake
-    NAMESPACE Essentia::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Essentia
+install(EXPORT SonoriaTargets
+    FILE SonoriaTargets.cmake
+    NAMESPACE Sonoria::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Sonoria
 )
 
 # Create config file
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/EssentiaConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/EssentiaConfig.cmake"
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Essentia
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/SonoriaConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/SonoriaConfig.cmake"
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Sonoria
 )
 
 write_basic_package_version_file(
-    "${CMAKE_CURRENT_BINARY_DIR}/EssentiaConfigVersion.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/SonoriaConfigVersion.cmake"
     VERSION ${PROJECT_VERSION}
     COMPATIBILITY SameMajorVersion
 )
 
 install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/EssentiaConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/EssentiaConfigVersion.cmake"
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Essentia
+    "${CMAKE_CURRENT_BINARY_DIR}/SonoriaConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/SonoriaConfigVersion.cmake"
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Sonoria
 )
 
 # Examples

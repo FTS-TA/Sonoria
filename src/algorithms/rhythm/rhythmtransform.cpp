@@ -18,7 +18,7 @@
  */
 
 #include "rhythmtransform.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "tnt/tnt2vector.h"
 #include <cfloat>
 using namespace std;

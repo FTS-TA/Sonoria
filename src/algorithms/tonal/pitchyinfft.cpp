@@ -18,7 +18,7 @@
  */
 
 #include "pitchyinfft.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include <complex>
 
 using namespace std;

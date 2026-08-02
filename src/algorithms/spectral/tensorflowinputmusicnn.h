@@ -20,7 +20,7 @@
 #ifndef ESSENTIA_TENSORFLOWINPUTMUSICNN_H
 #define ESSENTIA_TENSORFLOWINPUTMUSICNN_H
 
-#include "essentiamath.h"
+#include "sonoriamath.h"
 #include "algorithm.h"
 #include "algorithmfactory.h"
 

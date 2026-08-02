@@ -18,7 +18,7 @@
  */
 
 #include <complex>
-#include "essentia_gtest.h"
+#include "sonoria_gtest.h"
 #include "network.h"
 #include "vectorinput.h"
 #include "fileoutput.h"

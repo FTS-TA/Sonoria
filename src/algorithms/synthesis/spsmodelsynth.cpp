@@ -18,7 +18,7 @@
  */
 
 #include "spsmodelsynth.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 
 using namespace sonoria;

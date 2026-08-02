@@ -18,7 +18,7 @@
  */
 
 #include "triangularbands.h"
-#include "essentiamath.h"
+#include "sonoriamath.h"
 
 namespace sonoria {
 namespace standard {

@@ -18,7 +18,7 @@
  */
 
 #include "constantq.h"
-#include "essentia.h"
+#include "sonoria.h"
 #include <iostream>
 
 using namespace std;
