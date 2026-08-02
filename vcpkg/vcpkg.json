@@ -2,7 +2,7 @@
   "name": "sonoria",
   "version": "2.1.0",
   "description": "Audio analysis library for audio and music analysis, description and synthesis",
-  "homepage": "https://github.com/MTG/essentia",
+  "homepage": "https://github.com/FTS-TA/Sonoria/",
   "license": "AGPL-3.0-or-later",
   "supports": "!uwp",
   "dependencies": [
