@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Key : public Algorithm {
@@ -101,12 +101,12 @@ protected:
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmcomposite.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Key : public AlgorithmComposite {
@@ -162,6 +162,6 @@ class Key : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_KEY_H

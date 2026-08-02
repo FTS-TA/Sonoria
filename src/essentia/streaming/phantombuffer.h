@@ -27,7 +27,7 @@
 #include "../essentiautil.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Window {
@@ -227,7 +227,7 @@ class PhantomBuffer : public MultiRateBuffer<T> {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "phantombuffer_impl.h"
 

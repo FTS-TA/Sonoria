@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* VectorRealToTensor::name = "VectorRealToTensor";
@@ -273,4 +273,4 @@ void VectorRealToTensor::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

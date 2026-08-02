@@ -19,7 +19,7 @@
 
 
 import sys
-import essentia
+import sonoria
 import os
 import glob
 import numpy
@@ -31,15 +31,15 @@ frame_rate = (frame_size - hop_size) / sample_rate
 zero_padding = 0
 
 for input_file in glob.glob('../../../../audio/recorded/*.wav'):
-    audio   = essentia.AudioFileInput(filename = input_file)
+    audio   = sonoria.AudioFileInput(filename = input_file)
     samples = audio()
-    frames  = essentia.FrameGenerator(audio = samples, frameSize = frame_size, hopSize = hop_size)
-    window  = essentia.Windowing(windowSize = frame_size, zeroPadding = zero_padding, type = "hann")
-    fft     = essentia.FFT()
-    cartesian2polar = essentia.Cartesian2Polar()
-    onsetdetectionHFC = essentia.OnsetDetection(method = "hfc", sampleRate = sample_rate)
-    onsetdetectionComplex = essentia.OnsetDetection(method = "complex", sampleRate = sample_rate)
-    onsets = essentia.Onsets(frameRate = frame_rate, alpha = 0.2, delayCoef = 6, silenceTS = 0.075)
+    frames  = sonoria.FrameGenerator(audio = samples, frameSize = frame_size, hopSize = hop_size)
+    window  = sonoria.Windowing(windowSize = frame_size, zeroPadding = zero_padding, type = "hann")
+    fft     = sonoria.FFT()
+    cartesian2polar = sonoria.Cartesian2Polar()
+    onsetdetectionHFC = sonoria.OnsetDetection(method = "hfc", sampleRate = sample_rate)
+    onsetdetectionComplex = sonoria.OnsetDetection(method = "complex", sampleRate = sample_rate)
+    onsets = sonoria.Onsets(frameRate = frame_rate, alpha = 0.2, delayCoef = 6, silenceTS = 0.075)
 
     total_frames = frames.num_frames()
     n_frames = 0
@@ -56,8 +56,8 @@ for input_file in glob.glob('../../../../audio/recorded/*.wav'):
         complex.append(onsetdetectionComplex(spectrum,phase))
         n_frames += 1
 
-    detections = numpy.concatenate([essentia.array([hfc]),
-                                    essentia.array([complex]) ])
-    time_onsets = onsets(detections, essentia.array([1, 1]))
+    detections = numpy.concatenate([sonoria.array([hfc]),
+                                    sonoria.array([complex]) ])
+    time_onsets = onsets(detections, sonoria.array([1, 1]))
 
     print(len(time_onsets) / ( len(samples) / sample_rate ), os.path.basename(input_file))

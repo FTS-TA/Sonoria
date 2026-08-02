@@ -27,7 +27,7 @@
 #include <complex>
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -73,7 +73,7 @@ class Magnitude : public StreamingAlgorithmWrapper {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_MAGNITUDE_H

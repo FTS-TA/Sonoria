@@ -35,12 +35,12 @@ extern PyTypeObject PyPoolType;
 class PyPool {
  public:
   PyObject_HEAD
-  essentia::Pool* pool;
+  sonoria::Pool* pool;
 
   BASIC_MEMORY_MANAGEMENT(PyPool, pool);
 
   static PyObject* make_new_from_data(PyTypeObject* type, PyObject* args,
-                                      PyObject* kwds, essentia::Pool* data) {
+                                      PyObject* kwds, sonoria::Pool* data) {
     PyPool* self = (PyPool*)make_new(type, args, kwds);
     self->pool = data;
     return (PyObject*)self;
@@ -48,8 +48,8 @@ class PyPool {
 
   static int init(PyObject* self, PyObject* args, PyObject* kwds);
 
-  static PyObject* toPythonRef(essentia::Pool* data);
-  static essentia::Pool* fromPythonRef(PyObject* obj);
+  static PyObject* toPythonRef(sonoria::Pool* data);
+  static sonoria::Pool* fromPythonRef(PyObject* obj);
   static PyObject* add(PyPool* self, PyObject* pyArgs);
   static PyObject* set(PyPool* self, PyObject* pyArgs);
   static PyObject* merge(PyPool* self, PyObject* pyArgs);

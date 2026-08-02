@@ -19,7 +19,7 @@
 
 # example script to compute and plot onsetdetection related descriptors
 
-from essentia.extractor.onsetdetection import compute
+from sonoria.extractor.onsetdetection import compute
 
 def parse_args():
     from optparse import OptionParser
@@ -42,15 +42,15 @@ def parse_args():
     return options, args
 
 if __name__ == '__main__':
-    import sys, os.path, essentia
+    import sys, os.path, sonoria
     options, args = parse_args()
     input_file = options.input_file
 
     # load audio file
-    audio_file = essentia.AudioFileInput(filename = input_file)
+    audio_file = sonoria.AudioFileInput(filename = input_file)
     audio = audio_file()
     sampleRate = 44100.
-    pool = essentia.Pool(input_file)
+    pool = sonoria.Pool(input_file)
 
     compute(audio, pool, sampleRate = sampleRate, verbose = options.verbose)
     onsets = list(pool.descriptors['rhythm_onsets']['values'][0])
@@ -63,6 +63,6 @@ if __name__ == '__main__':
       for tick in onsets:
         for sample in range( int(round(tick*sampleRate)), int(round( (tick + tick_length ) *sampleRate )) ):
           audio[sample] += 0.4 * ( sample % 200. - 100. )
-      output_file = essentia.WaveFileOutput(filename = options.wave_output)
+      output_file = sonoria.WaveFileOutput(filename = options.wave_output)
       output_file(audio)
 

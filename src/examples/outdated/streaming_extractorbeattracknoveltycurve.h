@@ -25,8 +25,8 @@
 #include "types.h"
 
 // outdated beat tracker (2009), bad performance
-void BeatTrack(essentia::Pool& pool,
-               const essentia::Pool& options,
+void BeatTrack(sonoria::Pool& pool,
+               const sonoria::Pool& options,
                const std::string& nspace);
 
 #endif // STREAMING_EXTRACTORBEATTRACKNOVELTYCURVE_H

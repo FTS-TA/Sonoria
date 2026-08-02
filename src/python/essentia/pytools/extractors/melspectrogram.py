@@ -20,10 +20,10 @@ import os
 
 import numpy as np
 
-from essentia import Pool
-from essentia import run
+from sonoria import Pool
+from sonoria import run
 
-from essentia.streaming import (MonoLoader, FrameCutter, Windowing, Spectrum,
+from sonoria.streaming import (MonoLoader, FrameCutter, Windowing, Spectrum,
                                 MelBands, UnaryOperator)
 
 ZERO_PADDING = 0

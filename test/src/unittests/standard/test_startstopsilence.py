@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia import *
+from sonoria_test import *
+from sonoria import *
 
 class TestStartStopSilence(TestCase):
 

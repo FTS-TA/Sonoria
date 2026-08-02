@@ -21,7 +21,7 @@
 #include "fftk.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* IFFTK::name = "IFFT";

@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import LogAttackTime as sLogAttackTime
+from sonoria_test import *
+from sonoria.streaming import LogAttackTime as sLogAttackTime
 
 class TestLogAttackTime_Streaming(TestCase):
 

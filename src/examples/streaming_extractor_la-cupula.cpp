@@ -25,16 +25,16 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 
 int essentia_main(string audioFilename, string outputFilename) {
   // Returns: 1 on essentia error
 
   try {
-    essentia::init();
+    sonoria::init();
 
     cout.precision(10); // TODO ????
 
@@ -207,7 +207,7 @@ int essentia_main(string audioFilename, string outputFilename) {
     output->compute();
     delete output;
 
-    essentia::shutdown();
+    sonoria::shutdown();
     cout << "-------- Done! ---------" << endl;
   }
   catch (EssentiaException& e) {

@@ -20,9 +20,9 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import RhythmExtractor
-from essentia.standard import MonoLoader, RhythmExtractor as stdRhythmExtractor
+from sonoria_test import *
+from sonoria.streaming import RhythmExtractor
+from sonoria.standard import MonoLoader, RhythmExtractor as stdRhythmExtractor
 from math import fabs
 
 class TestRhythmExtractor(TestCase):

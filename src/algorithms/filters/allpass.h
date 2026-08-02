@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -92,7 +92,7 @@ class AllPass : public StreamingAlgorithmWrapper {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_ALLPASS_H

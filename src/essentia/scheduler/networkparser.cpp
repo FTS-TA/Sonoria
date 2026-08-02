@@ -25,7 +25,7 @@
 #include "algorithmfactory.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace scheduler {
 
 void NetworkParser::createNetwork(bool createConnections) {
@@ -103,4 +103,4 @@ void NetworkParser::createConnections() {
 }
 
 } // namespace scheduler
-} // namespace essentia
+} // namespace sonoria

@@ -25,7 +25,7 @@
 #include "types.h"
 #include "utils/tnt/tnt_array2d.h"
 
-namespace essentia {
+namespace sonoria {
 
 class ESSENTIA_API Parameter {
 
@@ -290,6 +290,6 @@ std::ostream& operator<<(std::ostream& out, const Parameter& p);
 std::ostream& operator<<(std::ostream& out, const ParameterMap& m);
 std::ostream& operator<<(std::ostream& out, const Parameter::ParamType& t);
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PARAMETER_H

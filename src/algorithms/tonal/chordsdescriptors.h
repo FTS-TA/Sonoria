@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ChordsDescriptors : public Algorithm {
@@ -71,10 +71,10 @@ class ChordsDescriptors : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class ChordsDescriptors : public Algorithm {
@@ -125,6 +125,6 @@ class ChordsDescriptors : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_CHORDSDESCRIPTORS_H

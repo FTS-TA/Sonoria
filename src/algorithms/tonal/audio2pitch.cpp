@@ -1,7 +1,7 @@
 #include "audio2pitch.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* Audio2Pitch::name = "Audio2Pitch";

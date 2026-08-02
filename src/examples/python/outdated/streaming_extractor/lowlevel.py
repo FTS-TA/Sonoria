@@ -21,9 +21,9 @@
 
 import sys, os
 
-import essentia
-from essentia import *
-from essentia.streaming import *
+import sonoria
+from sonoria import *
+from sonoria.streaming import *
 
 from metadata import getAnalysisMetadata
 from lowlevelspectral import LowLevelSpectralExtractor
@@ -96,14 +96,14 @@ def parse_args():
 
     import numpy
 
-    essentia_version = '%s\n'\
+    sonoria_version = '%s\n'\
     'python version: %s\n'\
-    'numpy version: %s' % (essentia.__version__,       # full version
+    'numpy version: %s' % (sonoria.__version__,       # full version
                            sys.version.split()[0],     # python major version
                            numpy.__version__)          # numpy version
 
     from optparse import OptionParser
-    parser = OptionParser(usage=usage, version=essentia_version)
+    parser = OptionParser(usage=usage, version=sonoria_version)
 
     parser.add_option("--start",
                       action="store", dest="startTime", default="0.0",
@@ -135,7 +135,7 @@ if __name__ == '__main__':
 
     startTime = float(opts.startTime)
     endTime=float(opts.endTime)
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
     readMetadata(args[0], pool)
     replaygain.compute(args[0], pool, startTime, endTime)
     rgain, sampleRate, downmix = getAnalysisMetadata(pool)
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     compute(loader.audio, loader.audio, pool, startTime, endTime,
             sampleRate=analysisSampleRate)
 
-    essentia.run(loader)
+    sonoria.run(loader)
 
     # check if we processed enough audio for it to be useful, in particular did
     # we manage to get an estimation for the loudness (2 seconds required)
@@ -167,5 +167,5 @@ if __name__ == '__main__':
 
 
     stats = ['mean', 'var', 'min', 'max', 'dmean', 'dmean2', 'dvar', 'dvar2']
-    poolStats = essentia.standard.PoolAggregator(defaultStats=stats)(pool)
-    essentia.standard.YamlOutput(filename=args[1])(poolStats)
+    poolStats = sonoria.standard.PoolAggregator(defaultStats=stats)(pool)
+    sonoria.standard.YamlOutput(filename=args[1])(poolStats)

@@ -20,7 +20,7 @@
 #include "centralmoments.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* CentralMoments::name = "CentralMoments";

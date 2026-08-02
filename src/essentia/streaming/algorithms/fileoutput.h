@@ -24,7 +24,7 @@
 #include "../streamingalgorithm.h"
 #include "../../streamutil.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -120,6 +120,6 @@ class FileOutput : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_FILEOUTPUT_H

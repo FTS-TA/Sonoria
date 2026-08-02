@@ -165,7 +165,7 @@ string formatString(const TagLib::StringList& strList) {
   return result;
 }
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MetadataReader::name = "MetadataReader";
@@ -289,9 +289,9 @@ void MetadataReader::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -380,4 +380,4 @@ AlgorithmStatus MetadataReader::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

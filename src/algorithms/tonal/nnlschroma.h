@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "nnls.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class NNLSChroma : public Algorithm {
@@ -93,11 +93,11 @@ class NNLSChroma : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class NNLSChroma : public StreamingAlgorithmWrapper {
@@ -126,7 +126,7 @@ class NNLSChroma : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_NNLSCHROMA_H

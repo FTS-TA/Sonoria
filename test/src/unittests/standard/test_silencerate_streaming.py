@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import SilenceRate
+from sonoria_test import *
+from sonoria.streaming import SilenceRate
 from numpy import random
 
 class TestSilenceRate_Streaming(TestCase):

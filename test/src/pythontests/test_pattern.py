@@ -19,7 +19,7 @@
 
 
 import sys
-import essentia
+import sonoria
 import os
 import glob
 import numpy
@@ -34,16 +34,16 @@ all_files = glob.glob('../../../test/audio/patterns/*.mp3')
 
 for input_file in all_files:
 
-    audio   = essentia.AudioFileInput(filename = input_file)
+    audio   = sonoria.AudioFileInput(filename = input_file)
     samples = audio()
-    frames  = essentia.FrameGenerator(audio = samples, frameSize = frame_size, hopSize = hop_size)
-    window  = essentia.Windowing(windowSize = frame_size, zeroPadding = zero_padding, type = "blackmanharris62")
-    spectrum = essentia.Spectrum(size = frame_size + zero_padding)
-    spectralpeaks = essentia.SpectralPeaks(maxPeaks = 100, magnitudeThreshold = -100, minFrequency = 130, maxFrequency = 8000, highestPeaks = True)
-    lin2db = essentia.UnaryOperator(type = "lin2db")
-    db2lin = essentia.UnaryOperator(type = "db2lin")
-    hpcp = essentia.HPCP(size = 12, referenceFrequency = 440, useWeight = True, windowSize = 4.0/3.0, sampleRate = sample_rate, normalize = True)
-    patterndetection = essentia.PatternDetection(frameRate = frame_rate, lengthMin = 10.0, lengthMax = 15.0)
+    frames  = sonoria.FrameGenerator(audio = samples, frameSize = frame_size, hopSize = hop_size)
+    window  = sonoria.Windowing(windowSize = frame_size, zeroPadding = zero_padding, type = "blackmanharris62")
+    spectrum = sonoria.Spectrum(size = frame_size + zero_padding)
+    spectralpeaks = sonoria.SpectralPeaks(maxPeaks = 100, magnitudeThreshold = -100, minFrequency = 130, maxFrequency = 8000, highestPeaks = True)
+    lin2db = sonoria.UnaryOperator(type = "lin2db")
+    db2lin = sonoria.UnaryOperator(type = "db2lin")
+    hpcp = sonoria.HPCP(size = 12, referenceFrequency = 440, useWeight = True, windowSize = 4.0/3.0, sampleRate = sample_rate, normalize = True)
+    patterndetection = sonoria.PatternDetection(frameRate = frame_rate, lengthMin = 10.0, lengthMax = 15.0)
     total_frames = frames.num_frames()
     n_frames = 0
 
@@ -59,10 +59,10 @@ for input_file in all_files:
 
         try:
             chroma = numpy.concatenate([chroma,
-                                        essentia.array([frame_hpcp], ndmin=2) ],
+                                        sonoria.array([frame_hpcp], ndmin=2) ],
                                         axis = 0)
         except:
-            chroma = essentia.array([frame_hpcp], ndmin=2)
+            chroma = sonoria.array([frame_hpcp], ndmin=2)
 
         n_frames += 1
 

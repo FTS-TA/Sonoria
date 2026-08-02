@@ -23,7 +23,7 @@
 #include "parameter.h"
 #include <set>
 
-namespace essentia {
+namespace sonoria {
 
 class ESSENTIA_API Range {
  public:
@@ -61,6 +61,6 @@ class Set : public Range {
   std::string s;
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_RANGE_H

@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SingleBeatLoudness : public Algorithm {
@@ -84,11 +84,11 @@ class SingleBeatLoudness : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SingleBeatLoudness : public StreamingAlgorithmWrapper {
@@ -110,6 +110,6 @@ class SingleBeatLoudness : public StreamingAlgorithmWrapper {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SINGLEBEATLOUDNESS_H

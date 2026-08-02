@@ -24,7 +24,7 @@
 #include "algorithmfactory.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ClickDetector : public Algorithm {
@@ -91,12 +91,12 @@ class ClickDetector : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class ClickDetector : public StreamingAlgorithmWrapper {
@@ -116,6 +116,6 @@ class ClickDetector : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_CLICKDETECTOR_H

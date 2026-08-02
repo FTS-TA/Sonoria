@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TempoTap : public Algorithm {
@@ -109,11 +109,11 @@ class TempoTap : public Algorithm {
 }; // class TempoTap
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TempoTap : public StreamingAlgorithmWrapper {
@@ -133,7 +133,7 @@ class TempoTap : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_TEMPOTAP_H

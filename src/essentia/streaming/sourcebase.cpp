@@ -23,7 +23,7 @@
 #include "essentiautil.h" // for contains
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -33,7 +33,7 @@ SourceBase::~SourceBase() {
     // do not do the streaming::detach, because this object is already a SourceBase
     // only (ie: not a Source or SourceProxy anymore), so we can't call any of the
     // reader IDs methods which are pure virtual now...
-    //essentia::streaming::detach(*this, *_sproxy);
+    //sonoria::streaming::detach(*this, *_sproxy);
     _sproxy->detach(this);
   }
 
@@ -134,4 +134,4 @@ const vector<SinkBase*>& SourceBase::proxiedSinks() const {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

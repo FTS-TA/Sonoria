@@ -26,8 +26,8 @@
 #include <essentia/essentiamath.h>
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
 
 // helper functions which can also be found in bpmhistogram.cpp, but included
@@ -213,7 +213,7 @@ void cleanPool(Pool& pool) {
 
 int main(int argc, char* argv[]) {
 
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -469,7 +469,7 @@ int main(int argc, char* argv[]) {
   }
 
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

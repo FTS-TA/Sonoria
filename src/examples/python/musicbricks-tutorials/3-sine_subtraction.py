@@ -1,5 +1,5 @@
-import essentia
-import essentia.streaming as es
+import sonoria
+import sonoria.streaming as es
 from pathlib import Path
 
 
@@ -25,7 +25,7 @@ outputFilename = tutorial_dir / "singing-female-out-sinesubtraction.wav"
 loader = es.MonoLoader(
     filename=str(inputFilename), sampleRate=params["sampleRate"]
 )
-pool = essentia.Pool()
+pool = sonoria.Pool()
 fcut = es.FrameCutter(
     frameSize=params["frameSize"],
     hopSize=params["hopSize"],
@@ -65,7 +65,7 @@ smanal.phases >> smsub.phases
 smsub.frame >> (pool, "frames")
 
 # run network
-essentia.run(loader)
+sonoria.run(loader)
 
 
 # store the results in a file with a new network of algorithms
@@ -81,4 +81,4 @@ outvector = es.VectorInput(outaudio)
 outvector.data >> awrite.audio
 
 # run network to write audio file
-essentia.run(outvector)
+sonoria.run(outvector)

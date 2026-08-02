@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import StrongDecay as sStrongDecay
+from sonoria_test import *
+from sonoria.streaming import StrongDecay as sStrongDecay
 
 class TestStrongDecay_Streaming(TestCase):
 

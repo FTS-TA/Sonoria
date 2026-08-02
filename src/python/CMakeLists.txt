@@ -35,46 +35,46 @@ execute_process(
 
 # Collect Python binding sources
 file(GLOB PYTHON_BINDING_SOURCES
-    "${CMAKE_CURRENT_SOURCE_DIR}/essentia.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/sonoria.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/parsing.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/pytypes/*.cpp"
 )
 
 # Create Python extension module
-pybind11_add_module(_essentia ${PYTHON_BINDING_SOURCES})
+pybind11_add_module(_sonoria ${PYTHON_BINDING_SOURCES})
 
-target_include_directories(_essentia PRIVATE
+target_include_directories(_sonoria PRIVATE
     ${Python3_INCLUDE_DIRS}
     ${NUMPY_INCLUDE_DIR}
     "${CMAKE_CURRENT_SOURCE_DIR}"
     "${CMAKE_CURRENT_SOURCE_DIR}/pytypes"
     "${CMAKE_SOURCE_DIR}/src"
-    "${CMAKE_SOURCE_DIR}/src/essentia"
+    "${CMAKE_SOURCE_DIR}/src/sonoria"
 )
 
-target_link_libraries(_essentia PRIVATE essentia Python3::Module)
+target_link_libraries(_sonoria PRIVATE sonoria Python3::Module)
 
 # Set output name and installation path
-set_target_properties(_essentia PROPERTIES
-    OUTPUT_NAME "_essentia"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/python/essentia"
+set_target_properties(_sonoria PROPERTIES
+    OUTPUT_NAME "_sonoria"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/python/sonoria"
 )
 
 # Install Python module
-install(TARGETS _essentia
-    LIBRARY DESTINATION "${PYTHON_SITE_PACKAGES}/essentia"
+install(TARGETS _sonoria
+    LIBRARY DESTINATION "${PYTHON_SITE_PACKAGES}/sonoria"
 )
 
 # Install Python scripts
 file(GLOB_RECURSE PYTHON_SCRIPTS
-    "${CMAKE_CURRENT_SOURCE_DIR}/essentia/*.py"
+    "${CMAKE_CURRENT_SOURCE_DIR}/sonoria/*.py"
 )
 
 foreach(script ${PYTHON_SCRIPTS})
-    file(RELATIVE_PATH rel_path "${CMAKE_CURRENT_SOURCE_DIR}/essentia" ${script})
+    file(RELATIVE_PATH rel_path "${CMAKE_CURRENT_SOURCE_DIR}/sonoria" ${script})
     get_filename_component(script_dir ${rel_path} DIRECTORY)
     install(FILES ${script}
-        DESTINATION "${PYTHON_SITE_PACKAGES}/essentia/${script_dir}"
+        DESTINATION "${PYTHON_SITE_PACKAGES}/sonoria/${script_dir}"
     )
 endforeach()
 

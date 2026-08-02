@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PowerMean : public Algorithm {
@@ -57,11 +57,11 @@ class PowerMean : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PowerMean : public StreamingAlgorithmWrapper {
@@ -79,6 +79,6 @@ class PowerMean : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_POWERMEAN_H

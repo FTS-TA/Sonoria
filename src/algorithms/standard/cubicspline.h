@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "splineutil.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class CubicSpline : public Algorithm {
@@ -72,12 +72,12 @@ class CubicSpline : public Algorithm {
   static const char* description;
 };
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class CubicSpline : public StreamingAlgorithmWrapper {
@@ -99,6 +99,6 @@ class CubicSpline : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_CUBIC_SPLINE_H

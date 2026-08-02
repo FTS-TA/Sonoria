@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import itertools
 
 DIMS = 4  # Essentia only supports 4-dimensional Tensors.

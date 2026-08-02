@@ -22,7 +22,7 @@
 
 #include "../streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class RingBufferVectorOutput : public Algorithm {
@@ -51,6 +51,6 @@ class RingBufferVectorOutput : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMING_RINGBUFFEROUTPUT_H

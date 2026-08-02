@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class DCRemoval : public Algorithm {
@@ -86,6 +86,6 @@ class DCRemoval : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_DCREMOVAL_H

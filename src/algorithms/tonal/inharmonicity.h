@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Inharmonicity : public Algorithm {
@@ -50,11 +50,11 @@ class Inharmonicity : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Inharmonicity : public StreamingAlgorithmWrapper {
@@ -74,6 +74,6 @@ class Inharmonicity : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_INHARMONICITY_H

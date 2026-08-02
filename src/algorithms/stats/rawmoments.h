@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class RawMoments : public Algorithm {
@@ -50,11 +50,11 @@ class RawMoments : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class RawMoments : public StreamingAlgorithmWrapper {
@@ -72,6 +72,6 @@ class RawMoments : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_RAWMOMENTS_H

@@ -25,7 +25,7 @@
 #include "algorithmfactory.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TensorflowInputMusiCNN : public Algorithm {
@@ -77,11 +77,11 @@ class TensorflowInputMusiCNN : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TensorflowInputMusiCNN : public StreamingAlgorithmWrapper {
@@ -99,7 +99,7 @@ class TensorflowInputMusiCNN : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_TENSORFLOWINPUTMUSICNN_H

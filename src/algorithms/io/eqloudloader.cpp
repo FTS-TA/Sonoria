@@ -24,12 +24,12 @@
 using namespace std;
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* EqloudLoader::name = essentia::standard::EqloudLoader::name;
-const char* EqloudLoader::category = essentia::standard::EqloudLoader::category;
-const char* EqloudLoader::description = essentia::standard::EqloudLoader::description;
+const char* EqloudLoader::name = sonoria::standard::EqloudLoader::name;
+const char* EqloudLoader::category = sonoria::standard::EqloudLoader::category;
+const char* EqloudLoader::description = sonoria::standard::EqloudLoader::description;
 
 
 EqloudLoader::EqloudLoader() : AlgorithmComposite(),
@@ -71,10 +71,10 @@ void EqloudLoader::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* EqloudLoader::name = "EqloudLoader";
@@ -129,4 +129,4 @@ void EqloudLoader::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

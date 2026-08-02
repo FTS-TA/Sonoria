@@ -22,7 +22,7 @@
 
 #include "asciidag.h"
 
-namespace essentia {
+namespace sonoria {
 
 
 class AsciiDAGParser {
@@ -68,6 +68,6 @@ class AsciiDAGParser {
   void parseEdges(const std::vector<AsciiBox>& boxes);
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_UTILS_ASCIIDAGPARSER_H

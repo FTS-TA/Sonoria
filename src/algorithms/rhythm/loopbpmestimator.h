@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class LoopBpmEstimator : public Algorithm {
@@ -62,11 +62,11 @@ class LoopBpmEstimator : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class LoopBpmEstimator : public StreamingAlgorithmWrapper {
@@ -84,6 +84,6 @@ class LoopBpmEstimator : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // LOOPBPMESTIMATOR_H

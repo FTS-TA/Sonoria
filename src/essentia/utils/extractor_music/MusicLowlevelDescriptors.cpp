@@ -20,8 +20,8 @@
 #include "MusicLowlevelDescriptors.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
 const string MusicLowlevelDescriptors::nameSpace="lowlevel.";  
 

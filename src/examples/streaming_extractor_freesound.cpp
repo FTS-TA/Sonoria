@@ -30,8 +30,8 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::standard;
+using namespace sonoria;
+using namespace sonoria::standard;
 
 // this code pretty much doubles streaming_extractor_music
 
@@ -40,7 +40,7 @@ void usage(char *progname) {
     cout << "Usage: " << progname << " input_audiofile output_textfile [profile]" << endl;
     cout << "See http://essentia.upf.edu/documentation/streaming_extractor_music.html" << endl;
     cout << endl << "Freesound extractor version '" << FREESOUND_EXTRACTOR_VERSION << "'" << endl 
-         << "built with Essentia version " << essentia::version_git_sha << endl;
+         << "built with Essentia version " << sonoria::version_git_sha << endl;
     creditLibAV();
 
     exit(1);
@@ -51,7 +51,7 @@ int essentia_main(string audioFilename, string outputFilename, string profileFil
   // Returns: 1 on essentia error
 
   try {
-    essentia::init();
+    sonoria::init();
 
     cout.precision(10); // TODO ????
 
@@ -78,7 +78,7 @@ int essentia_main(string audioFilename, string outputFilename, string profileFil
       outputToFile(resultsFrames, outputFilename+"_frames", options);
     }
     delete extractor;
-    essentia::shutdown();
+    sonoria::shutdown();
   }
   catch (EssentiaException& e) {
     cerr << e.what() << endl;

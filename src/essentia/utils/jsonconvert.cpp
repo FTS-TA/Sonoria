@@ -20,7 +20,7 @@
 #include "jsonconvert.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 void JsonConvert::skipSpaces() {
   while (_pos < _size) {

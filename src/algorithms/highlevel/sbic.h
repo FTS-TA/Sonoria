@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "tnt/tnt.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SBic : public Algorithm {
@@ -72,11 +72,11 @@ class SBic : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SBic : public StreamingAlgorithmWrapper {
@@ -94,6 +94,6 @@ class SBic : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SBIC_H

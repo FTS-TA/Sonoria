@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 // TODO: This duplicates the code in UnaryOperatorStream, standard mode is redundant. 
@@ -71,11 +71,11 @@ class BinaryOperatorStream : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BinaryOperatorStream : public StreamingAlgorithmWrapper {
@@ -100,7 +100,7 @@ class BinaryOperatorStream : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_BINARYOPERATORSTREAM_H

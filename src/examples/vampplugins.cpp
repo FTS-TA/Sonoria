@@ -23,7 +23,7 @@
 
 #include "vamppluginsextra.cpp"
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 
 WRAP_ALGO(Centroid, "Hz", 1, float);
@@ -190,10 +190,10 @@ const VampPluginDescriptor *vampGetPluginDescriptor(unsigned int version,
 class Gloub {
 public:
   Gloub() {
-    essentia::init();
+    sonoria::init();
   }
 };
 
 static Gloub goulou;
 
-//int main() { essentia::init(); return 0; }
+//int main() { sonoria::init(); return 0; }

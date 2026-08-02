@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Dissonance : public Algorithm {
@@ -49,11 +49,11 @@ class Dissonance : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Dissonance : public StreamingAlgorithmWrapper {
@@ -73,6 +73,6 @@ class Dissonance : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_DISSONANCE_H

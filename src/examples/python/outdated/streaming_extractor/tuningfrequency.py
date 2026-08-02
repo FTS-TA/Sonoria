@@ -18,13 +18,13 @@
 #! /usr/bin/env python
 
 import sys, os
-import essentia, essentia.standard, essentia.streaming
-from essentia.streaming import *
+import sonoria, sonoria.standard, sonoria.streaming
+from sonoria.streaming import *
 
 tonalFrameSize = 4096
 tonalHopSize = 2048
 
-class TuningFrequencyExtractor(essentia.streaming.CompositeBase):
+class TuningFrequencyExtractor(sonoria.streaming.CompositeBase):
 
     def __init__(self, frameSize=tonalFrameSize, hopSize=tonalHopSize):
         super(TuningFrequencyExtractor, self).__init__()
@@ -59,14 +59,14 @@ usage = 'tuningfrequency.py [options] <inputfilename> <outputfilename>'
 def parse_args():
 
     import numpy
-    essentia_version = '%s\n'\
+    sonoria_version = '%s\n'\
     'python version: %s\n'\
-    'numpy version: %s' % (essentia.__version__,       # full version
+    'numpy version: %s' % (sonoria.__version__,       # full version
                            sys.version.split()[0],     # python major version
                            numpy.__version__)          # numpy version
 
     from optparse import OptionParser
-    parser = OptionParser(usage=usage, version=essentia_version)
+    parser = OptionParser(usage=usage, version=sonoria_version)
 
     parser.add_option("-c","--cpp", action="store_true", dest="generate_cpp",
       help="generate cpp code from CompositeBase algorithm")
@@ -90,17 +90,17 @@ if __name__ == '__main__':
         sys.exit(1)
 
     if opts.generate_dot:
-        essentia.translate(TuningFrequencyExtractor, 'streaming_extractortuningfrequency', dot_graph=True)
+        sonoria.translate(TuningFrequencyExtractor, 'streaming_extractortuningfrequency', dot_graph=True)
     elif opts.generate_cpp:
-        essentia.translate(TuningFrequencyExtractor, 'streaming_extractortuningfrequency', dot_graph=False)
+        sonoria.translate(TuningFrequencyExtractor, 'streaming_extractortuningfrequency', dot_graph=False)
 
-    pool = essentia.Pool()
-    loader = essentia.streaming.MonoLoader(filename=args[0])
+    pool = sonoria.Pool()
+    loader = sonoria.streaming.MonoLoader(filename=args[0])
     tuning = TuningFrequencyExtractor()
     loader.audio >> tuning.signal
     tuning.tuningFrequency >> (pool, 'tuning_frequency')
-    essentia.run(loader)
+    sonoria.run(loader)
 
     stats = ['mean', 'var', 'min', 'max', 'dmean', 'dmean2', 'dvar', 'dvar2']
-    poolStats = essentia.standard.PoolAggregator(defaultStats=stats)(pool)
-    essentia.standard.YamlOutput(filename=args[1])(poolStats)
+    poolStats = sonoria.standard.PoolAggregator(defaultStats=stats)(pool)
+    sonoria.standard.YamlOutput(filename=args[1])(poolStats)

@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MinToTotal : public Algorithm {
@@ -48,11 +48,11 @@ class MinToTotal : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "accumulatoralgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class MinToTotal : public AccumulatorAlgorithm {
@@ -83,6 +83,6 @@ class MinToTotal : public AccumulatorAlgorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_MINTOTOTAL_H

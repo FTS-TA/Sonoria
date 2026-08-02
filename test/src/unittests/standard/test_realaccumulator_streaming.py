@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import RealAccumulator
+from sonoria_test import *
+from sonoria.streaming import RealAccumulator
 
 class TestRealAccumulator_Streaming(TestCase):
 

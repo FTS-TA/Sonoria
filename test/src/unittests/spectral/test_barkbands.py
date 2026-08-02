@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 
 class TestBarkBands(TestCase):
 
@@ -44,7 +44,7 @@ class TestBarkBands(TestCase):
             self.assert_(not any(numpy.isinf(bands)))
             self.assert_(all(bands >= 0.0))
 
-            # this test is commented because although essentia yields exactly
+            # this test is commented because although sonoria yields exactly
             # the same results as in output.txt when run as cpp, python does
             # not due to rounding errors, presumably
             #self.assertAlmostEqualVector(bands, expected[frameIdx], 1e-1)

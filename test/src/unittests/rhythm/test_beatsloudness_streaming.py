@@ -23,8 +23,8 @@
 # obtain the same results as before adding frequencyBands parameter to the
 # beatsloudness algorithm
 
-from essentia_test import *
-from essentia.streaming import BeatsLoudness, MonoLoader as sMonoLoader, \
+from sonoria_test import *
+from sonoria.streaming import BeatsLoudness, MonoLoader as sMonoLoader, \
                                RhythmExtractor
 
 class TestBeatsLoudness(TestCase):
@@ -91,7 +91,7 @@ class TestBeatsLoudness(TestCase):
             expectedLoudness.append(loudness)
             expectedLoudnessBandRatio.append(loudnessBandRatio)
 
-       # The values below where extracted from running essentia-1.0  cpp tests
+       # The values below where extracted from running sonoria-1.0  cpp tests
        # on some platform. This results cause the test to fail, and there is no
        # way to be sure they are correct. Therefore a new test has been done
        # where we compare the results of the algorithm with a manually passing

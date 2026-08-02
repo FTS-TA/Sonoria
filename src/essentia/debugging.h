@@ -32,7 +32,7 @@
 #include <unistd.h>
 #endif
 
-namespace essentia {
+namespace sonoria {
 
 // IMPORTANT:
 // Make sure that each time you change something in this enum, you reflect the
@@ -140,7 +140,7 @@ class Logger {
 
 extern Logger loggerInstance;
 
-} // namespace essentia
+} // namespace sonoria
 
 
 #if DEBUGGING_ENABLED

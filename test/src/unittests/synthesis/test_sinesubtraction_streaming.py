@@ -19,12 +19,12 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import math
 
-import essentia
-import essentia.streaming as es
-import essentia.standard as std
+import sonoria
+import sonoria.streaming as es
+import sonoria.standard as std
 
 import numpy as np
 
@@ -85,7 +85,7 @@ def framesToAudio(frames):
 def analsynthSineSubtractionStreaming(params, signal):
   
     out = numpy.array(0)
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
     fcut = es.FrameCutter(frameSize = params['frameSize'], hopSize = params['hopSize'], startFromZero =  False);
     w = es.Windowing(type = "blackmanharris92");
     fft = es.FFT(size = params['frameSize']);
@@ -113,7 +113,7 @@ def analsynthSineSubtractionStreaming(params, signal):
     smanal.phases >> smsub.phases
     smsub.frame >> (pool, 'frames')
     
-    essentia.run(insignal)
+    sonoria.run(insignal)
     
     outaudio = framesToAudio(pool['frames'])    
     outaudio = outaudio [2*params['hopSize']:]

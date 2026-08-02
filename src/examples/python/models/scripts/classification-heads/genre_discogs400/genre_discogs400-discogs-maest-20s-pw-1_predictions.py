@@ -1,5 +1,5 @@
-from essentia import Pool
-from essentia.standard import MonoLoader, TensorflowPredictMAEST, TensorflowPredict
+from sonoria import Pool
+from sonoria.standard import MonoLoader, TensorflowPredictMAEST, TensorflowPredict
 
 audio = MonoLoader(filename="audio.wav", sampleRate=16000, resampleQuality=4)()
 embedding_model = TensorflowPredictMAEST(graphFilename="discogs-maest-20s-pw-2.pb", output="PartitionedCall/Identity_12")

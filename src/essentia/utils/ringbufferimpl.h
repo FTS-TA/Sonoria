@@ -101,7 +101,7 @@ class Condition {
 #endif // OS_WIN32
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class RingBufferImpl {
@@ -248,6 +248,6 @@ class RingBufferImpl {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMING_RINGBUFFERIMPL_H

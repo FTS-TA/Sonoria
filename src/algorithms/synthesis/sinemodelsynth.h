@@ -28,7 +28,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SineModelSynth : public Algorithm {
@@ -78,11 +78,11 @@ class SineModelSynth : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SineModelSynth : public StreamingAlgorithmWrapper {
@@ -104,7 +104,7 @@ class SineModelSynth : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SINEMODELSYNTH_H

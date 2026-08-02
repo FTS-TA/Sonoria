@@ -23,7 +23,7 @@
 #include "types.h"
 #include "streamconnector.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SinkBase;
@@ -68,6 +68,6 @@ class Connector : public TypeProxy, public StreamConnector {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_CONNECTOR_H

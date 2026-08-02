@@ -24,8 +24,8 @@
 #include "copy.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
 const char* SuperFluxExtractor::name = standard::SuperFluxExtractor::name;
 const char* SuperFluxExtractor::category = standard::SuperFluxExtractor::category;
@@ -67,7 +67,7 @@ void SuperFluxExtractor::createInnerNetwork() {
   _superFluxP = factory.create("SuperFluxPeaks");
   _superFluxF = factory.create("SuperFluxNovelty", "binWidth", 8, "frameWidth", 2);
     
-  _vout = new essentia::streaming::VectorOutput<Real>();
+  _vout = new sonoria::streaming::VectorOutput<Real>();
 }
 
 void SuperFluxExtractor::configure() {
@@ -100,7 +100,7 @@ void SuperFluxExtractor::clearAlgos() {
 }
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* SuperFluxExtractor::name = "SuperFluxExtractor";
@@ -161,4 +161,4 @@ void SuperFluxExtractor::createInnerNetwork() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

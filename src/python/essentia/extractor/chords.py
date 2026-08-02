@@ -15,8 +15,8 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
-from essentia import EssentiaError, INFO
+import sonoria
+from sonoria import EssentiaError, INFO
 #import chords_dissonance_table
 
 

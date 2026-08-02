@@ -24,7 +24,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
     
 const char* SuperFluxPeaks::name = "SuperFluxPeaks";
@@ -106,12 +106,12 @@ void SuperFluxPeaks::compute() {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* SuperFluxPeaks::name = standard::SuperFluxPeaks::name;
@@ -157,4 +157,4 @@ void SuperFluxPeaks::reset(){
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

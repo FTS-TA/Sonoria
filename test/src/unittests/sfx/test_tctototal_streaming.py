@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import TCToTotal as sTCToTotal
+from sonoria_test import *
+from sonoria.streaming import TCToTotal as sTCToTotal
 
 class TestTCToTotal(TestCase):
 

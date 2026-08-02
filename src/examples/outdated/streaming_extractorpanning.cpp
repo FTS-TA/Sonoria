@@ -22,7 +22,7 @@
 #include <essentia/streaming/algorithms/poolstorage.h>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace streaming;
 
 void Panning(SourceBase& input, Pool& pool, const Pool& options, const string& nspace) {

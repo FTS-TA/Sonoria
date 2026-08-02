@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import AudioLoader, VectorInput, StereoTrimmer
+from sonoria_test import *
+from sonoria.streaming import AudioLoader, VectorInput, StereoTrimmer
 
 class TestStereoTrimmer_Streaming(TestCase):
 

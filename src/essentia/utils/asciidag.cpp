@@ -21,7 +21,7 @@
 #include "stringutil.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 
 AsciiCanvas& AsciiCanvas::operator=(const std::vector<std::string>& other) {
   vector<string>::operator=(other);
@@ -148,4 +148,4 @@ vector<AsciiBox> AsciiBox::findBoxes(const vector<string>& network) {
 }
 
 
-} // namespace essentia
+} // namespace sonoria

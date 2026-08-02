@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PitchContourSegmentation : public Algorithm {
@@ -81,7 +81,7 @@ class PitchContourSegmentation : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 // TO DO: STREAMING MODE!
 

@@ -16,29 +16,29 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 from six import iteritems
-from . import _essentia
-import essentia
+from . import _sonoria
+import sonoria
 from . import common as _c
 import sys as _sys
-from ._essentia import keys as algorithmNames, info as algorithmInfo
+from ._sonoria import keys as algorithmNames, info as algorithmInfo
 from copy import copy
 
-# given an essentia algorithm name, create the corresponding class
-def _create_essentia_class(name, moduleName = __name__):
-    essentia.log.debug(essentia.EPython, 'Creating essentia.standard class: %s' % name)
+# given an sonoria algorithm name, create the corresponding class
+def _create_sonoria_class(name, moduleName = __name__):
+    sonoria.log.debug(sonoria.EPython, 'Creating sonoria.standard class: %s' % name)
 
-    _algoInstance = _essentia.Algorithm(name)
+    _algoInstance = _sonoria.Algorithm(name)
     _algoDoc = _algoInstance.getDoc()
     _algoStruct = _algoInstance.getStruct()
     del _algoInstance
 
-    class Algo(_essentia.Algorithm):
+    class Algo(_sonoria.Algorithm):
         __doc__ = _algoDoc
         __struct__ = _algoStruct
 
         def __init__(self, **kwargs):
             # init the internal cpp wrapper
-            _essentia.Algorithm.__init__(self, name)
+            _sonoria.Algorithm.__init__(self, name)
 
             # configure the algorithm
             self.configure(**kwargs)
@@ -85,7 +85,7 @@ def _create_essentia_class(name, moduleName = __name__):
                 if type(args[i]).__module__ == 'numpy':
                     if arg.dtype == 'float64':
                         arg = arg.astype('float32')
-                        essentia.INFO('Warning: essentia can currently only accept numpy arrays of dtype '
+                        sonoria.INFO('Warning: sonoria can currently only accept numpy arrays of dtype '
                                       '"single". "%s" dtype is double. Precision will be automatically '
                                       'truncated into "single".' %(inputNames[i]))
                     if not args[i].flags['C_CONTIGUOUS']:
@@ -135,8 +135,8 @@ def _create_essentia_class(name, moduleName = __name__):
 
 # load all classes into python
 def _reloadAlgorithms(moduleName = __name__):
-    for name in _essentia.keys():
-        _create_essentia_class(name, moduleName)
+    for name in _sonoria.keys():
+        _create_sonoria_class(name, moduleName)
 
 _reloadAlgorithms()
 

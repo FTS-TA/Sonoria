@@ -29,7 +29,7 @@
 // endianness: they assume all streams are big-endian (network-order),
 // regardless of the architecture
 
-namespace essentia {
+namespace sonoria {
 
 inline bool isBigEndian() {
   const int i = 1;
@@ -89,6 +89,6 @@ void beread(std::ifstream& in, std::vector<std::string>& v) {
   for (int i=0; i<size; i++) beread(in, v[i]);
 }
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // BETOOLS_H

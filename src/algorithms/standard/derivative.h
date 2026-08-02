@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Derivative : public Algorithm {
@@ -47,11 +47,11 @@ class Derivative : public Algorithm {
 };
 
 }// namespace standard
-}// namespace essentia
+}// namespace sonoria
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -81,6 +81,6 @@ class Derivative : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // DERIVATIVE_H

@@ -23,7 +23,7 @@
 #include "sourcebase.h"
 #include "multiratebuffer.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -39,7 +39,7 @@ class SinkProxyBase : public SinkBase {
 
   ~SinkProxyBase() {
     E_DEBUG(EMemory, "Deleting SinkProxy " << fullName());
-    if (_proxiedSink) essentia::streaming::detach(*this, *_proxiedSink);
+    if (_proxiedSink) sonoria::streaming::detach(*this, *_proxiedSink);
   }
 
 
@@ -121,7 +121,7 @@ class SinkProxyBase : public SinkBase {
   }
 
   void detach() {
-    if (_proxiedSink) essentia::streaming::detach(*this, *_proxiedSink);
+    if (_proxiedSink) sonoria::streaming::detach(*this, *_proxiedSink);
   }
 
 
@@ -262,7 +262,7 @@ inline void detach(SinkProxyBase& proxy, SinkBase& innerSink) {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SINKPROXY_H

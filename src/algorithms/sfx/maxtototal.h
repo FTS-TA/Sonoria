@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MaxToTotal : public Algorithm {
@@ -46,12 +46,12 @@ class MaxToTotal : public Algorithm {
   static const char* description;
 };
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 #include "accumulatoralgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class MaxToTotal : public AccumulatorAlgorithm {
@@ -82,6 +82,6 @@ class MaxToTotal : public AccumulatorAlgorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_MAXTOTOTAL_H

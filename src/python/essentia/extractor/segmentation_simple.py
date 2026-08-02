@@ -15,18 +15,18 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
+import sonoria
 import numpy
 import sys
-from essentia import INFO
-from essentia.progress import Progress
+from sonoria import INFO
+from sonoria.progress import Progress
 
 namespace = 'lowlevel'
 dependencies = None
 
 
 def is_silent_threshold(frame, silence_threshold_dB):
-    p = essentia.instantPower( frame )
+    p = sonoria.instantPower( frame )
     silence_threshold = pow(10.0, (silence_threshold_dB / 10.0))
     if p < silence_threshold:
        return 1.0
@@ -43,13 +43,13 @@ def compute(audio, pool, options):
     windowType = options['windowType']
 
     # frame algorithms
-    frames = essentia.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize)
-    window = essentia.Windowing(size = frameSize, zeroPadding = 0, type = windowType)
-    spectrum = essentia.Spectrum(size = frameSize)
+    frames = sonoria.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize)
+    window = sonoria.Windowing(size = frameSize, zeroPadding = 0, type = windowType)
+    spectrum = sonoria.Spectrum(size = frameSize)
 
     # spectral algorithms
-    energy = essentia.Energy()
-    mfcc = essentia.MFCC(highFrequencyBound = 8000)
+    energy = sonoria.Energy()
+    mfcc = sonoria.MFCC(highFrequencyBound = 8000)
 
     INFO('Computing Low-Level descriptors necessary for segmentation...')
 
@@ -66,7 +66,7 @@ def compute(audio, pool, options):
         #pool.setCurrentScope(frameScope)
         pool.add(namespace + '.' + 'scope', frameScope)
 
-        if options['skipSilence'] and essentia.isSilent(frame):
+        if options['skipSilence'] and sonoria.isSilent(frame):
           total_frames -= 1
           start_of_frame += hopSize
           continue

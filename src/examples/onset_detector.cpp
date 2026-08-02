@@ -26,7 +26,7 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 int save_onsets(const std::string& outputName,const vector<Real>& onsets)
@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
     exit(1);
   }
 
-  essentia::init();
+  sonoria::init();
 
   Real onsetRate;
   vector<Real> onsets;
@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
   delete extractoronsetrate;
   delete audiofile;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class YamlInput : public Algorithm {
@@ -52,6 +52,6 @@ class YamlInput : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_EXTRACTOR_YAML_INPUT_H

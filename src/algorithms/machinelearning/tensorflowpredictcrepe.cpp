@@ -21,12 +21,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TensorflowPredictCREPE::name = essentia::standard::TensorflowPredictCREPE::name;
-const char* TensorflowPredictCREPE::category = essentia::standard::TensorflowPredictCREPE::category;
-const char* TensorflowPredictCREPE::description = essentia::standard::TensorflowPredictCREPE::description;
+const char* TensorflowPredictCREPE::name = sonoria::standard::TensorflowPredictCREPE::name;
+const char* TensorflowPredictCREPE::category = sonoria::standard::TensorflowPredictCREPE::category;
+const char* TensorflowPredictCREPE::description = sonoria::standard::TensorflowPredictCREPE::description;
 
 
 TensorflowPredictCREPE::TensorflowPredictCREPE() : AlgorithmComposite(),
@@ -128,11 +128,11 @@ void TensorflowPredictCREPE::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TensorflowPredictCREPE::name = "TensorflowPredictCREPE";
@@ -231,4 +231,4 @@ void TensorflowPredictCREPE::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

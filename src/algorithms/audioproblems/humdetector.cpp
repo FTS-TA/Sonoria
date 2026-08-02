@@ -25,12 +25,12 @@
 using namespace std;
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* HumDetector::name = essentia::standard::HumDetector::name;
-const char* HumDetector::category = essentia::standard::HumDetector::category;
-const char* HumDetector::description = essentia::standard::HumDetector::description;
+const char* HumDetector::name = sonoria::standard::HumDetector::name;
+const char* HumDetector::category = sonoria::standard::HumDetector::category;
+const char* HumDetector::description = sonoria::standard::HumDetector::description;
 
 
 template< typename T >
@@ -374,10 +374,10 @@ void HumDetector::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* HumDetector::name = "HumDetector";
@@ -471,4 +471,4 @@ void HumDetector::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

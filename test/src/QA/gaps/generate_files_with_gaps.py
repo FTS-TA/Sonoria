@@ -21,9 +21,9 @@ import sys
 import os
 
 import numpy as np
-import essentia.standard as es
+import sonoria.standard as es
 
-from essentia import array as esarr
+from sonoria import array as esarr
 
 
 def find_files(directory, pattern):

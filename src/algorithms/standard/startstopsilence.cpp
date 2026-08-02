@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* StartStopSilence::name = "StartStopSilence";
@@ -78,12 +78,12 @@ void StartStopSilence::reset() {
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* StartStopSilence::name = essentia::standard::StartStopSilence::name;
-const char* StartStopSilence::category = essentia::standard::StartStopSilence::category;
-const char* StartStopSilence::description = essentia::standard::StartStopSilence::description;
+const char* StartStopSilence::name = sonoria::standard::StartStopSilence::name;
+const char* StartStopSilence::category = sonoria::standard::StartStopSilence::category;
+const char* StartStopSilence::description = sonoria::standard::StartStopSilence::description;
 
 void StartStopSilence::configure() {
   _startSilence = 0;
@@ -131,4 +131,4 @@ AlgorithmStatus StartStopSilence::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

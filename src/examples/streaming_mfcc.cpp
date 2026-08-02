@@ -24,9 +24,9 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 int main(int argc, char* argv[]) {
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
   string outputFilename = argv[2];
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -122,13 +122,13 @@ int main(int argc, char* argv[]) {
   output->compute();
 
   // NB: we could just wait for the network to go out of scope, but then this would happen
-  //     after the call to essentia::shutdown() where the FFTW structs would already have
+  //     after the call to sonoria::shutdown() where the FFTW structs would already have
   //     been freed, so let's just delete everything explicitly now
   n.clear();
 
   delete aggr;
   delete output;
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

@@ -23,7 +23,7 @@
 #include "essentiautil.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 
 void Configurable::configure(const ParameterMap& params) {
   setParameters(params);
@@ -134,4 +134,4 @@ void Configurable::setParameters(const ParameterMap& params) {
   }
 }
 
-} // namespace essentia
+} // namespace sonoria

@@ -23,7 +23,7 @@
 #include "streamingalgorithmcomposite.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BeatsLoudness : public AlgorithmComposite {
@@ -66,14 +66,14 @@ class BeatsLoudness : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "vectorinput.h"
 #include "network.h"
 #include "algorithm.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BeatsLoudness : public Algorithm {
@@ -121,7 +121,7 @@ class BeatsLoudness : public Algorithm {
 
 };
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_BEATSLOUDNESS_H

@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* TensorToVectorReal::name = "TensorToVectorReal";
@@ -94,4 +94,4 @@ AlgorithmStatus TensorToVectorReal::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

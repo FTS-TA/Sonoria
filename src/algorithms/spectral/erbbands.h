@@ -24,7 +24,7 @@
 #include "algorithm.h"
 #include <complex>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ERBBands : public Algorithm {
@@ -77,12 +77,12 @@ class ERBBands : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -101,7 +101,7 @@ class ERBBands : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_ERBBands_H

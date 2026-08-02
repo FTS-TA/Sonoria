@@ -22,7 +22,7 @@
 
 #include "../streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 /**
@@ -112,6 +112,6 @@ void operator>>(SourceBase& source, std::vector<T>& v) {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_VECTOROUTPUT_H

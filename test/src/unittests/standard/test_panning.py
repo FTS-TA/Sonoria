@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 from math import log
 
 
@@ -37,22 +37,22 @@ class TestPanning(TestCase):
         # After comparing the results of panning with jordi janner's matlab
         # code, we have concluded that although they are not the same exact
         # numbersi, the algorithm seems to show correct output. Differences may
-        # be due to essentia not being compiled for doubles, or may com from
+        # be due to sonoria not being compiled for doubles, or may com from
         # slight differences in fft outputs. Window types and/or sizes or
         # normalization seem not to be critical for the final result.
-        # On this respect, files computed with essentia at the time of this
+        # On this respect, files computed with sonoria at the time of this
         # writing (11/11/2008) have been included in order to have a regression
         # test that passes the test.
 
         # 10/07/2013: We switched to different testing audio files and recomputed 
-        # the files with essentia assuming that Panning algo works correctly since 
+        # the files with sonoria assuming that Panning algo works correctly since 
         # it seems no fixes were ever done to it since the original test (11/11/2008)
 
         # 2015-03-02: Recomputed the values again, as they are a bit different, probably 
         #             due to changes introduced after switching to newer LibAV
 
         testdir = join(filedir(), 'panning')
-        expected = readMatrix(join(testdir, 'essentia', 'musicbox_essentia_panning.txt'))
+        expected = readMatrix(join(testdir, 'sonoria', 'musicbox_sonoria_panning.txt'))
 
         framesize = 8192
         hopsize = 2048

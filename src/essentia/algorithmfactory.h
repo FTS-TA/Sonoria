@@ -28,7 +28,7 @@
 #include "parameter.h"
 
 
-namespace essentia {
+namespace sonoria {
 
 /**
  * Class that also contains static information about the algorithms that
@@ -253,7 +253,7 @@ class ESSENTIA_API EssentiaFactory {
 
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 
 // include these here because most likely a user of the AlgorithmFactory would want to use the
@@ -261,7 +261,7 @@ class ESSENTIA_API EssentiaFactory {
 #include "algorithm.h"
 #include "streaming/streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 
 namespace standard {
   typedef EssentiaFactory<Algorithm> AlgorithmFactory;
@@ -271,7 +271,7 @@ namespace streaming {
   typedef EssentiaFactory<Algorithm> AlgorithmFactory;
 }
 
-} // namespace essentia
+} // namespace sonoria
 
 
 // include implementation, because the factory is now templated

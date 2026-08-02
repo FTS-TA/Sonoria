@@ -18,8 +18,8 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
-import essentia
+from sonoria_test import *
+import sonoria
 
 class TestHarmonicBpm(TestCase):
 

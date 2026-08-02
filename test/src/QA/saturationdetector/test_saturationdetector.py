@@ -22,8 +22,8 @@ import sys
 
 import numpy as np
 
-import essentia.standard as es
-from essentia import array as esarr
+import sonoria.standard as es
+from sonoria import array as esarr
 
 sys.path.insert(0, './')
 from qa_test import *

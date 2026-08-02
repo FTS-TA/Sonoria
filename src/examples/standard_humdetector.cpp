@@ -7,8 +7,8 @@
 #include "credit_libav.h"
 #include <essentia/utils/tnt/tnt2vector.h>
 
-using namespace essentia;
-using namespace essentia::standard;
+using namespace sonoria;
+using namespace sonoria::standard;
 using namespace std;
 int main (int argc,char* argv[]) {
 
@@ -22,7 +22,7 @@ int main (int argc,char* argv[]) {
   string outputFilename = argv[2];
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -82,7 +82,7 @@ int main (int argc,char* argv[]) {
   delete audio;
   delete hd;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

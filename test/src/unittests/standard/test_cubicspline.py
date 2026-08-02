@@ -19,9 +19,9 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 
-from essentia.standard import *
+from sonoria.standard import *
 from numpy import r_, sin, pi # r_ for decimal step ranges
 
 

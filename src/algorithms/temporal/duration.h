@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Duration : public Algorithm {
@@ -50,12 +50,12 @@ class Duration : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "accumulatoralgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Duration : public AccumulatorAlgorithm {
@@ -88,6 +88,6 @@ class Duration : public AccumulatorAlgorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_DURATION_H

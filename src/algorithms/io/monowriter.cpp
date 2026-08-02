@@ -21,12 +21,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* MonoWriter::name = essentia::standard::MonoWriter::name;
-const char* MonoWriter::category = essentia::standard::MonoWriter::category;
-const char* MonoWriter::description = essentia::standard::MonoWriter::description;
+const char* MonoWriter::name = sonoria::standard::MonoWriter::name;
+const char* MonoWriter::category = sonoria::standard::MonoWriter::category;
+const char* MonoWriter::description = sonoria::standard::MonoWriter::description;
 
 
 void MonoWriter::reset() {
@@ -106,12 +106,12 @@ AlgorithmStatus MonoWriter::process() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MonoWriter::name = "MonoWriter";
@@ -154,4 +154,4 @@ void MonoWriter::compute() {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

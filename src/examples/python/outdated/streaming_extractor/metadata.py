@@ -19,9 +19,9 @@
 
 
 
-import essentia
-from essentia import *
-from essentia.streaming import *
+import sonoria
+from sonoria import *
+from sonoria.streaming import *
 
 analysisSampleRate = 44100.0
 

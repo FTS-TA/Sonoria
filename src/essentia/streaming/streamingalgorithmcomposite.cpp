@@ -23,7 +23,7 @@
 #include "../scheduler/graphutils.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -94,4 +94,4 @@ void AlgorithmComposite::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

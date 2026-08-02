@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* StereoTrimmer::name = "StereoTrimmer";
@@ -60,16 +60,16 @@ void StereoTrimmer::compute() {
   memcpy(&output[0], &input[0]+_startIndex, size*sizeof(StereoSample));
 }
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* StereoTrimmer::name = essentia::standard::StereoTrimmer::name;
-const char* StereoTrimmer::category = essentia::standard::StereoTrimmer::category;
-const char* StereoTrimmer::description = essentia::standard::StereoTrimmer::description;
+const char* StereoTrimmer::name = sonoria::standard::StereoTrimmer::name;
+const char* StereoTrimmer::category = sonoria::standard::StereoTrimmer::category;
+const char* StereoTrimmer::description = sonoria::standard::StereoTrimmer::description;
 
 void StereoTrimmer::configure() {
   Real sampleRate = parameter("sampleRate").toReal();
@@ -181,4 +181,4 @@ void StereoTrimmer::reset() {
 } 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

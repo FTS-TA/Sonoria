@@ -20,10 +20,10 @@
 
 
 import numpy
-import essentia
+import sonoria
 import sys
 
-hpcp = essentia.HPCP(size = 36,
+hpcp = sonoria.HPCP(size = 36,
                      referenceFrequency = 440.0,
                      bandPreset = False,
                      minFrequency = 40.0,

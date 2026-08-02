@@ -33,7 +33,7 @@
   @param params represents the default parameters for an algorithm and will have
                 the new parsed parameters placed in it
  */
-void parseParameters(essentia::ParameterMap* params, PyObject* args, PyObject* keywds);
+void parseParameters(sonoria::ParameterMap* params, PyObject* args, PyObject* keywds);
 
 
 /**
@@ -51,6 +51,6 @@ PyObject* buildReturnValue(const std::vector<PyObject*>& result_vec);
 
 PyObject* toPython(void* obj, Edt tp);
 
-PyObject* paramToPython(const essentia::Parameter& p);
+PyObject* paramToPython(const sonoria::Parameter& p);
 
 #endif // ESSENTIA_PYTHON_PARSING_H

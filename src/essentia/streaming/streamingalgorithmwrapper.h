@@ -23,7 +23,7 @@
 #include "streamingalgorithm.h"
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 enum NumeralType {
@@ -95,6 +95,6 @@ class StreamingAlgorithmWrapper : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMINGALGORITHMWRAPPER_H

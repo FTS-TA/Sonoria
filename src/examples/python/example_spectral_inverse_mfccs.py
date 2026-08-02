@@ -2,8 +2,8 @@
 #### following the implementation:  http://labrosa.ee.columbia.edu/matlab/rastamat/ 
 
 
-import essentia
-import essentia.standard as ess
+import sonoria
+import sonoria.standard as ess
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -41,9 +41,9 @@ def extractor(filename):
         all_melbands_smoothed.append(melbands_smoothed)
 
     # transpose to have it in a better shape
-    # we need to convert the list to an essentia.array first (== numpy.array of floats)
-    # mfccs = essentia.array(pool['MFCC']).T
-    all_melbands_smoothed = essentia.array(all_melbands_smoothed).T
+    # we need to convert the list to an sonoria.array first (== numpy.array of floats)
+    # mfccs = sonoria.array(pool['MFCC']).T
+    all_melbands_smoothed = sonoria.array(all_melbands_smoothed).T
 
     # and plot
     plt.imshow(all_melbands_smoothed, aspect='auto', interpolation='none') # ignore enery

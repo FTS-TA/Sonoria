@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* LevelExtractor::name = essentia::standard::LevelExtractor::name;
-const char* LevelExtractor::category = essentia::standard::LevelExtractor::category;
-const char* LevelExtractor::description = essentia::standard::LevelExtractor::description;
+const char* LevelExtractor::name = sonoria::standard::LevelExtractor::name;
+const char* LevelExtractor::category = sonoria::standard::LevelExtractor::category;
+const char* LevelExtractor::description = sonoria::standard::LevelExtractor::description;
 
 
 LevelExtractor::LevelExtractor() {
@@ -61,9 +61,9 @@ LevelExtractor::~LevelExtractor() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* LevelExtractor::name = "LevelExtractor";
@@ -114,5 +114,5 @@ void LevelExtractor::createInnerNetwork() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 

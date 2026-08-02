@@ -24,7 +24,7 @@
 #include "sourceproxy.h"
 #include "sinkproxy.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -102,6 +102,6 @@ protected:
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMINGALGORITHMCOMPOSITE_H

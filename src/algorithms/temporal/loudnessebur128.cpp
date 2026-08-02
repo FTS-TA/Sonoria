@@ -25,12 +25,12 @@ using namespace std;
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* LoudnessEBUR128::name = essentia::standard::LoudnessEBUR128::name;
-const char* LoudnessEBUR128::category = essentia::standard::LoudnessEBUR128::category;
-const char* LoudnessEBUR128::description = essentia::standard::LoudnessEBUR128::description;
+const char* LoudnessEBUR128::name = sonoria::standard::LoudnessEBUR128::name;
+const char* LoudnessEBUR128::category = sonoria::standard::LoudnessEBUR128::category;
+const char* LoudnessEBUR128::description = sonoria::standard::LoudnessEBUR128::description;
 
 
 LoudnessEBUR128::LoudnessEBUR128() : AlgorithmComposite() {
@@ -263,10 +263,10 @@ void LoudnessEBUR128::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* LoudnessEBUR128::name = "LoudnessEBUR128";
@@ -377,4 +377,4 @@ void LoudnessEBUR128::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

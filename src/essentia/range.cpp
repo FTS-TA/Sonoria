@@ -24,7 +24,7 @@
 
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 bool Everything::contains(const Parameter& param) const {
   return true;

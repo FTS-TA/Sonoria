@@ -23,7 +23,7 @@
 #include <cfloat>
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* RhythmTransform::name = "RhythmTransform";
@@ -126,7 +126,7 @@ void RhythmTransform::compute() {
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* RhythmTransform::name = standard::RhythmTransform::name;
@@ -174,4 +174,4 @@ void RhythmTransform::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

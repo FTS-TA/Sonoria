@@ -15,11 +15,11 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
+import sonoria
 import numpy
 import sys
-from essentia import INFO
-from essentia.progress import Progress
+from sonoria import INFO
+from sonoria.progress import Progress
 
 namespace = 'rhythm'
 dependencies = None
@@ -37,13 +37,13 @@ def compute(audio, pool, options):
 
     INFO('Computing Onset Detection...')
 
-    frames  = essentia.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize)
-    window  = essentia.Windowing(size = frameSize, zeroPadding = zeroPadding, type = windowType)
-    fft = essentia.FFT()
-    cartesian2polar = essentia.CartesianToPolar()
-    onsetdetectionHFC = essentia.OnsetDetection(method = "hfc", sampleRate = sampleRate)
-    onsetdetectionComplex = essentia.OnsetDetection(method = "complex", sampleRate = sampleRate)
-    onsets = essentia.Onsets(frameRate = frameRate)
+    frames  = sonoria.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize)
+    window  = sonoria.Windowing(size = frameSize, zeroPadding = zeroPadding, type = windowType)
+    fft = sonoria.FFT()
+    cartesian2polar = sonoria.CartesianToPolar()
+    onsetdetectionHFC = sonoria.OnsetDetection(method = "hfc", sampleRate = sampleRate)
+    onsetdetectionComplex = sonoria.OnsetDetection(method = "complex", sampleRate = sampleRate)
+    onsets = sonoria.Onsets(frameRate = frameRate)
 
     total_frames = frames.num_frames()
     n_frames = 0
@@ -56,7 +56,7 @@ def compute(audio, pool, options):
 
     for frame in frames:
 
-        if essentia.instantPower(frame) < 1.e-4 :
+        if sonoria.instantPower(frame) < 1.e-4 :
            total_frames -= 1
            start_of_frame += hopSize
            hfc.append(0.)
@@ -76,10 +76,10 @@ def compute(audio, pool, options):
         start_of_frame += hopSize
 
     # The onset rate is defined as the number of onsets per seconds
-    detections = numpy.concatenate([essentia.array([hfc]), essentia.array([complex]) ])
+    detections = numpy.concatenate([sonoria.array([hfc]), sonoria.array([complex]) ])
 
     # prune all 'doubled' detections
-    time_onsets = list(onsets(detections, essentia.array([1, 1])))
+    time_onsets = list(onsets(detections, sonoria.array([1, 1])))
     t = 1
     while t < len(time_onsets):
       if time_onsets[t] - time_onsets[t-1] < 0.080: time_onsets.pop(t)
@@ -87,7 +87,7 @@ def compute(audio, pool, options):
 
     onsetrate = len(time_onsets) / ( len(audio) / sampleRate )
 
-    pool.add(namespace + '.' + "onset_times", essentia.array(time_onsets))#, pool.GlobalScope)
+    pool.add(namespace + '.' + "onset_times", sonoria.array(time_onsets))#, pool.GlobalScope)
     pool.add(namespace + '.' + "onset_rate", onsetrate)#, pool.GlobalScope)
 
     progress.finish()

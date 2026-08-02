@@ -38,10 +38,10 @@
 #include "streaming_extractorpanning.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
-//typedef essentia::standard::IOMap<essentia::streaming::SourceBase*> OutputMap;
+//typedef sonoria::standard::IOMap<sonoria::streaming::SourceBase*> OutputMap;
 typedef EssentiaMap<std::string, SourceBase*, string_cmp> OutputMap;
 
 
@@ -119,7 +119,7 @@ int main(int argc, char* argv[]) {
   }
 
   // Register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   // pool for storing results
   Pool pool;
@@ -187,7 +187,7 @@ int main(int argc, char* argv[]) {
   }
 
   pool.remove("metadata.audio_properties.downmix");
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

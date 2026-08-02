@@ -32,9 +32,9 @@
 #include "streaming_extractorpostprocess.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 void computeSegments(const string& audioFilename, Pool& neqloudPool, Pool& eqloudPool, const Pool& options);
 void compute(const string& audioFilename, const string& outputFilename,
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]) {
   }
 
   // Register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   // pool cotaining profile (configure) options:
   Pool options;
@@ -106,7 +106,7 @@ int main(int argc, char* argv[]) {
     throw;
   }
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

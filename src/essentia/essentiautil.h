@@ -28,7 +28,7 @@
 #include "types.h"
 
 
-namespace essentia {
+namespace sonoria {
 
 
 // ARRAY_SIZE returns the size of a constant-sized C-style array
@@ -212,6 +212,6 @@ inline void fastcopy(std::vector<StereoSample>::iterator dest, std::vector<Stere
   }
 }
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_UTILS_H

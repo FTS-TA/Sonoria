@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 from numpy import dot  # dot product
 
 testdir = join(filedir(), 'singlegaussian')
@@ -51,7 +51,7 @@ class TestSingleGaussian(TestCase):
 
 
     def testRegressionStreaming(self):
-        from essentia.streaming import SingleGaussian as strSingleGaussian
+        from sonoria.streaming import SingleGaussian as strSingleGaussian
         input = [readMatrix(join(testdir, 'matrix.txt'))]
         expectedMean = readVector(join(testdir, 'mean.txt'))
         expectedCov = readMatrix(join(testdir, 'cov.txt'))

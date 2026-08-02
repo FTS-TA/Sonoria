@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PitchCREPE : public Algorithm {
@@ -85,11 +85,11 @@ class PitchCREPE : public Algorithm {
 };
 
 } //namespace standard
-} //namespace essentia
+} //namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PitchCREPE : public StreamingAlgorithmWrapper {
@@ -113,6 +113,6 @@ class PitchCREPE : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PITCHCREPE_H

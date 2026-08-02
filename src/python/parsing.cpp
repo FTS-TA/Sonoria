@@ -21,7 +21,7 @@
 #include "parsing.h"
 #include "typedefs.h"
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 
 Parameter* PythonDictToParameter(PyObject* dict, Edt tp) {

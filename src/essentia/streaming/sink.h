@@ -23,7 +23,7 @@
 #include "multiratebuffer.h"
 #include "sinkproxy.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -110,7 +110,7 @@ class Sink : public SinkBase {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SINK_H

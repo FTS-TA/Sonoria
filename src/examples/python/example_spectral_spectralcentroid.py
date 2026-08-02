@@ -19,8 +19,8 @@
 
 
 
-from essentia import *
-from essentia.standard import *
+from sonoria import *
+from sonoria.standard import *
 
 def extractor(filename):
     # load our audio into an array

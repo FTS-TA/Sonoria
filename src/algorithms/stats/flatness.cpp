@@ -20,7 +20,7 @@
 #include "flatness.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* Flatness::name = "Flatness";

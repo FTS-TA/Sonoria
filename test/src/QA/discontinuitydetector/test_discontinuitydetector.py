@@ -23,8 +23,8 @@ import sys
 import numpy as np
 from scipy.signal import medfilt
 
-import essentia.standard as es
-from essentia import array as esarray
+import sonoria.standard as es
+from sonoria import array as esarray
 
 from librosa.effects import trim
 
@@ -71,7 +71,7 @@ class DevWrap(QaWrapper):
         for frame in es.FrameGenerator(x, frameSize=frame_size,
                                        hopSize=hop_size,
                                        startFromZero=True):
-            self.power.append(es.essentia.instantPower(frame))
+            self.power.append(es.sonoria.instantPower(frame))
             self.frames.append(frame)
             frame_un = np.array(frame[hop_size // 2: hop_size * 3 // 2])
             frame = W(frame)
@@ -96,7 +96,7 @@ class DevWrap(QaWrapper):
 
             mask = []
             for i in range(0, len(error), sub_frame):
-                r = es.essentia.instantPower(frame_un[i:i + sub_frame]) > energy_thld
+                r = es.sonoria.instantPower(frame_un[i:i + sub_frame]) > energy_thld
                 mask += [r] * sub_frame
             mask = mask[:len(error)]
             mask = np.array([mask]).astype(float)[0]

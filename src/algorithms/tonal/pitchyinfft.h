@@ -30,7 +30,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PitchYinFFT : public Algorithm {
@@ -99,12 +99,12 @@ class PitchYinFFT : public Algorithm {
 }; // class PitchYinFFT
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PitchYinFFT : public StreamingAlgorithmWrapper {
@@ -124,6 +124,6 @@ class PitchYinFFT : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PITCHYINFFT_H

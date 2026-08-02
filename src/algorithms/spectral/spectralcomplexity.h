@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SpectralComplexity : public Algorithm {
@@ -60,11 +60,11 @@ class SpectralComplexity : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SpectralComplexity : public StreamingAlgorithmWrapper {
@@ -82,6 +82,6 @@ class SpectralComplexity : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SPECTRALCOMPLEXITY_H

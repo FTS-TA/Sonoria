@@ -24,7 +24,7 @@
 #include "pytypes/pypool.h" // to use its type-determining capabilities
 #include "commonfunctions.h"
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace streaming;
 
 
@@ -423,7 +423,7 @@ static PyTypeObject PyStreamingAlgorithmType = {
   0,                                                      // tp_setattro
   0,                                                      // tp_as_buffer
   Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,               // tp_flags
-  "essentia::streaming::Algorithm wrapper objects", // tp_doc
+  "sonoria::streaming::Algorithm wrapper objects", // tp_doc
   0,                                                      // tp_traverse
   0,                                                      // tp_clear
   0,                                                      // tp_richcompare

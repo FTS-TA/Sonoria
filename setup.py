@@ -11,7 +11,7 @@ library = None
 PYTHON = sys.executable
 
 # Default project name
-project_name = 'essentia'
+project_name = 'sonoria'
 
 var_project_name = 'ESSENTIA_PROJECT_NAME'
 if var_project_name in os.environ:
@@ -48,7 +48,7 @@ class EssentiaBuildExtension(build_ext):
             subprocess.run('./packaging/build_3rdparty_static_debian.sh', check=True)
 
         if var_only_python in os.environ and os.environ[var_only_python]=='1':
-            print('Skipping building the core libessentia library (%s=1)' %  var_only_python)
+            print('Skipping building the core libsonoria library (%s=1)' %  var_only_python)
             subprocess.run([PYTHON,  'waf', 'configure', '--only-python', '--static-dependencies',
                       '--prefix=tmp'] + macos_arm64_flags, check=True)
         else:
@@ -57,7 +57,7 @@ class EssentiaBuildExtension(build_ext):
         subprocess.run([PYTHON, 'waf'], check=True)
         subprocess.run([PYTHON, 'waf', 'install'], check=True)
 
-        library = glob.glob('tmp/lib/python*/*-packages/essentia')[0]
+        library = glob.glob('tmp/lib/python*/*-packages/sonoria')[0]
 
 
 def get_git_version():
@@ -105,13 +105,13 @@ description = 'Library for audio and music analysis, description and synthesis'
 long_description = '''
 Essentia is an open-source C++ library with Python bindings for audio analysis and audio-based music information retrieval. It contains an extensive collection of algorithms, including audio input/output functionality, standard digital signal processing blocks, statistical characterization of data, a large variety of spectral, temporal, tonal, and high-level music descriptors, and tools for inference with deep learning models. Designed with a focus on optimization in terms of robustness, computational speed, low memory usage, as well as flexibility, it is efficient for many industrial applications and allows fast prototyping and setting up research experiments very rapidly.
 
-Website: https://essentia.upf.edu
+Website: https://sonoria.upf.edu
 '''
 
-# Require tensorflow for the package essentia-tensorflow
+# Require tensorflow for the package sonoria-tensorflow
 # We are using version 2.5.0 as it is the newest version supported by the C API
 # https://www.tensorflow.org/guide/versions
-if project_name == 'essentia-tensorflow':
+if project_name == 'sonoria-tensorflow':
     description += ', with TensorFlow support'
 
 module = Extension('name', sources=[])
@@ -122,10 +122,10 @@ setup(
     long_description=long_description,
     author='Dmitry Bogdanov',
     author_email='dmitry.bogdanov@upf.edu',
-    url='http://essentia.upf.edu',
+    url='http://sonoria.upf.edu',
     project_urls={
-        "Documentation": "http://essentia.upf.edu",
-        "Source Code": "https://github.com/MTG/essentia"
+        "Documentation": "http://sonoria.upf.edu",
+        "Source Code": "https://github.com/MTG/sonoria"
     },
     keywords='audio music sound dsp MIR',
     license='AGPLv3',

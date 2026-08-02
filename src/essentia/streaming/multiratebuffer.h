@@ -23,7 +23,7 @@
 #include <vector>
 #include "../types.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 template <typename T>
@@ -78,6 +78,6 @@ class MultiRateBuffer {
 // ownership of the memory zone in the buffer
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_MULTIRATEBUFFER_H

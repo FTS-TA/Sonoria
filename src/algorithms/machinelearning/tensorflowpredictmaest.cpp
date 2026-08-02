@@ -21,12 +21,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TensorflowPredictMAEST::name = essentia::standard::TensorflowPredictMAEST::name;
-const char* TensorflowPredictMAEST::category = essentia::standard::TensorflowPredictMAEST::category;
-const char* TensorflowPredictMAEST::description = essentia::standard::TensorflowPredictMAEST::description;
+const char* TensorflowPredictMAEST::name = sonoria::standard::TensorflowPredictMAEST::name;
+const char* TensorflowPredictMAEST::category = sonoria::standard::TensorflowPredictMAEST::category;
+const char* TensorflowPredictMAEST::description = sonoria::standard::TensorflowPredictMAEST::description;
 
 
 TensorflowPredictMAEST::TensorflowPredictMAEST() : AlgorithmComposite(),
@@ -165,11 +165,11 @@ void TensorflowPredictMAEST::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TensorflowPredictMAEST::name = "TensorflowPredictMAEST";
@@ -290,4 +290,4 @@ void TensorflowPredictMAEST::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

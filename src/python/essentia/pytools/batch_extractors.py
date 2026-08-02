@@ -19,7 +19,7 @@ from argparse import ArgumentParser
 from multiprocessing import Pool
 from multiprocessing import cpu_count
 from subprocess import run, PIPE
-from essentia import EssentiaError
+from sonoria import EssentiaError
 from functools import partial
 import os
 import sys

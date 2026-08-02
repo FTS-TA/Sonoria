@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PitchYinProbabilitiesHMM : public Algorithm {
@@ -77,12 +77,12 @@ class PitchYinProbabilitiesHMM : public Algorithm {
 }; // class PitchYin
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PitchYinProbabilitiesHMM : public StreamingAlgorithmWrapper {
@@ -102,6 +102,6 @@ class PitchYinProbabilitiesHMM : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PITCHYIN_H

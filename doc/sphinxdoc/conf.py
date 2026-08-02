@@ -181,8 +181,8 @@ html_additional_pages = {'index': 'index.html',
                          'documentation': 'documentation.html'}
 
 # Deprecating this. Generating algorithm docs directly from rst files is better for sidebar. 
-# exec(compile(open("essentia_reference.py").read(), "essentia_reference.py", 'exec'))
-# html_additional_pages.update(essentia_algorithms)
+# exec(compile(open("sonoria_reference.py").read(), "sonoria_reference.py", 'exec'))
+# html_additional_pages.update(sonoria_algorithms)
 
 # If false, no module index is generated.
 #html_domain_indices = True
@@ -258,11 +258,11 @@ htmlhelp_basename = 'Essentiadoc'
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 #man_pages = [
-#    ('index', 'essentia', u'Essentia Documentation',
+#    ('index', 'sonoria', u'Essentia Documentation',
 #     [u'Nicolas Wack'], 1)
 #]
 
 
 doxylink = {
-    'essentia': ('EssentiaDoxygen.tag', 'doxygen')
+    'sonoria': ('EssentiaDoxygen.tag', 'doxygen')
 }

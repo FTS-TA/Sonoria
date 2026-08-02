@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see http://www.gnu.org/licenses/
 
-from essentia_test import *
+from sonoria_test import *
 
 class TestDCRemoval(TestCase):
 

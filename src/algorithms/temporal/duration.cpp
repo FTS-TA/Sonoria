@@ -20,7 +20,7 @@
 #include "duration.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Duration::name = "Duration";
@@ -39,12 +39,12 @@ void Duration::compute() {
 } // namespace streaming
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* Duration::name = essentia::standard::Duration::name;
-const char* Duration::category = essentia::standard::Duration::category;
-const char* Duration::description = essentia::standard::Duration::description;
+const char* Duration::name = sonoria::standard::Duration::name;
+const char* Duration::category = sonoria::standard::Duration::category;
+const char* Duration::description = sonoria::standard::Duration::description;
 
 void Duration::reset() {
   AccumulatorAlgorithm::reset();
@@ -62,4 +62,4 @@ void Duration::finalProduce() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

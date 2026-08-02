@@ -15,21 +15,21 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
-from essentia.progress import Progress
+import sonoria
+from sonoria.progress import Progress
 # convenience function to get descriptor names from the pool without being
 # prepended by the namespace
-from essentia.essentia_extractor import descriptorNames
+from sonoria.sonoria_extractor import descriptorNames
 import numpy
 import sys
-from essentia import INFO
+from sonoria import INFO
 
 namespace = 'lowlevel'
 dependencies = None
 
 
 def is_silent_threshold(frame, silence_threshold_dB):
-    p = essentia.instantPower( frame )
+    p = sonoria.instantPower( frame )
     silence_threshold = pow(10.0, (silence_threshold_dB / 10.0))
     if p < silence_threshold:
        return 1.0
@@ -50,7 +50,7 @@ def spectralContrastPCA(scPool, pool):
             merged[k+1] = scValleys[i][j]
             k+= 2
         scPool.add('contrast', merged)
-    pca = essentia.PCA(namespaceIn = 'contrast', namespaceOut = 'contrast')(scPool)
+    pca = sonoria.PCA(namespaceIn = 'contrast', namespaceOut = 'contrast')(scPool)
     pool.add(namespace + '.' + 'spectral_contrast', pca.value('contrast'))
 
 def compute(audio, pool, options):
@@ -62,54 +62,54 @@ def compute(audio, pool, options):
     windowType = options['windowType']
 
     # temporal descriptors
-    lpc = essentia.LPC(order = 10, type = 'warped', sampleRate = sampleRate)
-    zerocrossingrate = essentia.ZeroCrossingRate()
+    lpc = sonoria.LPC(order = 10, type = 'warped', sampleRate = sampleRate)
+    zerocrossingrate = sonoria.ZeroCrossingRate()
 
     # frame algorithms
-    frames = essentia.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize)
-    window = essentia.Windowing(size = frameSize, zeroPadding = 0, type = windowType)
-    spectrum = essentia.Spectrum(size = frameSize)
+    frames = sonoria.FrameGenerator(audio = audio, frameSize = frameSize, hopSize = hopSize)
+    window = sonoria.Windowing(size = frameSize, zeroPadding = 0, type = windowType)
+    spectrum = sonoria.Spectrum(size = frameSize)
 
     # spectral algorithms
-    barkbands = essentia.BarkBands(sampleRate = sampleRate)
-    centralmoments = essentia.SpectralCentralMoments()
-    crest = essentia.Crest()
-    centroid = essentia.SpectralCentroid()
-    decrease = essentia.SpectralDecrease()
-    spectral_contrast = essentia.SpectralContrast(frameSize = frameSize,
+    barkbands = sonoria.BarkBands(sampleRate = sampleRate)
+    centralmoments = sonoria.SpectralCentralMoments()
+    crest = sonoria.Crest()
+    centroid = sonoria.SpectralCentroid()
+    decrease = sonoria.SpectralDecrease()
+    spectral_contrast = sonoria.SpectralContrast(frameSize = frameSize,
                                                   sampleRate = sampleRate,
                                                   numberBands = 6,
                                                   lowFrequencyBound = 20,
                                                   highFrequencyBound = 11000,
                                                   neighbourRatio = 0.4,
                                                   staticDistribution = 0.15)
-    distributionshape = essentia.DistributionShape()
-    energy = essentia.Energy()
+    distributionshape = sonoria.DistributionShape()
+    energy = sonoria.Energy()
     # energyband_bass, energyband_middle and energyband_high parameters come from "standard" hi-fi equalizers
-    energyband_bass = essentia.EnergyBand(startCutoffFrequency = 20.0, stopCutoffFrequency = 150.0, sampleRate = sampleRate)
-    energyband_middle_low = essentia.EnergyBand(startCutoffFrequency = 150.0, stopCutoffFrequency = 800.0, sampleRate = sampleRate)
-    energyband_middle_high = essentia.EnergyBand(startCutoffFrequency = 800.0, stopCutoffFrequency = 4000.0, sampleRate = sampleRate)
-    energyband_high = essentia.EnergyBand(startCutoffFrequency = 4000.0, stopCutoffFrequency = 20000.0, sampleRate = sampleRate)
-    flatnessdb = essentia.FlatnessDB()
-    flux = essentia.Flux()
-    harmonic_peaks = essentia.HarmonicPeaks()
-    hfc = essentia.HFC()
-    mfcc = essentia.MFCC()
-    rolloff = essentia.RollOff()
-    rms = essentia.RMS()
-    strongpeak = essentia.StrongPeak()
+    energyband_bass = sonoria.EnergyBand(startCutoffFrequency = 20.0, stopCutoffFrequency = 150.0, sampleRate = sampleRate)
+    energyband_middle_low = sonoria.EnergyBand(startCutoffFrequency = 150.0, stopCutoffFrequency = 800.0, sampleRate = sampleRate)
+    energyband_middle_high = sonoria.EnergyBand(startCutoffFrequency = 800.0, stopCutoffFrequency = 4000.0, sampleRate = sampleRate)
+    energyband_high = sonoria.EnergyBand(startCutoffFrequency = 4000.0, stopCutoffFrequency = 20000.0, sampleRate = sampleRate)
+    flatnessdb = sonoria.FlatnessDB()
+    flux = sonoria.Flux()
+    harmonic_peaks = sonoria.HarmonicPeaks()
+    hfc = sonoria.HFC()
+    mfcc = sonoria.MFCC()
+    rolloff = sonoria.RollOff()
+    rms = sonoria.RMS()
+    strongpeak = sonoria.StrongPeak()
 
     # pitch algorithms
-    pitch_detection = essentia.PitchDetection(frameSize = frameSize, sampleRate = sampleRate)
-    pitch_salience = essentia.PitchSalience()
+    pitch_detection = sonoria.PitchDetection(frameSize = frameSize, sampleRate = sampleRate)
+    pitch_salience = sonoria.PitchSalience()
 
     # dissonance
-    spectral_peaks = essentia.SpectralPeaks(sampleRate = sampleRate, orderBy='frequency')
-    dissonance = essentia.Dissonance()
+    spectral_peaks = sonoria.SpectralPeaks(sampleRate = sampleRate, orderBy='frequency')
+    dissonance = sonoria.Dissonance()
 
     # spectral complexity
     # magnitudeThreshold = 0.005 is hardcoded for a "blackmanharris62" frame
-    spectral_complexity = essentia.SpectralComplexity(magnitudeThreshold = 0.005)
+    spectral_complexity = sonoria.SpectralComplexity(magnitudeThreshold = 0.005)
 
     INFO('Computing Low-Level descriptors...')
 
@@ -122,7 +122,7 @@ def compute(audio, pool, options):
 
     progress = Progress(total = total_frames)
 
-    scPool = essentia.Pool() # pool for spectral contrast
+    scPool = sonoria.Pool() # pool for spectral contrast
 
     for frame in frames:
 
@@ -130,11 +130,11 @@ def compute(audio, pool, options):
         #pool.setCurrentScope(frameScope)
 
         # silence rate
-        pool.add(namespace + '.' + 'silence_rate_60dB', essentia.isSilent(frame))
+        pool.add(namespace + '.' + 'silence_rate_60dB', sonoria.isSilent(frame))
         pool.add(namespace + '.' + 'silence_rate_30dB', is_silent_threshold(frame, -30))
         pool.add(namespace + '.' + 'silence_rate_20dB', is_silent_threshold(frame, -20))
 
-        if options['skipSilence'] and essentia.isSilent(frame):
+        if options['skipSilence'] and sonoria.isSilent(frame):
           total_frames -= 1
           start_of_frame += hopSize
           continue
@@ -188,7 +188,7 @@ def compute(audio, pool, options):
         pool.add(namespace + '.' + 'barkbands', frame_barkbands)
         pool.add(namespace + '.' + 'spectral_crest', crest(frame_barkbands))
         pool.add(namespace + '.' + 'spectral_flatness_db', flatnessdb(frame_barkbands))
-        barkbands_centralmoments = essentia.CentralMoments(range = len(frame_barkbands) - 1)
+        barkbands_centralmoments = sonoria.CentralMoments(range = len(frame_barkbands) - 1)
         (barkbands_spread, barkbands_skewness, barkbands_kurtosis) = distributionshape(barkbands_centralmoments(frame_barkbands))
         pool.add(namespace + '.' + 'barkbands_spread', barkbands_spread)
         pool.add(namespace + '.' + 'barkbands_skewness', barkbands_skewness)
@@ -216,7 +216,7 @@ def compute(audio, pool, options):
 
     # if no 'temporal_zerocrossingrate' it means that this is a silent file
     if 'zerocrossingrate' not in descriptorNames(pool.descriptorNames(), namespace):
-        raise essentia.EssentiaError('This is a silent file!')
+        raise sonoria.EssentiaError('This is a silent file!')
 
     spectralContrastPCA(scPool, pool)
 
@@ -245,7 +245,7 @@ def compute(audio, pool, options):
       midipitchhist = [0.]*128
       midipitchhist[0] = 1.
 
-    # pitchhist = essentia.array(zip(range(len(midipitchhist)), midipitchhist))
+    # pitchhist = sonoria.array(zip(range(len(midipitchhist)), midipitchhist))
     pool.add(namespace + '.' + 'spectral_pitch_histogram', midipitchhist)#, pool.GlobalScope)
 
     # the code below is the same as the one above:
@@ -253,7 +253,7 @@ def compute(audio, pool, options):
     #    pool.add(namespace + '.' + 'spectral_pitch_histogram_values', note)
     #    print "midi note:", note
 
-    pitch_centralmoments = essentia.CentralMoments(range = len(midipitchhist) - 1)
+    pitch_centralmoments = sonoria.CentralMoments(range = len(midipitchhist) - 1)
     (pitch_histogram_spread, pitch_histogram_skewness, pitch_histogram_kurtosis) = distributionshape(pitch_centralmoments(midipitchhist))
     pool.add(namespace + '.' + 'spectral_pitch_histogram_spread', pitch_histogram_spread)#, pool.GlobalScope)
 

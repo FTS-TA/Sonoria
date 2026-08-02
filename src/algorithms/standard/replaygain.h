@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class ReplayGain : public Algorithm {
@@ -61,13 +61,13 @@ class ReplayGain : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmcomposite.h"
 #include "pool.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class ReplayGain : public AlgorithmComposite {
@@ -110,6 +110,6 @@ class ReplayGain : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_REPLAYGAIN_H

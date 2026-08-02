@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* ChordsDetectionBeats::name = "ChordsDetectionBeats";
@@ -109,4 +109,4 @@ void ChordsDetectionBeats::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

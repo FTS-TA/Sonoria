@@ -21,10 +21,10 @@ import sys, os
 from os.path import join
 import numpy
 
-import essentia
-import essentia.standard as standard
-import essentia.streaming as streaming
-from essentia import Pool, INFO
+import sonoria
+import sonoria.standard as standard
+import sonoria.streaming as streaming
+from sonoria import Pool, INFO
 
 from metadata     import readMetadata, getAnalysisMetadata
 import replaygain
@@ -34,21 +34,21 @@ import highlevel
 import panning
 import segmentation
 
-essentia_usage = "usage: \'essentia_extractor [options] config_file input_soundfile output_results\'"
+sonoria_usage = "usage: \'sonoria_extractor [options] config_file input_soundfile output_results\'"
 
 # global defines:
 analysisSampleRate = 44100.0
 
 def parse_args():
 
-    essentia_version = '%s\n'\
+    sonoria_version = '%s\n'\
     'python version: %s\n'\
-    'numpy version: %s' % (essentia.__version__,       # full version
+    'numpy version: %s' % (sonoria.__version__,       # full version
                            sys.version.split()[0],     # python major version
                            numpy.__version__)          # numpy version
 
     from optparse import OptionParser
-    parser = OptionParser(usage=essentia_usage, version=essentia_version)
+    parser = OptionParser(usage=sonoria_usage, version=sonoria_version)
 
     parser.add_option("-v","--verbose",
       action="store_true", dest="verbose", default=False,
@@ -120,7 +120,7 @@ def computeLowLevel(input_file, neqPool, eqPool, startTime, endTime, namespace='
     loader.audio >> eqloud.signal
     lowlevel.compute(eqloud.signal, loader.audio, neqPool, startTime, endTime, namespace)
     lowlevel.compute(eqloud.signal, eqloud.signal, eqPool, startTime, endTime, namespace)
-    essentia.run(loader)
+    sonoria.run(loader)
 
     # check if we processed enough audio for it to be useful, in particular did
     # we manage to get an estimation for the loudness (2 seconds required)
@@ -152,7 +152,7 @@ def computeMidLevel(input_file, neqPool, eqPool, startTime, endTime, namespace='
     loader.audio >> eqloud.signal
     midlevel.compute(loader.audio, neqPool, startTime, endTime, namespace)
     midlevel.compute(eqloud.signal, eqPool, startTime, endTime, namespace)
-    essentia.run(loader)
+    sonoria.run(loader)
 
 
 if __name__ == '__main__':
@@ -160,7 +160,7 @@ if __name__ == '__main__':
     opt, args = parse_args()
 
     if len(args) != 2: #3:
-        print "Incorrect number of arguments\n", essentia_usage
+        print "Incorrect number of arguments\n", sonoria_usage
         sys.exit(1)
 
 

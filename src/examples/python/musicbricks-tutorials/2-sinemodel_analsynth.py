@@ -1,5 +1,5 @@
-import essentia
-import essentia.streaming as es
+import sonoria
+import sonoria.streaming as es
 from pathlib import Path
 
 # algorithm parameters
@@ -48,7 +48,7 @@ overl = es.OverlapAdd(frameSize=params["frameSize"], hopSize=params["hopSize"])
 awrite = es.MonoWriter(
     filename=str(outputFilename), sampleRate=params["sampleRate"]
 )
-pool = essentia.Pool()
+pool = sonoria.Pool()
 
 
 # Define a network of connected algorithms
@@ -72,4 +72,4 @@ overl.signal >> awrite.audio
 overl.signal >> (pool, "audio")
 
 # run the network
-essentia.run(loader)
+sonoria.run(loader)

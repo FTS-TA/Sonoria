@@ -25,7 +25,7 @@
 #include "algorithmfactory.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TensorflowInputFSDSINet : public Algorithm {
@@ -79,11 +79,11 @@ class TensorflowInputFSDSINet : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TensorflowInputFSDSINet : public StreamingAlgorithmWrapper {
@@ -101,7 +101,7 @@ class TensorflowInputFSDSINet : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_TENSORFLOWINPUTFSDSINET_H

@@ -17,8 +17,8 @@
 
 from itertools import izip
 import numpy
-import essentia
-from essentia import EssentiaError
+import sonoria
+from sonoria import EssentiaError
 import numpy.core.arrayprint
 
 # make it so we don't see summarized output, we want the full stuff
@@ -96,7 +96,7 @@ class Pool:
 
             if len(values_in_scope) > 0:
                 try:
-                    descriptors_mean[key] = essentia.array(numpy.mean(values_in_scope, axis=0))
+                    descriptors_mean[key] = sonoria.array(numpy.mean(values_in_scope, axis=0))
                 except TypeError:  # values are not numeric
                     descriptors_mean[key] = values_in_scope[0]
 
@@ -120,7 +120,7 @@ class Pool:
 
             if len(values_in_scope) > 0:
                 try:
-                    descriptors_var[key] = essentia.array(numpy.var(values_in_scope, axis=0))
+                    descriptors_var[key] = sonoria.array(numpy.var(values_in_scope, axis=0))
                 except TypeError:  # values are not numeric
                     descriptors_var[key] = 0.0
 
@@ -146,7 +146,7 @@ class Pool:
                     value = values[0]
                     try:
                         # if value is numeric
-                        aggregated[namespace][desc] = {'value': essentia.array(value)}
+                        aggregated[namespace][desc] = {'value': sonoria.array(value)}
                     except:
                         # if value is not numeric
                         aggregated[namespace][desc] = {'value': value}
@@ -167,16 +167,16 @@ class Pool:
                 try:
 
                     if 'mean' in stats:
-                        aggrDesc['mean'] = essentia.array(numpy.mean(values, axis=0))
+                        aggrDesc['mean'] = sonoria.array(numpy.mean(values, axis=0))
 
                     if 'var' in stats:
-                        aggrDesc['var'] = essentia.array(numpy.var(values, axis=0))
+                        aggrDesc['var'] = sonoria.array(numpy.var(values, axis=0))
 
                     if 'min' in stats:
-                        aggrDesc['min'] = essentia.array(numpy.min(values, axis=0))
+                        aggrDesc['min'] = sonoria.array(numpy.min(values, axis=0))
 
                     if 'max' in stats:
-                        aggrDesc['max'] = essentia.array(numpy.max(values, axis=0))
+                        aggrDesc['max'] = sonoria.array(numpy.max(values, axis=0))
 
                     derived = None
                     derived2 = None
@@ -184,12 +184,12 @@ class Pool:
                     if 'dmean' in stats:
                         if not derived:
                             derived = [a - b for a, b in izip(values[1:], values[:-1])]
-                        aggrDesc['dmean'] = essentia.array(numpy.mean(numpy.abs(derived), axis=0))
+                        aggrDesc['dmean'] = sonoria.array(numpy.mean(numpy.abs(derived), axis=0))
 
                     if 'dvar' in stats:
                         if not derived:
                             derived = [a - b for a, b in izip(values[1:], values[:-1])]
-                        aggrDesc['dvar'] = essentia.array(numpy.var(derived, axis=0))
+                        aggrDesc['dvar'] = sonoria.array(numpy.var(derived, axis=0))
 
                     if 'dmean2' in stats:
                         if not derived:
@@ -197,7 +197,7 @@ class Pool:
                         if not derived2:
                             derived2 = [a - b for a, b in izip(derived[1:], derived[:-1])]
                         if derived2:
-                            aggrDesc['dmean2'] = essentia.array(numpy.mean(numpy.abs(derived2), axis=0))
+                            aggrDesc['dmean2'] = sonoria.array(numpy.mean(numpy.abs(derived2), axis=0))
                         else:
                             aggrDesc['dmean2'] = 'undefined'
 
@@ -207,17 +207,17 @@ class Pool:
                         if not derived2:
                             derived2 = [a - b for a, b in izip(derived[1:], derived[:-1])]
                         if derived2:
-                            aggrDesc['dvar2'] = essentia.array(numpy.var(derived2, axis=0))
+                            aggrDesc['dvar2'] = sonoria.array(numpy.var(derived2, axis=0))
                         else:
                             aggrDesc['dvar2'] = 'undefined'
 
 
                     if 'frames' in stats:
-                        aggrDesc['frames'] = essentia.array(values)
+                        aggrDesc['frames'] = sonoria.array(values)
 
                     if 'single_gaussian' in stats:
-                        single_gaussian = essentia.SingleGaussian()
-                        (m, cov, icov) = single_gaussian(essentia.array(values))
+                        single_gaussian = sonoria.SingleGaussian()
+                        (m, cov, icov) = single_gaussian(sonoria.array(values))
                         aggrDesc['mean'] = m
                         aggrDesc['cov'] = cov
                         aggrDesc['icov'] = icov
@@ -225,7 +225,7 @@ class Pool:
                     for stat in stats:
                         if stat.startswith('percentile_'):
                             p = float(stat.split('_')[1])
-                            aggrDesc[stat] = essentia.array(percentile(values, p))
+                            aggrDesc[stat] = sonoria.array(percentile(values, p))
 
 
                 except (TypeError, ValueError):  # values are not numeric

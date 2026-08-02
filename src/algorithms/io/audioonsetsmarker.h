@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class AudioOnsetsMarker : public Algorithm {
@@ -60,13 +60,13 @@ class AudioOnsetsMarker : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class AudioOnsetsMarker : public Algorithm {
@@ -103,7 +103,7 @@ class AudioOnsetsMarker : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_AUDIOONSETSMARKER_H

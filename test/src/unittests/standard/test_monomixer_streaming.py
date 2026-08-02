@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import MonoMixer, AudioLoader
+from sonoria_test import *
+from sonoria.streaming import MonoMixer, AudioLoader
 
 class TestMonoMixer_Streaming(TestCase):
     left = []

@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Leq::name = "Leq";
@@ -47,10 +47,10 @@ void Leq::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* Leq::name = standard::Leq::name;
@@ -77,4 +77,4 @@ void Leq::finalProduce() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

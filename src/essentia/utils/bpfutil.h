@@ -22,7 +22,7 @@
 
 #include "types.h"
 
-namespace essentia {
+namespace sonoria {
   namespace util {
     class BPF {
       protected:

@@ -21,7 +21,7 @@
 #include "essentiamath.h"
 #include <sstream>
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* BinaryOperatorStream::name = "BinaryOperatorStream";

@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import Slicer
+from sonoria_test import *
+from sonoria.streaming import Slicer
 from numpy import sort
 
 class TestSlicer_Streaming(TestCase):

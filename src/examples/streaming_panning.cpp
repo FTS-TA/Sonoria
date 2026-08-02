@@ -24,9 +24,9 @@
 #include <essentia/streaming/algorithms/fileoutput.h>
 #include "credit_libav.h"
 
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 using namespace std;
 
 int main(int argc, char** argv) {
@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
   Real sr = 44100.;
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   streaming::AlgorithmFactory& factory = streaming::AlgorithmFactory::instance();
 
@@ -130,7 +130,7 @@ int main(int argc, char** argv) {
   delete output;
 
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   cout << "Results written in panning_coeffs.txt and panning_coeffs.yaml" << endl;
 

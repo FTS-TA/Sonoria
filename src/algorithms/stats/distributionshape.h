@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class DistributionShape : public Algorithm {
@@ -52,11 +52,11 @@ class DistributionShape : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class DistributionShape : public StreamingAlgorithmWrapper {
@@ -78,7 +78,7 @@ class DistributionShape : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_DISTRIBUTIONSHAPE_H

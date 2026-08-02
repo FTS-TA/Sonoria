@@ -1,6 +1,6 @@
 import numpy as np
-import essentia
-from essentia.standard import *
+import sonoria
+from sonoria.standard import *
 
 from matplotlib.pyplot import imshow, show, plot, title, ylim, legend, figure, grid, GridSpec, subplot, text, tight_layout, yticks, locator_params, close
 import matplotlib.pyplot as plt

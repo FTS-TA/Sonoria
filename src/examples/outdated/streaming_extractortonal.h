@@ -24,13 +24,13 @@
 #include <essentia/pool.h>
 #include <essentia/types.h>
 
-void TuningFrequency(essentia::streaming::SourceBase& input, essentia::Pool& pool,
-                     const essentia::Pool& options, const std::string& nspace="");
+void TuningFrequency(sonoria::streaming::SourceBase& input, sonoria::Pool& pool,
+                     const sonoria::Pool& options, const std::string& nspace="");
 
-void TonalDescriptors(essentia::streaming::SourceBase& input, essentia::Pool& pool,
-                      const essentia::Pool& options, const std::string& nspace="");
+void TonalDescriptors(sonoria::streaming::SourceBase& input, sonoria::Pool& pool,
+                      const sonoria::Pool& options, const std::string& nspace="");
 
-void TuningSystemFeatures(essentia::Pool& pool, const std::string& nspace="");
-void TonalPoolCleaning(essentia::Pool& pool, const std::string& nspace="");
+void TuningSystemFeatures(sonoria::Pool& pool, const std::string& nspace="");
+void TonalPoolCleaning(sonoria::Pool& pool, const std::string& nspace="");
 
 #endif // STREAMING_EXTRACTORTONAL_H

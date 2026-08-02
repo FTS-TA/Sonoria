@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Trimmer::name = "Trimmer";
@@ -60,16 +60,16 @@ void Trimmer::compute() {
   memcpy(&output[0], &input[0]+_startIndex, size*sizeof(Real));
 }
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* Trimmer::name = essentia::standard::Trimmer::name;
-const char* Trimmer::category = essentia::standard::Trimmer::category;
-const char* Trimmer::description = essentia::standard::Trimmer::description;
+const char* Trimmer::name = sonoria::standard::Trimmer::name;
+const char* Trimmer::category = sonoria::standard::Trimmer::category;
+const char* Trimmer::description = sonoria::standard::Trimmer::description;
 
 void Trimmer::configure() {
   Real sampleRate = parameter("sampleRate").toReal();
@@ -181,4 +181,4 @@ void Trimmer::reset() {
 } 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

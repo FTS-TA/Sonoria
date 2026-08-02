@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class FlatnessSFX : public Algorithm {
@@ -56,11 +56,11 @@ class FlatnessSFX : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class FlatnessSFX : public StreamingAlgorithmWrapper {
@@ -79,7 +79,7 @@ class FlatnessSFX : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_FLATNESSSFX_H

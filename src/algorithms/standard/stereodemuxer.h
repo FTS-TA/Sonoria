@@ -23,7 +23,7 @@
 #include "streamingalgorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class StereoDemuxer : public Algorithm {
@@ -60,14 +60,14 @@ class StereoDemuxer : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "algorithm.h"
 #include "network.h"
 #include "vectoroutput.h"
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 // Standard non-streaming algorithm comes after the streaming one as it
@@ -114,6 +114,6 @@ class StereoDemuxer : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMING_STEREODEMUXER_H

@@ -19,9 +19,9 @@
 
 
 
-import essentia
-import essentia.standard as standard
-import essentia.streaming as streaming
+import sonoria
+import sonoria.standard as standard
+import sonoria.streaming as streaming
 
 import numpy
 from postprocess import postProcess
@@ -61,7 +61,7 @@ def tuningSystemFeatures(pool, namespace=''):
     offset = len(hpcp)-idx
     hpcp[:offset] = hpcp_copy[idx:offset+idx]
     hpcp[offset:offset+idx] = hpcp_copy[0:idx]
-    pool.set(tonalspace+'thpcp', essentia.array(hpcp))
+    pool.set(tonalspace+'thpcp', sonoria.array(hpcp))
 
 
 def sfxPitch(pool, namespace=''):
@@ -81,7 +81,7 @@ def sfxPitch(pool, namespace=''):
     maxtt.maxToTotal >> (pool, sfxspace+'pitch_max_to_total')
     mintt.minToTotal >> (pool, sfxspace+'pitch_min_to_total')
     amt.afterMaxToBeforeMaxEnergyRatio >> (pool, sfxspace+'pitch_after_max_to_before_max_energy_ratio')
-    essentia.run(gen)
+    sonoria.run(gen)
 
     pc = standard.Centroid(range=len(pitch)-1)(pitch)
     pool.set(sfxspace+'pitch_centroid', pc)

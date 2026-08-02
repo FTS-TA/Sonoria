@@ -22,7 +22,7 @@
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Multiplexer : public Algorithm {
@@ -64,11 +64,11 @@ class Multiplexer : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 // The std version could have used the streaming multiplexer, but did not
@@ -108,6 +108,6 @@ class Multiplexer : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_MULTIPLEXER_H

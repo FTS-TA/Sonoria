@@ -24,7 +24,7 @@
 #include "tnt/tnt.h"
 #include "tnt/jama_lu.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SingleGaussian : public Algorithm {
@@ -60,11 +60,11 @@ class SingleGaussian : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SingleGaussian : public StreamingAlgorithmWrapper {
@@ -86,7 +86,7 @@ class SingleGaussian : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SINGLEGAUSSIAN_H

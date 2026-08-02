@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 
 class TestSpectralWhitening(TestCase):
     # Note: Some of the following tests do not use a spectral peaks input that

@@ -25,7 +25,7 @@
 #include "algorithmfactory.h"
 #include "3rdparty/cephes/bessel/bessel.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SNR : public Algorithm {
@@ -133,13 +133,13 @@ class SNR : public Algorithm {
   static const char* description;
 };
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SNR : public StreamingAlgorithmWrapper {
@@ -160,6 +160,6 @@ class SNR : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SNR_H

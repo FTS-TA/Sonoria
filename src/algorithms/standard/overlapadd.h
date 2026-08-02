@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class OverlapAdd : public Algorithm {
@@ -61,11 +61,11 @@ class OverlapAdd : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class OverlapAdd : public Algorithm {
@@ -107,6 +107,6 @@ class OverlapAdd : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_OVERLAPADD_H

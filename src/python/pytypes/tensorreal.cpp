@@ -21,12 +21,12 @@
 
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 DEFINE_PYTHON_TYPE(TensorReal);
 
 
-PyObject* TensorReal::toPythonCopy(const essentia::Tensor<essentia::Real>* tensor) {
+PyObject* TensorReal::toPythonCopy(const sonoria::Tensor<sonoria::Real>* tensor) {
   PyObject* result;
 
   int nd = tensor->rank();

@@ -15,7 +15,7 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia.standard
+import sonoria.standard
 import tempfile
 import numpy as np
 
@@ -45,5 +45,5 @@ def test_audiofile(filename=None, type='sin440', duration=1):
         tf.close()
         filename = tf.name
 
-    essentia.standard.MonoWriter(filename=filename)(samples)
+    sonoria.standard.MonoWriter(filename=filename)(samples)
     return filename

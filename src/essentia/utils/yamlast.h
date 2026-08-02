@@ -27,7 +27,7 @@
 #include <sstream>
 #include <yaml.h>
 
-namespace essentia {
+namespace sonoria {
 
 class YamlException : public std::exception {
 
@@ -115,6 +115,6 @@ class YamlMappingNode : public YamlNode {
 
 YamlNode* parseYaml(FILE*, const std::string& fileString = std::string());
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // YAML_AST_H

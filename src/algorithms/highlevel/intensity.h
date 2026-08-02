@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Intensity : public Algorithm {
@@ -104,6 +104,6 @@ class Intensity : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_INTENSITY_H

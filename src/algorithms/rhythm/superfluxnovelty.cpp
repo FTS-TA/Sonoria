@@ -20,7 +20,7 @@
 #include "superfluxnovelty.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
         
 const char* SuperFluxNovelty::name = "SuperFluxNovelty";
@@ -79,10 +79,10 @@ void SuperFluxNovelty::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
         
 const char* SuperFluxNovelty::name = standard::SuperFluxNovelty::name;
@@ -104,4 +104,4 @@ AlgorithmStatus SuperFluxNovelty::process() {
 }
         
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BpmHistogramDescriptors : public Algorithm {
@@ -67,12 +67,12 @@ class BpmHistogramDescriptors : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BpmHistogramDescriptors : public StreamingAlgorithmWrapper {
@@ -103,6 +103,6 @@ class BpmHistogramDescriptors : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_BPMHISTOGRAMDESCRIPTORS_H

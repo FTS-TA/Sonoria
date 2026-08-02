@@ -23,7 +23,7 @@
 #include "streamingalgorithm.h"
 #include "vectoroutput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class VectorRealToTensor : public Algorithm {
@@ -70,6 +70,6 @@ class VectorRealToTensor : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_VECTORREALTOTENSOR_H

@@ -21,7 +21,7 @@
 #include "essentiamath.h" // log10
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 

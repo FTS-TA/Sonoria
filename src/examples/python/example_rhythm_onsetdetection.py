@@ -20,8 +20,8 @@
 
 import sys
 
-from essentia import Pool, array
-from essentia.standard import *
+from sonoria import Pool, array
+from sonoria.standard import *
 
 
 # In this example we are going to look at how to perform some onset detection

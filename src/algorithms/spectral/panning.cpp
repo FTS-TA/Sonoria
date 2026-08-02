@@ -22,7 +22,7 @@
 
 using namespace std;
 using namespace TNT;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* Panning::name = "Panning";

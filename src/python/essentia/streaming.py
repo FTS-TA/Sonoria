@@ -16,11 +16,11 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 from six import iteritems
-from . import _essentia
-import essentia
+from . import _sonoria
+import sonoria
 import sys as _sys
 from . import common as _c
-from ._essentia import skeys as algorithmNames, sinfo as algorithmInfo
+from ._sonoria import skeys as algorithmNames, sinfo as algorithmInfo
 
 # Used as a place-holder for sources and sinks, implements the right shift
 # operator
@@ -56,7 +56,7 @@ class _StreamConnector:
                 raise NameError('The \'%s\' algorithm does not have a sink called \'%s\''
                                 %(right.input_algo.name(), right.name))
 
-            _essentia.connect(left.output_algo, left.name,
+            _sonoria.connect(left.output_algo, left.name,
                               right.input_algo, right.name)
 
             # update connections
@@ -65,8 +65,8 @@ class _StreamConnector:
             return right
 
 
-        elif isinstance(right, _essentia.StreamingAlgorithm) and right.name() == 'FileOutput':
-            _essentia.fileOutputConnect(left.output_algo, left.name, right)
+        elif isinstance(right, _sonoria.StreamingAlgorithm) and right.name() == 'FileOutput':
+            _sonoria.fileOutputConnect(left.output_algo, left.name, right)
 
             # update connections
             left.output_algo.connections[left].append(right)
@@ -88,7 +88,7 @@ class _StreamConnector:
             # update connections
             left.output_algo.connections[left].append(right)
 
-            return _essentia.poolConnect(left.output_algo, left.name, right[0].cppPool, right[1])
+            return _sonoria.poolConnect(left.output_algo, left.name, right[0].cppPool, right[1])
 
         # connect a source to NOWHERE
         elif right is None:
@@ -99,7 +99,7 @@ class _StreamConnector:
             # update connections
             left.output_algo.connections[left].append(right)
 
-            return _essentia.nowhereConnect(left.output_algo, left.name)
+            return _sonoria.nowhereConnect(left.output_algo, left.name)
 
         # none of the above accepted types: raise an exception
         raise TypeError('\'%s.%s\' A source can only be connected to a sink, a pair '\
@@ -114,7 +114,7 @@ class _StreamConnector:
 
         # call internal disconnect based on connector type
         if isinstance(connector, _StreamConnector):
-            return _essentia.disconnect(self.output_algo, self.name, connector.input_algo, connector.name)
+            return _sonoria.disconnect(self.output_algo, self.name, connector.input_algo, connector.name)
 
         elif isinstance(connector, tuple):
             if not len(connector) == 2 or \
@@ -122,34 +122,34 @@ class _StreamConnector:
                not isinstance(connector[1], str):
                 raise TypeError('the tuple given should consist of a Pool and a string descriptor name')
 
-            return _essentia.poolDisconnect(self.output_algo, self.name, connector[0].cppPool, connector[1])
+            return _sonoria.poolDisconnect(self.output_algo, self.name, connector[0].cppPool, connector[1])
 
         elif connector == None:
-            return _essentia.nowhereDisconnect(self.output_algo, self.name)
+            return _sonoria.nowhereDisconnect(self.output_algo, self.name)
 
         raise TypeError('\'%s.%s\' An output can only be disconnected from an '\
                         'input, a pair (tuple) of pool and key name, or None'
                         %(self.output_algo.name(), self.name))
 
     def totalProduced(self):
-        return _essentia.totalProduced(self.output_algo, self.name)
+        return _sonoria.totalProduced(self.output_algo, self.name)
 
 
 
 def _create_streaming_algo(givenname):
-    essentia.log.debug(essentia.EPython, 'Creating essentia.streaming class: %s' % givenname)
+    sonoria.log.debug(sonoria.EPython, 'Creating sonoria.streaming class: %s' % givenname)
 
-    _algoInstance = _essentia.StreamingAlgorithm(givenname)
+    _algoInstance = _sonoria.StreamingAlgorithm(givenname)
     _algoDoc = _algoInstance.getDoc()
     _algoStruct = _algoInstance.getStruct()
     del _algoInstance
 
-    class StreamingAlgo(_essentia.StreamingAlgorithm):
+    class StreamingAlgo(_sonoria.StreamingAlgorithm):
         __doc__ = _algoDoc
         __struct__ = _algoStruct
 
         def __init__(self, **kwargs):
-            _essentia.StreamingAlgorithm.__init__(self, givenname)
+            _sonoria.StreamingAlgorithm.__init__(self, givenname)
 
             self.configure(**kwargs)
 
@@ -201,7 +201,7 @@ def _reloadStreamingAlgorithms():
 _reloadStreamingAlgorithms()
 
 # This subclass provides some more functionality for VectorInput
-class VectorInput(_essentia.VectorInput):
+class VectorInput(_sonoria.VectorInput):
     __doc__ = 'VectorInput v1.0\n\n\n'+\
               '  Outputs:\n\n'+\
               '    [variable] data - the given data\n\n\n'+\
@@ -244,7 +244,7 @@ class VectorInput(_essentia.VectorInput):
             raise TypeError('VectorInput was already connected to another sink with a different type, original type: '+str(self.__initializedType)+' new type: '+str(sinkEdt))
 
         self.dataref = _c.convertData(self.dataref, sinkEdt)
-        _essentia.VectorInput.__init__(self, self.dataref, str(sinkEdt))
+        _sonoria.VectorInput.__init__(self, self.dataref, str(sinkEdt))
         self.__initializedType = sinkEdt #_c.Edt
         self.__initialized = True
 
@@ -260,7 +260,7 @@ class VectorInput(_essentia.VectorInput):
         sourceEdt = _c.determineEdt(self.dataref)
 
         if not sourceEdt.isIntermediate():
-            _essentia.VectorInput.__init__(self, self.dataref, str(sourceEdt))
+            _sonoria.VectorInput.__init__(self, self.dataref, str(sourceEdt))
             self.__initialized = True
             return
 
@@ -269,13 +269,13 @@ class VectorInput(_essentia.VectorInput):
            sourceEdt == _c.Edt.LIST_REAL or \
            sourceEdt == _c.Edt.LIST_MIXED:
             self.dataref = _c.convertData(self.dataref, _c.Edt.VECTOR_REAL)
-            _essentia.VectorInput.__init__(self, self.dataref, _c.Edt.VECTOR_REAL)
+            _sonoria.VectorInput.__init__(self, self.dataref, _c.Edt.VECTOR_REAL)
             self.__initialized = True
             return
 
         if sourceEdt == _c.Edt.LIST_LIST_REAL or sourceEdt == _c.Edt.LIST_LIST_INTEGER:
             self.dataref = _c.convertData(self.dataref, _c.Edt.MATRIX_REAL)
-            _essentia.VectorInput.__init__(self, self.dataref, _c.Edt.MATRIX_REAL)
+            _sonoria.VectorInput.__init__(self, self.dataref, _c.Edt.MATRIX_REAL)
             self.__initialized = True
             return
 

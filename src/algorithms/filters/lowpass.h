@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class LowPass : public Algorithm {
@@ -86,6 +86,6 @@ class LowPass : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_LOWPASS_H

@@ -15,8 +15,8 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
-from essentia import INFO
+import sonoria
+from sonoria import INFO
 import sys
 import math
 from math import *
@@ -35,14 +35,14 @@ def compute(audio, pool, options):
     frameSize = options['frameSize']
     hopSize = options['hopSize']
 
-    audioLeft, audioRight, originalSampleRate, originalChannelsNumber = essentia.AudioFileInput(filename = filename,
+    audioLeft, audioRight, originalSampleRate, originalChannelsNumber = sonoria.AudioFileInput(filename = filename,
                                                                                                 outputSampleRate = sampleRate,
                                                                                                 stereo = 'True')()
     # in case of a mono file
     if originalChannelsNumber == 1:
         audioRight = audioLeft
 
-    panning = essentia.ExtractorPanning(frameSize = frameSize, hopSize = hopSize)
+    panning = sonoria.ExtractorPanning(frameSize = frameSize, hopSize = hopSize)
     coefficients = panning(audioLeft, audioRight);
 
     # used for a nice progress display
@@ -50,14 +50,14 @@ def compute(audio, pool, options):
     n_frames = 0
     start_of_frame = -frameSize*0.5
 
-    progress = essentia.Progress(total = total_frames)
+    progress = sonoria.Progress(total = total_frames)
 
     while n_frames < total_frames:
 
         frameScope = [ start_of_frame / sampleRate, (start_of_frame + frameSize) / sampleRate ]
         pool.setCurrentScope(frameScope)
 
-        pool.add('coefficients', essentia.array(coefficients[n_frames]), frameScope)
+        pool.add('coefficients', sonoria.array(coefficients[n_frames]), frameScope)
 
         # display of progress report
         progress.update(n_frames)

@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import sys
 from numpy import pi, sin
 import os

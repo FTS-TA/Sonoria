@@ -19,9 +19,9 @@
 
 
 
-from essentia_test import *
-import essentia.streaming as es
-#from essentia import Pool
+from sonoria_test import *
+import sonoria.streaming as es
+#from sonoria import Pool
 
 class TestChromaprinter(TestCase):
     #  This finguerprint was computed using the pyacousticid python module: https://pypi.python.org/pypi/pyacoustid
@@ -60,7 +60,7 @@ class TestChromaprinter(TestCase):
         loader.audio >> cp.signal
         cp.fingerprint >> (pool, 'chromaprint')
 
-        es.essentia.run(loader)
+        es.sonoria.run(loader)
         self.assertEqualVector(self.expected, pool['chromaprint'][0])
 
 

@@ -25,7 +25,7 @@
 #include "algorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BeatTrackerMultiFeature : public AlgorithmComposite {
@@ -93,11 +93,11 @@ class BeatTrackerMultiFeature : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BeatTrackerMultiFeature : public Algorithm {
@@ -133,6 +133,6 @@ class BeatTrackerMultiFeature : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // BEATTRACKERMULTIFEATURE_H

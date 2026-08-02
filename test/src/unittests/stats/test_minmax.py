@@ -17,9 +17,9 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-from essentia.standard import MinMax
+from sonoria.standard import MinMax
 
-from essentia_test import TestCase, TextTestRunner, allTests
+from sonoria_test import TestCase, TextTestRunner, allTests
 
 class TestMinMax(TestCase):
 

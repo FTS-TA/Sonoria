@@ -18,7 +18,7 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 import os.path
 
-from essentia_test import *
+from sonoria_test import *
 import numpy as np
 
 

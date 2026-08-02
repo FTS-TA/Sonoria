@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 from numpy import random, pi, sort
 
 class TestDissonance(TestCase):

@@ -19,9 +19,9 @@
 
 
 
-from essentia_test import *
-from essentia import *
-from essentia.streaming import AudioOnsetsMarker, MonoWriter
+from sonoria_test import *
+from sonoria import *
+from sonoria.streaming import AudioOnsetsMarker, MonoWriter
 from numpy import pi, sin
 import os
 

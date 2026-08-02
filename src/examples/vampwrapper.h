@@ -31,7 +31,7 @@
 class VampWrapper : public Vamp::Plugin {
 
 protected:
-  essentia::standard::Algorithm* _algo;
+  sonoria::standard::Algorithm* _algo;
   float _sampleRate;
   int _stepSize;
   int _blockSize;
@@ -39,19 +39,19 @@ protected:
   std::string _name, _description;
   std::vector<float> _spectrum;
   std::vector<float> _phase;
-  essentia::standard::Algorithm* _peaks;
+  sonoria::standard::Algorithm* _peaks;
   std::vector<float> _peakmags;
   std::vector<float> _peakfreqs;
-  essentia::standard::Algorithm* _bbands;
+  sonoria::standard::Algorithm* _bbands;
   std::vector<float> _barkBands;
-  essentia::standard::Algorithm* _mbands;
+  sonoria::standard::Algorithm* _mbands;
   std::vector<float> _melBands;
-  essentia::Pool _pool;
+  sonoria::Pool _pool;
 
   static int essentiaVampPluginId;
 
 public:
-  VampWrapper(essentia::standard::Algorithm* algo, float inputSampleRate);
+  VampWrapper(sonoria::standard::Algorithm* algo, float inputSampleRate);
   ~VampWrapper();
 
   bool initialise(size_t channels, size_t stepSize, size_t blockSize);
@@ -65,8 +65,8 @@ public:
   std::string getCopyright() const { return "(C) 2020 MTG, Universitat Pompeu Fabra"; }
   int getPluginVersion() const { return 2; }
 
-  essentia::AlgorithmInfo<essentia::standard::Algorithm> info() const {
-    return essentia::standard::AlgorithmFactory::getInfo(_algo->name());
+  sonoria::AlgorithmInfo<sonoria::standard::Algorithm> info() const {
+    return sonoria::standard::AlgorithmFactory::getInfo(_algo->name());
   }
 
   // we cannot always use the name (i.e. info().name) of the _algo as a unique

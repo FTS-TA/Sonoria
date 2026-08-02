@@ -23,8 +23,8 @@
 #include <essentia/streaming/algorithms/poolstorage.h>
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
 void LowLevelSpectral(SourceBase& input, Pool& pool, const Pool& options, const string& nspace ) {
 

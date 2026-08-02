@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import ChordsDetection
+from sonoria_test import *
+from sonoria.streaming import ChordsDetection
 
 chord_dict = {
     'A':  [1, 0, 0, 0, 0.5, 0, 0, 0.3, 0, 0, 0, 0],
@@ -90,7 +90,7 @@ class TestChordsDetection_Streaming(TestCase):
             run(gen)
 
         else:
-            from essentia.standard import ChordsDetection as stdChordsDetection
+            from sonoria.standard import ChordsDetection as stdChordsDetection
             chordsDetection = stdChordsDetection(windowSize=2.0, hopSize = hopSize)
             chords, strength = chordsDetection(pcp)
             for i in range(len(chords)):
@@ -163,7 +163,7 @@ class TestChordsDetection_Streaming(TestCase):
         # this test has been introduced since it was reported that
         # chordsdetection may reveal errors on the scheduling yielding more
         # chords than hpcps are computed
-        from essentia.streaming import MonoLoader, DCRemoval, FrameCutter,\
+        from sonoria.streaming import MonoLoader, DCRemoval, FrameCutter,\
         EqualLoudness, Windowing, Spectrum, SpectralPeaks, SpectralWhitening,\
         HPCP
 

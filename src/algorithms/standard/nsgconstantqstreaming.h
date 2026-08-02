@@ -6,7 +6,7 @@
 #include "network.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class NSGConstantQStreaming : public Algorithm{

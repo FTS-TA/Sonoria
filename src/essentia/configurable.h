@@ -22,7 +22,7 @@
 
 #include "parameter.h"
 
-namespace essentia {
+namespace sonoria {
 
 /**
  * A Configurable instance is an object that has a given name, and can be
@@ -186,6 +186,6 @@ template <typename T> bool compareByName(const T* a, const T* b) {
   return a->name() < b->name();
 }
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_CONFIGURABLE_H

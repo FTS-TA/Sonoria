@@ -24,6 +24,6 @@
 #include <essentia/types.h>
 #include <string>
 
-void PostProcess(essentia::Pool& pool, const essentia::Pool& options, const std::string& nspace="");
+void PostProcess(sonoria::Pool& pool, const sonoria::Pool& options, const std::string& nspace="");
 
 #endif // STREAMING_EXTRACTOR_POSTPROCESS_H

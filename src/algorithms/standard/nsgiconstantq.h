@@ -24,7 +24,7 @@
 #include "algorithmfactory.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class NSGIConstantQ : public Algorithm {
@@ -125,7 +125,7 @@ class NSGIConstantQ : public Algorithm {
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class NSGIConstantQ : public StreamingAlgorithmWrapper {
@@ -147,6 +147,6 @@ class NSGIConstantQ : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_NSGICONSTANTQ_H

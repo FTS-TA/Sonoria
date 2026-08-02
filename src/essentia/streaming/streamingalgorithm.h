@@ -25,15 +25,15 @@
 #include "sourcebase.h"
 #include "sinkbase.h"
 
-namespace essentia {
+namespace sonoria {
 namespace scheduler {
 
   class Network;
 
 } // namespace scheduler
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -250,7 +250,7 @@ class ESSENTIA_API Algorithm : public Configurable {
   InputMap _inputs;
 
 #if DEBUGGING_ENABLED
-  friend class essentia::scheduler::Network;
+  friend class sonoria::scheduler::Network;
 
   /** number of times the process() method has been called */
   int nProcess;
@@ -260,7 +260,7 @@ class ESSENTIA_API Algorithm : public Configurable {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 // these #include have to go here, and not on top, because they need to have

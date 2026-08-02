@@ -19,7 +19,7 @@
 
 #include "histogram.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* Histogram::name = "Histogram";

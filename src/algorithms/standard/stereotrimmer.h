@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class StereoTrimmer : public Algorithm {
@@ -59,13 +59,13 @@ class StereoTrimmer : public Algorithm {
 };
 
 }// namespace standard
-}// namespace essentia
+}// namespace sonoria
 
 
 #include "streamingalgorithm.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class StereoTrimmer : public Algorithm {
@@ -105,7 +105,7 @@ class StereoTrimmer : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_STEREOTRIMMER_H

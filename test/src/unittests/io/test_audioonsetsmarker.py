@@ -19,11 +19,11 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 from numpy import pi, sin
 import os
 
-import essentia.streaming as es
+import sonoria.streaming as es
 
 file = "foo.wav"
 

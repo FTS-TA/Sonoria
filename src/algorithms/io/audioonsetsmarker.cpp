@@ -23,7 +23,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* AudioOnsetsMarker::name = "AudioOnsetsMarker";
@@ -77,11 +77,11 @@ void AudioOnsetsMarker::compute() {
   }
 }
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* AudioOnsetsMarker::name = standard::AudioOnsetsMarker::name;
@@ -213,4 +213,4 @@ void AudioOnsetsMarker::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

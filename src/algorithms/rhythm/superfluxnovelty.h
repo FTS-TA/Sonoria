@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SuperFluxNovelty : public Algorithm {
@@ -63,12 +63,12 @@ class SuperFluxNovelty : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SuperFluxNovelty : public Algorithm {
@@ -77,13 +77,13 @@ class SuperFluxNovelty : public Algorithm {
   Sink< vector<Real> > _bands;
   Source<Real  > _diffs;
 
-  essentia::standard::Algorithm* _algo;
+  sonoria::standard::Algorithm* _algo;
 
  public:
   SuperFluxNovelty() {
     declareInput(_bands, "bands", "the input bands spectrogram");
     declareOutput(_diffs,1,1, "differences", "SuperFlux novelty curve");
-    _algo = essentia::standard::AlgorithmFactory::create("SuperFluxNovelty");
+    _algo = sonoria::standard::AlgorithmFactory::create("SuperFluxNovelty");
   }
   
   ~SuperFluxNovelty() {
@@ -110,6 +110,6 @@ class SuperFluxNovelty : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SUPERFLUXNOVELTY_H

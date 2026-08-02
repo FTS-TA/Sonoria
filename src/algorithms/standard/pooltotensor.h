@@ -23,7 +23,7 @@
 #include "streamingalgorithm.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PoolToTensor : public Algorithm {
@@ -53,6 +53,6 @@ class PoolToTensor : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_POOLTOTENSOR_H

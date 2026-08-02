@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MusicExtractorSVM::name = "MusicExtractorSVM";
@@ -77,4 +77,4 @@ void MusicExtractorSVM::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

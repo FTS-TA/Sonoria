@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-import essentia.streaming as es
+from sonoria_test import *
+import sonoria.streaming as es
 from random import randint
 
 

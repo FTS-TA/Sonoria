@@ -18,8 +18,8 @@
 #! /usr/bin/env python
 
 import sys, os
-import essentia, essentia.standard, essentia.streaming
-from essentia.streaming import *
+import sonoria, sonoria.standard, sonoria.streaming
+from sonoria.streaming import *
 
 analysisSampleRate = 44100.0
 
@@ -27,7 +27,7 @@ lowlevelFrameSize = 2048
 lowlevelHopSize = 1024
 range = 1
 
-class PitchExtractor(essentia.streaming.CompositeBase):
+class PitchExtractor(sonoria.streaming.CompositeBase):
 
     def __init__(self, frameSize=lowlevelFrameSize, hopSize=lowlevelHopSize):
         super(PitchExtractor, self).__init__()
@@ -53,14 +53,14 @@ usage = 'pitch.py [options] <inputfilename> <outputfilename>'
 def parse_args():
 
     import numpy
-    essentia_version = '%s\n'\
+    sonoria_version = '%s\n'\
     'python version: %s\n'\
-    'numpy version: %s' % (essentia.__version__,       # full version
+    'numpy version: %s' % (sonoria.__version__,       # full version
                            sys.version.split()[0],     # python major version
                            numpy.__version__)          # numpy version
 
     from optparse import OptionParser
-    parser = OptionParser(usage=usage, version=essentia_version)
+    parser = OptionParser(usage=usage, version=sonoria_version)
     parser.add_option("-c","--cpp", action="store_true", dest="generate_cpp",
       help="generate cpp code from CompositeBase algorithm")
 
@@ -83,9 +83,9 @@ if __name__ == '__main__':
         sys.exit(1)
 
     if opts.generate_dot:
-        essentia.translate(PitchExtractor, 'streaming_extractorpitch', dot_graph=True)
+        sonoria.translate(PitchExtractor, 'streaming_extractorpitch', dot_graph=True)
     elif opts.generate_cpp:
-        essentia.translate(PitchExtractor, 'streaming_extractorpitch', dot_graph=False)
+        sonoria.translate(PitchExtractor, 'streaming_extractorpitch', dot_graph=False)
 
     # find out replay gain
     loader = EqloudLoader(filename=args[0],
@@ -93,11 +93,11 @@ if __name__ == '__main__':
                           downmix='mix')
     rgain = ReplayGain(applyEqloud=False)
 
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
 
     loader.audio >> rgain.signal
     rgain.replayGain >> (pool, 'replay_gain')
-    essentia.run(loader)
+    sonoria.run(loader)
 
     # pitch detection
     loader2 = EqloudLoader(filename=args[0],
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     pitch = PitchExtractor()
     loader2.audio >> pitch.signal
     pitch.pitch >> (pool, 'lowlevel.pitch')
-    essentia.run(loader2)
+    sonoria.run(loader2)
 
 
-    essentia.standard.YamlOutput(filename=args[1])(pool)
+    sonoria.standard.YamlOutput(filename=args[1])(pool)

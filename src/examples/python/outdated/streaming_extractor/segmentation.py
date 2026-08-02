@@ -19,7 +19,7 @@
 
 
 
-from essentia import *
+from sonoria import *
 
 import replaygain
 import lowlevel

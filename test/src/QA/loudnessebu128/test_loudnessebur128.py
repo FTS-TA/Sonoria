@@ -20,7 +20,7 @@
 
 import sys
 
-import essentia.standard as es
+import sonoria.standard as es
 
 import pyloudness
 

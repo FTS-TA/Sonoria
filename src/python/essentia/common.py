@@ -17,7 +17,7 @@
 
 import numpy
 from six import iteritems
-from . import _essentia
+from . import _sonoria
 
 
 # force the array objects to be of type float32
@@ -37,7 +37,7 @@ algoDecorator = lambda x: x
 
 
 # An object representing an enum which contains int representations for
-# essentia types. The purpose of this int representation is to have a common
+# sonoria types. The purpose of this int representation is to have a common
 # space for which to compare python and c++ types that are relevant to Essentia
 class Edt:  # Essentia Data Type
     # c++ types
@@ -111,7 +111,7 @@ class Edt:  # Essentia Data Type
         return self._tp
 
 
-# Determines the essentia data type of a given python object
+# Determines the sonoria data type of a given python object
 def determineEdt(obj):
     # lists
     if isinstance(obj, list):
@@ -173,7 +173,7 @@ def determineEdt(obj):
         if obj.dtype == numpy.dtype('complex64'):
             return Edt(Edt.TENSOR_COMPLEX)
 
-        raise TypeError('essentia can currently only accept two-dimensional numpy arrays of dtype '\
+        raise TypeError('sonoria can currently only accept two-dimensional numpy arrays of dtype '\
                         '"single"')
 
     # numpy array matrices
@@ -184,7 +184,7 @@ def determineEdt(obj):
         if obj.dtype == numpy.dtype('complex64'):
             return Edt(Edt.MATRIX_COMPLEX)
 
-        raise TypeError('essentia can currently only accept two-dimensional numpy arrays of dtype '\
+        raise TypeError('sonoria can currently only accept two-dimensional numpy arrays of dtype '\
                         '"single"')
 
     # numpy arrays
@@ -196,8 +196,8 @@ def determineEdt(obj):
         if obj.dtype == numpy.dtype('complex64'):
             return Edt(Edt.VECTOR_COMPLEX)
 
-        raise TypeError('essentia can currently only accept one-dimensional numpy arrays of dtype '\
-                        '{"single", "int", "complex64"}, please consider using essentia.array to '\
+        raise TypeError('sonoria can currently only accept one-dimensional numpy arrays of dtype '\
+                        '{"single", "int", "complex64"}, please consider using sonoria.array to '\
                         'create your arrays')
 
     # bool (must go before ints! because True and False can be ints)
@@ -247,7 +247,7 @@ def determineEdt(obj):
                 return Edt('MAP_'+str(firstType))
 
     # pools
-    if isinstance(obj, Pool) or isinstance(obj, _essentia.Pool):
+    if isinstance(obj, Pool) or isinstance(obj, _sonoria.Pool):
         return Edt(Edt.POOL)
 
     # tuples
@@ -353,13 +353,13 @@ def convertData(data, goalType):
 class Pool:
     def __init__(self, poolRep=None):
         if poolRep is None:
-            self.cppPool = _essentia.Pool()
+            self.cppPool = _sonoria.Pool()
 
-        elif isinstance(poolRep, _essentia.Pool):
+        elif isinstance(poolRep, _sonoria.Pool):
             self.cppPool = poolRep
 
         elif isinstance(poolRep, dict):
-            self.cppPool = _essentia.Pool()
+            self.cppPool = _sonoria.Pool()
             for key, val in iteritems(poolRep):
                 for v in val:
                     self.add(key, v)

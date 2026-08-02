@@ -23,12 +23,12 @@
 using namespace std;
 using namespace TNT;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TensorflowPredict2D::name = essentia::standard::TensorflowPredict2D::name;
-const char* TensorflowPredict2D::category = essentia::standard::TensorflowPredict2D::category;
-const char* TensorflowPredict2D::description = essentia::standard::TensorflowPredict2D::description;
+const char* TensorflowPredict2D::name = sonoria::standard::TensorflowPredict2D::name;
+const char* TensorflowPredict2D::category = sonoria::standard::TensorflowPredict2D::category;
+const char* TensorflowPredict2D::description = sonoria::standard::TensorflowPredict2D::description;
 
 
 TensorflowPredict2D::TensorflowPredict2D() : AlgorithmComposite(),
@@ -122,11 +122,11 @@ void TensorflowPredict2D::configure() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TensorflowPredict2D::name = "TensorflowPredict2D";
@@ -239,4 +239,4 @@ void TensorflowPredict2D::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

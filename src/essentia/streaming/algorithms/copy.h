@@ -22,7 +22,7 @@
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 template <typename TokenType>
@@ -77,6 +77,6 @@ class Copy : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_STREAMING_COPY_H

@@ -27,7 +27,7 @@
 #include "network.h"
 #include "../streaming/streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace scheduler {
 
 
@@ -256,7 +256,7 @@ bool areNetworkTopologiesEqual(NodeType* n1, NodeType* n2) {
 }
 
 } // namespace scheduler
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_SCHEDULER_GRAPHUTILS_H

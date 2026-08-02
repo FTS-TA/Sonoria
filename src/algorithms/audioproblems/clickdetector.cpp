@@ -20,7 +20,7 @@
 #include "clickdetector.h"
 #include "essentiamath.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char *ClickDetector::name = "ClickDetector";

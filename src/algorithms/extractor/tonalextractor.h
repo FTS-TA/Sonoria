@@ -26,7 +26,7 @@
 #include "vectorinput.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 // FIXME: check this actually works, the connections are probably of the wrong type and everything most likely broken
@@ -76,9 +76,9 @@ class TonalExtractor : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TonalExtractor : public Algorithm {
@@ -124,6 +124,6 @@ class TonalExtractor : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif

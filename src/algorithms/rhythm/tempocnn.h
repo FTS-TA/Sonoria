@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TempoCNN : public Algorithm {
@@ -75,11 +75,11 @@ class TempoCNN : public Algorithm {
 };
 
 } //namespace standard
-} //namespace essentia
+} //namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TempoCNN : public StreamingAlgorithmWrapper {
@@ -101,6 +101,6 @@ class TempoCNN : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TEMPOCNN_H

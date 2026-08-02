@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PitchSalienceFunctionPeaks : public Algorithm {
@@ -64,12 +64,12 @@ class PitchSalienceFunctionPeaks : public Algorithm {
 }; // class PitchSalienceFunctionPeaks
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PitchSalienceFunctionPeaks : public StreamingAlgorithmWrapper {
@@ -89,6 +89,6 @@ class PitchSalienceFunctionPeaks : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PITCHSALIENCEFUNCTIONPEAKS_H

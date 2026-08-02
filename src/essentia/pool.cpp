@@ -25,7 +25,7 @@
 using namespace std;
 using namespace TNT;
 
-namespace essentia {
+namespace sonoria {
 
 void Pool::clear() {
   GLOBAL_LOCK;
@@ -607,4 +607,4 @@ bool Pool::isSingleValue(const string& name) {
   return false;
 }
 
-} // namespace essentia
+} // namespace sonoria

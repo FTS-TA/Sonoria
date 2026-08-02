@@ -27,16 +27,16 @@ import numpy
 TOP = "../../../"
 #AUDIO_FILENAME = TOP + "../audio/recorded/britney.wav"
 PYTHON_DIR = TOP + "src/python"
-PROFILE_DIR = TOP + "src/python/essentia/profiles"
+PROFILE_DIR = TOP + "src/python/sonoria/profiles"
 PROFILE = "all_config.yaml"
-PY_EXTRACTOR = 'essentia_extractor' #PYTHON_DIR + '/essentia_extractor'
+PY_EXTRACTOR = 'sonoria_extractor' #PYTHON_DIR + '/sonoria_extractor'
 C_EXTRACTOR = TOP + "src/examples/streaming_extractor"
 # define variable for errors:
 EPSILON = 1e-6
 ###########################################################################################
 
 #sys.path.append( PYTHON_DIR )
-#from essentia import EssentiaError
+#from sonoria import EssentiaError
 
 def EqualNumbers( a, b, epsilon ):
     if a == b: return 1
@@ -117,7 +117,7 @@ def run_python_extractor( py_extractor ):
         sys.exit(1)
     try:
       os.system(py_extractor)
-    except(essentia.EssentiaError, RuntimeError):
+    except(sonoria.EssentiaError, RuntimeError):
       print('ERROR:', exc_info)
     return
 
@@ -127,7 +127,7 @@ def run_cpp_extractor( cpp_extractor ):
         sys.exit(1)
     try:
       os.system(cpp_extractor)
-    except( essentia.EssentiaError, RuntimeError ):
+    except( sonoria.EssentiaError, RuntimeError ):
       print('ERROR:', exc_info)
     return
 
@@ -219,9 +219,9 @@ def compare_descriptors( c_data ={}, py_data={} ):
       #      else: # not found in c++
       #          not_in_c.append( k )
       #    else:
-      #        if Equal(c_data[ns]['version']['essentia'],\
-      #                py_data[ns]['version']['essentia']) != 1:
-      #          result[k]=(c_data[ns]['version']['essentia'], py_data[ns]['version']['essentia'])
+      #        if Equal(c_data[ns]['version']['sonoria'],\
+      #                py_data[ns]['version']['sonoria']) != 1:
+      #          result[k]=(c_data[ns]['version']['sonoria'], py_data[ns]['version']['sonoria'])
       #  for k in audio_properties.keys():
       #     if k not in py_data[ns]: not_in_py.append(k)
       #  for k in tags.keys():

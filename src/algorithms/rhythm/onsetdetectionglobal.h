@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class OnsetDetectionGlobal : public Algorithm {
@@ -109,12 +109,12 @@ class OnsetDetectionGlobal : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmcomposite.h"
 #include "pool.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class OnsetDetectionGlobal : public AlgorithmComposite {
@@ -161,6 +161,6 @@ class OnsetDetectionGlobal : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_ONSETDETECTIONGLOBAL_H

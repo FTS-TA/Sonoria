@@ -22,12 +22,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* Slicer::name = essentia::standard::Slicer::name;
-const char* Slicer::category = essentia::standard::Slicer::category;
-const char* Slicer::description = essentia::standard::Slicer::description;
+const char* Slicer::name = sonoria::standard::Slicer::name;
+const char* Slicer::category = sonoria::standard::Slicer::category;
+const char* Slicer::description = sonoria::standard::Slicer::description;
 
 void Slicer::configure() {
   _sampleRate = parameter("sampleRate").toReal();
@@ -202,11 +202,11 @@ AlgorithmStatus Slicer::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Slicer::name = "Slicer";
@@ -246,4 +246,4 @@ void Slicer::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

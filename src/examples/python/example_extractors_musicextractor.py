@@ -1,6 +1,6 @@
 from __future__ import print_function
-from essentia.standard import MusicExtractor, YamlOutput
-from essentia import Pool
+from sonoria.standard import MusicExtractor, YamlOutput
+from sonoria import Pool
 from argparse import ArgumentParser
 import numpy
 import os

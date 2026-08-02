@@ -23,7 +23,7 @@
 using namespace std;
 using namespace TNT;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* FadeDetection::name = "FadeDetection";
@@ -144,10 +144,10 @@ void FadeDetection::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 void FadeDetection::configure() {
@@ -185,4 +185,4 @@ void FadeDetection::reset () {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

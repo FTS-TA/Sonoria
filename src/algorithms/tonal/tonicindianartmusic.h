@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TonicIndianArtMusic : public Algorithm {
@@ -115,6 +115,6 @@ class TonicIndianArtMusic : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TONICINDIANARTMUSIC_H

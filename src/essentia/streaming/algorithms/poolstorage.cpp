@@ -25,7 +25,7 @@ using namespace std;
      ps = new PoolStorage<type>(&pool, descriptorName, setSingle);\
   }
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 void connect(SourceBase& source, Pool& pool, const string& descriptorName, bool setSingle) {
@@ -130,4 +130,4 @@ void disconnect(SourceBase& source, Pool& pool, const string& descriptorName) {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

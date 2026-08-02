@@ -24,7 +24,7 @@
 #include <essentia/pool.h>
 #include <essentia/types.h>
 
-void Panning(essentia::streaming::SourceBase& input, essentia::Pool& pool,
-             const essentia::Pool& options, const std::string& nspace="");
+void Panning(sonoria::streaming::SourceBase& input, sonoria::Pool& pool,
+             const sonoria::Pool& options, const std::string& nspace="");
 
 #endif // STREAMING_EXTRACTORLOWLEVEL_H

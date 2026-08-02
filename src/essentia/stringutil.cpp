@@ -21,7 +21,7 @@
 #include "essentiamath.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 
 
 string toLower(const string& str) {
@@ -103,4 +103,4 @@ string pad(const string& str, int size, char paddingChar, bool leftPadded) {
 }
 
 
-} // namespace essentia
+} // namespace sonoria

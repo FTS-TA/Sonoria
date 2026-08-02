@@ -25,12 +25,12 @@
 #include <string>
 #include <algorithm>
 
-using namespace essentia;
+using namespace sonoria;
 
 Real maxElementArray(std::vector<std::vector<Real> >& inputMatrix);
 Real gammaState(Real value, const Real disOnset, const Real disExtension);
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* CoverSongSimilarity::name = "CoverSongSimilarity";
@@ -136,12 +136,12 @@ void CoverSongSimilarity::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -264,7 +264,7 @@ void CoverSongSimilarity::subFrameQmax(std::vector<std::vector<Real> >& inputFra
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 // apply gap penalty for disruption  onset and extension

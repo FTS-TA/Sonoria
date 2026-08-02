@@ -18,9 +18,9 @@
 #! /usr/bin/env python
 
 import sys, os
-import essentia, essentia.standard, essentia.streaming, essentia.translate
-import essentia.utils as utils
-from essentia.streaming import *
+import sonoria, sonoria.standard, sonoria.streaming, sonoria.translate
+import sonoria.utils as utils
+from sonoria.streaming import *
 
 namespace = 'lowlevel'
 
@@ -29,7 +29,7 @@ lowlevelHopSize = 1024
 analysisSampleRate = 44100.0
 minFrequency = analysisSampleRate/lowlevelFrameSize
 
-class LowLevelSpectralExtractor(essentia.streaming.CompositeBase):
+class LowLevelSpectralExtractor(sonoria.streaming.CompositeBase):
 
     def __init__(self, frameSize=lowlevelFrameSize,
                        hopSize=lowlevelHopSize,
@@ -192,14 +192,14 @@ usage = 'lowlevelspectral.py [options] <inputfilename> <outputfilename>'
 def parse_args():
 
     import numpy
-    essentia_version = '%s\n'\
+    sonoria_version = '%s\n'\
     'python version: %s\n'\
-    'numpy version: %s' % (essentia.__version__,       # full version
+    'numpy version: %s' % (sonoria.__version__,       # full version
                            sys.version.split()[0],     # python major version
                            numpy.__version__)          # numpy version
 
     from optparse import OptionParser
-    parser = OptionParser(usage=usage, version=essentia_version)
+    parser = OptionParser(usage=usage, version=sonoria_version)
 
     parser.add_option("-c","--cpp", action="store_true", dest="generate_cpp",
       help="generate cpp code from CompositeBase algorithm")
@@ -223,26 +223,26 @@ if __name__ == '__main__':
         sys.exit(1)
 
     if opts.generate_dot:
-        essentia.translate(LowLevelSpectralExtractor, 'streaming_extractorlowlevelspectral', dot_graph=True)
+        sonoria.translate(LowLevelSpectralExtractor, 'streaming_extractorlowlevelspectral', dot_graph=True)
     elif opts.generate_cpp:
-        essentia.translate(LowLevelSpectralExtractor, 'streaming_extractorlowlevelspectral', dot_graph=False)
+        sonoria.translate(LowLevelSpectralExtractor, 'streaming_extractorlowlevelspectral', dot_graph=False)
 
 
     loader = MonoLoader(filename=args[0])
     lowlevelExtractor = LowLevelSpectralExtractor()
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
 
     loader.audio >> lowlevelExtractor.signal
 
     for desc, output in lowlevelExtractor.outputs.items():
         output >> (pool, namespace + '.'+desc)
 
-    essentia.run(loader)
+    sonoria.run(loader)
 
     # compute aggregation on values:
     stats = ['mean', 'var', 'min', 'max', 'dmean', 'dmean2', 'dvar', 'dvar2']
     exceptions = {'lowlevel.mfcc' : ['mean', 'cov', 'icov']}
-    poolStats = essentia.standard.PoolAggregator(defaultStats=stats,
+    poolStats = sonoria.standard.PoolAggregator(defaultStats=stats,
                                                  exceptions=exceptions)(pool)
 
-    essentia.standard.YamlOutput(filename=args[1])(poolStats)
+    sonoria.standard.YamlOutput(filename=args[1])(poolStats)

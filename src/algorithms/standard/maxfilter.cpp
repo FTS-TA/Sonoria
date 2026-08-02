@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MaxFilter::name = "MaxFilter";
@@ -105,4 +105,4 @@ void MaxFilter::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

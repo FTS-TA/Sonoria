@@ -21,7 +21,7 @@
 #include <cmath>
 #include <iostream>
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 int VampWrapper::essentiaVampPluginId = 0;
 

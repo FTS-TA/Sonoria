@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 from numpy import sin, float32, pi, arange, mean, log2, floor, ceil
 
 class TestVibrato(TestCase):

@@ -18,8 +18,8 @@
 #! /usr/bin/env python
 
 import sys, os
-import essentia, essentia.standard, essentia.streaming
-from essentia.streaming import *
+import sonoria, sonoria.standard, sonoria.streaming
+from sonoria.streaming import *
 
 namespace = 'lowlevel'
 panningFrameSize = 8192
@@ -27,7 +27,7 @@ panningHopSize = 2048
 analysisSampleRate = 44100.0
 
 
-class PanningExtractor(essentia.streaming.CompositeBase):
+class PanningExtractor(sonoria.streaming.CompositeBase):
 
     def __init__(self, frameSize=panningFrameSize, hopSize=panningHopSize,
                        sampleRate=analysisSampleRate):
@@ -101,14 +101,14 @@ usage = 'panning.py [options] <inputfilename> <outputfilename>'
 def parse_args():
 
     import numpy
-    essentia_version = '%s\n'\
+    sonoria_version = '%s\n'\
     'python version: %s\n'\
-    'numpy version: %s' % (essentia.__version__,       # full version
+    'numpy version: %s' % (sonoria.__version__,       # full version
                            sys.version.split()[0],     # python major version
                            numpy.__version__)          # numpy version
 
     from optparse import OptionParser
-    parser = OptionParser(usage=usage, version=essentia_version)
+    parser = OptionParser(usage=usage, version=sonoria_version)
 
     parser.add_option("-c","--cpp", action="store_true", dest="generate_cpp",
       help="generate cpp code from CompositeBase algorithm")
@@ -132,11 +132,11 @@ if __name__ == '__main__':
         sys.exit(1)
 
     if opts.generate_dot:
-        essentia.translate(PanningExtractor, 'streaming_extractorpanning', dot_graph=True)
+        sonoria.translate(PanningExtractor, 'streaming_extractorpanning', dot_graph=True)
     elif opts.generate_cpp:
-        essentia.translate(PanningExtractor, 'streaming_extractorpanning', dot_graph=False)
+        sonoria.translate(PanningExtractor, 'streaming_extractorpanning', dot_graph=False)
 
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
     loader = AudioLoader(filename=args[0])
     panExtractor = PanningExtractor()
 
@@ -144,6 +144,6 @@ if __name__ == '__main__':
     loader.numberChannels >> None
     loader.sampleRate >> None
     panExtractor.panning_coefficients >> (pool, namespace + '.panning_coefficients')
-    essentia.run(loader)
+    sonoria.run(loader)
 
-    essentia.standard.YamlOutput(filename=args[1])(pool)
+    sonoria.standard.YamlOutput(filename=args[1])(pool)

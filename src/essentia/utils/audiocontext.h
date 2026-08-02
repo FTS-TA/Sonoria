@@ -27,7 +27,7 @@
 
 #define MAX_AUDIO_FRAME_SIZE 192000 // the same value as in AudioLoader
 
-namespace essentia {
+namespace sonoria {
 
 /**
  * This is just a nice object-oriented wrapper around FFMPEG
@@ -69,6 +69,6 @@ class AudioContext {
   void writeEOF();
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_AUDIOWRITERTOOL_H

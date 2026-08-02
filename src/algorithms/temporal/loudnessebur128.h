@@ -25,7 +25,7 @@
 #include "pool.h"
 #include "streamingalgorithmcomposite.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class LoudnessEBUR128 : public AlgorithmComposite {
@@ -84,12 +84,12 @@ class LoudnessEBUR128 : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class LoudnessEBUR128 : public Algorithm {
@@ -131,6 +131,6 @@ class LoudnessEBUR128 : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_LOUDNESSEBUR128_H

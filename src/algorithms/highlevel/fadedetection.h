@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "tnt/tnt.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class FadeDetection : public Algorithm {
@@ -62,9 +62,9 @@ class FadeDetection : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class FadeDetection : public Algorithm {
@@ -105,7 +105,7 @@ class FadeDetection : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // FADEDETECTION_MEAN_H

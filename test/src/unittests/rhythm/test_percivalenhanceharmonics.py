@@ -19,8 +19,8 @@
 
 
 from numpy import *
-from essentia_test import *
-from essentia.standard import MonoLoader, PercivalEnhanceHarmonics
+from sonoria_test import *
+from sonoria.standard import MonoLoader, PercivalEnhanceHarmonics
 from math import sin, pi
 
 testdir = join(filedir(), 'percival')

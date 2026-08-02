@@ -25,9 +25,9 @@
 #include "credit_libav.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 int main(int argc, char* argv[]) {
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
   string audioFilename = argv[1];
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
   AlgorithmFactory& factory = AlgorithmFactory::instance();
 
   Algorithm* audio = factory.create("MonoLoader",
@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
       cerr << "Error: " << e.what() << endl;
   }
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

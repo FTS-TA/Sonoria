@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 from numpy import sin, pi, mean, var
 from numpy.random import uniform
 

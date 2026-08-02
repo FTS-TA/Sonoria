@@ -22,7 +22,7 @@
 #include "essentia.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* FFTKComplex::name = "FFTC";
@@ -44,11 +44,11 @@ const char* FFTKComplex::description = DOC("This algorithm computes the complex 
 FFTKComplex::~FFTKComplex() {
   ForcedMutexLocker lock(FFTK::globalFFTKMutex);
 
-  // we might have called essentia::shutdown() before this algorithm goes out
+  // we might have called sonoria::shutdown() before this algorithm goes out
   // of scope, so make sure we're not doing stupid things here
   // This will cause a memory leak then, but it is definitely a better choice
   // than a crash (right, right??? :-) )
-  if (essentia::isInitialized()) {
+  if (sonoria::isInitialized()) {
     free(_fftCfg);
     free(_input);
     free(_output);

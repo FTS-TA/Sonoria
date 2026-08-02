@@ -15,14 +15,14 @@
 # You should have received a copy of the Affero GNU General Public License
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
-import essentia
+import sonoria
 import logging
 import sys
 import os
 import yaml
 import numpy
-from essentia.extractor import segmentation
-from essentia import INFO
+from sonoria.extractor import segmentation
+from sonoria import INFO
 
 
 def mergeRecursiveDict(d1, d2):
@@ -61,20 +61,20 @@ def loadAudioFile(inputFilename, pool, options):
 
     sampleRate = options['sampleRate']
 
-    audio = essentia.MonoLoader(filename = inputFilename,
+    audio = sonoria.MonoLoader(filename = inputFilename,
                                 sampleRate = sampleRate,
                                 downmix = 'mix')()
 
     #pool.setCurrentNamespace('metadata')
 
     # compute the temporal duration
-    duration = essentia.Duration(sampleRate = options['sampleRate'])(audio)
+    duration = sonoria.Duration(sampleRate = options['sampleRate'])(audio)
 
     # trim audio if asked
     startTime = options['startTime']
     endTime = options['endTime']
     if startTime >= endTime:
-       raise essentia.EssentiaError('In the configuration file, startTime should be lower or equal than endTime')
+       raise sonoria.EssentiaError('In the configuration file, startTime should be lower or equal than endTime')
     startSample = int(options['sampleRate'] * startTime)
     try:
        endSample = int(options['sampleRate'] * endTime)
@@ -83,7 +83,7 @@ def loadAudioFile(inputFilename, pool, options):
        endSample = int(options['sampleRate'] * duration)
 
     if startTime > duration:
-       raise essentia.EssentiaError('The file is too short to be trimmed from second %d to second %d' % (startTime, endTime))
+       raise sonoria.EssentiaError('The file is too short to be trimmed from second %d to second %d' % (startTime, endTime))
     else:
        if endTime > duration:
           if startTime != 0.0:
@@ -123,24 +123,24 @@ def preProcess(audio, pool, options, namespace=''):
     for step in preprocessing:
         # do we remove the DC component?
         if step == 'dckiller':
-            audio = essentia.DCRemoval()(audio)
+            audio = sonoria.DCRemoval()(audio)
 
         # do we normalize the audio?
         elif step == 'normalize':
             # compute replay gain first
-            replayGain = essentia.ReplayGain(sampleRate = options['sampleRate'])(audio)
+            replayGain = sonoria.ReplayGain(sampleRate = options['sampleRate'])(audio)
             pool.add(namespace + '.' + 'replay_gain', replayGain)#, pool.GlobalScope)
 
             # rescale audio if not silent (also apply a 6dB pre-amplification)
             if replayGain < 68.0:
-                audio = essentia.Scale(factor = 10**((replayGain)/20))(audio)
+                audio = sonoria.Scale(factor = 10**((replayGain)/20))(audio)
 
         # do we apply an equal-loudness filter on all the audio?
         elif step == 'eqloud':
-            audio = essentia.EqualLoudness(sampleRate = options['sampleRate'])(audio)
+            audio = sonoria.EqualLoudness(sampleRate = options['sampleRate'])(audio)
 
         else:
-            raise essentia.EssentiaError('Unknown preprocessing step: \'%s\'' % step)
+            raise sonoria.EssentiaError('Unknown preprocessing step: \'%s\'' % step)
 
     return audio
 
@@ -219,7 +219,7 @@ def cleanStats(pool, options):
             for descriptor in outputList:
                 generated = options['generatedBy'][extractor]
                 if descriptor not in generated:
-                    raise essentia.EssentiaError('Could not find descriptor \'' + descriptor + '\'. Available are: \'' + '\', \''.join(generated) + '\'')
+                    raise sonoria.EssentiaError('Could not find descriptor \'' + descriptor + '\'. Available are: \'' + '\', \''.join(generated) + '\'')
 
             for descriptor in options['generatedBy'][extractor]:
 
@@ -267,7 +267,7 @@ def computeSegments(audio, segments, extractors, megalopool, options):
             print 'Processing', segmentName, 'from second', segment[0], 'to second', segment[1]
 
         # creating pool...
-        poolSegment = essentia.Pool()
+        poolSegment = sonoria.Pool()
 
         # creating audio segment
         audioSegment = audio[segment[0] * sampleRate : segment[1] * sampleRate]
@@ -286,7 +286,7 @@ def computeSegments(audio, segments, extractors, megalopool, options):
 
         # adding to megalopool
         segmentScope = [segment[0], segment[1]]
-        poolSegmentAggregation = essentia.PoolAggregator(exceptions=wantedStats)(poolSegment)
+        poolSegmentAggregation = sonoria.PoolAggregator(exceptions=wantedStats)(poolSegment)
         #megalopool.add(segmentName, poolSegment.aggregate_descriptors(wantedStats))#, segmentScope)
         addToPool(segmentName, megalopool, poolSegmentAggregation)
 
@@ -329,7 +329,7 @@ def compute(profile, inputFilename, outputFilename, userOptions = {}):
     # which format for the output?
     format = options['outputFormat']
     if format not in [ 'xml', 'yaml' ]:
-        raise essentia.EssentiaError('output format should be either \'xml\' or \'yaml\'')
+        raise sonoria.EssentiaError('output format should be either \'xml\' or \'yaml\'')
     if format == 'xml':
         xmlOutput = True
     else:
@@ -343,7 +343,7 @@ def compute(profile, inputFilename, outputFilename, userOptions = {}):
     extractors = options['extractors']
 
     # create pool & megalopool
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
 
     # load audio file into memory
     audio = loadAudioFile(inputFilename, pool, options)
@@ -366,10 +366,10 @@ def compute(profile, inputFilename, outputFilename, userOptions = {}):
     wantedStats = cleanStats(pool, options)
 
     # add to megalopool
-    #megalopool = essentia.Pool()
+    #megalopool = sonoria.Pool()
     scope = [ 0.0, len(audio)/options['sampleRate'] ]
     #megalopool.add('global', pool.aggregate_descriptors(wantedStats))#, scope)
-    megalopool = essentia.PoolAggregator(exceptions=wantedStats)(pool)
+    megalopool = sonoria.PoolAggregator(exceptions=wantedStats)(pool)
     # special case for spectral contrast, which is only 1 matrix, therefore no
     # stats are computed:
     spectral_contrast_stats(megalopool, 'lowlevel.spectral_contrast', wantedStats)
@@ -390,5 +390,5 @@ def compute(profile, inputFilename, outputFilename, userOptions = {}):
                 computeSegments(audio, segments, extractors, megalopool, options)
 
     # save to output file
-    essentia.YamlOutput(filename=outputFilename)(megalopool)
+    sonoria.YamlOutput(filename=outputFilename)(megalopool)
     #megalopool.save(outputFilename, xml = xmlOutput)

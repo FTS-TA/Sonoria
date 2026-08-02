@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 
@@ -88,6 +88,6 @@ class BandReject : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_BANDREJECT_H

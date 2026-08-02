@@ -32,7 +32,7 @@
 #  include "MersenneTwister.h"
 #endif
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class NoiseAdder : public Algorithm {
@@ -74,11 +74,11 @@ class NoiseAdder : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class NoiseAdder : public StreamingAlgorithmWrapper {
@@ -97,6 +97,6 @@ class NoiseAdder : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_NOISEADDER_H

@@ -22,7 +22,7 @@
 
 #include "../streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 template <typename TokenType>
@@ -89,6 +89,6 @@ inline void operator>>(SourceBase& source, DevNullConnector devnull) {
 void disconnect(SourceBase& source, DevNullConnector devnull);
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_DEVNULL_H

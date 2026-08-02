@@ -22,9 +22,9 @@
 #include "peak.h"
 
 using namespace std;
-using namespace essentia::util; // peak class
+using namespace sonoria::util; // peak class
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* HighResolutionFeatures::name = "HighResolutionFeatures";
@@ -163,13 +163,13 @@ void HighResolutionFeatures::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "poolstorage.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* HighResolutionFeatures::name = standard::HighResolutionFeatures::name;
@@ -226,4 +226,4 @@ void HighResolutionFeatures::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

@@ -1,7 +1,7 @@
 import sys
 import os, fnmatch
-from essentia.standard import MetadataReader, YamlOutput
-from essentia import Pool
+from sonoria.standard import MetadataReader, YamlOutput
+from sonoria import Pool
 
 FILE_EXT = ('.mp3', '.flac', '.ogg')
 

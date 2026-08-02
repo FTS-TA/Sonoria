@@ -23,7 +23,7 @@
 #include <gaia2/convert.h>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* GaiaTransform::name = "GaiaTransform";
@@ -203,7 +203,7 @@ void pointToPool(const gaia2::Point* p, Pool& pool, const Pool& origPool) {
 
     // little check: see if we haven't removed the version before
     if (pooldesc == "metadata.version.essentia") {
-      pool.set(pooldesc, essentia::version);
+      pool.set(pooldesc, sonoria::version);
       continue;
     }
 

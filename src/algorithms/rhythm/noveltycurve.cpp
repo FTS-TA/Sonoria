@@ -23,7 +23,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* NoveltyCurve::name = "NoveltyCurve";
@@ -141,7 +141,7 @@ vector<Real> NoveltyCurve::noveltyFunction(const vector<Real>& spec, Real C, int
       if (end>=dsize) { end=dsize; start=dsize-meanSize;}
     }
   
-    Real m = essentia::mean(novelty, start, end);
+    Real m = sonoria::mean(novelty, start, end);
     if (novelty[i] < m) novelty[i]=0.0;
     else novelty[i] -= m;
   }
@@ -190,7 +190,7 @@ void NoveltyCurve::compute() {
   novelty.resize(nFrames-1);
   fill(novelty.begin(), novelty.end(), Real(0.0));
 
-  vector<vector<Real> > t_frequencyBands = essentia::transpose(frequencyBands); // [bands x frames]
+  vector<vector<Real> > t_frequencyBands = sonoria::transpose(frequencyBands); // [bands x frames]
   vector<vector<Real> > noveltyBands(nBands);
 
   int meanSize = int(0.1 * _frameRate); // integral number of frames in 2*0.05 second
@@ -203,7 +203,7 @@ void NoveltyCurve::compute() {
 
 
   //sum novelty on all bands (weighted) to get a single novelty value per frame
-  noveltyBands = essentia::transpose(noveltyBands); // back to [frames x bands]
+  noveltyBands = sonoria::transpose(noveltyBands); // back to [frames x bands]
 
   // TODO: weight curves should be pre-computed in configure() method
   if (_type == HYBRID) {
@@ -259,13 +259,13 @@ void NoveltyCurve::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "poolstorage.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* NoveltyCurve::name = standard::NoveltyCurve::name;
@@ -315,4 +315,4 @@ AlgorithmStatus NoveltyCurve::process() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

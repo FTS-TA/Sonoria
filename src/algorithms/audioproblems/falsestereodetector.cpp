@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace essentia{
+namespace sonoria{
 namespace standard{  
 
 const char *FalseStereoDetector::name = "FalseStereoDetector";
@@ -72,13 +72,13 @@ void FalseStereoDetector::compute() {
 }
 
 } // namespace standard 
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "poolstorage.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* FalseStereoDetector::name = standard::FalseStereoDetector::name;
@@ -166,4 +166,4 @@ void FalseStereoDetector::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

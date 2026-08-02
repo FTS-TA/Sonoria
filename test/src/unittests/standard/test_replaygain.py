@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 
 #testdir = join(filedir(), 'replaygain')
 
@@ -29,7 +29,7 @@ class TestReplayGain(TestCase):
         sampleRate = 44100
         input = [0.0] * int(sampleRate * 1)
         replayGainDiff = ReplayGain(sampleRate=sampleRate)(input)
-        dbSilence = -100 # by definition in essentiamath
+        dbSilence = -100 # by definition in sonoriamath
         loudness_ref = -31.492595672607422
         self.assertAlmostEqual(replayGainDiff,loudness_ref - dbSilence)
 

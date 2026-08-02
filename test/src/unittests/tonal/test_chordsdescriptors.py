@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import ChordsDescriptors as sChordsDescriptors
+from sonoria_test import *
+from sonoria.streaming import ChordsDescriptors as sChordsDescriptors
 
 #tip:
 #circleOfFifth : "C", "Em", "G", "Bm", "D", "F#m", "A", "C#m", "E", "G#m", "B", "D#m", "F#", "A#m", "C#", "Fm", "G#", "Cm", "D#", "Gm", "A#", "Dm", "F", "Am";

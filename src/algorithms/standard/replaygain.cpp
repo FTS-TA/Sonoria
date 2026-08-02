@@ -23,7 +23,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* ReplayGain::name = "ReplayGain";
@@ -97,16 +97,16 @@ void ReplayGain::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* ReplayGain::name = essentia::standard::ReplayGain::name;
-const char* ReplayGain::category = essentia::standard::ReplayGain::category;
-const char* ReplayGain::description = essentia::standard::ReplayGain::description;
+const char* ReplayGain::name = sonoria::standard::ReplayGain::name;
+const char* ReplayGain::category = sonoria::standard::ReplayGain::category;
+const char* ReplayGain::description = sonoria::standard::ReplayGain::description;
 
 ReplayGain::ReplayGain() : _applyEqloud(false) {
   declareInput(_signal, "signal", "the input signal");
@@ -205,4 +205,4 @@ void ReplayGain::reset() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

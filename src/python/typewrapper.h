@@ -65,7 +65,7 @@ class className {                                                              \
   static PyObject* toPythonCopy(const type* data);                             \
   static void* fromPythonRef(PyObject* obj);                                   \
   static void* fromPythonCopy(PyObject* obj);                                  \
-  static essentia::Parameter* toParameter(PyObject* obj);                      \
+  static sonoria::Parameter* toParameter(PyObject* obj);                      \
 }
 
 

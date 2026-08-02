@@ -16,8 +16,8 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 import numpy as np
-import essentia.standard as es
-from essentia import Pool, array
+import sonoria.standard as es
+from sonoria import Pool, array
 
 
 def nsgcqgram(audio, frameSize=8192, transitionSize=1024, minFrequency=65.41,
@@ -253,8 +253,8 @@ def hpcpgram(audio, sampleRate=44100, frameSize=4096, hopSize=2048, numBins=12,
     """
     Compute Harmonic Pitch Class Profile (HPCP) Grams for overlapped frames of a given input audio signal 
 
-    For additional list of parameters of essentia standard mode HPCP please refer to 
-    http://essentia.upf.edu/documentation/reference/std_HPCP.html
+    For additional list of parameters of sonoria standard mode HPCP please refer to 
+    http://sonoria.upf.edu/documentation/reference/std_HPCP.html
 
     References:
     [1]. Gómez, E. (2006). Tonal Description of Polyphonic Audio for Music Content Processing.
@@ -295,7 +295,7 @@ def hpcpgram(audio, sampleRate=44100, frameSize=4096, hopSize=2048, numBins=12,
 
         kwargs : additional keyword arguments
         Arguments to parameterize HPCP alogithms.
-        see standard mode HPCP algorithm (http://essentia.upf.edu/documentation/reference/std_HPCP.html).
+        see standard mode HPCP algorithm (http://sonoria.upf.edu/documentation/reference/std_HPCP.html).
 
 
     Returns: hpcpgram of overlapped frames of input audio signal (2D vector) 
@@ -304,16 +304,16 @@ def hpcpgram(audio, sampleRate=44100, frameSize=4096, hopSize=2048, numBins=12,
     frameGenerator = es.FrameGenerator(array(audio), frameSize=frameSize, hopSize=hopSize)
     window = es.Windowing(type=windowType)
     spectrum = es.Spectrum()
-    # Refer http://essentia.upf.edu/documentation/reference/std_SpectralPeaks.html
+    # Refer http://sonoria.upf.edu/documentation/reference/std_SpectralPeaks.html
     spectralPeaks = es.SpectralPeaks(magnitudeThreshold=magnitudeThreshold,
                                      maxFrequency=maxFrequency,
                                      minFrequency=minFrequency,
                                      maxPeaks=maxPeaks,
                                      sampleRate=sampleRate)
-    # http://essentia.upf.edu/documentation/reference/std_SpectralWhitening.html
+    # http://sonoria.upf.edu/documentation/reference/std_SpectralWhitening.html
     spectralWhitening = es.SpectralWhitening(maxFrequency= maxFrequency,
                                             sampleRate=sampleRate)
-    # http://essentia.upf.edu/documentation/reference/std_HPCP.html
+    # http://sonoria.upf.edu/documentation/reference/std_HPCP.html
     hpcp = es.HPCP(sampleRate=sampleRate,
                    maxFrequency=maxFrequency,
                    minFrequency=minFrequency,

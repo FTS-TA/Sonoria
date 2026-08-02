@@ -24,7 +24,7 @@
 #include "pool.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MetadataReader : public Algorithm {
@@ -88,11 +88,11 @@ class MetadataReader : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class MetadataReader : public Algorithm {
@@ -108,8 +108,8 @@ class MetadataReader : public Algorithm {
   Source<std::string> _date;  // not necessarily an int
 
   //Source<Pool> _tagPool;
-  // TODO: DevNull class doesn't work for type: essentia::Pool
-  // TODO: Pool Storage doesn't work for type: essentia::Pool
+  // TODO: DevNull class doesn't work for type: sonoria::Pool
+  // TODO: Pool Storage doesn't work for type: sonoria::Pool
 
   // Audio properties
   Source<int> _duration;
@@ -156,6 +156,6 @@ class MetadataReader : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_METADATAREADER_H

@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class CrossCorrelation : public Algorithm {
@@ -54,11 +54,11 @@ class CrossCorrelation : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class CrossCorrelation : public StreamingAlgorithmWrapper {
@@ -78,6 +78,6 @@ class CrossCorrelation : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_CROSSCORRELATION_H

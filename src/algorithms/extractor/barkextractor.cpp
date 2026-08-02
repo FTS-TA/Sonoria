@@ -24,8 +24,8 @@
 #include "copy.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
 const char* BarkExtractor::name = "BarkExtractor";
 const char* BarkExtractor::category = "Extractors";

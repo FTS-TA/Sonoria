@@ -19,7 +19,7 @@
 
 #include "snr.h"
 
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 const char* SNR::name = "SNR";

@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* MaxToTotal::name = "MaxToTotal";
@@ -43,15 +43,15 @@ void MaxToTotal::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* MaxToTotal::name = essentia::standard::MaxToTotal::name;
-const char* MaxToTotal::category = essentia::standard::MaxToTotal::category;
-const char* MaxToTotal::description = essentia::standard::MaxToTotal::description;
+const char* MaxToTotal::name = sonoria::standard::MaxToTotal::name;
+const char* MaxToTotal::category = sonoria::standard::MaxToTotal::category;
+const char* MaxToTotal::description = sonoria::standard::MaxToTotal::description;
 
 
 void MaxToTotal::consume() {
@@ -82,4 +82,4 @@ void MaxToTotal::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

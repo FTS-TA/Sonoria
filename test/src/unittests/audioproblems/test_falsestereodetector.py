@@ -21,7 +21,7 @@
 import numpy as np
 from math import *
 
-from essentia_test import *
+from sonoria_test import *
 
 
 class TestFalseStereoDetector(TestCase):

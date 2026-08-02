@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class OddToEvenHarmonicEnergyRatio : public Algorithm {
@@ -49,11 +49,11 @@ class OddToEvenHarmonicEnergyRatio : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class OddToEvenHarmonicEnergyRatio : public StreamingAlgorithmWrapper {
@@ -73,6 +73,6 @@ class OddToEvenHarmonicEnergyRatio : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_ODDTOEVENHARMONICENERGYRATIO_H

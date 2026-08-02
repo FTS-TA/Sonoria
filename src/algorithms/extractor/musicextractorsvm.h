@@ -24,7 +24,7 @@
 #include "algorithm.h"
 #include "extractor_music/extractor_version.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MusicExtractorSVM : public Algorithm {
@@ -54,6 +54,6 @@ class MusicExtractorSVM : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif

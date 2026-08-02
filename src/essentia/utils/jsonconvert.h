@@ -24,7 +24,7 @@
 #include <string>
 #include "yamlast.h"
 
-namespace essentia {
+namespace sonoria {
 
 class JsonConvert {
  private:
@@ -57,6 +57,6 @@ class JsonException : public YamlException {
   JsonException(const std::string& msg) : YamlException(msg) {}
 };
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // JSON_CONVERT_H

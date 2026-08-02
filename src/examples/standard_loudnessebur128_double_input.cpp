@@ -7,8 +7,8 @@
 #include "credit_libav.h"
 
 
-using namespace essentia;
-using namespace essentia::standard;
+using namespace sonoria;
+using namespace sonoria::standard;
 using namespace std;
 int main (int argc,char* argv[]) {
 
@@ -27,7 +27,7 @@ int main (int argc,char* argv[]) {
   string audioFilename2 = argv[2];
 
   // Register the algorithms in the factory(ies).
-  essentia::init();
+  sonoria::init();
 
 
   AlgorithmFactory& factory = AlgorithmFactory::instance();
@@ -89,7 +89,7 @@ int main (int argc,char* argv[]) {
   delete audio2;
   delete le;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

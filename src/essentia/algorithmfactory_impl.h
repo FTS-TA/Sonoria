@@ -20,7 +20,7 @@
 #ifndef ESSENTIA_ALGORITHMFACTORY_CPP
 #define ESSENTIA_ALGORITHMFACTORY_CPP
 
-namespace essentia {
+namespace sonoria {
 
 template <typename BaseAlgorithm>
 EssentiaFactory<BaseAlgorithm>& EssentiaFactory<BaseAlgorithm>::instance() {
@@ -182,6 +182,6 @@ CREATE_I P(1) P(2) P(3) P(4) P(5) P(6) P(7) P(8) P(9) P(10) P(11) P(12) P(13) P(
 #undef P
 #undef CREATE_I
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_ALGORITHMFACTORY_CPP

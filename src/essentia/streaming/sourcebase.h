@@ -23,7 +23,7 @@
 #include "../types.h"
 #include "../connector.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SourceBase;
@@ -142,6 +142,6 @@ class SourceBase : public Connector {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_SOURCEBASE_H

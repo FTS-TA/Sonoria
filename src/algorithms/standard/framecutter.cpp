@@ -24,7 +24,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* FrameCutter::name = "FrameCutter";
@@ -141,10 +141,10 @@ void FrameCutter::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* FrameCutter::name = standard::FrameCutter::name;
@@ -201,7 +201,7 @@ void FrameCutter::configure() {
   // Adding noise to avoid divisions by zero (in case the user chooses to do so
   // by setting the silentFrames parameter to ADD_NOISE).  The level of such noise
   // is chosen to be -100dB because it will still be detected as a silent frame
-  // by essentia::isSilent() and is unhearable by humans
+  // by sonoria::isSilent() and is unhearable by humans
   _noiseAdder->configure("fixSeed", false, "level", -100);
   reset();
 }
@@ -398,4 +398,4 @@ AlgorithmStatus FrameCutter::process() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

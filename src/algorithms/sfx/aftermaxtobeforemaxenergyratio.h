@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class AfterMaxToBeforeMaxEnergyRatio : public Algorithm {
@@ -49,9 +49,9 @@ class AfterMaxToBeforeMaxEnergyRatio : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class AfterMaxToBeforeMaxEnergyRatio : public Algorithm {
@@ -83,7 +83,7 @@ class AfterMaxToBeforeMaxEnergyRatio : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_AFTERMAXTOBEFOREMAXENERGYRATIO_H

@@ -8,7 +8,7 @@
 #include "spectrumtocent.h"
 #include "essentiamath.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* SpectrumToCent::name = "SpectrumToCent";
@@ -98,4 +98,4 @@ void SpectrumToCent::calculateFilterFrequencies() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

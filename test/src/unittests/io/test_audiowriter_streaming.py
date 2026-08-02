@@ -18,9 +18,9 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
-from essentia.streaming import AudioWriter, AudioLoader
-from essentia.streaming import MonoMixer
+from sonoria_test import *
+from sonoria.streaming import AudioWriter, AudioLoader
+from sonoria.streaming import MonoMixer
 import os
 
 
@@ -198,12 +198,12 @@ class TestAudioWriter_Streaming(TestCase):
         loader.codec >> None
         run(loader)
 
-        from essentia.standard import ZeroCrossingRate
+        from sonoria.standard import ZeroCrossingRate
         zcr = int(ZeroCrossingRate(threshold=0.001)(pool['audio'])*len(pool['audio'])+0.5)
         expected = int(ZeroCrossingRate(threshold=0.0)(sine)*len(sine)+0.5)
         # for debugging:
         #from pylab import show, plot, figure
-        #from essentia.standard import MonoLoader
+        #from sonoria.standard import MonoLoader
         #plot(sine)
         #plot(MonoLoader(filename=filename)())
         #show(figure)

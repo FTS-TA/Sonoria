@@ -24,7 +24,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MaxFilter : public Algorithm {
@@ -65,11 +65,11 @@ class MaxFilter : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class MaxFilter : public StreamingAlgorithmWrapper {
@@ -87,6 +87,6 @@ class MaxFilter : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_MAXFILTER_H

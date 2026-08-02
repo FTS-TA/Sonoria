@@ -21,7 +21,7 @@
 #include "algorithmfactory.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const string Algorithm::processingMode = "Standard ";
@@ -87,4 +87,4 @@ void Algorithm::declareOutput(OutputBase& output, const string& name,
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

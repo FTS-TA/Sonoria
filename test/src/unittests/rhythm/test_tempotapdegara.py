@@ -22,7 +22,7 @@
 # between unit test and the algorithm.
 
 
-from essentia_test import *
+from sonoria_test import *
 
 class TestTempoTapDegara(TestCase):
     def testDummy(self):

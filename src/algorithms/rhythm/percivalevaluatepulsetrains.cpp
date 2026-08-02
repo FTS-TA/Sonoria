@@ -21,9 +21,9 @@
 #include "essentiamath.h"
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* PercivalEvaluatePulseTrains::name = "PercivalEvaluatePulseTrains";
@@ -117,4 +117,4 @@ void PercivalEvaluatePulseTrains::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

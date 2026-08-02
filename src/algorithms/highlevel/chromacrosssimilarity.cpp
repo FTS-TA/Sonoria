@@ -24,14 +24,14 @@
 #include <algorithm>
 #include <functional>
 
-using namespace essentia;
+using namespace sonoria;
 
 std::vector<Real> globalAverageChroma(std::vector<std::vector<Real> >& inputFeature);
 int optimalTranspositionIndex(std::vector<std::vector<Real> >& chromaA, std::vector<std::vector<Real> >& chromaB, int nshifts);
 std::vector<std::vector<Real> > stackChromaFrames(std::vector<std::vector<Real> >& frames, int frameStackSize, int frameStackStride);
 std::vector<std::vector<Real> > chromaBinarySimMatrix(std::vector<std::vector<Real> >& chromaA, std::vector<std::vector<Real> >& chromaB, int nshifts, Real matchCoef, Real mismatchCoef);
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* ChromaCrossSimilarity::name = "ChromaCrossSimilarity";
@@ -186,12 +186,12 @@ void ChromaCrossSimilarity::reset() {
 
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* ChromaCrossSimilarity::name = standard::ChromaCrossSimilarity::name;
@@ -305,7 +305,7 @@ void ChromaCrossSimilarity::reset () {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 // computes global averaged chroma as described in [1]

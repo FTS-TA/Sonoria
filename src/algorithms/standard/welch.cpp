@@ -23,7 +23,7 @@ using namespace std;
 
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* Welch::name = "Welch";
@@ -118,6 +118,6 @@ void Welch::reset() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 

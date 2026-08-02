@@ -28,7 +28,7 @@
 #include "extractor_music/MusicTonalDescriptors.h"
 #include "extractor_music/extractor_version.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MusicExtractor : public Algorithm {
@@ -166,6 +166,6 @@ class MusicExtractor : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif

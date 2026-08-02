@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class TCToTotal : public Algorithm {
@@ -49,11 +49,11 @@ class TCToTotal : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "accumulatoralgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TCToTotal : public AccumulatorAlgorithm {
@@ -85,6 +85,6 @@ class TCToTotal : public AccumulatorAlgorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TCTOTOTAL_H

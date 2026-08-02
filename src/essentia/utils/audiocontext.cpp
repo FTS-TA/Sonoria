@@ -21,7 +21,7 @@
 #include <iostream> // for warning cout
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 
 AudioContext::AudioContext()
   : _isOpen(false), _avStream(0), _muxCtx(0), _codecCtx(0),

@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import Derivative
+from sonoria_test import *
+from sonoria.streaming import Derivative
 
 class TestDerivative_Streaming(TestCase):
 
@@ -61,7 +61,7 @@ class TestDerivative_Streaming(TestCase):
         self.assertEqualVector(p.descriptorNames(), [])
 
     def testStdVsStreaming(self):
-        from essentia.standard import Derivative as stdDerivative
+        from sonoria.standard import Derivative as stdDerivative
         input = [5.0, 0.0, -1.0, 2.0, -3.0, 4.0]
         expected = [5.0, -5.0, -1.0, 3.0, -5.0, 7.0]
         self.assertEqualVector(stdDerivative()(input), expected)

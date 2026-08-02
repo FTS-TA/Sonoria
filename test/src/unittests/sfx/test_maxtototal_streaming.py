@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import MaxToTotal as sMaxToTotal
+from sonoria_test import *
+from sonoria.streaming import MaxToTotal as sMaxToTotal
 
 class TestMaxToTotal_Streaming(TestCase):
 

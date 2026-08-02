@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 class PercivalEvaluatePulseTrains : public Algorithm {
 
@@ -58,11 +58,11 @@ class PercivalEvaluatePulseTrains : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PercivalEvaluatePulseTrains : public StreamingAlgorithmWrapper {
@@ -82,6 +82,6 @@ class PercivalEvaluatePulseTrains : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_PERCIVALEVALUATEPULSETRAINS_H

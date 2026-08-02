@@ -27,7 +27,7 @@
 #include "network.h"
 #include "tnt/tnt.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TensorflowPredict2D : public AlgorithmComposite {
@@ -79,13 +79,13 @@ class TensorflowPredict2D : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "vectorinput.h"
 #include "pool.h"
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 // Standard non-streaming algorithm comes after the streaming one as it
@@ -132,6 +132,6 @@ class TensorflowPredict2D : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TENSORFLOWPREDICT2D_H

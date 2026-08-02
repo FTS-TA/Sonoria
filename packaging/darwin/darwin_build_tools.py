@@ -22,18 +22,18 @@
 import os, subprocess, glob, sys, time
 from os.path import join
 
-PKG_DIR = '/essentia_pkg'
+PKG_DIR = '/sonoria_pkg'
 
-def copy_examples(essentia_root_dir, build_dir, target_dir):
+def copy_examples(sonoria_root_dir, build_dir, target_dir):
     # create target directory
     ret = subprocess.call(['mkdir', target_dir])
     # get binaries:
     programs = [file for file in glob.glob(join(build_dir,'*')) if ".o" not in file]
     # get sources:
-    examples_dir = join(essentia_root_dir, 'src', 'examples')
+    examples_dir = join(sonoria_root_dir, 'src', 'examples')
     headers = glob.glob(join(examples_dir,'*.h'))
     sources = glob.glob(join(examples_dir,'*.cpp'))
-    libvamp = glob.glob(join(examples_dir, 'libvamp_essentia.dylib'))
+    libvamp = glob.glob(join(examples_dir, 'libvamp_sonoria.dylib'))
     python_examples = glob.glob(join(examples_dir, 'python'))
     allfiles = headers + sources + programs + python_examples + libvamp
     ret = 0
@@ -89,7 +89,7 @@ def timeToString():
     return day+month+year
 
 
-def buildPackage(pkg_dir, essentia_root):
+def buildPackage(pkg_dir, sonoria_root):
     packageMaker = '/Developer/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker'
     if not os.path.exists(packageMaker):
         print "Error building package. Could not find PackageMaker application"
@@ -103,20 +103,20 @@ def buildPackage(pkg_dir, essentia_root):
     target = os.environ['MACOSX_DEPLOYMENT_TARGET']
 
     # package name:
-    vfh = open(join(essentia_root_dir,'VERSION'), mode='r')
-    essentia_version = vfh.read().strip()
+    vfh = open(join(sonoria_root_dir,'VERSION'), mode='r')
+    sonoria_version = vfh.read().strip()
     vfh.close()
-    title = 'essentia_v' + essentia_version + '_osx' + target + '_i386_python' + python_version
+    title = 'sonoria_v' + sonoria_version + '_osx' + target + '_i386_python' + python_version
     domain = 'system' # where is going to be installed
     destination = '/' + title + '.pkg' # name to save the package
     id = title + '-' + timeToString() # unique id for package
 
     # path to scripts that will be run  either in pre/post install:
-    scripts_path = join(essentia_root_dir, 'packaging', 'darwin', 'scripts')
+    scripts_path = join(sonoria_root_dir, 'packaging', 'darwin', 'scripts')
     cmd = [ packageMaker,
            '--root', root_dir,
            '--title', title +'.pkg',
-           '--version', essentia_version,
+           '--version', sonoria_version,
            '--target', target,
            '--domain', domain,
            '--out', destination,
@@ -131,22 +131,22 @@ if __name__ == '__main__':
     opt,args = OptionParser().parse_args()
     if (len(args) < 2):
         print 'error while finalising osx package: wrong number of arguments'
-        print '\tusage: ./osx_finalise.py essentia_source_directory essentia_target_directory'
+        print '\tusage: ./osx_finalise.py sonoria_source_directory sonoria_target_directory'
         sys.exit(1)
 
     build_dir = args[0]
-    essentia_root_dir = "/".join(build_dir.split('/')[:-1])
+    sonoria_root_dir = "/".join(build_dir.split('/')[:-1])
     target_dir = args[1]
     print '*'*70
     print 'build_dir:', build_dir
-    print 'essentia_dir:', essentia_root_dir
+    print 'sonoria_dir:', sonoria_root_dir
     print 'target_dir:', target_dir
     print '*'*70
 
     print '\n'
     print '*'*70
     print '* copying examples to', target_dir
-    if copy_examples(essentia_root_dir,             # where essentia src lives
+    if copy_examples(sonoria_root_dir,             # where sonoria src lives
                      join(build_dir,'examples'),    # where examples are built
                      join(target_dir, 'examples')): # where we want to copy examples
         print "An error occurred while finalising osx package: error while\
@@ -154,7 +154,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     print '* copying documentation to', target_dir
-    if copy_documentation(essentia_root_dir, target_dir):
+    if copy_documentation(sonoria_root_dir, target_dir):
         print "An error occurred while finalising osx package: error while\
         copying documentation"
         sys.exit(2)
@@ -165,8 +165,8 @@ if __name__ == '__main__':
               " could not delete all \".DS_Store\" files."
         sys.exit(3)
 
-    print '* copying tests from', essentia_root_dir, 'to', target_dir
-    if copy_python_tests(essentia_root_dir, target_dir):
+    print '* copying tests from', sonoria_root_dir, 'to', target_dir
+    if copy_python_tests(sonoria_root_dir, target_dir):
         print "An error occurred while finalising osx package: "\
               " could not copy unittest files."
         sys.exit(3)
@@ -219,7 +219,7 @@ if __name__ == '__main__':
         sys.exit(9)
 
     print "* Building Package..."
-    if buildPackage(PKG_DIR, essentia_root_dir):
+    if buildPackage(PKG_DIR, sonoria_root_dir):
         print "An error occurred while finalising osx package: error while "\
               "creating the package"
         # osx packageMaker failed, but distribuiton package was done succesfully:

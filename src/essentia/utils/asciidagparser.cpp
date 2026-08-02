@@ -23,7 +23,7 @@
 #include <stack>
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 
 
 Direction up(0, -1);
@@ -169,4 +169,4 @@ void AsciiDAGParser::parseEdges(const vector<AsciiBox>& boxes) {
   }
 }
 
-} // namespace essentia
+} // namespace sonoria

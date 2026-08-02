@@ -21,10 +21,10 @@
 
 import os
 import sys
-import essentia
+import sonoria
 import yaml
 import numpy
-from essentia.extractor.extractor import compute
+from sonoria.extractor.extractor import compute
 
 def clean_key(descriptors):
     key_mapping = {}
@@ -71,9 +71,9 @@ try:
     python_bin = 'c:\\Python24\\python.exe'
   else:
     python_bin = 'python'
-  os.system(python_bin + ' ../../../src/python/essentia/extractor/essentia_music.py ' + input_file + ' ' + output_file)
+  os.system(python_bin + ' ../../../src/python/sonoria/extractor/sonoria_music.py ' + input_file + ' ' + output_file)
   desc_python = yaml.load(open(output_file).read())
-except (essentia.EssentiaError, RuntimeError):
+except (sonoria.EssentiaError, RuntimeError):
   print('ERROR:', exc_info)
   sys.exit(1)
 
@@ -85,12 +85,12 @@ del desc_python['version']
 #print("C++ extractor")
 
 try:
-  audio_file = essentia.AudioFileInput(filename = input_file)
+  audio_file = sonoria.AudioFileInput(filename = input_file)
   audio = audio_file()
-  essentia_music = essentia.EssentiaMusic(filename = output_file, mode = "music", verbose = False)
-  essentia_music(audio)
+  sonoria_music = sonoria.EssentiaMusic(filename = output_file, mode = "music", verbose = False)
+  sonoria_music(audio)
   desc_c = yaml.load(open(output_file).read())
-except (essentia.EssentiaError, RuntimeError):
+except (sonoria.EssentiaError, RuntimeError):
   print('ERROR:', sys.exc_info)
   sys.exit(1)
 

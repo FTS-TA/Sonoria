@@ -23,7 +23,7 @@
 #include "streamingalgorithmcomposite.h"
 #include "vectoroutput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class VectorRealAccumulator : public AlgorithmComposite {
@@ -53,6 +53,6 @@ class VectorRealAccumulator : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_VECTORREALACCUMULATOR_H

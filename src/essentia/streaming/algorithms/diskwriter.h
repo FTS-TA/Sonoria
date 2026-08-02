@@ -23,7 +23,7 @@
 #include <fstream>
 #include "../streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 template <class T>
@@ -75,6 +75,6 @@ class DiskWriter : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_DISKWRITER_H

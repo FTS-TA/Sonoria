@@ -26,9 +26,9 @@ from math import isinf
 from scipy.special import iv
 from scipy.constants import pi
 
-import essentia.standard as es
-from essentia import instantPower
-from essentia import db2pow
+import sonoria.standard as es
+from sonoria import instantPower
+from sonoria import db2pow
 
 sys.path.insert(0, './')
 from qa_test import *
@@ -187,7 +187,7 @@ if __name__ == '__main__':
     # Add the wrappers to the test the wrappers
     qa.set_wrappers(wrappers)
 
-    data_dir = '/home/pablo/reps/essentia/test/audio/recorded/'
+    data_dir = '/home/pablo/reps/sonoria/test/audio/recorded/'
 
     qa.load_audio(filename=data_dir, stereo=False)  # Works for a single
 

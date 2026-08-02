@@ -1,6 +1,6 @@
 import sys
 import pylab as plt
-from essentia.streaming import *
+from sonoria.streaming import *
 
 
 try:
@@ -9,7 +9,7 @@ except:
 	print ("usage: %s <audiofile>" % sys.argv[0])
 	sys.exit()
 
-pool = essentia.Pool()
+pool = sonoria.Pool()
 
 loader = MonoLoader(filename = audiofile)
 bt = RhythmExtractor2013()
@@ -32,7 +32,7 @@ bpm_histogram.histogram >> (pool, 'bpm_histogram')
 bpm_histogram.histogram >> centroid.array
 centroid.centroid >> (pool, 'bpm_centroid')
 
-essentia.run(loader)
+sonoria.run(loader)
 print("BPM: %0.1f" % pool['bpm'])
 print("Most prominent peak: %0.1f BPM" % pool['bpm_first_peak'][0])
 print("Centroid: %0.1f" % pool['bpm_centroid'][0]) 

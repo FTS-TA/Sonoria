@@ -18,7 +18,7 @@
 # version 3 along with this program. If not, see http://www.gnu.org/licenses/
 
 
-from essentia_test import *
+from sonoria_test import *
 
 
 class TestTensorflowInputFSDSINet(TestCase):
@@ -45,7 +45,7 @@ class TestTensorflowInputFSDSINet(TestCase):
         """Test inputting a vector of zeros
 
         Inputting zeros should return the cutoff value from UnaryOperator (i.e., 1e-30).
-        https://essentia.upf.edu/reference/std_UnaryOperator.html
+        https://sonoria.upf.edu/reference/std_UnaryOperator.html
         """
 
         log_cutoff = -30

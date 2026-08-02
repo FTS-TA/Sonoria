@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* StrongDecay::name = "StrongDecay";
@@ -63,11 +63,11 @@ void StrongDecay::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* StrongDecay::name = standard::StrongDecay::name;
@@ -118,4 +118,4 @@ void StrongDecay::finalProduce() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

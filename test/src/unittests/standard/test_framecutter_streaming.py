@@ -19,10 +19,10 @@
 
 
 
-from essentia_test import *
-import essentia
-import essentia.streaming as es
-import essentia.standard as std
+from sonoria_test import *
+import sonoria
+import sonoria.streaming as es
+import sonoria.standard as std
 
 class TestFrameCutter_Streaming(TestCase):
 
@@ -469,7 +469,7 @@ class TestFrameCutter_Streaming(TestCase):
         self.assertEqual(len(pool['frames']), expectedFrames)
         energy = std.Energy()
         for f in pool['frames']:
-            self.assertTrue(essentia._essentia.isSilent(f))
+            self.assertTrue(sonoria._sonoria.isSilent(f))
             self.assertTrue(energy(f) != 0)
 
         pool.remove('frames')
@@ -486,7 +486,7 @@ class TestFrameCutter_Streaming(TestCase):
         self.assertEqual(len(pool['frames']), expectedFrames)
         energy = std.Energy()
         for f in pool['frames']:
-            self.assertTrue(essentia._essentia.isSilent(f))
+            self.assertTrue(sonoria._sonoria.isSilent(f))
             self.assertTrue(energy(f) == 0)
 
         pool.remove('frames')

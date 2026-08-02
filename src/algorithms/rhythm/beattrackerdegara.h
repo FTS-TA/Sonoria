@@ -25,7 +25,7 @@
 #include "algorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BeatTrackerDegara : public AlgorithmComposite {
@@ -75,11 +75,11 @@ class BeatTrackerDegara : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BeatTrackerDegara : public Algorithm {
@@ -114,6 +114,6 @@ class BeatTrackerDegara : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // BEATTRACKERDEGARA_H

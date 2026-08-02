@@ -1,6 +1,6 @@
 # Musicbricks-tutorials
 
-This directory includes examples for the synthesis algorithms in Essentia using python and Jupiter Notebooks.
+This directory includes examples for the synthesis algorithms in Sonoria using python and Jupiter Notebooks.
 
 1. STFT model (analysis/synthesis)
 2. Sine model (analysis/synthesis)

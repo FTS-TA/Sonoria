@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import EasyLoader, EqloudLoader
+from sonoria_test import *
+from sonoria.streaming import EasyLoader, EqloudLoader
 import sys
 class TestEqloudLoader_Streaming(TestCase):
 
@@ -80,7 +80,7 @@ class TestEqloudLoader_Streaming(TestCase):
         self.assertConfigureFails(EqloudLoader(), {'filename':filename, 'startTime':10, 'endTime' : 1})
 
     def testResetStandard(self):
-        from essentia.standard import EqloudLoader as stdEqloudLoader
+        from sonoria.standard import EqloudLoader as stdEqloudLoader
         audiofile = join(testdata.audio_dir,'recorded','musicbox.wav')
         loader = stdEqloudLoader(filename=audiofile, endTime=31)
         audio1 = loader()
@@ -91,7 +91,7 @@ class TestEqloudLoader_Streaming(TestCase):
         self.assertEqualVector(audio2, audio1)
 
     def testLoadMultiple(self):
-        from essentia.standard import EqloudLoader as stdEqloudLoader
+        from sonoria.standard import EqloudLoader as stdEqloudLoader
         aiffpath = join('generated','synthesised','impulse','aiff')
         filename = join(testdata.audio_dir,aiffpath,'impulses_1second_44100.aiff')
         algo = stdEqloudLoader(filename=filename)

@@ -25,7 +25,7 @@
 #include "utils/tnt/tnt.h"
 #include "essentiautil.h"
 
-namespace essentia {
+namespace sonoria {
 
 // standard map and not EssentiaMap because we want a new element
 // to be automatically created when it doesn't exist
@@ -610,6 +610,6 @@ SPECIALIZE_APPEND(StereoSample, StereoSample);
 
 /// @endcond
 
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_POOL_H

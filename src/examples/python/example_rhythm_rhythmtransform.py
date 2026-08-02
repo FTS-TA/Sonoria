@@ -1,6 +1,6 @@
 import sys
-from essentia.standard import *
-from essentia import Pool
+from sonoria.standard import *
+from sonoria import Pool
 
 try:
     input_file = sys.argv[1]

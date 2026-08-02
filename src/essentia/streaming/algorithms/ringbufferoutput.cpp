@@ -22,7 +22,7 @@
 #include "sourcebase.h"
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 const char* RingBufferOutput::name = "RingBufferOutput";
@@ -73,4 +73,4 @@ void RingBufferOutput::reset() {
 }
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria

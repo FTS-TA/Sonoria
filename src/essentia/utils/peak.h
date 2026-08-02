@@ -23,7 +23,7 @@
 #include <utility> // std::pair
 #include "types.h"
 
-namespace essentia {
+namespace sonoria {
 namespace util {
 
 class Peak {
@@ -129,6 +129,6 @@ inline std::ostream& operator<<(std::ostream& out, const Peak& p) {
 }
 
 } // namespace util
-} // namespace essentia
+} // namespace sonoria
 
 #endif // PEAK_H

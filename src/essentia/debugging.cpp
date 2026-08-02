@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 
 bool infoLevelActive = true;
 bool warningLevelActive = true;
@@ -148,4 +148,4 @@ void Logger::error(const string& msg) {
   flush();
 }
 
-} // namespace essentia
+} // namespace sonoria

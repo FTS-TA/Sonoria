@@ -25,7 +25,7 @@
 #include <essentia/utils/synth_utils.h>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
   outputResFilename.replace(outputResFilename.end()-4,outputResFilename.end(), "_res.wav");
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -299,7 +299,7 @@ int main(int argc, char* argv[]) {
   delete audioWriterSine;
   delete audioWriterRes;
   
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

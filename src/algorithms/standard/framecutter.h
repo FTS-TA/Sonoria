@@ -23,7 +23,7 @@
 #include "algorithm.h"
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class FrameCutter : public Algorithm {
@@ -72,12 +72,12 @@ class FrameCutter : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 
@@ -139,6 +139,6 @@ class FrameCutter : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_FRAMECUTTER_H

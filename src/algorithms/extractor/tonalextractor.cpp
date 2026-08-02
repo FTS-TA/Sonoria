@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* TonalExtractor::name = essentia::standard::TonalExtractor::name;
-const char* TonalExtractor::category = essentia::standard::TonalExtractor::category;
-const char* TonalExtractor::description = essentia::standard::TonalExtractor::description;
+const char* TonalExtractor::name = sonoria::standard::TonalExtractor::name;
+const char* TonalExtractor::category = sonoria::standard::TonalExtractor::category;
+const char* TonalExtractor::description = sonoria::standard::TonalExtractor::description;
 
 
 TonalExtractor::TonalExtractor(): _frameCutter(0), _windowing(0), _spectrum(0), _spectralPeaks(0),
@@ -156,9 +156,9 @@ TonalExtractor::~TonalExtractor() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* TonalExtractor::name = "TonalExtractor";
@@ -253,4 +253,4 @@ void TonalExtractor::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

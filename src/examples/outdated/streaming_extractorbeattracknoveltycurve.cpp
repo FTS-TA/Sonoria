@@ -36,9 +36,9 @@
 // can be further reused.
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 int bpmTolerance = 3;
 Real maxBpm = 560; // leave it high unless you are sure about it
@@ -100,7 +100,7 @@ vector<Real> computeNoveltyCurve(Pool& pool, const Pool& options) {
     int end = min(start+2*length, size);
     if (end == size) start = end-2*length;
     vector<Real> window(envNovelty.begin()+start, envNovelty.begin()+end);
-    Real m = essentia::median(window);
+    Real m = sonoria::median(window);
     novelty[i] = envNovelty[i] - m;
     if (novelty[i] < 0) novelty[i] = 0;
   }

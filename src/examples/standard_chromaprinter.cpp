@@ -23,7 +23,7 @@
 #include <essentia/pool.h>
 #include "credit_libav.h"
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 int main(int argc, char* argv[]) {
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     chromaprintDuration = stof(argv[3]);
 
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -74,7 +74,7 @@ int main(int argc, char* argv[]) {
   std::cout << "DURATION=" << duration << std::endl;
   std::cout << "FINGERPRINT=" << chromaprint << std::endl;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

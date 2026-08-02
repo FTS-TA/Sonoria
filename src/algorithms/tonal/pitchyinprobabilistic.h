@@ -25,7 +25,7 @@
 #include "pool.h"
 #include "streamingalgorithmcomposite.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class PitchYinProbabilistic : public AlgorithmComposite {
@@ -78,12 +78,12 @@ class PitchYinProbabilistic : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #include "vectorinput.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class PitchYinProbabilistic : public Algorithm {
@@ -127,6 +127,6 @@ class PitchYinProbabilistic : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_LOUDNESSEBUR128_H

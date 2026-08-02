@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import AudioLoader, StereoMuxer, StereoDemuxer
+from sonoria_test import *
+from sonoria.streaming import AudioLoader, StereoMuxer, StereoDemuxer
 
 class TestStereoMuxer_Streaming(TestCase):
 

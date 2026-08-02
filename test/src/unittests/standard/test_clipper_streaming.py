@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.streaming import Clipper
+from sonoria_test import *
+from sonoria.streaming import Clipper
 from math import sin, pi
 
 class TestClipper_Streaming(TestCase):
@@ -76,7 +76,7 @@ class TestClipper_Streaming(TestCase):
         self.assertEqualVector(p['clipped'], [1])
 
     def testStandard(self):
-        from essentia.standard import Clipper as stdClipper
+        from sonoria.standard import Clipper as stdClipper
         max = 0.5
         min = -1.0
         sr = 44100

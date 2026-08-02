@@ -28,7 +28,7 @@
 #include "vectoroutput.h"
 
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class SuperFluxExtractor : public AlgorithmComposite {
@@ -76,10 +76,10 @@ class SuperFluxExtractor : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class SuperFluxExtractor : public Algorithm {
@@ -117,7 +117,7 @@ class SuperFluxExtractor : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // SUPERFLUX_EXTRACTOR_H
 

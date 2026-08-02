@@ -6,7 +6,7 @@ from urllib.error import HTTPError
 
 import yaml
 
-ESSENTIA_MODELS_SITE = "https://essentia.upf.edu/models"
+ESSENTIA_MODELS_SITE = "https://sonoria.upf.edu/models"
 
 INPUT_DEFAULTS = {
     "TensorflowPredictMusiCNN": "model/Placeholder",
@@ -57,7 +57,7 @@ def generate_single_step_algorithm(
     audio_file: str,
 ):
     return (
-        f"from essentia.standard import MonoLoader, {algo_name}\n"
+        f"from sonoria.standard import MonoLoader, {algo_name}\n"
         f"\n"
         f'audio = MonoLoader(filename="{audio_file}", sampleRate={sample_rate}, resampleQuality=4)()\n'
         f'model = {algo_name}(graphFilename="{graph_filename}"{output_node})\n'
@@ -79,7 +79,7 @@ def generate_two_steps_algorithm(
 ):
     if second_algo_name == "TensorflowPredict2D":
         return (
-            f"from essentia.standard import MonoLoader, {first_algo_name}, {second_algo_name}\n"
+            f"from sonoria.standard import MonoLoader, {first_algo_name}, {second_algo_name}\n"
             "\n"
             f'audio = MonoLoader(filename="{audio_file}", sampleRate={sample_rate}, resampleQuality=4)()\n'
             f'embedding_model = {first_algo_name}(graphFilename="{first_graph_filename}"{first_algo_params})\n'
@@ -93,8 +93,8 @@ def generate_two_steps_algorithm(
             "output_name must be specified for TensorflowPredict"
         )
         return (
-            "from essentia import Pool\n"
-            f"from essentia.standard import MonoLoader, {first_algo_name}, {second_algo_name}\n"
+            "from sonoria import Pool\n"
+            f"from sonoria.standard import MonoLoader, {first_algo_name}, {second_algo_name}\n"
             "\n"
             f'audio = MonoLoader(filename="{audio_file}", sampleRate={sample_rate}, resampleQuality=4)()\n'
             f'embedding_model = {first_algo_name}(graphFilename="{first_graph_filename}"{first_algo_params})\n'

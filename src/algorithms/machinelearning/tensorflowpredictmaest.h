@@ -26,7 +26,7 @@
 #include "algorithm.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class TensorflowPredictMAEST : public AlgorithmComposite {
@@ -86,13 +86,13 @@ class TensorflowPredictMAEST : public AlgorithmComposite {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #include "vectorinput.h"
 #include "pool.h"
 #include "poolstorage.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 // Standard non-streaming algorithm comes after the streaming one as it
@@ -135,6 +135,6 @@ class TensorflowPredictMAEST : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_TENSORFLOWPREDICTMAEST_H

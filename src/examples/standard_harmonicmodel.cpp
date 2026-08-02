@@ -25,7 +25,7 @@
 #include <essentia/utils/synth_utils.h>
 
 using namespace std;
-using namespace essentia;
+using namespace sonoria;
 using namespace standard;
 
 std::vector< std::vector<Real> > readIn2dData(const char* filename);
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
   
   }
   // register the algorithms in the factory(ies)
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -327,7 +327,7 @@ int main(int argc, char* argv[]) {
    delete sinemodelsynth;
   delete audioWriter;
 
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

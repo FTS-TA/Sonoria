@@ -19,8 +19,8 @@
 
 
 
-from essentia_test import *
-from essentia.standard import AudioLoader, StereoMuxer
+from sonoria_test import *
+from sonoria.standard import AudioLoader, StereoMuxer
 
 class TestStereoMuxer(TestCase):
 

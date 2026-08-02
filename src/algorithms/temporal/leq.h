@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class Leq : public Algorithm {
@@ -48,11 +48,11 @@ class Leq : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "accumulatoralgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class Leq : public AccumulatorAlgorithm {
@@ -83,7 +83,7 @@ class Leq : public AccumulatorAlgorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_LEQ_H

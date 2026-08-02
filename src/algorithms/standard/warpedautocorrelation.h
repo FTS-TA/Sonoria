@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class WarpedAutoCorrelation : public Algorithm {
@@ -55,11 +55,11 @@ class WarpedAutoCorrelation : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class WarpedAutoCorrelation : public StreamingAlgorithmWrapper {
@@ -77,6 +77,6 @@ class WarpedAutoCorrelation : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_WARPEDAUTOCORRELATION_H

@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class StartStopSilence : public Algorithm {
@@ -62,11 +62,11 @@ class StartStopSilence : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class StartStopSilence : public Algorithm {
@@ -109,6 +109,6 @@ class StartStopSilence : public Algorithm {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // STARTSTOPSILENCE_H

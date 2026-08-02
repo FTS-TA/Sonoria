@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class LogAttackTime : public Algorithm {
@@ -60,11 +60,11 @@ class LogAttackTime : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class LogAttackTime : public StreamingAlgorithmWrapper {
@@ -87,6 +87,6 @@ class LogAttackTime : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 #endif // ESSENTIA_LOGATTACKTIME_H

@@ -19,7 +19,7 @@
 
 
 
-from essentia_test import *
+from sonoria_test import *
 import numpy as np
 
 testdir = join(filedir(), 'nsgconstantq')
@@ -41,7 +41,7 @@ class TestNSGConstantQ(TestCase):
                     )
 
     def testRegression(self):
-        input = essentia.array(np.sin(2 * np.pi * 1000 * np.arange(2048) / 44100))
+        input = sonoria.array(np.sin(2 * np.pi * 1000 * np.arange(2048) / 44100))
         # Compared against the implementation of the MATLAB CQT_toolbox_2013 
         expected = np.array([ 0.01764389 +8.19244758e-06j, -0.00327444 +1.78957267e-03j,
                              -0.00379942 +1.00535053e-02j,  0.00479218 +8.65996905e-03j,
@@ -63,7 +63,7 @@ class TestNSGConstantQ(TestCase):
 
     def testDC(self):
         # Checks the DC component of the transform
-        input= essentia.array(np.ones(2**11))
+        input= sonoria.array(np.ones(2**11))
         # Second output of NSGConstantQ contains the DC information nedeed for the inverse transform.
         DCfilter = self.initNsgconstantq()(input)[1]
         # Integrates the energy. DC filter should contain all the energy of the signal in this case.

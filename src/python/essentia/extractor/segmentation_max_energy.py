@@ -20,8 +20,8 @@
 
 import sys
 import numpy
-import essentia
-from essentia import EssentiaError
+import sonoria
+from sonoria import EssentiaError
 
 dependencies = ['lowlevel']
 
@@ -42,7 +42,7 @@ def compute(pool, options):
     frameSizeDuration = minimumLength
     frameSize = frameSizeDuration / energyHop
 
-    frames = essentia.FrameGenerator(audio = energy, frameSize = frameSize, hopSize = hopSize, startFromZero = True)
+    frames = sonoria.FrameGenerator(audio = energy, frameSize = frameSize, hopSize = hopSize, startFromZero = True)
 
     framesEnergy = []
 

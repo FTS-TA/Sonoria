@@ -22,7 +22,7 @@
 
 #include "algorithmfactory.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class BarkBands : public Algorithm {
@@ -58,12 +58,12 @@ class BarkBands : public Algorithm {
 
 };
 
-} // namespace essentia
+} // namespace sonoria
 } // namespace standard
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class BarkBands : public StreamingAlgorithmWrapper {
@@ -81,7 +81,7 @@ class BarkBands : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_BARKBANDS_H

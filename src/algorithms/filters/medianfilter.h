@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MedianFilter : public Algorithm {
@@ -53,11 +53,11 @@ class MedianFilter : public Algorithm {
 };
 
 }  // namespace standard
-}  // namespace essentia
+}  // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class MedianFilter : public StreamingAlgorithmWrapper {
@@ -74,6 +74,6 @@ class MedianFilter : public StreamingAlgorithmWrapper {
 };
 
 }  // namespace streaming
-}  // namespace essentia
+}  // namespace sonoria
 
 #endif // ESSENTIA_MEDIANFILTER_H

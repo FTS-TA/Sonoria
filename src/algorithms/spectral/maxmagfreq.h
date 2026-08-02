@@ -22,7 +22,7 @@
 
 #include "algorithm.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MaxMagFreq : public Algorithm {
@@ -55,11 +55,11 @@ class MaxMagFreq : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #include "streamingalgorithmwrapper.h"
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
 class MaxMagFreq : public StreamingAlgorithmWrapper {
@@ -77,7 +77,7 @@ class MaxMagFreq : public StreamingAlgorithmWrapper {
 };
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
 
 #endif // ESSENTIA_MAXMAGFREQ_H

@@ -23,8 +23,8 @@
 #include "FreesoundDescriptorsSet.h"
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
+using namespace sonoria;
+using namespace sonoria::streaming;
 
  class FreesoundRhythmDescriptors : public FreesoundDescriptorSet {
 

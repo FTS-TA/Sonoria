@@ -23,7 +23,7 @@
 #include "algorithmfactory.h"
 #include "network.h"
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class MultiPitchKlapuri : public Algorithm {
@@ -120,6 +120,6 @@ class MultiPitchKlapuri : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
 
 #endif 

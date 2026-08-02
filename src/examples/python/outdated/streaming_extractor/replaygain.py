@@ -21,9 +21,9 @@
 
 import sys, os
 
-import essentia
-from essentia import *
-from essentia.streaming import *
+import sonoria
+from sonoria import *
+from sonoria.streaming import *
 
 analysisSampleRate = 44100.0
 
@@ -85,14 +85,14 @@ def parse_args():
 
     import numpy
 
-    essentia_version = '%s\n'\
+    sonoria_version = '%s\n'\
     'python version: %s\n'\
-    'numpy version: %s' % (essentia.__version__,       # full version
+    'numpy version: %s' % (sonoria.__version__,       # full version
                            sys.version.split()[0],     # python major version
                            numpy.__version__)          # numpy version
 
     from optparse import OptionParser
-    parser = OptionParser(usage=usage, version=essentia_version)
+    parser = OptionParser(usage=usage, version=sonoria_version)
 
     (options, args) = parser.parse_args()
 
@@ -110,9 +110,9 @@ if __name__ == '__main__':
         os.system(cmd)
         sys.exit(1)
 
-    pool = essentia.Pool()
+    pool = sonoria.Pool()
     compute(args[0], pool, sampleRate=analysisSampleRate)
 
     stats = ['mean', 'var', 'min', 'max', 'dmean', 'dmean2', 'dvar', 'dvar2']
-    poolStats = essentia.standard.PoolAggregator(defaultStats=stats)(pool)
-    essentia.standard.YamlOutput(filename=args[1])(poolStats)
+    poolStats = sonoria.standard.PoolAggregator(defaultStats=stats)(pool)
+    sonoria.standard.YamlOutput(filename=args[1])(poolStats)

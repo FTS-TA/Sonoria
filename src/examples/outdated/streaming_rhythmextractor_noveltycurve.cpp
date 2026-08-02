@@ -30,9 +30,9 @@
 #include <essentia/utils/tnt/tnt2vector.h>
 
 using namespace std;
-using namespace essentia;
-using namespace essentia::streaming;
-using namespace essentia::scheduler;
+using namespace sonoria;
+using namespace sonoria::streaming;
+using namespace sonoria::scheduler;
 
 
 int bpmTolerance = 3;
@@ -149,7 +149,7 @@ vector<Real> computeNoveltyCurve(Pool& pool, const string& audioFilename,
     int end = min(start+2*length, size);
     if (end == size) start = end-2*length;
     vector<Real> window(envNovelty.begin()+start, envNovelty.begin()+end);
-    Real m = essentia::median(window);
+    Real m = sonoria::median(window);
     novelty[i] = envNovelty[i] - m;
     if (novelty[i] < 0) novelty[i] = 0;
   }
@@ -603,7 +603,7 @@ void alignTicks(const string& audioFilename, Pool& pool, Real windowLength) {
 
 int main(int argc, char* argv[]) {
 
-  essentia::init();
+  sonoria::init();
 
   Pool pool;
 
@@ -723,7 +723,7 @@ int main(int argc, char* argv[]) {
   // the rhythm than the ticks from 50
   computeBeatsLoudness(audioFilename, pool, sampleRate);
   computeBeatogram(pool);
-  essentia::shutdown();
+  sonoria::shutdown();
 
   return 0;
 }

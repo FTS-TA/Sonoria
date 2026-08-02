@@ -23,12 +23,12 @@
 
 using namespace std;
 
-namespace essentia {
+namespace sonoria {
 namespace streaming {
 
-const char* KeyExtractor::name = essentia::standard::KeyExtractor::name;
-const char* KeyExtractor::category = essentia::standard::KeyExtractor::category;
-const char* KeyExtractor::description = essentia::standard::KeyExtractor::description;
+const char* KeyExtractor::name = sonoria::standard::KeyExtractor::name;
+const char* KeyExtractor::category = sonoria::standard::KeyExtractor::category;
+const char* KeyExtractor::description = sonoria::standard::KeyExtractor::description;
 
 
 KeyExtractor::KeyExtractor(): _frameCutter(0), _windowing(0), _spectrum(0), _spectralPeaks(0),
@@ -141,9 +141,9 @@ KeyExtractor::~KeyExtractor() {
 
 
 } // namespace streaming
-} // namespace essentia
+} // namespace sonoria
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 const char* KeyExtractor::name = "KeyExtractor";
@@ -237,4 +237,4 @@ void KeyExtractor::compute() {
 }
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria

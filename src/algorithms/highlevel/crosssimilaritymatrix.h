@@ -21,7 +21,7 @@
 #include "algorithmfactory.h"
 #include <complex>
 
-namespace essentia {
+namespace sonoria {
 namespace standard {
 
 class CrossSimilarityMatrix : public Algorithm {
@@ -61,5 +61,5 @@ class CrossSimilarityMatrix : public Algorithm {
 };
 
 } // namespace standard
-} // namespace essentia
+} // namespace sonoria
  #endif // ESSENTIA_CROSSSIMILARITYMATRIX_H
