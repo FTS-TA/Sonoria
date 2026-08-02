@@ -68,33 +68,9 @@ using namespace sonoria;
 using namespace sonoria::standard;
 
 // Create and configure an algorithm
-Algorithm algo(\"MFCC\");
-algo.configure(\"numberBands\", 40);
+Algorithm algo("MFCC");
+algo.configure("numberBands", 40);
 ```
-
-**Original Sonoria Python tutorials:**
-- http://sonoria.upf.edu/documentation/sonoria_python_tutorial.html
-- [Jupyter Notebook Sonoria tutorial](/src/examples/python/sonoria_python_tutorial.ipynb)
-
-Command-line tools (original Sonoria):
-- [doc/sphinxdoc/extractors_out_of_box.rst](doc/sphinxdoc/extractors_out_of_box.rst)
-
-
-Asking for help
----------------
-
-[Read frequently asked questions](FAQ.md).
-
-[Create an issue on github](https://github.com/MTG/sonoria/issues) or [open a new discussion](https://github.com/MTG/sonoria/discussions) if your question was not answered before.
-
-
-Versions
---------
-
-This fork is based on Sonoria. For the original Sonoria releases see: https://github.com/MTG/sonoria/releases
-
-Github branches (original Sonoria):
-- [master](https://github.com/MTG/sonoria/tree/master): latest updates; if you got any problem, try it first.
 
 **Note:** If you are migrating from Essentia to Sonoria, be aware that the namespace has changed from `essentia` to `sonoria`. Update your code accordingly:
 - Change `#include <essentia/...>` to `#include <sonoria/...>`
