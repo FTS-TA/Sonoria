@@ -1,0 +1,22 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# Find required dependencies
+find_dependency(Eigen3 3.3.4)
+
+# Optional dependencies - only warn if not found
+find_package(FFTW QUIET)
+find_package(PkgConfig QUIET)
+if(PkgConfig_FOUND)
+    pkg_check_modules(AVCODEC libavcodec QUIET)
+    pkg_check_modules(AVFORMAT libavformat QUIET)
+    pkg_check_modules(AVUTIL libavutil QUIET)
+    pkg_check_modules(SWRESAMPLE libswresample QUIET)
+endif()
+
+if(NOT TARGET Essentia::essentia)
+    include("${CMAKE_CURRENT_LIST_DIR}/EssentiaTargets.cmake")
+endif()
+
+check_required_components(Essentia)
