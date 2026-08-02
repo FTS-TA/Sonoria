@@ -20,9 +20,9 @@
 #include <iostream>
 #include <sstream>
 #include <essentia/algorithmfactory.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 #include <essentia/streaming/algorithms/poolstorage.h>
-#include <essentia/essentiautil.h>
+#include <essentia/sonoriautil.h>
 #include <essentia/scheduler/network.h>
 
 // helper functions

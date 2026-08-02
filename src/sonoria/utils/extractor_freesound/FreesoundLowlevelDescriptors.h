@@ -21,7 +21,7 @@
 #define FREESOUND_LOWLEVEL_DESCRIPTORS_H
 
 #include "FreesoundDescriptorsSet.h"
-#include "sonoria/essentiamath.h"
+#include "sonoria/sonoriamath.h"
 
 using namespace std;
 

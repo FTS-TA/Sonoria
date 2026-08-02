@@ -17,14 +17,14 @@
  * version 3 along with this program.  If not, see http://www.gnu.org/licenses/
  */
 
-#ifndef ESSENTIA_ESSENTIA_H
-#define ESSENTIA_ESSENTIA_H
+#ifndef SONORIA_SONORIA_H
+#define SONORIA_SONORIA_H
 
 #include "config.h"
 #include "types.h"
 
 // the following are not necessary but are here for commodity purposes,
-// ie: so people can just include "essentia.h" for the basic types and operations
+// ie: so people can just include "sonoria.h" for the basic types and operations
 // and then do not need stringutil.h and streamutil.h, etc... which they might
 // forget otherwise or not even be aware of
 #include "sonoriautil.h"
@@ -41,7 +41,7 @@ extern const char* version_git_sha;
  * This function registers the algorithms in the factory, so that they are
  * ready for use. It also builds a list of available types and their
  * "human-readable" representations. You need to call this function before
- * doing anything with essentia.
+ * doing anything with sonoria.
  */
 void init();
 
@@ -52,7 +52,7 @@ void shutdown();
 namespace standard {
   /**
    * This function registers the algorithms in the factory. The waf build script 
-   * dynamically generates the contents of the file essentia_algorithms_reg.cpp
+   * dynamically generates the contents of the file sonoria_algorithms_reg.cpp
    * which implements this function.
    */
   void ESSENTIA_API registerAlgorithm();
@@ -61,7 +61,7 @@ namespace standard {
 namespace streaming {
   /**
    * This function registers the algorithms in the factory. The waf build script 
-   * dynamically generates the contents of the file essentia_algorithms_reg.cpp
+   * dynamically generates the contents of the file sonoria_algorithms_reg.cpp
    * which implements this function.
    */
   void ESSENTIA_API registerAlgorithm();

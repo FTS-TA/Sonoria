@@ -18,10 +18,10 @@
  */
 
 
-#ifndef ESSENTIA_SYNTH_UTILS_H
-#define ESSENTIA_SYNTH_UTILS_H
+#ifndef SONORIA_SYNTH_UTILS_H
+#define SONORIA_SYNTH_UTILS_H
 
-#include <essentia/algorithmfactory.h>
+#include <sonoria/algorithmfactory.h>
 
 
 namespace sonoria{

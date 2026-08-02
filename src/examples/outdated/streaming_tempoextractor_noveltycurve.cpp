@@ -23,7 +23,7 @@
 #include <essentia/streaming/algorithms/poolstorage.h>
 #include <essentia/streaming/algorithms/vectorinput.h>
 #include <essentia/streaming/algorithms/vectoroutput.h>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 
 using namespace std;
 using namespace sonoria;

@@ -18,7 +18,7 @@
  */
 
 #include <deque>
-#include <essentia/essentiamath.h>
+#include <essentia/sonoriamath.h>
 #include "vamp/vamp.h"
 #include "vamp-sdk/PluginAdapter.h"
 #include "vampeasywrapper.h"

@@ -384,7 +384,7 @@ void AudioContext::encodePacket(int size) {
 
     // receive packets and write them (may be 0..N packets)
     AVPacket packet;
-    av_init_packet(&packet);
+    av_new_packet(&packet, 0);
     packet.data = NULL;
     packet.size = 0;
 
@@ -444,7 +444,7 @@ void AudioContext::writeEOF() {
 
   // Receive all remaining packets from encoder
   AVPacket packet;
-  av_init_packet(&packet);
+  av_new_packet(&packet, 0);
   packet.data = NULL;
   packet.size = 0;
 

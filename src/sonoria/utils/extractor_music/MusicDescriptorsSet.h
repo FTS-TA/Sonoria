@@ -24,7 +24,7 @@
 #include "sonoria/streaming/sourcebase.h"
 #include "sonoria/pool.h"
 #include "sonoria/types.h"
-#include "sonoria/essentiamath.h"
+#include "sonoria/sonoriamath.h"
 #include "sonoria/algorithm.h"
 #include "sonoria/scheduler/network.h"
 #include "sonoria/streaming/streamingalgorithm.h"

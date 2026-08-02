@@ -33,7 +33,7 @@ const char* EffectiveDuration::description = DOC(
 "  (similarity and classification) in the CUIDADO project,\" CUIDADO I.S.T.\n"
 "  Project Report, 2004");
 
-const Real EffectiveDuration::noiseFloor = db2amp(-90); // -90db is silence (see essentiamath.h)
+const Real EffectiveDuration::noiseFloor = db2amp(-90); // -90db is silence (see sonoriamath.h)
 
 void EffectiveDuration::compute() {
 
