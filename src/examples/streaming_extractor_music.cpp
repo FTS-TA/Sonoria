@@ -21,7 +21,7 @@
 #include <windows.h>
 #endif
 
-#include <sonoria/essentia.h>
+#include <sonoria/sonoria.h>
 #include <sonoria/algorithm.h>
 #include <sonoria/algorithmfactory.h> 
 #include <sonoria/utils/extractor_music/extractor_version.h>
