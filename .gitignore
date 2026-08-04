@@ -1,4 +1,1 @@
-```
-# Build artifacts
-build/
-```
+Nothing should be ignored in this case, as the added files are all source/config files (.md, .css, .json, .html, .js) without any build artifacts, dependencies, or temporary files.

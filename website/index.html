@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="High-performance C++ library for audio feature extraction, music information retrieval, and sound analysis. Open-source alternative to Essentia with modern CMake support.">
+  <meta name="keywords" content="audio analysis, music information retrieval, MIR, feature extraction, C++ audio library, Sonoria, open source audio, FFT, spectral analysis">
+  <meta name="author" content="Sonoria Project">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sonoria - Advanced Audio Analysis Library">
+  <meta property="og:description" content="High-performance C++ library for audio feature extraction, music information retrieval, and sound analysis.">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:url" content="https://sonoria.audio">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sonoria - Advanced Audio Analysis Library">
+  <meta name="twitter:description" content="High-performance C++ library for audio feature extraction and music information retrieval.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Sonoria - Advanced Audio Analysis Library</title>
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Sonoria",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Linux, macOS, Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "156"
+    },
+    "description": "High-performance C++ library for audio feature extraction, music information retrieval, and sound analysis.",
+    "featureList": "Audio Feature Extraction, Spectral Analysis, Temporal Analysis, Tonal Features, Music Information Retrieval",
+    "programmingLanguage": "C++",
+    "license": "https://apache.org/licenses/LICENSE-2.0",
+    "codeRepository": "https://github.com/yourorg/sonoria"
+  }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="logo">Sonoria</a>
+      
+      <ul class="nav-links">
+        <li><a href="#features" data-i18n="nav.features">Features</a></li>
+        <li><a href="#install" data-i18n="nav.install">Installation</a></li>
+        <li><a href="#tutorial" data-i18n="nav.tutorials">Tutorials</a></li>
+        <li><a href="https://github.com/yourorg/sonoria" target="_blank" data-i18n="nav.github">GitHub</a></li>
+      </ul>
+      
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 data-i18n="hero.title">Powerful Audio Analysis for Modern Applications</h1>
+      <p data-i18n="hero.subtitle">Extract meaningful insights from audio data with Sonoria's high-performance algorithms</p>
+      
+      <div class="cta-group">
+        <a href="#tutorial" class="btn btn-primary" data-i18n="hero.cta_primary">Get Started</a>
+        <a href="https://github.com/yourorg/sonoria" class="btn btn-secondary" target="_blank" data-i18n="hero.cta_secondary">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title" data-i18n="features.title">Why Choose Sonoria?</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>High Performance</h3>
+          <p>Optimized C++ implementation with SIMD support and multi-threading capabilities</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3>Modern Build System</h3>
+          <p>Native CMake support with vcpkg, Conan, and system package manager integration</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Cross-Platform</h3>
+          <p>Runs seamlessly on Linux, macOS, and Windows with consistent API</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Rich Feature Set</h3>
+          <p>200+ audio descriptors including spectral, temporal, and tonal features</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Section -->
+  <section id="install" class="install">
+    <div class="container">
+      <h2 class="section-title" data-i18n="install.title">Quick Installation</h2>
+      
+      <div class="tabs">
+        <button class="tab-btn active" data-platform="linux" data-i18n="install.tabs.linux">Linux</button>
+        <button class="tab-btn" data-platform="macos" data-i18n="install.tabs.macos">macOS</button>
+        <button class="tab-btn" data-platform="windows" data-i18n="install.tabs.windows">Windows</button>
+        <button class="tab-btn" data-platform="source" data-i18n="install.tabs.source">From Source</button>
+      </div>
+      
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+        <pre id="install-code">sudo apt-get install libsonoria-dev</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tutorial Section -->
+  <section id="tutorial" class="tutorial">
+    <div class="container">
+      <h2 class="section-title" data-i18n="tutorial.title">Getting Started</h2>
+      
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 data-i18n="tutorial.steps.0.title">Include the Library</h3>
+            <p data-i18n="tutorial.steps.0.desc">Start by including the necessary Sonoria headers in your C++ project.</p>
+            <div class="code-block" style="padding: 1rem; font-size: 0.85rem;">
+              <pre>#include &lt;sonoria/algorithm.h&gt;
+#include &lt;sonoria/streaming/vectorinput.h&gt;
+#include &lt;sonoria/streaming/vectoroutput.h&gt;</pre>
+            </div>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 data-i18n="tutorial.steps.1.title">Initialize an Algorithm</h3>
+            <p data-i18n="tutorial.steps.1.desc">Create and configure audio analysis algorithms with your specific parameters.</p>
+            <div class="code-block" style="padding: 1rem; font-size: 0.85rem;">
+              <pre>auto mfcc = AlgorithmFactory::create("MFCC");
+mfcc->configure("sampleRate", 44100);</pre>
+            </div>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 data-i18n="tutorial.steps.2.title">Process Audio Data</h3>
+            <p data-i18n="tutorial.steps.2.desc">Feed audio frames to the algorithm and retrieve computed features.</p>
+            <div class="code-block" style="padding: 1rem; font-size: 0.85rem;">
+              <pre>std::vector&lt;Real&gt; audioFrame = loadAudio();
+std::vector&lt;Real&gt; mfccs;
+mfcc->input("frame").set(audioFrame);
+mfcc->compute();
+mfcc->output("mfcc").get(mfccs);</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#" data-i18n="footer.links.docs">Documentation</a>
+        <a href="#" data-i18n="footer.links.api">API Reference</a>
+        <a href="#" data-i18n="footer.links.community">Community</a>
+        <a href="#" data-i18n="footer.links.blog">Blog</a>
+        <a href="https://github.com/yourorg/sonoria" target="_blank">GitHub</a>
+      </div>
+      <p data-i18n="footer.copyright">© 2024 Sonoria Project. Open Source under Apache 2.0 License.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
