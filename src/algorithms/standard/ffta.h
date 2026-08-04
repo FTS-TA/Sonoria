@@ -1,9 +1,9 @@
 /*
  * Copyright (C) 2006-2021  Music Technology Group - Universitat Pompeu Fabra
  *
- * This file is part of Essentia
+ * This file is part of Sonoria
  *
- * Essentia is free software: you can redistribute it and/or modify it under
+ * Sonoria is free software: you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License as published by the Free
  * Software Foundation (FSF), either version 3 of the License, or (at your
  * option) any later version.
@@ -15,15 +15,26 @@
  *
  * You should have received a copy of the Affero GNU General Public License
  * version 3 along with this program.  If not, see http://www.gnu.org/licenses/
+ * 
+ * NOTE: Accelerate library include issue resolved.
+ * Fixed cross-platform FFT support by conditionally including:
+ * - <Accelerate/Accelerate.h> for macOS/iOS
+ * - <fftw3.h> for Linux/Windows (requires libfftw3-dev)
  */
 
-#ifndef ESSENTIA_FFTA_H
-#define ESSENTIA_FFTA_H
+#ifndef SONORIA_FFTA_H
+#define SONORIA_FFTA_H
 
 #include "algorithm.h"
 #include "threading.h"
 #include <complex>
-#include <Accelerate/Accelerate.h>
+
+// Cross-platform FFT support
+#ifdef __APPLE__
+  #include <Accelerate/Accelerate.h>
+#else
+  #include <fftw3.h>
+#endif
 
 namespace sonoria {
 namespace standard {
@@ -39,9 +50,15 @@ class FFTA : public Algorithm {
       declareInput(_signal, "frame", "the input audio frame");
       declareOutput(_fft, "fft", "the FFT of the input frame");
         
+#ifdef __APPLE__
       fftSetup = NULL;
       accelBuffer.realp = NULL;
       accelBuffer.imagp = NULL;
+#else
+      fftPlan = NULL;
+      fftwSignal = NULL;
+      fftwComplex = NULL;
+#endif
       _fftPlanSize = 0;
   }
 
@@ -64,11 +81,18 @@ class FFTA : public Algorithm {
   friend class IFFTAComplex;
   static ForcedMutex globalFFTAMutex;
 
+#ifdef __APPLE__
   FFTSetup fftSetup;
     
   int logSize;
   int _fftPlanSize;
   DSPSplitComplex accelBuffer;
+#else
+  fftwf_plan fftPlan;
+  float* fftwSignal;
+  fftwf_complex* fftwComplex;
+  int _fftPlanSize;
+#endif
 
   void createFFTObject(int size);
 };

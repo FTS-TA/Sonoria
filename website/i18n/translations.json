@@ -1,0 +1,275 @@
+{
+  "en": {
+    "meta": {
+      "title": "Sonoria - Advanced Audio Analysis Library",
+      "description": "High-performance C++ library for audio feature extraction, music information retrieval, and sound analysis. Open-source alternative to Essentia with modern CMake support.",
+      "keywords": "audio analysis, music information retrieval, MIR, feature extraction, C++ audio library, Sonoria, open source audio, FFT, spectral analysis"
+    },
+    "nav": {
+      "home": "Home",
+      "features": "Features",
+      "docs": "Documentation",
+      "tutorials": "Tutorials",
+      "install": "Installation",
+      "github": "GitHub"
+    },
+    "hero": {
+      "title": "Powerful Audio Analysis for Modern Applications",
+      "subtitle": "Extract meaningful insights from audio data with Sonoria's high-performance algorithms",
+      "cta_primary": "Get Started",
+      "cta_secondary": "View on GitHub"
+    },
+    "features": {
+      "title": "Why Choose Sonoria?",
+      "items": [
+        {
+          "icon": "⚡",
+          "title": "High Performance",
+          "desc": "Optimized C++ implementation with SIMD support and multi-threading capabilities"
+        },
+        {
+          "icon": "🔧",
+          "title": "Modern Build System",
+          "desc": "Native CMake support with vcpkg, Conan, and system package manager integration"
+        },
+        {
+          "icon": "🌍",
+          "title": "Cross-Platform",
+          "desc": "Runs seamlessly on Linux, macOS, and Windows with consistent API"
+        },
+        {
+          "icon": "📊",
+          "title": "Rich Feature Set",
+          "desc": "200+ audio descriptors including spectral, temporal, and tonal features"
+        }
+      ]
+    },
+    "install": {
+      "title": "Quick Installation",
+      "tabs": {
+        "linux": "Linux",
+        "macos": "macOS",
+        "windows": "Windows",
+        "source": "From Source"
+      },
+      "linux_cmd": "sudo apt-get install libsonoria-dev",
+      "macos_cmd": "brew install sonoria",
+      "windows_cmd": "vcpkg install sonoria",
+      "source_cmd": "git clone https://github.com/yourorg/sonoria.git\ncd sonoria && mkdir build && cd build\ncmake .. && make && sudo make install"
+    },
+    "tutorial": {
+      "title": "Getting Started",
+      "steps": [
+        {
+          "num": 1,
+          "title": "Include the Library",
+          "code": "#include <sonoria/algorithm.h>\n#include <sonoria/streaming/vectorinput.h>\n#include <sonoria/streaming/vectoroutput.h>",
+          "desc": "Start by including the necessary Sonoria headers in your C++ project."
+        },
+        {
+          "num": 2,
+          "title": "Initialize an Algorithm",
+          "code": "auto mfcc = AlgorithmFactory::create(\"MFCC\");\nmfcc->configure(\"sampleRate\", 44100);",
+          "desc": "Create and configure audio analysis algorithms with your specific parameters."
+        },
+        {
+          "num": 3,
+          "title": "Process Audio Data",
+          "code": "std::vector<Real> audioFrame = loadAudio();\nstd::vector<Real> mfccs;\nmfcc->input(\"frame\").set(audioFrame);\nmfcc->compute();\nmfcc->output(\"mfcc\").get(mfccs);",
+          "desc": "Feed audio frames to the algorithm and retrieve computed features."
+        }
+      ]
+    },
+    "footer": {
+      "copyright": "© 2024 Sonoria Project. Open Source under Apache 2.0 License.",
+      "links": {
+        "docs": "Documentation",
+        "api": "API Reference",
+        "community": "Community",
+        "blog": "Blog"
+      }
+    }
+  },
+  "es": {
+    "meta": {
+      "title": "Sonoria - Biblioteca Avanzada de Análisis de Audio",
+      "description": "Biblioteca C++ de alto rendimiento para extracción de características de audio, recuperación de información musical y análisis de sonido.",
+      "keywords": "análisis de audio, recuperación de información musical, MIR, extracción de características, biblioteca de audio C++, Sonoria"
+    },
+    "nav": {
+      "home": "Inicio",
+      "features": "Características",
+      "docs": "Documentación",
+      "tutorials": "Tutoriales",
+      "install": "Instalación",
+      "github": "GitHub"
+    },
+    "hero": {
+      "title": "Análisis de Audio Potente para Aplicaciones Modernas",
+      "subtitle": "Extraiga información valiosa de datos de audio con los algoritmos de alto rendimiento de Sonoria",
+      "cta_primary": "Comenzar",
+      "cta_secondary": "Ver en GitHub"
+    },
+    "features": {
+      "title": "¿Por qué elegir Sonoria?",
+      "items": [
+        {
+          "icon": "⚡",
+          "title": "Alto Rendimiento",
+          "desc": "Implementación optimizada en C++ con soporte SIMD y capacidades multinúcleo"
+        },
+        {
+          "icon": "🔧",
+          "title": "Sistema de Construcción Moderno",
+          "desc": "Soporte nativo de CMake con integración de vcpkg, Conan y gestores de paquetes del sistema"
+        },
+        {
+          "icon": "🌍",
+          "title": "Multiplataforma",
+          "desc": "Funciona sin problemas en Linux, macOS y Windows con API consistente"
+        },
+        {
+          "icon": "📊",
+          "title": "Amplio Conjunto de Características",
+          "desc": "Más de 200 descriptores de audio incluyendo características espectrales, temporales y tonales"
+        }
+      ]
+    },
+    "install": {
+      "title": "Instalación Rápida",
+      "tabs": {
+        "linux": "Linux",
+        "macos": "macOS",
+        "windows": "Windows",
+        "source": "Desde Código Fuente"
+      },
+      "linux_cmd": "sudo apt-get install libsonoria-dev",
+      "macos_cmd": "brew install sonoria",
+      "windows_cmd": "vcpkg install sonoria",
+      "source_cmd": "git clone https://github.com/yourorg/sonoria.git\ncd sonoria && mkdir build && cd build\ncmake .. && make && sudo make install"
+    },
+    "tutorial": {
+      "title": "Primeros Pasos",
+      "steps": [
+        {
+          "num": 1,
+          "title": "Incluir la Biblioteca",
+          "code": "#include <sonoria/algorithm.h>\n#include <sonoria/streaming/vectorinput.h>\n#include <sonoria/streaming/vectoroutput.h>",
+          "desc": "Comience incluyendo los encabezados necesarios de Sonoria en su proyecto C++."
+        },
+        {
+          "num": 2,
+          "title": "Inicializar un Algoritmo",
+          "code": "auto mfcc = AlgorithmFactory::create(\"MFCC\");\nmfcc->configure(\"sampleRate\", 44100);",
+          "desc": "Cree y configure algoritmos de análisis de audio con sus parámetros específicos."
+        },
+        {
+          "num": 3,
+          "title": "Procesar Datos de Audio",
+          "code": "std::vector<Real> audioFrame = loadAudio();\nstd::vector<Real> mfccs;\nmfcc->input(\"frame\").set(audioFrame);\nmfcc->compute();\nmfcc->output(\"mfcc\").get(mfccs);",
+          "desc": "Alimente marcos de audio al algoritmo y recupere las características calculadas."
+        }
+      ]
+    },
+    "footer": {
+      "copyright": "© 2024 Proyecto Sonoria. Código Abierto bajo Licencia Apache 2.0.",
+      "links": {
+        "docs": "Documentación",
+        "api": "Referencia API",
+        "community": "Comunidad",
+        "blog": "Blog"
+      }
+    }
+  },
+  "fr": {
+    "meta": {
+      "title": "Sonoria - Bibliothèque d'Analyse Audio Avancée",
+      "description": "Bibliothèque C++ haute performance pour l'extraction de caractéristiques audio, la recherche d'information musicale et l'analyse sonore.",
+      "keywords": "analyse audio, recherche d'information musicale, MIR, extraction de caractéristiques, bibliothèque audio C++, Sonoria"
+    },
+    "nav": {
+      "home": "Accueil",
+      "features": "Fonctionnalités",
+      "docs": "Documentation",
+      "tutorials": "Tutoriels",
+      "install": "Installation",
+      "github": "GitHub"
+    },
+    "hero": {
+      "title": "Analyse Audio Puissante pour Applications Modernes",
+      "subtitle": "Extrayez des informations pertinentes de vos données audio avec les algorithmes haute performance de Sonoria",
+      "cta_primary": "Commencer",
+      "cta_secondary": "Voir sur GitHub"
+    },
+    "features": {
+      "title": "Pourquoi choisir Sonoria ?",
+      "items": [
+        {
+          "icon": "⚡",
+          "title": "Haute Performance",
+          "desc": "Implémentation C++ optimisée avec support SIMD et capacités multi-threading"
+        },
+        {
+          "icon": "🔧",
+          "title": "Système de Build Moderne",
+          "desc": "Support natif CMake avec intégration vcpkg, Conan et gestionnaires de paquets système"
+        },
+        {
+          "icon": "🌍",
+          "title": "Multiplateforme",
+          "desc": "Fonctionne parfaitement sur Linux, macOS et Windows avec une API cohérente"
+        },
+        {
+          "icon": "📊",
+          "title": "Ensemble Riche de Fonctionnalités",
+          "desc": "Plus de 200 descripteurs audio incluant des caractéristiques spectrales, temporelles et tonales"
+        }
+      ]
+    },
+    "install": {
+      "title": "Installation Rapide",
+      "tabs": {
+        "linux": "Linux",
+        "macos": "macOS",
+        "windows": "Windows",
+        "source": "Depuis les Sources"
+      },
+      "linux_cmd": "sudo apt-get install libsonoria-dev",
+      "macos_cmd": "brew install sonoria",
+      "windows_cmd": "vcpkg install sonoria",
+      "source_cmd": "git clone https://github.com/yourorg/sonoria.git\ncd sonoria && mkdir build && cd build\ncmake .. && make && sudo make install"
+    },
+    "tutorial": {
+      "title": "Premiers Pas",
+      "steps": [
+        {
+          "num": 1,
+          "title": "Inclure la Bibliothèque",
+          "code": "#include <sonoria/algorithm.h>\n#include <sonoria/streaming/vectorinput.h>\n#include <sonoria/streaming/vectoroutput.h>",
+          "desc": "Commencez par inclure les en-têtes Sonoria nécessaires dans votre projet C++."
+        },
+        {
+          "num": 2,
+          "title": "Initialiser un Algorithme",
+          "code": "auto mfcc = AlgorithmFactory::create(\"MFCC\");\nmfcc->configure(\"sampleRate\", 44100);",
+          "desc": "Créez et configurez des algorithmes d'analyse audio avec vos paramètres spécifiques."
+        },
+        {
+          "num": 3,
+          "title": "Traiter les Données Audio",
+          "code": "std::vector<Real> audioFrame = loadAudio();\nstd::vector<Real> mfccs;\nmfcc->input(\"frame\").set(audioFrame);\nmfcc->compute();\nmfcc->output(\"mfcc\").get(mfccs);",
+          "desc": "Alimentez l'algorithme avec des trames audio et récupérez les caractéristiques calculées."
+        }
+      ]
+    },
+    "footer": {
+      "copyright": "© 2024 Projet Sonoria. Open Source sous Licence Apache 2.0.",
+      "links": {
+        "docs": "Documentation",
+        "api": "Référence API",
+        "community": "Communauté",
+        "blog": "Blog"
+      }
+    }
+  }
+}
