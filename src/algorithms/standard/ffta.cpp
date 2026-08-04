@@ -139,13 +139,14 @@ void FFTA::compute() {
   fftwf_execute(fftPlan);
   
   // Copy results and scale
-  fft[0] = std::complex<Real>(fftwComplex[0].r / 2.0f, 0.0f);
+  // fftwComplex is float[2], so [0] is real, [1] is imaginary
+  fft[0] = std::complex<Real>(fftwComplex[0][0] / 2.0f, 0.0f);
   
   for (int i = 1; i < size/2; i++) {
-    fft[i] = std::complex<Real>(fftwComplex[i].r / 2.0f, fftwComplex[i].i / 2.0f);
+    fft[i] = std::complex<Real>(fftwComplex[i][0] / 2.0f, fftwComplex[i][1] / 2.0f);
   }
   
-  fft[size/2] = std::complex<Real>(0.0f, fftwComplex[0].i / 2.0f);
+  fft[size/2] = std::complex<Real>(0.0f, fftwComplex[0][1] / 2.0f);
 #endif
 }
 
