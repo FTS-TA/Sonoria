@@ -394,6 +394,9 @@ set(ALGORITHM_INCLUDES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/3rdparty"
 )
 
+# Add TNT include directory
+list(APPEND ALGORITHM_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/src/sonoria/utils/tnt")
+
 # Add version.h directory to includes
 list(APPEND ALGORITHM_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
@@ -417,6 +420,11 @@ endif()
 file(GLOB_RECURSE ALGORITHM_SOURCE_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/**/*.cpp"
 )
+
+# Exclude Gaia-dependent files if Gaia is not enabled
+if(NOT HAVE_GAIA)
+    list(FILTER ALGORITHM_SOURCE_FILES EXCLUDE REGEX "gaiatransform\\.cpp$")
+endif()
 
 # Create library
 if(BUILD_STATIC)
