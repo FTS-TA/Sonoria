@@ -116,8 +116,8 @@ void FFTAComplex::compute() {
 
   // Copy input data to FFTW buffer
   for (int i = 0; i < size; i++) {
-    fftwSignal[2*i] = signal[i].real();
-    fftwSignal[2*i + 1] = signal[i].imag();
+    fftwSignal[i][0] = signal[i].real();
+    fftwSignal[i][1] = signal[i].imag();
   }
 
   // Execute FFT
@@ -170,7 +170,7 @@ void FFTAComplex::createFFTObject(int size) {
   delete[] fftwSignal;
   delete[] fftwComplex;
   
-  fftwSignal = new float[2 * size];
+  fftwSignal = new fftwf_complex[size];
   fftwComplex = new fftwf_complex[size];
   
   // Create FFT plan
