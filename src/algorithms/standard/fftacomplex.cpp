@@ -30,7 +30,8 @@ const char* FFTAComplex::category = "Standard";
 const char* FFTAComplex::description = DOC("This algorithm computes the complex short-term Fourier transform (STFT) of a complex array using the FFT algorithm. If the `negativeFrequencies` flag is set on, the resulting fft has a size of (s/2)+1, where s is the size of the input frame. Otherwise, output matches the input size.\n"
 "At the moment FFT can only be computed on frames which size is even and non zero, otherwise an exception is thrown.\n"
 "\n"
-"FFT computation will be carried out using the Accelerate Framework [3]"
+#ifdef __APPLE__
+"FFT computation will be carried out using the Accelerate Framework [3]\n"
 "\n"
 "References:\n"
 "  [1] Fast Fourier transform - Wikipedia, the free encyclopedia,\n"
@@ -39,6 +40,15 @@ const char* FFTAComplex::description = DOC("This algorithm computes the complex 
 "  http://mathworld.wolfram.com/FastFourierTransform.html\n"
 "  [3] vDSP Programming Guide -- from Apple\n"
 "  https://developer.apple.com/library/ios/documentation/Performance/Conceptual/vDSP_Programming_Guide/UsingFourierTransforms/UsingFourierTransforms.html"
+#else
+"FFT computation will be carried out using FFTW library\n"
+"\n"
+"References:\n"
+"  [1] Fast Fourier transform - Wikipedia, the free encyclopedia,\n"
+"  http://en.wikipedia.org/wiki/Fft\n\n"
+"  [2] FFTW - Fastest Fourier Transform in the West,\n"
+"  http://www.fftw.org/"
+#endif
 );
 
 //ForcedMutex FFTAComplex::globalFFTAComplexMutex;
@@ -51,9 +61,17 @@ FFTAComplex::~FFTAComplex() {
   // This will cause a memory leak then, but it is definitely a better choice
   // than a crash (right, right??? :-) )
   if (sonoria::isInitialized()) {
+#ifdef __APPLE__
     vDSP_destroy_fftsetup(fftSetup);
     delete[] accelBuffer.realp;
     delete[] accelBuffer.imagp;
+#else
+    if (fftPlan) {
+      fftwf_destroy_plan(fftPlan);
+    }
+    delete[] fftwSignal;
+    delete[] fftwComplex;
+#endif
   }
 }
 
@@ -67,6 +85,7 @@ void FFTAComplex::compute() {
     throw SonoriaException("FFTC: Input size cannot be 0");
   }
  
+#ifdef __APPLE__
   if ((fftSetup == 0) ||
       ((fftSetup != 0) && _fftPlanSize != size)) {
     createFFTObject(size);
@@ -89,6 +108,26 @@ void FFTAComplex::compute() {
     
   //Construct the last point
   // fft[size/2] = std::complex<Real>(accelBuffer.imagp[0]/2.0f, 0.0f);
+#else
+  // FFTW implementation for non-Apple platforms
+  if ((fftPlan == NULL) || (_fftPlanSize != size)) {
+    createFFTObject(size);
+  }
+
+  // Copy input data to FFTW buffer
+  for (int i = 0; i < size; i++) {
+    fftwSignal[2*i] = signal[i].real();
+    fftwSignal[2*i + 1] = signal[i].imag();
+  }
+
+  // Execute FFT
+  fftwf_execute(fftPlan);
+
+  fft.resize(_fftOutSize);
+  for (int i = 0; i < _fftOutSize; i++) {
+    fft[i] = std::complex<Real>(fftwComplex[i][0], fftwComplex[i][1]);
+  }
+#endif
 }
 
 void FFTAComplex::configure() {
@@ -113,6 +152,7 @@ void FFTAComplex::createFFTObject(int size) {
     _fftOutSize = size / 2 + 1;
   }
 
+#ifdef __APPLE__
   logSize = log2(size);
 
   delete[] accelBuffer.realp;
@@ -125,6 +165,21 @@ void FFTAComplex::createFFTObject(int size) {
     vDSP_destroy_fftsetup(fftSetup);
     fftSetup = vDSP_create_fftsetup(logSize, 0);
   }
+#else
+  // FFTW implementation for non-Apple platforms
+  delete[] fftwSignal;
+  delete[] fftwComplex;
+  
+  fftwSignal = new float[2 * size];
+  fftwComplex = new fftwf_complex[size];
+  
+  // Create FFT plan
+  if (fftPlan) {
+    fftwf_destroy_plan(fftPlan);
+  }
+  fftPlan = fftwf_plan_dft_1d(size, fftwSignal, fftwComplex, FFTW_FORWARD, FFTW_ESTIMATE);
+  
+#endif
 
   _fftPlanSize = size;
 }
