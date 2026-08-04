@@ -1,1 +1,44 @@
-Nothing should be ignored in this case, as the added files are all source/config files (.md, .css, .json, .html, .js) without any build artifacts, dependencies, or temporary files.
+```cpp
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.exe
+*.out
+
+# Build directories
+build/
+dist/
+target/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+.coverage
+coverage/
+htmlcov/
+
+# System files
+.DS_Store
+Thumbs.db
+*.tmp
+```
