@@ -23,7 +23,13 @@
 #include "algorithm.h"
 #include "threading.h"
 #include <complex>
-#include <Accelerate/Accelerate.h>
+
+// Cross-platform FFT support
+#ifdef __APPLE__
+  #include <Accelerate/Accelerate.h>
+#else
+  #include <fftw3.h>
+#endif
 
 namespace sonoria {
 namespace standard {
@@ -41,9 +47,15 @@ class FFTAComplex : public Algorithm {
     declareInput(_signal, "frame", "the input audio frame");
     declareOutput(_fft, "fft", "the FFT of the input frame");
         
+#ifdef __APPLE__
     fftSetup = NULL;
     accelBuffer.realp = NULL;
     accelBuffer.imagp = NULL;
+#else
+    fftPlan = NULL;
+    fftwSignal = NULL;
+    fftwComplex = NULL;
+#endif
     _fftPlanSize = 0;
   }
 
@@ -62,11 +74,18 @@ class FFTAComplex : public Algorithm {
   static const char* description;
 
  protected:
+#ifdef __APPLE__
   FFTSetup fftSetup;
 
   int logSize;
   int _fftPlanSize;
   DSPSplitComplex accelBuffer;
+#else
+  fftwf_plan fftPlan;
+  fftwf_complex* fftwSignal;
+  fftwf_complex* fftwComplex;
+  int _fftPlanSize;
+#endif
 
   void createFFTObject(int size);
 };

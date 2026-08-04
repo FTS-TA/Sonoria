@@ -31,6 +31,7 @@ const char* IFFTAComplex::description = DOC("This algorithm calculates the inver
 "\n"
 "An exception is thrown if the input's size is not larger than 1.\n"
 "\n"
+#ifdef __APPLE__
 "FFT computation will be carried out using the Accelerate Framework [3]"
 "\n"
 "References:\n"
@@ -40,14 +41,36 @@ const char* IFFTAComplex::description = DOC("This algorithm calculates the inver
 "  http://mathworld.wolfram.com/FastFourierTransform.html\n"
 "  [3] vDSP Programming Guide -- from Apple\n"
 "  https://developer.apple.com/library/ios/documentation/Performance/Conceptual/vDSP_Programming_Guide/UsingFourierTransforms/UsingFourierTransforms.html"
+#else
+"FFT computation will be carried out using FFTW library\n"
+"\n"
+"References:\n"
+"  [1] Fast Fourier transform - Wikipedia, the free encyclopedia,\n"
+"  http://en.wikipedia.org/wiki/Fft\n\n"
+"  [2] FFTW - Fastest Fourier Transform in the West,\n"
+"  http://www.fftw.org/"
+#endif
 );
 
 
 IFFTAComplex::~IFFTAComplex() {
   ForcedMutexLocker lock(FFTA::globalFFTAMutex);
-  vDSP_destroy_fftsetup(fftSetup);
-  delete[] accelBuffer.realp;
-  delete[] accelBuffer.imagp;
+
+  // we might have called sonoria::shutdown() before this algorithm goes out
+  // of scope, so make sure we're not doing stupid things here
+  if (sonoria::isInitialized()) {
+#ifdef __APPLE__
+    vDSP_destroy_fftsetup(fftSetup);
+    delete[] accelBuffer.realp;
+    delete[] accelBuffer.imagp;
+#else
+    if (fftPlan) {
+      fftwf_destroy_plan(fftPlan);
+    }
+    delete[] fftwSignal;
+    delete[] fftwComplex;
+#endif
+  }
 }
 
 void IFFTAComplex::compute() {
@@ -60,6 +83,7 @@ void IFFTAComplex::compute() {
   if (size <= 0) {
     throw SonoriaException("IFFTC: Input size cannot be 0 or 1");
   }
+#ifdef __APPLE__
   if ((fftSetup == 0) ||
       ((fftSetup != 0) && _fftPlanSize != size)) {
     createFFTObject(size);
@@ -80,6 +104,26 @@ void IFFTAComplex::compute() {
   signal.resize(size);
   
   vDSP_ztoc(&accelBuffer, 1, (COMPLEX*)&signal[0], 2, size);
+#else
+  // FFTW implementation for non-Apple platforms
+  if ((fftPlan == NULL) || (_fftPlanSize != size)) {
+    createFFTObject(size);
+  }
+
+  // Copy input data to FFTW buffer
+  for (int i = 0; i < size; i++) {
+    fftwSignal[i][0] = fft[i].real();
+    fftwSignal[i][1] = fft[i].imag();
+  }
+
+  // Execute inverse FFT
+  fftwf_execute(fftPlan);
+
+  signal.resize(size);
+  for (int i = 0; i < size; i++) {
+    signal[i] = std::complex<Real>(fftwComplex[i][0], fftwComplex[i][1]);
+  }
+#endif
 
   if (_normalize) {
     Real norm = (Real)size;
@@ -98,6 +142,7 @@ void IFFTAComplex::configure() {
 void IFFTAComplex::createFFTObject(int size) {
   ForcedMutexLocker lock(FFTA::globalFFTAMutex);
     
+#ifdef __APPLE__
   // Delete stuff before assigning.
   delete[] accelBuffer.realp;
   delete[] accelBuffer.imagp;
@@ -112,6 +157,20 @@ void IFFTAComplex::createFFTObject(int size) {
     vDSP_destroy_fftsetup(fftSetup);
     fftSetup = vDSP_create_fftsetup(logSize, 0);
   }
+#else
+  // FFTW implementation for non-Apple platforms
+  delete[] fftwSignal;
+  delete[] fftwComplex;
+  
+  fftwSignal = new fftwf_complex[size];
+  fftwComplex = new fftwf_complex[size];
+  
+  // Create inverse FFT plan
+  if (fftPlan) {
+    fftwf_destroy_plan(fftPlan);
+  }
+  fftPlan = fftwf_plan_dft_1d(size, fftwSignal, fftwComplex, FFTW_BACKWARD, FFTW_ESTIMATE);
+#endif
 
   _fftPlanSize = size;
 }
